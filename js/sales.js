@@ -161,7 +161,7 @@ function openSalesModal(title, category) {
                 </div>
                 <div class="modal-details">
                     <div class="project-info">
-                        <h3>프로젝트 개요</h3>
+                        <h3>업무 소개</h3>
                         <p>${modalData.description}</p>
                         
                         <h3>주요 성과</h3>

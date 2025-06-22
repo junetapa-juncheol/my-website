@@ -366,71 +366,55 @@ function initializeTouchOptimizations() {
 
 // Contact form handling
 function initializeContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = contactForm.querySelector('.submit-btn');
 
-    form.addEventListener('submit', async (e) => {
+    if (!contactForm) return;
+
+    // EmailJS Public Key
+    const publicKey = '3efSrc3mFT9o8xULf'; // ⚠️ 중요: 이 값을 사용자님의 Public Key로 변경하세요.
+    const serviceID = 'service_my45w39'; // ⚠️ 중요: 이 값을 사용자님의 Service ID로 변경하세요.
+    const templateID = 'template_hagtkx9'; // ⚠️ 중요: 이 값을 사용자님의 Template ID로 변경하세요.
+
+    emailjs.init(publicKey);
+
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const submitBtn = form.querySelector('.submit-btn');
-        const originalText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<span class="loading-dots">전송 중</span>';
+
+        // 버튼 상태: 로딩 중
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>전송 중...</span>';
         submitBtn.disabled = true;
-        submitBtn.classList.add('btn-click');
 
-        try {
-            // Get form data
-            const formData = new FormData(form);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                company: formData.get('company'),
-                message: formData.get('message')
-            };
-
-            // Simulate form submission (replace with actual endpoint)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Success state
-            submitBtn.innerHTML = '✓ 전송 완료!';
-            submitBtn.style.background = 'var(--success-color)';
-            submitBtn.classList.add('form-success');
-            
-            // Show success notification
-            showNotification('메시지가 성공적으로 전송되었습니다!', 'success');
-            
-            // Reset form
-            setTimeout(() => {
-                form.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('form-success', 'btn-click');
-            }, 2000);
-            
-        } catch (error) {
-            // Error state
-            submitBtn.innerHTML = '전송 실패';
-            submitBtn.style.background = 'var(--danger-color)';
-            submitBtn.classList.add('form-error');
-            showNotification('전송에 실패했습니다. 다시 시도해주세요.', 'error');
-            
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('form-error', 'btn-click');
-            }, 2000);
+        // 폼 데이터 가져오기
+        const templateParams = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            company: document.getElementById('company').value,
+            message: document.getElementById('message').value,
+        };
+        
+        // 간단한 유효성 검사
+        if (!templateParams.name || !templateParams.email || !templateParams.message) {
+            showNotification('이름, 이메일, 메시지는 필수 입력 항목입니다.', 'warning');
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            return;
         }
-    });
 
-    // Form validation
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', validateField);
-        input.addEventListener('input', clearValidation);
+        emailjs.send(serviceID, templateID, templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showNotification('메시지가 성공적으로 전송되었습니다!', 'success');
+                contactForm.reset();
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }, function(error) {
+                console.log('FAILED...', error);
+                showNotification('메시지 전송에 실패했습니다. 잠시 후 다시 시도해주세요.', 'danger');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
@@ -469,7 +453,7 @@ function clearValidation(e) {
 }
 
 // Notification system
-function showNotification(message, type = 'info') {
+function showNotification(message, type = 'success') {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => {
