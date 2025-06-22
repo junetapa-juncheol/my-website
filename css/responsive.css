@@ -795,3 +795,28 @@
         min-width: 44px;
     }
 }
+
+.info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.hobby-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.skills-grid,
+.sales-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.hobby-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.story-timeline {
+    padding-left: 25px;
+}
