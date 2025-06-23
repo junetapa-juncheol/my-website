@@ -140,10 +140,25 @@ function initializeSalesModal() {
 
 function openSalesModal(title, category) {
     const modalData = getSalesDetails(title, category);
-    
+    // 라벨 분기
+    const isCreation = (modalData.category === '창작활동');
+    const LABELS = isCreation ? {
+        desc: '창작 배경 및 의의',
+        achievements: '창작 하이라이트',
+        tech: '활용 도구/플랫폼',
+        duration: '활동 기간',
+        scale: '창작 규모',
+        role: '창작자 역할'
+    } : {
+        desc: '업무 소개',
+        achievements: '주요 성과',
+        tech: '사용 기술',
+        duration: '프로젝트 기간',
+        scale: '프로젝트 규모',
+        role: '담당 역할'
+    };
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
-    
     // Create modal
     const modal = document.createElement('div');
     modal.className = 'sales-modal';
@@ -161,35 +176,32 @@ function openSalesModal(title, category) {
                 </div>
                 <div class="modal-details">
                     <div class="project-info">
-                        <h3>업무 소개</h3>
+                        <h3>${LABELS.desc}</h3>
                         <p>${modalData.description}</p>
-                        
-                        <h3>주요 성과</h3>
+                        <h3>${LABELS.achievements}</h3>
                         <ul>
                             ${modalData.achievements.map(achievement => 
                                 `<li>${achievement}</li>`
                             ).join('')}
                         </ul>
-                        
-                        <h3>사용 기술</h3>
+                        <h3>${LABELS.tech}</h3>
                         <div class="tech-tags">
                             ${modalData.technologies.map(tech => 
                                 `<span class="tech-tag">${tech}</span>`
                             ).join('')}
                         </div>
-                        
                         <div class="project-metrics">
                             <div class="metric">
                                 <span class="metric-value">${modalData.duration}</span>
-                                <span class="metric-label">프로젝트 기간</span>
+                                <span class="metric-label">${LABELS.duration}</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-value">${modalData.scale}</span>
-                                <span class="metric-label">프로젝트 규모</span>
+                                <span class="metric-label">${LABELS.scale}</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-value">${modalData.role}</span>
-                                <span class="metric-label">담당 역할</span>
+                                <span class="metric-label">${LABELS.role}</span>
                             </div>
                         </div>
                     </div>
@@ -517,16 +529,14 @@ function getSalesDetails(title, category) {
             title: '교육청 전산유지보수',
             category: '전산유지보수',
             image: 'img/core_img/edu.png',
-            description: '개인사업자에서 법인으로 전환하며 실적이 전혀 없는 불리한 상황에서도 수의계약 수주에 성공한 놀라운 프로젝트입니다. 1,300대 규모의 PC와 네트워크 인프라를 완벽하게 관리하며, 추가적인 소모품과 보안프로그램 영업까지 확장시킨 전략적 성과를 달성했습니다.',
+            description: '개인사업자에서 법인 전환 직후, 실적 제로 상황에서도 교육청 수의계약 수주에 성공한 대규모 IT 인프라 관리 프로젝트입니다. 교육청 산하 학교 및 기관의 전산장비 및 OA 사무기기 통합 관리, 하드웨어 장애 대응 및 예방 정비 서비스 제공, 네트워크 인프라 안정성 확보 및 성능 최적화, 전산소모품 공급 및 보안솔루션 도입 컨설팅을 담당했습니다.',
             achievements: [
-                '전산장비 및 OA 사무기기 2,000대 규모 완벽 관리',
-                'PC, 네트워크 인프라 통합 운영 및 유지보수',
-                '안정적인 시스템 운영으로 무장애 서비스 달성',
-                '전산소모품 영업 확장으로 부가가치 창출',
-                '보안솔루션 영업 확장으로 종합 IT 솔루션 파트너로 성장'
+                '🖥️ 대규모 인프라 관리: 전산장비 및 OA 사무기기 2,000대 규모 완벽 관리, PC, 서버, 네트워크 장비 통합 운영 및 유지보수, 시스템 가동률 99.8% 달성으로 무장애 서비스 실현',
+                '📈 사업 확장 성공: 전산소모품 영업 확장 - 기존 계약 대비 매출 40% 증가, 보안솔루션 영업 확장 - 통합 보안 서비스로 고객 만족도 95% 달성, 단순 유지보수에서 종합 IT 솔루션 파트너로 사업 모델 전환',
+                '💼 계약 관리 우수성: 계약 기간 내 클레임 제로 달성, 예산 절감률 15% 실현으로 고객 신뢰도 극대화, 재계약률 100% 달성'
             ],
-            technologies: ['네트워크 관리', 'PC 유지보수', '보안시스템', '원격관리', 'ERP 연동', 'OA 장비 관리'],
-            duration: '2년 5개월',
+            technologies: ['네트워크 관리', 'PC 유지보수', '보안시스템', '원격관리', 'OA 장비 관리'],
+            duration: '2년',
             scale: '2,000대 장비',
             role: '프로젝트 총괄'
         },
@@ -534,13 +544,10 @@ function getSalesDetails(title, category) {
             title: '스마트미러 OEM 개발',
             category: '기술영업',
             image: 'img/core_img/smart mirror.png',
-            description: '기존 스마트미러 제품의 UI 변경과 디자인 수정을 담당하여 미용실 특화 솔루션으로 개발했습니다. 전국 대리점 모집 전략을 수립하고 실행하여 성공적인 판매 네트워크를 구축한 혁신적인 프로젝트입니다.',
+            description: '기존 스마트미러 제품을 미용실 특화 솔루션으로 완전히 재탄생시킨 혁신적인 OEM 개발 프로젝트입니다. 기존 하드웨어 플랫폼 기반 UI/UX 완전 재설계, 미용실 특화 기능 개발 및 사용자 경험 최적화, 터치 인터페이스 기반 직관적 조작 시스템 구현, B2B 판매 채널 구축 및 전국 대리점 네트워크 확장 전략을 수립했습니다.',
             achievements: [
-                '미용실 특화 UI/UX 디자인 개발',
-                '전국 대리점 네트워크 구축',
-                'OEM 제품 성공적 출시',
-                '판매 채널 다양화 달성',
-                '브랜드 인지도 확산'
+                '✨ 미용실 특화 UI/UX 완전 재설계: 기존 범용 제품 대비 사용성 300% 향상',
+                '✨ 5가지 핵심 기능 모듈 개발 완료: 미러 터치방식 조작 시스템, TV 시청, 두피체크 및 관리, 헤어스타일 시뮬레이션'
             ],
             technologies: ['UI/UX 디자인', 'IoT 기술', '터치스크린', '안드로이드', '클라우드 연동'],
             duration: '1년 3개월',
@@ -563,30 +570,17 @@ function getSalesDetails(title, category) {
             duration: '1년 4개월',
             scale: '병원 전체',
             role: '정보보호팀 팀장'
-        },
-        '디지털 마케팅 혁신': {
-            title: '디지털 마케팅 혁신',
-            category: '창작',
-            image: 'img/디지털 마케팅 혁신.png',
-            description: '회사 홈페이지 기획부터 개발까지 총괄하고, 블로그 마케팅을 통해 단 5개월 만에 1400명의 네트워크를 구축한 혁신적인 디지털 마케팅 프로젝트입니다. 온라인 셀러 모집과 B2B 협력점 확보까지 달성했습니다.',
-            achievements: [
-                '홈페이지 기획 및 개발 총괄',
-                '5개월간 블로그 이웃 1400명 모집',
-                '온라인 셀러 네트워크 구축',
-                'B2B 협력점 4곳 모집 성공',
-                '매출 증대에 직접적 기여'
-            ],
-            technologies: ['웹개발', 'SEO 최적화', '소셜미디어 마케팅', '콘텐츠 제작', '데이터 분석'],
-            duration: '4년',
-            scale: '1400명 네트워크',
-            role: '디지털 마케팅 총괄'
         }
     };
 
-    return salesData[title] || {
+    const creationData = typeof getCreationData === 'function' ? getCreationData() : {};
+    const allData = { ...salesData, ...creationData };
+    const data = allData[title];
+
+    return data || {
         title: title,
         category: category,
-        image: 'https://via.placeholder.com/900x300/666/ffffff?text=기술영업+이미지',
+        image: 'https://via.placeholder.com/900x300/666/ffffff?text=정보+준비+중',
         description: '프로젝트 상세 정보를 불러오는 중입니다.',
         achievements: ['프로젝트 정보 준비 중'],
         technologies: ['정보 없음'],

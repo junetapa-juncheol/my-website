@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCounters();
     initializeSkillBars();
     initializeTouchOptimizations();
+    initializeModals();
 });
 
 // Particles.js initialization
@@ -372,9 +373,9 @@ function initializeContactForm() {
     if (!contactForm) return;
 
     // EmailJS Public Key
-    const publicKey = '3efSrc3mFT9o8xULf'; // ⚠️ 중요: 이 값을 사용자님의 Public Key로 변경하세요.
-    const serviceID = 'service_my45w39'; // ⚠️ 중요: 이 값을 사용자님의 Service ID로 변경하세요.
-    const templateID = 'template_hagtkx9'; // ⚠️ 중요: 이 값을 사용자님의 Template ID로 변경하세요.
+    const publicKey = '2q62V98NLoYoTE82slApc'; // 수정된 Public Key
+    const serviceID = 'service_my45w39'; // Service ID
+    const templateID = 'template_hagtkx9'; // Template ID
 
     emailjs.init(publicKey);
 
@@ -606,3 +607,24 @@ console.log(`
 'color: #764ba2; font-size: 14px;',
 'color: #f093fb; font-size: 12px;'
 );
+
+function initializeModals() {
+    const clickableItems = document.querySelectorAll('.sales-item, .hobby-item');
+
+    clickableItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // 자식 요소의 클릭 이벤트가 버블링되는 것을 막기 위해,
+            // 클릭된 요소가 item 자신인지 확인합니다.
+            if (e.currentTarget !== item) {
+                return;
+            }
+
+            const title = item.dataset.title;
+            const category = item.dataset.category;
+
+            if (title && category && typeof openSalesModal === 'function') {
+                openSalesModal(title, category);
+            }
+        });
+    });
+}
