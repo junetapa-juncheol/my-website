@@ -696,79 +696,126 @@ body {
 
 .sales-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.sales-item {
-    position: relative;
-    border-radius: var(--border-radius);
+.sales-item, .hobby-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
     overflow: hidden;
-    box-shadow: var(--shadow-light);
-    transition: var(--transition-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sales-item:hover, .hobby-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Image Container & Overlay */
+.sales-image, .hobby-image {
+    position: relative;
     cursor: pointer;
-}
-
-.sales-item:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium);
-}
-
-.sales-image {
-    position: relative;
-    height: 220px;
+    height: 250px;
     overflow: hidden;
 }
 
-.sales-image img {
+.sales-image img, .hobby-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition-slow);
+    display: block;
 }
 
-.sales-item:hover .sales-image img {
-    transform: scale(1.1);
-}
-
-.sales-overlay {
+.sales-overlay, .hobby-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 30px 20px 20px;
-    transform: translateY(100%);
-    transition: var(--transition-medium);
-}
-
-.sales-item:hover .sales-overlay {
-    transform: translateY(0);
-}
-
-.sales-info h3 {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    margin-bottom: 8px;
-}
-
-.sales-info p {
-    margin-bottom: 15px;
-    opacity: 0.9;
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-}
-
-.sales-tags {
+    width: 100%;
+    height: 100%;
+    background: rgba(25, 35, 50, 0.75);
+    color: #fff;
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.tag {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: clamp(0.7rem, 2vw, 0.8rem);
+.sales-image:hover .sales-overlay,
+.hobby-image:hover .hobby-overlay {
+    opacity: 1;
+}
+
+/* Text Info Box */
+.sales-info, .hobby-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sales-info h3, .hobby-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.sales-info p, .hobby-info p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.sales-tags, .hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.sales-tags .tag, .hobby-tags .tag {
+    background-color: #f0f4ff;
+    color: #4a69bd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Grid Layout Adjustments */
+.sales-grid, .hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .sales-grid, .hobby-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sales-grid, .hobby-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+    }
 }
 
 /* Contact Section */
@@ -1010,128 +1057,4 @@ body {
 .footer-bottom p {
     font-size: clamp(0.8rem, 2vw, 0.9rem);
     margin-bottom: 5px;
-}
-
-/* Hobby Section */
-.hobby {
-    padding: clamp(60px, 10vw, 80px) 0;
-    background: #f8f9fa;
-}
-
-.hobby-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.hobby-item {
-    background: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-light);
-    transition: var(--transition-medium);
-}
-
-.hobby-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-.hobby-image {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-}
-
-.hobby-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-medium);
-}
-
-.hobby-item:hover .hobby-image img {
-    transform: scale(1.05);
-}
-
-.hobby-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition-medium);
-}
-
-.hobby-item:hover .hobby-overlay {
-    opacity: 1;
-}
-
-.hobby-info {
-    text-align: center;
-    color: white;
-    padding: 20px;
-}
-
-.hobby-info h3 {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    margin-bottom: 10px;
-    font-family: var(--font-secondary);
-}
-
-.hobby-info p {
-    margin-bottom: 15px;
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-}
-
-.hobby-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-}
-
-.hobby-content {
-    padding: 25px;
-    text-align: center;
-}
-
-.hobby-icon {
-    font-size: clamp(2.5rem, 6vw, 3rem);
-    margin-bottom: 20px;
-}
-
-.hobby-content h3 {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    margin-bottom: 15px;
-    font-family: var(--font-secondary);
-    color: var(--primary-color);
-}
-
-.hobby-content p {
-    margin-bottom: 20px;
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-    line-height: 1.6;
-    color: #666;
-}
-
-.hobby-stats {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hobby-stats .stat {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    font-weight: 500;
 }

@@ -513,27 +513,27 @@ function addModalStyles() {
 
 function getSalesDetails(title, category) {
     const salesData = {
-        '교육지원청 전산유지보수': {
-            title: '교육지원청 전산유지보수',
+        '교육청 전산유지보수': {
+            title: '교육청 전산유지보수',
             category: '전산유지보수',
-            image: 'img/교육지원청 전산유지보수.png',
+            image: 'img/core_img/edu.png',
             description: '개인사업자에서 법인으로 전환하며 실적이 전혀 없는 불리한 상황에서도 수의계약 수주에 성공한 놀라운 프로젝트입니다. 1,300대 규모의 PC와 네트워크 인프라를 완벽하게 관리하며, 추가적인 소모품과 보안프로그램 영업까지 확장시킨 전략적 성과를 달성했습니다.',
             achievements: [
-                '실적 없는 상황에서 수의계약 수주 성공',
-                '1,300대 PC 네트워크 인프라 완벽 관리',
-                '소모품 및 보안프로그램 영업 확장',
-                '안정적인 시스템 운영으로 재계약 달성',
-                '개인사업자에서 법인 전환 성공'
+                '전산장비 및 OA 사무기기 2,000대 규모 완벽 관리',
+                'PC, 네트워크 인프라 통합 운영 및 유지보수',
+                '안정적인 시스템 운영으로 무장애 서비스 달성',
+                '전산소모품 영업 확장으로 부가가치 창출',
+                '보안솔루션 영업 확장으로 종합 IT 솔루션 파트너로 성장'
             ],
-            technologies: ['네트워크 관리', 'PC 유지보수', '보안시스템', '원격관리', 'ERP 연동'],
+            technologies: ['네트워크 관리', 'PC 유지보수', '보안시스템', '원격관리', 'ERP 연동', 'OA 장비 관리'],
             duration: '2년 5개월',
-            scale: '1,300대 PC',
+            scale: '2,000대 장비',
             role: '프로젝트 총괄'
         },
         '스마트미러 OEM 개발': {
             title: '스마트미러 OEM 개발',
             category: '기술영업',
-            image: 'img/스마트미러 OEM 개발.png',
+            image: 'img/core_img/smart mirror.png',
             description: '기존 스마트미러 제품의 UI 변경과 디자인 수정을 담당하여 미용실 특화 솔루션으로 개발했습니다. 전국 대리점 모집 전략을 수립하고 실행하여 성공적인 판매 네트워크를 구축한 혁신적인 프로젝트입니다.',
             achievements: [
                 '미용실 특화 UI/UX 디자인 개발',
@@ -550,7 +550,7 @@ function getSalesDetails(title, category) {
         '대학병원 정보보호팀': {
             title: '대학병원 정보보호팀 관리',
             category: '전산유지보수',
-            image: 'img/대학병원 정보보호팀.png',
+            image: 'img/core_img/hos.png',
             description: '3명 팀의 리더로서 대학병원 전체 IT 인프라를 총괄 관리했습니다. 의료진의 업무 중단 없이 안정적인 서비스를 제공하는 극도로 까다로운 환경에서 완벽한 시스템 운영을 달성했습니다.',
             achievements: [
                 '병원 전체 IT 인프라 총괄 관리',
