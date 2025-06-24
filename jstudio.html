@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>J STUDIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css_gallery/reset_gallery.css" rel="stylesheet">
+    <link href="css_gallery/common_gallery.css" rel="stylesheet">
+    <link href="css_gallery/main_gallery.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img_gallery/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading Excellence...</p>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-animation">
+        <div class="gradient-bg"></div>
+        <div class="mesh-gradient"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-bg"></div>
+        <h1 class="logo">
+            <img src="img_gallery/logo.png" alt="J STUDIO" class="logo-img">
+            <div class="logo-content">
+                <span class="logo-text">J STUDIO</span>
+                <span class="logo-subtitle">MY HOBBY GALLERY</span>
+            </div>
+        </h1>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll to Explore</div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main id="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>MY HOBBY COLLECTION</h2>
+            <p>일상 속 작은 즐거움들을 사진으로 담아보았습니다</p>
+        </div>
+        
+        <ul class="portfolio-grid">
+            <li class="portfolio-item" data-theme="travel" data-aos="zoom-in" data-aos-delay="100" data-hobby="travel">
+                <div class="item-bg">
+                    <img src="img_gallery/travel-bg.jpg" alt="Travel Photos" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/travel-icon.svg" alt="Travel Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">TRAVEL</span>
+                        <strong class="title">여행</strong>
+                        <div class="item-details">
+                            <p>새로운 곳에서 만나는 특별한 순간들</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">01</div>
+                <div class="photo-count">📷 24</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="movie" data-aos="zoom-in" data-aos-delay="200" data-hobby="movie">
+                <div class="item-bg">
+                    <img src="img_gallery/movie-bg.jpg" alt="Movie Collection" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/movie-icon.svg" alt="Movie Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">MOVIE</span>
+                        <strong class="title">영화감상</strong>
+                        <div class="item-details">
+                            <p>감동적인 스토리와 함께한 시간들</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">02</div>
+                <div class="photo-count">📷 18</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="web" data-aos="zoom-in" data-aos-delay="300" data-hobby="web">
+                <div class="item-bg">
+                    <img src="img_gallery/web-bg.jpg" alt="Web Search" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/web-icon.svg" alt="Web Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">WEB SEARCH</span>
+                        <strong class="title">웹검색</strong>
+                        <div class="item-details">
+                            <p>새로운 정보를 찾아가는 여정</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">03</div>
+                <div class="photo-count">📷 12</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="drive" data-aos="zoom-in" data-aos-delay="400" data-hobby="drive">
+                <div class="item-bg">
+                    <img src="img_gallery/drive-bg.jpg" alt="Drive Photos" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/drive-icon.svg" alt="Drive Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">DRIVE</span>
+                        <strong class="title">드라이브</strong>
+                        <div class="item-details">
+                            <p>도로 위에서 만나는 자유로운 순간</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">04</div>
+                <div class="photo-count">📷 31</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="game" data-aos="zoom-in" data-aos-delay="500" data-hobby="game">
+                <div class="item-bg">
+                    <img src="img_gallery/game-bg.jpg" alt="Game Collection" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/game-icon.svg" alt="Game Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">GAME</span>
+                        <strong class="title">게임</strong>
+                        <div class="item-details">
+                            <p>가상 세계에서의 즐거운 모험들</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">05</div>
+                <div class="photo-count">📷 45</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="photo" data-aos="zoom-in" data-aos-delay="600" data-hobby="photo">
+                <div class="item-bg">
+                    <img src="img_gallery/photo-bg.jpg" alt="Photography" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/photo-icon.svg" alt="Photo Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">PHOTOGRAPHY</span>
+                        <strong class="title">사진촬영</strong>
+                        <div class="item-details">
+                            <p>렌즈로 담아낸 아름다운 순간들</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">06</div>
+                <div class="photo-count">📷 89</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="sns" data-aos="zoom-in" data-aos-delay="700" data-hobby="sns">
+                <div class="item-bg">
+                    <img src="img_gallery/sns-bg.jpg" alt="SNS Collection" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/sns-icon.svg" alt="SNS Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">SNS</span>
+                        <strong class="title">소셜미디어</strong>
+                        <div class="item-details">
+                            <p>친구들과 공유하는 일상의 기록</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">07</div>
+                <div class="photo-count">📷 67</div>
+            </li>
+
+            <li class="portfolio-item" data-theme="book" data-aos="zoom-in" data-aos-delay="800" data-hobby="book">
+                <div class="item-bg">
+                    <img src="img_gallery/book-bg.jpg" alt="Reading Collection" class="bg-image">
+                </div>
+                <div class="item-overlay"></div>
+                <div class="item-glow"></div>
+                <div class="photo-frame"></div>
+                <a href="#" class="item-link">
+                    <div class="item-icon">
+                        <img src="img_gallery/book-icon.svg" alt="Book Icon">
+                    </div>
+                    <div class="item-content">
+                        <span class="desc">READING</span>
+                        <strong class="title">독서</strong>
+                        <div class="item-details">
+                            <p>책 속에서 만나는 새로운 세상</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="item-number">08</div>
+                <div class="photo-count">📷 15</div>
+            </li>
+        </ul>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 J STUDIO. 나만의 취미 갤러리</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">E-mail</a>
+                <a href="#" class="footer-link">OpenTalk</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hobby Modal -->
+    <div id="hobbyModal" class="hobby-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="모달 닫기">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle">취미 갤러리</h2>
+                <span id="modalSubtitle" class="modal-subtitle">사진 컬렉션</span>
+            </div>
+            <div class="modal-body">
+                <div class="photo-gallery" id="photoGallery">
+                    <!-- 사진들이 여기에 동적으로 로드됩니다 -->
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-stats">
+                        <span class="photo-count-display">총 0장의 사진</span>
+                        <span class="gallery-date">최근 업데이트: 2025년</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js_gallery/main.js"></script>
+</body>
+</html>
