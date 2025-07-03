@@ -543,7 +543,7 @@ function getSalesDetails(title, category) {
         '스마트미러 OEM 개발': {
             title: '스마트미러 OEM 개발',
             category: '기술영업',
-            image: 'img/core_img/smart mirror.png',
+            image: 'img/core_img/smart%20mirror.png',
             description: '기존 스마트미러 제품을 미용실 특화 솔루션으로 완전히 재탄생시킨 혁신적인 OEM 개발 프로젝트입니다. 기존 하드웨어 플랫폼 기반 UI/UX 완전 재설계, 미용실 특화 기능 개발 및 사용자 경험 최적화, 터치 인터페이스 기반 직관적 조작 시스템 구현, B2B 판매 채널 구축 및 전국 대리점 네트워크 확장 전략을 수립했습니다.',
             achievements: [
                 '✨ 미용실 특화 UI/UX 완전 재설계: 기존 범용 제품 대비 사용성 300% 향상',
@@ -590,20 +590,28 @@ function getSalesDetails(title, category) {
     };
 }
 
-// Load sales data from external source
+// Load sales data from external source (completely rewritten)
 async function loadSalesData() {
+    // 외부 JSON 파일 로드는 현재 비활성화됨 (404 오류 방지)
+    console.log('📋 내장된 판매 데이터를 사용합니다 (정상)');
+    
+    // 필요시 나중에 활성화할 수 있는 코드 (주석 처리됨)
+    /*
     try {
-        // Try to load from external JSON file
-        const response = await fetch('data/sales-data.json');
+        const jsonFilePath = 'data/sales-data.json';
+        const response = await fetch(jsonFilePath);
         if (response.ok) {
-            const data = await response.json();
-            if (data && data.projects) {
-                updateSalesItems(data.projects);
+            const jsonData = await response.json();
+            if (jsonData && jsonData.projects) {
+                updateSalesItems(jsonData.projects);
+                console.log('✅ 외부 판매 데이터 로드 성공');
+                return;
             }
         }
-    } catch (error) {
-        console.log('Using default sales data');
+    } catch (fetchError) {
+        console.log('⚠️ 외부 데이터 로드 실패, 기본 데이터 사용');
     }
+    */
 }
 
 function updateSalesItems(projects) {

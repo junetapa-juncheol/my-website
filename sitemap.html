@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="박준철(Junetapa) 웹사이트 사이트맵 및 업데이트 내역">
+    <meta name="keywords" content="사이트맵, 업데이트 내역, 박준철, Junetapa">
+    <title>사이트맵 & 업데이트 내역 | 박준철 (Junetapa) - IT Story</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    
+    <style>
+        /* Sitemap specific styles */
+        .sitemap-hero {
+            min-height: 60vh;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 0 50px;
+        }
+        
+        .sitemap-content {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .sitemap-section, .changelog-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .sitemap-section h3, .changelog-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+        }
+        
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sitemap-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .sitemap-list li::before {
+            content: "🔗";
+            position: absolute;
+            left: 0;
+        }
+        
+        .sitemap-list a {
+            color: #333;
+            text-decoration: none;
+            transition: var(--transition-medium);
+        }
+        
+        .sitemap-list a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .changelog-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .changelog-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .changelog-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .changelog-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .changelog-tags {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .changelog-tag {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .sitemap-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            
+            .sitemap-hero {
+                min-height: 50vh;
+                padding: 80px 0 40px;
+            }
+            
+            .sitemap-content {
+                padding: 60px 0;
+            }
+            
+            .sitemap-section, .changelog-section {
+                padding: 20px;
+            }
+            
+            .sitemap-section h3, .changelog-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Hover 효과 추가 */
+        .sitemap-list a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        /* 홈 버튼 호버 효과 */
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <span class="logo-text">Junetapa</span>
+                    <span class="logo-subtitle">IT Story</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">홈</a></li>
+                <li><a href="index.html#about" class="nav-link">소개</a></li>
+                <li><a href="index.html#sales" class="nav-link">핵심역량</a></li>
+                <li><a href="index.html#hobby" class="nav-link">창작활동</a></li>
+                <li><a href="jstudio.html" class="nav-link" target="_blank">취미</a></li>
+                <li><a href="index.html#contact" class="nav-link">연락처</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh; background: var(--gradient-primary);">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="section-title" style="color: white; -webkit-text-fill-color: white; background: none;">사이트맵 & 업데이트 내역</h1>
+                <p class="section-subtitle" style="color: white;">웹사이트 구조와 최신 업데이트 현황을 확인하세요</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="sitemap-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <!-- Sitemap Section -->
+                <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px; font-family: var(--font-secondary); font-size: 1.5rem;">🗂️ 사이트 구조</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="index.html" style="color: #333; text-decoration: none;">홈페이지 (메인)</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="index.html#about" style="color: #333; text-decoration: none;">소개 섹션</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="index.html#sales" style="color: #333; text-decoration: none;">핵심 전문역량</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="index.html#hobby" style="color: #333; text-decoration: none;">창작 활동</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="jstudio.html" target="_blank" style="color: #333; text-decoration: none;">취미 갤러리</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="index.html#contact" style="color: #333; text-decoration: none;">연락처</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="sitemap.html" style="color: #333; text-decoration: none;">사이트맵 (현재 페이지)</a>
+                        </li>
+                    </ul>
+                    
+                    <h3 style="color: var(--primary-color); margin: 30px 0 20px 0; font-family: var(--font-secondary); font-size: 1.5rem;">📱 외부 링크</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="https://blog.naver.com/jun22sky" target="_blank" style="color: #333; text-decoration: none;">네이버 블로그</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="https://www.instagram.com/junetapa/" target="_blank" style="color: #333; text-decoration: none;">인스타그램</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="https://www.tiktok.com/@junetapa0" target="_blank" style="color: #333; text-decoration: none;">틱톡</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="https://youtube.com/@junetapa" target="_blank" style="color: #333; text-decoration: none;">유튜브</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Changelog Section -->
+                <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px; font-family: var(--font-secondary); font-size: 1.5rem;">📋 업데이트 내역</h3>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">404 오류 및 콘솔 오류 전면 해결</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            sales-data.json 404 오류, 파일명 공백 문제, 전역 오류 처리기 추가로 콘솔 오류를 완전히 정리했습니다. EmailJS 진단 도구도 대폭 강화했습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">메시지 보내기 기능 개선</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            EmailJS 오류 처리를 강화하고 대체 연락 방법을 제공하여 안정성을 향상시켰습니다. 진단 도구와 오류 추적 기능도 추가했습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">사이트맵 & 업데이트 내역 페이지 추가</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            웹사이트 구조를 한눈에 볼 수 있는 사이트맵과 업데이트 내역을 확인할 수 있는 전용 페이지를 추가했습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">Quick Info 섹션 배경 이미지 적용</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            채용담당자를 위한 Quick Info 섹션에 개성 있는 배경 이미지를 적용하여 시각적 임팩트를 향상시켰습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">로고 색상 브랜딩 개선</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            기존 알록달록한 무지개 효과에서 세련된 보라-파란 그라데이션으로 변경하여 브랜드 일관성과 품질을 향상시켰습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">메인 타이틀 가독성 개선</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            "Junetapa World" 타이틀의 크기를 조정하고 색상을 진하게 하여 동영상 배경에서도 명확하게 보이도록 개선했습니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">동영상 배경 구현</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            메인 섹션에 동영상 배경을 추가하여 더욱 역동적이고 매력적인 첫인상을 제공합니다. 모바일에서는 자동으로 particles.js로 전환됩니다.
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.03</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">포트폴리오 웹사이트 초기 구축</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            25년+ IT 전문가 박준철(Junetapa)의 개인 포트폴리오 웹사이트를 구축했습니다. 반응형 디자인과 현대적인 UI/UX를 적용했습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="back-home-btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; text-decoration: none; background: var(--gradient-primary); color: white; font-weight: 600; transition: var(--transition-medium);">
+                    <span>← 홈으로 돌아가기</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>탐색</h4>
+                    <ul>
+                        <li><a href="index.html#home">홈</a></li>
+                        <li><a href="index.html#about">소개</a></li>
+                        <li><a href="index.html#sales">핵심역량</a></li>
+                        <li><a href="index.html#hobby">창작활동</a></li>
+                        <li><a href="jstudio.html" target="_blank">취미</a></li>
+                        <li><a href="index.html#contact">연락처</a></li>
+                        <li><a href="sitemap.html">사이트맵</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>소셜미디어</h4>
+                    <div class="social-links">
+                        <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com/@junetapa" target="_blank" class="social-link" aria-label="유튜브">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>다운로드</h4>
+                    <ul>
+                        <li><a href="#" class="download-link">기술영업 자료 PDF</a></li>
+                        <li><a href="#" class="download-link">이력서 PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">Junetapa</span>
+                        <p>기술과 사람을 잇는 IT 전문가</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
+                <p>이력서 너머의 진짜 이야기를 담은 IT Story</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
