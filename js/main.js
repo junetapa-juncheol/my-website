@@ -438,7 +438,7 @@ function initializeContactForm() {
 
     // EmailJS Configuration
     const emailjsConfig = {
-        publicKey: '2q62V98NLoYoTE82slApc',
+        publicKey: '3efSrc3mFT9o8xULf',
         serviceID: 'service_my45w39',
         templateID: 'template_hagtkx9'
     };
@@ -885,7 +885,7 @@ window.diagnoseEmailJS = function() {
     
     // 설정 확인
     const config = {
-        publicKey: '2q62V98NLoYoTE82slApc',
+        publicKey: '3efSrc3mFT9o8xULf',
         serviceID: 'service_my45w39',
         templateID: 'template_hagtkx9'
     };
@@ -927,7 +927,7 @@ window.testEmailJSSend = function() {
     }
     
     const config = {
-        publicKey: '2q62V98NLoYoTE82slApc',
+        publicKey: '3efSrc3mFT9o8xULf',
         serviceID: 'service_my45w39',
         templateID: 'template_hagtkx9'
     };
