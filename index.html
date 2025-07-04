@@ -22,8 +22,14 @@
     <link rel="icon" type="image/png" href="/img/favicon.png">
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">메인 콘텐츠로 바로가기</a>
+    
+    <!-- ARIA Live Region for Screen Readers -->
+    <div id="aria-live-region" class="aria-live" aria-live="polite" aria-atomic="true"></div>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="logo-text">Junetapa</span>
@@ -47,6 +53,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <main id="main-content">
         <div class="hero-background">
             <video id="hero-video" autoplay muted loop playsinline>
                 <source src="video/hero-video.mp4" type="video/mp4">
@@ -117,6 +124,7 @@
             <div class="scroll-arrow"></div>
             <span>Scroll Down</span>
         </div>
+        </main>
     </section>
 
     <!-- Quick Info Section -->
@@ -429,23 +437,36 @@
                 </div>
                 
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" aria-label="연락처 문의 폼" novalidate>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="이름" required>
+                            <label for="name" class="sr-only">이름 (필수)</label>
+                            <input type="text" id="name" name="name" placeholder="이름" required 
+                                   aria-describedby="name-help" autocomplete="name">
+                            <div id="name-help" class="sr-only">성명을 입력해주세요.</div>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="이메일" required>
+                            <label for="email" class="sr-only">이메일 (필수)</label>
+                            <input type="email" id="email" name="email" placeholder="이메일" required 
+                                   aria-describedby="email-help" autocomplete="email">
+                            <div id="email-help" class="sr-only">연락받을 이메일 주소를 입력해주세요.</div>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="company" name="company" placeholder="회사명 (선택사항)">
+                            <label for="company" class="sr-only">회사명 (선택사항)</label>
+                            <input type="text" id="company" name="company" placeholder="회사명 (선택사항)"
+                                   aria-describedby="company-help" autocomplete="organization">
+                            <div id="company-help" class="sr-only">소속 회사명을 입력해주세요. 선택사항입니다.</div>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="메시지" rows="5" required></textarea>
+                            <label for="message" class="sr-only">메시지 (필수)</label>
+                            <textarea id="message" name="message" placeholder="메시지" rows="5" required
+                                      aria-describedby="message-help" maxlength="1000"></textarea>
+                            <div id="message-help" class="sr-only">문의하실 내용을 상세히 입력해주세요. 최대 1000자까지 입력 가능합니다.</div>
                         </div>
-                        <button type="submit" class="submit-btn">
+                        <button type="submit" class="submit-btn" aria-describedby="submit-help">
                             <span>메시지 보내기</span>
-                            <i class="btn-arrow">→</i>
+                            <i class="btn-arrow" aria-hidden="true">→</i>
                         </button>
+                        <div id="submit-help" class="sr-only">폼을 검토한 후 메시지를 전송합니다.</div>
                     </form>
                 </div>
             </div>

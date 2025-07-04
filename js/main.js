@@ -4,10 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeScrollAnimations();
     initializeContactForm();
+    initializeFormValidation();
     initializeCounters();
     initializeSkillBars();
     initializeTouchOptimizations();
     initializeModals();
+    initializeMagneticEffect();
+    initializeParallaxEffect();
+    initializeSmoothEntrances();
 });
 
 // Hero Background initialization (Video + Particles fallback)
@@ -637,82 +641,177 @@ function trackContactSubmission(status, error = null) {
 function validateField(e) {
     const field = e.target;
     const value = field.value.trim();
+    const fieldName = field.name;
     
-    // Remove existing validation classes
+    let isValid = true;
+    let message = '';
+    
+    // Remove previous validation states
     field.classList.remove('valid', 'invalid');
+    const existingFeedback = field.parentNode.querySelector('.field-feedback');
+    if (existingFeedback) existingFeedback.remove();
     
-    // Email validation
-    if (field.type === 'email' && value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(value)) {
-            field.classList.add('valid');
-        } else {
-            field.classList.add('invalid');
-        }
+    // Validate based on field type
+    switch (fieldName) {
+        case 'name':
+            if (!value) {
+                isValid = false;
+                message = '이름을 입력해주세요.';
+            } else if (value.length < 2) {
+                isValid = false;
+                message = '이름은 2자 이상 입력해주세요.';
+            }
+            break;
+        case 'email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!value) {
+                isValid = false;
+                message = '이메일을 입력해주세요.';
+            } else if (!emailRegex.test(value)) {
+                isValid = false;
+                message = '올바른 이메일 형식을 입력해주세요.';
+            }
+            break;
+        case 'message':
+            if (!value) {
+                isValid = false;
+                message = '메시지를 입력해주세요.';
+            } else if (value.length < 10) {
+                isValid = false;
+                message = '메시지는 10자 이상 입력해주세요.';
+            } else if (value.length > 1000) {
+                isValid = false;
+                message = '메시지는 1000자 이내로 입력해주세요.';
+            }
+            break;
     }
     
-    // Required field validation
-    if (field.hasAttribute('required')) {
-        if (value) {
-            field.classList.add('valid');
-        } else {
-            field.classList.add('invalid');
+    // Apply validation styles and feedback
+    if (isValid) {
+        field.classList.add('valid');
+        if (fieldName !== 'company') { // Company is optional
+            const feedback = document.createElement('div');
+            feedback.className = 'field-feedback success';
+            feedback.textContent = '✓ 올바른 형식입니다.';
+            field.parentNode.appendChild(feedback);
         }
+    } else {
+        field.classList.add('invalid');
+        const feedback = document.createElement('div');
+        feedback.className = 'field-feedback error';
+        feedback.textContent = message;
+        field.parentNode.appendChild(feedback);
+    }
+    
+    // Update submit button state
+    updateSubmitButtonState();
+}
+
+// Update submit button state based on form validity
+function updateSubmitButtonState() {
+    const submitBtn = document.querySelector('.submit-btn');
+    const requiredFields = document.querySelectorAll('#contactForm [required]');
+    
+    let allValid = true;
+    requiredFields.forEach(field => {
+        if (!field.classList.contains('valid')) {
+            allValid = false;
+        }
+    });
+    
+    if (allValid) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add('ready');
+        submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('ready');
+        submitBtn.style.background = '';
     }
 }
 
-// Clear validation
 function clearValidation(e) {
     const field = e.target;
     field.classList.remove('valid', 'invalid');
+    const feedback = field.parentNode.querySelector('.field-feedback');
+    if (feedback) feedback.remove();
 }
 
-// Notification system
 function showNotification(message, type = 'success') {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => {
-        notification.remove();
-    });
-
+    existingNotifications.forEach(n => n.remove());
+    
+    // Create notification
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
+    notification.className = `notification ${type}`;
     
-    // Style the notification
-    Object.assign(notification.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        background: type === 'success' ? 'var(--success-color)' : 
-                   type === 'error' ? 'var(--danger-color)' : 'var(--primary-color)',
-        color: 'white',
-        padding: '15px 20px',
-        borderRadius: '8px',
-        boxShadow: 'var(--shadow-medium)',
-        zIndex: '10000',
-        transform: 'translateX(100%)',
-        transition: 'transform 0.3s ease',
-        maxWidth: 'calc(100vw - 40px)',
-        fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
-    });
+    const iconMap = {
+        success: '✅',
+        warning: '⚠️',
+        danger: '❌',
+        info: 'ℹ️'
+    };
     
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${iconMap[type] || 'ℹ️'}</span>
+            <span class="notification-message">${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    // Add to DOM
     document.body.appendChild(notification);
     
     // Animate in
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
+        notification.classList.add('show');
     }, 100);
     
-    // Remove after delay
+    // Auto remove after 5 seconds
     setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 3000);
+        if (notification.parentElement) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }
+    }, 5000);
+}
+
+// Initialize form field validation
+function initializeFormValidation() {
+    const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    
+    formFields.forEach(field => {
+        // Add required attribute to name, email, and message fields
+        if (['name', 'email', 'message'].includes(field.name)) {
+            field.setAttribute('required', '');
+        }
+        
+        // Add real-time validation
+        field.addEventListener('blur', validateField);
+        field.addEventListener('input', debounce(validateField, 500));
+        field.addEventListener('focus', clearValidation);
+        
+        // Add character counter for message field
+        if (field.name === 'message') {
+            const counter = document.createElement('div');
+            counter.className = 'character-counter';
+            counter.textContent = '0/1000';
+            field.parentNode.appendChild(counter);
+            
+            field.addEventListener('input', function() {
+                const count = this.value.length;
+                counter.textContent = `${count}/1000`;
+                counter.style.color = count > 1000 ? '#f44336' : '#666';
+            });
+        }
+    });
+    
+    // Initial submit button state
+    updateSubmitButtonState();
 }
 
 // Utility functions
@@ -1086,3 +1185,90 @@ window.addEventListener('scroll', function() {
         navbar.classList.remove('scrolled');
     }
 });
+
+// Magnetic Hover Effect
+function initializeMagneticEffect() {
+    const magneticElements = document.querySelectorAll('.magnetic-hover, .cta-primary, .cta-secondary, .info-card, .sales-item, .hobby-item');
+    
+    magneticElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        element.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const deltaX = (x - centerX) / centerX;
+            const deltaY = (y - centerY) / centerY;
+            
+            const rotateX = deltaY * 10;
+            const rotateY = deltaX * 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+    });
+}
+
+// Parallax Scrolling Effect
+function initializeParallaxEffect() {
+    const parallaxElements = document.querySelectorAll('.parallax-element, .hero-background');
+    
+    function updateParallax() {
+        const scrollTop = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrollTop * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    }
+    
+    // Throttle parallax updates for performance
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', () => {
+        requestTick();
+        ticking = false;
+    });
+}
+
+// Smooth Entrance Animations
+function initializeSmoothEntrances() {
+    const smoothElements = document.querySelectorAll('.smooth-entrance, .timeline-item, .journey-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Add stagger delay for multiple elements
+                const siblings = Array.from(entry.target.parentNode.children);
+                const index = siblings.indexOf(entry.target);
+                entry.target.style.animationDelay = `${index * 0.1}s`;
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    smoothElements.forEach(element => {
+        element.classList.add('smooth-entrance');
+        observer.observe(element);
+    });
+}
