@@ -148,7 +148,7 @@ body {
     background-clip: text;
     animation: logo-gradient-move 6s ease-in-out infinite;
     font-weight: 700;
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
 @keyframes logo-gradient-move {

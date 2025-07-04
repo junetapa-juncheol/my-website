@@ -525,6 +525,21 @@ function addModalStyles() {
 
 function getSalesDetails(title, category) {
     const salesData = {
+        '다분야 전산관리 경험': {
+            title: '다분야 전산관리 경험',
+            category: '전산유지보수',
+            image: 'img/core_img/computer_service.png',
+            description: '컴퓨터 조립과 수리를 취미로 시작해 자연스럽게 IT 업계에 첫발을 내디뎠습니다. 개인 컴퓨터 수리센터 근무부터 시작해 컴퓨터교육 중소기업, 부동산업계 매물관리프로그램, 공장 사무실 등 다양한 분야의 전산관리를 경험하며 폭넓은 실무 역량을 쌓았습니다.',
+            achievements: [
+                '🖥️ 다양한 산업군 경험: 교육, 부동산, 제조업 등 각기 다른 산업 환경에 최적화된 IT 솔루션 제공',
+                '📈 시스템 안정화: 각 기업 환경에 맞는 유지보수 체계를 구축하여 시스템 장애율 70% 감소',
+                '🔧 문제 해결 능력: 하드웨어, 소프트웨어, 네트워크를 아우르는 종합적인 문제 해결 능력 입증'
+            ],
+            technologies: ['PC 정비', '서버 기초', '네트워크 설정', '소프트웨어 설치/관리', '보안 솔루션'],
+            duration: '2001-2007',
+            scale: '다수 중소기업',
+            role: '전산 관리자'
+        },
         '교육청 전산유지보수': {
             title: '교육청 전산유지보수',
             category: '전산유지보수',
@@ -550,7 +565,7 @@ function getSalesDetails(title, category) {
                 '✨ 5가지 핵심 기능 모듈 개발 완료: 미러 터치방식 조작 시스템, TV 시청, 두피체크 및 관리, 헤어스타일 시뮬레이션'
             ],
             technologies: ['UI/UX 디자인', 'IoT 기술', '터치스크린', '안드로이드', '클라우드 연동'],
-            duration: '1년 3개월',
+            duration: '2년',
             scale: '전국 대리점',
             role: 'UI 기획 및 영업 총괄'
         },
@@ -567,7 +582,7 @@ function getSalesDetails(title, category) {
                 '보안 강화 및 개인정보 보호'
             ],
             technologies: ['네트워크 관리', '서버 관리', '의료장비 연동', '보안시스템', '원격 모니터링'],
-            duration: '1년 4개월',
+            duration: '2년',
             scale: '병원 전체',
             role: '정보보호팀 팀장'
         }
