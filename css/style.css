@@ -345,6 +345,93 @@ body {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(20px);
     }
+    
+    /* Mobile timeline improvements for better readability */
+    .story-timeline {
+        margin-left: 20px; /* Reduce left margin on mobile */
+    }
+    
+    .story-timeline::before {
+        left: 14px; /* Adjust line position for mobile */
+        width: 3px; /* Slightly thinner line */
+        background: linear-gradient(180deg, #4a5fff 0%, #d84c9c 100%); /* More vibrant colors */
+    }
+    
+    .timeline-item {
+        padding: 20px 20px 20px 60px; /* Reduce padding on mobile */
+        margin-bottom: 24px; /* Reduce margin on mobile */
+        background: rgba(255, 255, 255, 0.95); /* More opaque background */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow for better contrast */
+    }
+    
+    .timeline-item::before {
+        left: -30px; /* Adjust position for mobile */
+        width: 16px; /* Slightly smaller dot */
+        height: 16px;
+    }
+    
+    .timeline-year {
+        font-size: 1rem; /* Fixed size for mobile */
+        font-weight: 800; /* Bolder text */
+        color: #4a5fff; /* More vibrant color */
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem; /* Fixed size for mobile */
+        font-weight: 700; /* Bolder text */
+        color: #333; /* Darker text color */
+        margin-bottom: 8px;
+    }
+    
+    .timeline-content p {
+        font-size: 0.95rem; /* Fixed size for mobile */
+        line-height: 1.7; /* Better line height */
+        color: #444; /* Darker text color for better readability */
+        font-weight: 500; /* Slightly bolder */
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8); /* Add subtle white shadow */
+    }
+    
+    /* Extra small mobile optimization */
+    @media (max-width: 480px) {
+        .story-timeline {
+            margin-left: 15px; /* Even smaller margin for very small screens */
+        }
+        
+        .story-timeline::before {
+            left: 9px; /* Adjust line position for very small screens */
+            width: 2px; /* Even thinner line */
+        }
+        
+        .timeline-item {
+            padding: 16px 16px 16px 50px; /* Smaller padding */
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.98); /* Almost opaque background */
+        }
+        
+        .timeline-item::before {
+            left: -25px;
+            width: 14px;
+            height: 14px;
+        }
+        
+        .timeline-year {
+            font-size: 0.95rem;
+            font-weight: 900; /* Extra bold */
+        }
+        
+        .timeline-content h3 {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+        
+        .timeline-content p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-weight: 600; /* Bolder text for very small screens */
+            color: #333; /* Even darker text */
+        }
+    }
 }
 
 .hero-content {
@@ -654,6 +741,13 @@ body {
 .about {
     padding: clamp(60px, 10vw, 80px) 0;
     background: #f8f9fa;
+}
+
+/* Mobile about section improvements */
+@media (max-width: 768px) {
+    .about {
+        background: #ffffff; /* Pure white background for better contrast */
+    }
 }
 
 .about-content {
