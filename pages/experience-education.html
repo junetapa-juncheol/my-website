@@ -216,6 +216,32 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
+        .certificate-card.expanded {
+            border-left: 4px solid #4caf50;
+        }
+
+        .certificate-title {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-title:hover {
+            color: var(--primary-color);
+        }
+
+        .certificate-title::after {
+            content: '▼';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card.expanded .certificate-title::after {
+            transform: rotate(180deg);
+        }
         
         .certificate-icon {
             font-size: 2.5rem;
@@ -347,18 +373,16 @@
     <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="../index.html" style="text-decoration: none; color: inherit;">
-                    <span class="logo-text">Junetapa</span>
-                    <span class="logo-subtitle">IT Story</span>
-                </a>
+                <span class="logo-text">Junetapa</span>
+                <span class="logo-subtitle">IT Story</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html#home" class="nav-link">홈</a></li>
                 <li><a href="../index.html#about" class="nav-link">소개</a></li>
                 <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
                 <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
-                <li><a href="experience-education.html" class="nav-link active">활동&교육</a></li>
-                <!-- <li><a href="jstudio.html" class="nav-link" target="_blank">취미</a></li> -->
+                <li><a href="experience-education.html" class="nav-link active">활동&amp;교육</a></li>
+                <!-- <li><a href="jstudio.html" class="jstudio.html" target="_blank">취미</a></li> -->
                 <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
             </ul>
             <div class="hamburger">
@@ -387,174 +411,6 @@
             <div class="timeline-section">
                 <h2 class="section-title">🎓 교육&자격증</h2>
                 <div class="certificate-grid">
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">🚀</span>
-                        <div class="certificate-title">최고의 성과를 이끄는 기적의 업무력 17H</div>
-                        <div class="certificate-issuer">한국중앙인재개발원 원격평생교육시설</div>
-                        <div class="certificate-date">2019.02 - 2019.03</div>
-                        <div class="certificate-description">
-                            업무 효율성 극대화와 성과 창출을 위한 체계적인 방법론과 실무 적용 기법을 집중적으로 학습하는 고급 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2019년 2월 ~ 3월 (2개월)<br>
-                            <strong>교육 분야:</strong> 업무효율화, 성과관리, 의사결정, 프로세스혁신<br>
-                            <strong>교육 방식:</strong> 온라인 원격교육 + 사례 애니메이션 + 동료 학습자 토론
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #e8f5e8; border-left-color: #4caf50;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🎯 1. 업무효율화 기초 및 진단</strong><br>
-                            • <strong>업무효율화 정의:</strong> 생산성, 품질, 만족도의 균형적 향상<br>
-                            • <strong>개인 업무효율성 진단:</strong> 업무 스타일 분석, 효율성 지표 측정<br>
-                            • <strong>역할 정립:</strong> 개인/팀/조직 차원의 역할과 책임 명확화<br>
-                            • <strong>효율성 향상 방향:</strong> 개선 영역 식별 및 우선순위 설정<br><br>
-                            
-                            <strong>💡 2. 효과적인 의사결정 기법</strong><br>
-                            • <strong>의사결정 실패 사례 분석:</strong> 애니메이션을 통한 상황 재현<br>
-                            • <strong>문제 상황 진단:</strong> 의사결정 장애 요인 식별<br>
-                            • <strong>동료 학습자 토론:</strong> 다양한 관점에서의 해결책 공유<br>
-                            • <strong>의사결정 프레임워크:</strong> 체계적 의사결정 모델 적용<br><br>
-                            
-                            <strong>🔄 3. 업무스킬 혁신 및 프로세스 개선</strong><br>
-                            • <strong>업무효율화 중요성:</strong> 조직 경쟁력과 개인 성장의 핵심<br>
-                            • <strong>목표설정과 기획:</strong> SMART 목표 설정, 실행 계획 수립<br>
-                            • <strong>업무스킬 혁신 실행:</strong> 새로운 기법 도입, 습관 형성<br>
-                            • <strong>업무효율 개선안:</strong> 구체적 개선 방안 수립 및 실행<br>
-                            • <strong>업무프로세스 혁신:</strong> 업무 흐름 재설계, 자동화 도입<br><br>
-                            
-                            <strong>📊 4. 성과관리 시스템 구축</strong><br>
-                            • <strong>성과관리 어려움 사례:</strong> 애니메이션을 통한 현실적 상황 분석<br>
-                            • <strong>성과 지표 설정:</strong> KPI 정의, 측정 방법 개발<br>
-                            • <strong>동료 학습자 의견 공유:</strong> 성과관리 모범 사례 토론<br>
-                            • <strong>성과 피드백 시스템:</strong> 정기적 평가, 개선점 도출<br>
-                            • <strong>성과 향상 전략:</strong> 동기부여, 인센티브, 개발 기회 제공
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">⚡</span>
-                        <div class="certificate-title">업무효율화 전문 과정</div>
-                        <div class="certificate-issuer">한국종합인재개발원</div>
-                        <div class="certificate-date">2018.12 - 2019.01</div>
-                        <div class="certificate-description">
-                            조직과 개인의 업무 효율성을 극대화하기 위한 체계적인 방법론과 실무 적용 기법을 학습하는 전문 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2018년 12월 ~ 2019년 1월 (2개월)<br>
-                            <strong>교육 분야:</strong> 업무효율화, 조직관리, 개인역량개발<br>
-                            <strong>교육 방식:</strong> 이론 강의 + 진단 도구 + 실습 워크샵
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #fff8e1; border-left-color: #ffc107;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🎯 1. 업무효율화의 정의와 필요성</strong><br>
-                            • <strong>업무효율화 개념:</strong> 생산성 향상, 시간 관리, 자원 최적화<br>
-                            • <strong>조직적 필요성:</strong> 경쟁력 강화, 비용 절감, 고객 만족도 향상<br>
-                            • <strong>개인적 필요성:</strong> 업무 만족도, 스트레스 감소, 성장 기회 확대<br>
-                            • <strong>디지털 시대의 변화:</strong> 업무 환경 변화, 새로운 효율화 도구<br><br>
-                            
-                            <strong>🛠️ 2. 업무효율화를 위한 방법</strong><br>
-                            • <strong>프로세스 개선:</strong> 업무 흐름 분석, 병목 구간 식별, 개선 방안 수립<br>
-                            • <strong>시간 관리 기법:</strong> 우선순위 설정, 일정 관리, 방해 요소 제거<br>
-                            • <strong>도구 활용:</strong> 디지털 도구, 자동화 시스템, 협업 플랫폼<br>
-                            • <strong>의사결정 최적화:</strong> 빠른 의사결정, 리스크 관리, 결과 평가<br><br>
-                            
-                            <strong>🔍 3. 개인의 업무효율성 진단</strong><br>
-                            • <strong>자기 진단 도구:</strong> 업무 스타일 분석, 강점/약점 파악<br>
-                            • <strong>시간 활용 분석:</strong> 업무 시간 분배, 낭비 시간 식별<br>
-                            • <strong>스트레스 요인 분석:</strong> 업무 부담도, 환경 요인, 개인 요인<br>
-                            • <strong>개선 영역 설정:</strong> 우선 개선 항목, 단계별 목표 수립<br><br>
-                            
-                            <strong>👥 4. 업무효율화를 위한 역할 정립</strong><br>
-                            • <strong>개인 역할:</strong> 자기 관리, 지속적 학습, 적극적 참여<br>
-                            • <strong>팀원 역할:</strong> 협력과 소통, 지식 공유, 상호 지원<br>
-                            • <strong>리더 역할:</strong> 환경 조성, 동기 부여, 성과 관리<br>
-                            • <strong>조직 역할:</strong> 시스템 구축, 문화 조성, 인센티브 제공
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">🛒</span>
-                        <div class="certificate-title">홈쇼핑 종합 업무 전문 과정</div>
-                        <div class="certificate-issuer">(주)엔에스쇼핑</div>
-                        <div class="certificate-date">2013.04</div>
-                        <div class="certificate-description">
-                            홈쇼핑 업계의 핵심 업무인 수주, CS, 배송, 결제 시스템을 이론부터 실전까지 종합적으로 학습하는 전문 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 구성 (총 56시간):</strong><br>
-                            • <strong>이론교육 (20시간):</strong> 카드무통장교육, CS처리기준, 배송업무 기준<br>
-                            • <strong>시스템교육 (19시간):</strong> 수주/반품시스템 실습 및 응대 종합 실습<br>
-                            • <strong>실전OJT (14시간):</strong> 수주/CS 실전 현장 교육<br>
-                            • <strong>기타교육 (3시간):</strong> NS홈쇼핑 이해, 정보보안교육, 테스트평가
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #e8f5e8; border-left-color: #4caf50;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>📚 이론교육 (20시간)</strong><br>
-                            • <strong>카드무통장교육:</strong> 결제 시스템 이해, 카드사별 특성, 무통장입금 처리<br>
-                            • <strong>CS처리기준 교육:</strong> 고객 응대 표준, 불만 처리 프로세스, 만족도 관리<br>
-                            • <strong>배송업무 기준:</strong> 물류 시스템, 배송 추적, 반품/교환 처리 기준<br><br>
-                            
-                            <strong>💻 시스템교육 (19시간)</strong><br>
-                            • <strong>수주시스템 실습:</strong> 주문 접수, 재고 확인, 결제 처리 시스템<br>
-                            • <strong>수주시스템 응대 종합 실습:</strong> 고객 문의 응대, 주문 변경/취소 처리<br>
-                            • <strong>반품시스템 실습:</strong> 반품 접수, 상품 검수, 환불 처리 시스템<br>
-                            • <strong>반품시스템 응대종합 실습:</strong> 반품 사유 분석, 고객 상담 응대<br><br>
-                            
-                            <strong>🎯 실전OJT (14시간)</strong><br>
-                            • <strong>수주 실전 OJT:</strong> 실제 주문 처리, 고객 응대, 시스템 운영<br>
-                            • <strong>CS 실전 OJT:</strong> 고객 불만 처리, 문제 해결, 만족도 향상<br><br>
-                            
-                            <strong>🔧 기타교육 (3시간)</strong><br>
-                            • <strong>NS홈쇼핑의 이해:</strong> 회사 비전, 조직 문화, 업무 환경<br>
-                            • <strong>정보보안교육:</strong> 개인정보보호, 시스템 보안, 데이터 관리<br>
-                            • <strong>테스트평가:</strong> 교육 성과 측정, 업무 적성 평가
-                        </div>
-                    </div>
-
-
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">📺</span>
-                        <div class="certificate-title">디지털방송/인터넷 상담 전문 과정</div>
-                        <div class="certificate-issuer">(주)딜라이브 텔레웍스</div>
-                        <div class="certificate-date">2009.10</div>
-                        <div class="certificate-description">
-                            디지털방송, 인터넷, 인터넷전화 서비스의 설치, AS, 요금, 해지 등 인바운드 상담에 관한 종합적인 전문 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>핵심 학습 영역:</strong><br>
-                            • <strong>디지털방송 서비스:</strong> 케이블TV, IPTV, 위성방송 설치 및 AS 상담<br>
-                            • <strong>인터넷 서비스:</strong> 광랜, VDSL, 무선인터넷 설치 및 장애 대응<br>
-                            • <strong>인터넷전화 서비스:</strong> VoIP, 번호이동, 통화품질 관리<br>
-                            • <strong>상담 운영:</strong> 인바운드 상담 이론, 스크립트, 전산실습
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #fff3e0; border-left-color: #ff9800;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>📺 디지털방송 서비스</strong><br>
-                            • 케이블TV, IPTV, 위성방송 시스템 이해<br>
-                            • 셋톱박스 설치 및 초기 설정 방법<br>
-                            • 방송 신호 품질 진단 및 문제 해결<br>
-                            • 채널 추가/변경 및 부가서비스 상담<br><br>
-                            
-                            <strong>🌐 인터넷 서비스</strong><br>
-                            • 광랜, VDSL, 무선인터넷 기술 이해<br>
-                            • 모뎀/공유기 설치 및 네트워크 구성<br>
-                            • 인터넷 속도 측정 및 최적화 방법<br>
-                            • 네트워크 장애 진단 및 복구 절차<br><br>
-                            
-                            <strong>📞 인터넷전화 서비스</strong><br>
-                            • VoIP 기술 및 통화 원리 이해<br>
-                            • 번호이동 및 통화품질 관리<br>
-                            • 인터넷전화 단말기 설정 및 AS<br>
-                            • 통화 요금 체계 및 부가서비스 상담<br><br>
-                            
-                            <strong>💼 상담 운영 전문성</strong><br>
-                            • 인바운드 상담 이론 및 고객 심리 이해<br>
-                            • 상황별 상담 스크립트 작성 및 활용<br>
-                            • 전산 시스템 실습 및 업무 프로세스<br>
-                            • 고객 불만 처리 및 만족도 향상 기법
-                        </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">📈</span>
@@ -614,7 +470,6 @@
                             • <strong>데이터 리더십:</strong> 데이터 기반 리더의 역할<br>
                             • <strong>미래 준비:</strong> AI, 빅데이터 시대의 데이터 역량
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">📊</span>
@@ -674,7 +529,6 @@
                             • <strong>지속적 개선:</strong> 피드백 수집, 전략 조정<br>
                             • <strong>디지털 마케팅 분석:</strong> 웹분석, 소셜미디어 분석
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">📹</span>
@@ -735,7 +589,6 @@
                             • <strong>ROI 분석:</strong> 마케팅 투자 대비 효과 측정<br>
                             • <strong>지속적 개선:</strong> 피드백 수집, 콘텐츠 품질 향상
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🎮</span>
@@ -813,7 +666,6 @@
                             • <strong>배포 및 마케팅:</strong> 플랫폼별 배포, 사용자 확보<br>
                             • <strong>지속적 개선:</strong> 사용자 피드백, 업데이트, 버전 관리
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🔗</span>
@@ -884,7 +736,6 @@
                             • <strong>미래 전망:</strong> Web3, 메타버스, AI 융합<br>
                             • <strong>기업 전략:</strong> 블록체인 도입 로드맵, ROI 분석
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">📊</span>
@@ -944,7 +795,6 @@
                             • <strong>유통/서비스:</strong> 고객 행동 분석, 재고 최적화, 개인화 마케팅<br>
                             • <strong>공공부문:</strong> 스마트 시티, 교통 최적화, 공공 서비스 개선
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🌐</span>
@@ -1003,87 +853,6 @@
                             • <strong>디지털 트윈:</strong> 물리적 세계의 디지털 복제<br>
                             • <strong>메타버스 플랫폼:</strong> 소셜, 게임, 비즈니스 활용
                         </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">💻</span>
-                        <div class="certificate-title">C/C++ 프로그래밍 기초 과정</div>
-                        <div class="certificate-issuer">그린컴퓨터아카데미 신촌</div>
-                        <div class="certificate-date">2013.11 - 2014.01</div>
-                        <div class="certificate-description">
-                            시스템 프로그래밍의 기초가 되는 C/C++ 언어를 체계적으로 학습하여 프로그래밍의 핵심 개념과 실무 적용 능력을 습득했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2013년 11월 ~ 2014년 1월 (3개월)<br>
-                            <strong>교육 분야:</strong> C 언어 기초, C++ 객체지향 프로그래밍<br>
-                            <strong>교육 방식:</strong> 이론 강의 + 실습 + 프로젝트 중심
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #f3e5f5; border-left-color: #9c27b0;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🔧 C 언어 기초 (1.5개월)</strong><br>
-                            • <strong>프로그래밍 기초:</strong> 변수, 상수, 데이터 타입, 연산자<br>
-                            • <strong>제어문:</strong> 조건문(if, switch), 반복문(for, while, do-while)<br>
-                            • <strong>함수:</strong> 함수 정의, 매개변수, 반환값, 재귀함수<br>
-                            • <strong>배열과 포인터:</strong> 1차원/2차원 배열, 포인터 개념 및 활용<br>
-                            • <strong>구조체:</strong> 사용자 정의 데이터 타입, 구조체 배열<br>
-                            • <strong>파일 입출력:</strong> 파일 열기/닫기, 읽기/쓰기, 파일 포인터<br><br>
-                            
-                            <strong>⚡ C++ 객체지향 프로그래밍 (1.5개월)</strong><br>
-                            • <strong>클래스와 객체:</strong> 클래스 정의, 객체 생성, 멤버 함수<br>
-                            • <strong>캡슐화:</strong> 접근 제어자(public, private, protected)<br>
-                            • <strong>상속:</strong> 단일/다중 상속, 상속 관계와 접근 제어<br>
-                            • <strong>다형성:</strong> 함수 오버로딩, 함수 오버라이딩, 가상 함수<br>
-                            • <strong>템플릿:</strong> 함수 템플릿, 클래스 템플릿<br>
-                            • <strong>예외 처리:</strong> try-catch 블록, 예외 클래스 정의<br><br>
-                            
-                            <strong>🎯 실습 프로젝트</strong><br>
-                            • <strong>C 프로젝트:</strong> 학생 관리 시스템, 도서 관리 프로그램<br>
-                            • <strong>C++ 프로젝트:</strong> 은행 계좌 관리 시스템, 게임 개발<br>
-                            • <strong>디버깅 기법:</strong> 디버거 활용, 오류 수정 방법<br>
-                            • <strong>코드 최적화:</strong> 성능 향상 기법, 메모리 관리
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">⚡</span>
-                        <div class="certificate-title">업무효율화 전문 과정</div>
-                        <div class="certificate-issuer">한국종합인재개발원</div>
-                        <div class="certificate-date">2018.12 - 2019.01</div>
-                        <div class="certificate-description">
-                            조직과 개인의 업무 효율성을 극대화하기 위한 체계적인 방법론과 실무 적용 기법을 학습하는 전문 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2018년 12월 ~ 2019년 1월 (2개월)<br>
-                            <strong>교육 분야:</strong> 업무효율화, 조직관리, 개인역량개발<br>
-                            <strong>교육 방식:</strong> 이론 강의 + 진단 도구 + 실습 워크샵
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #fff8e1; border-left-color: #ffc107;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🎯 1. 업무효율화의 정의와 필요성</strong><br>
-                            • <strong>업무효율화 개념:</strong> 생산성 향상, 시간 관리, 자원 최적화<br>
-                            • <strong>조직적 필요성:</strong> 경쟁력 강화, 비용 절감, 고객 만족도 향상<br>
-                            • <strong>개인적 필요성:</strong> 업무 만족도, 스트레스 감소, 성장 기회 확대<br>
-                            • <strong>디지털 시대의 변화:</strong> 업무 환경 변화, 새로운 효율화 도구<br><br>
-                            
-                            <strong>🛠️ 2. 업무효율화를 위한 방법</strong><br>
-                            • <strong>프로세스 개선:</strong> 업무 흐름 분석, 병목 구간 식별, 개선 방안 수립<br>
-                            • <strong>시간 관리 기법:</strong> 우선순위 설정, 일정 관리, 방해 요소 제거<br>
-                            • <strong>도구 활용:</strong> 디지털 도구, 자동화 시스템, 협업 플랫폼<br>
-                            • <strong>의사결정 최적화:</strong> 빠른 의사결정, 리스크 관리, 결과 평가<br><br>
-                            
-                            <strong>🔍 3. 개인의 업무효율성 진단</strong><br>
-                            • <strong>자기 진단 도구:</strong> 업무 스타일 분석, 강점/약점 파악<br>
-                            • <strong>시간 활용 분석:</strong> 업무 시간 분배, 낭비 시간 식별<br>
-                            • <strong>스트레스 요인 분석:</strong> 업무 부담도, 환경 요인, 개인 요인<br>
-                            • <strong>개선 영역 설정:</strong> 우선 개선 항목, 단계별 목표 수립<br><br>
-                            
-                            <strong>👥 4. 업무효율화를 위한 역할 정립</strong><br>
-                            • <strong>개인 역할:</strong> 자기 관리, 지속적 학습, 적극적 참여<br>
-                            • <strong>팀원 역할:</strong> 협력과 소통, 지식 공유, 상호 지원<br>
-                            • <strong>리더 역할:</strong> 환경 조성, 동기 부여, 성과 관리<br>
-                            • <strong>조직 역할:</strong> 시스템 구축, 문화 조성, 인센티브 제공
-                        </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🚀</span>
@@ -1126,7 +895,164 @@
                             • <strong>성과 피드백 시스템:</strong> 정기적 평가, 개선점 도출<br>
                             • <strong>성과 향상 전략:</strong> 동기부여, 인센티브, 개발 기회 제공
                         </div>
-                    </div>
+
+                    <div class="certificate-card">
+                        <span class="certificate-icon">⚡</span>
+                        <div class="certificate-title">업무효율화 전문 과정</div>
+                        <div class="certificate-issuer">한국종합인재개발원</div>
+                        <div class="certificate-date">2018.12 - 2019.01</div>
+                        <div class="certificate-description">
+                            조직과 개인의 업무 효율성을 극대화하기 위한 체계적인 방법론과 실무 적용 기법을 학습하는 전문 과정을 이수했습니다.
+                        </div>
+                        <div class="certificate-details">
+                            <strong>교육 기간:</strong> 2018년 12월 ~ 2019년 1월 (2개월)<br>
+                            <strong>교육 분야:</strong> 업무효율화, 조직관리, 개인역량개발<br>
+                            <strong>교육 방식:</strong> 이론 강의 + 진단 도구 + 실습 워크샵
+                        </div>
+                        <div class="certificate-details" style="margin-top: 10px; background: #fff8e1; border-left-color: #ffc107;">
+                            <strong>상세 학습 내용:</strong><br>
+                            <strong>🎯 1. 업무효율화의 정의와 필요성</strong><br>
+                            • <strong>업무효율화 개념:</strong> 생산성 향상, 시간 관리, 자원 최적화<br>
+                            • <strong>조직적 필요성:</strong> 경쟁력 강화, 비용 절감, 고객 만족도 향상<br>
+                            • <strong>개인적 필요성:</strong> 업무 만족도, 스트레스 감소, 성장 기회 확대<br>
+                            • <strong>디지털 시대의 변화:</strong> 업무 환경 변화, 새로운 효율화 도구<br><br>
+                            
+                            <strong>🛠️ 2. 업무효율화를 위한 방법</strong><br>
+                            • <strong>프로세스 개선:</strong> 업무 흐름 분석, 병목 구간 식별, 개선 방안 수립<br>
+                            • <strong>시간 관리 기법:</strong> 우선순위 설정, 일정 관리, 방해 요소 제거<br>
+                            • <strong>도구 활용:</strong> 디지털 도구, 자동화 시스템, 협업 플랫폼<br>
+                            • <strong>의사결정 최적화:</strong> 빠른 의사결정, 리스크 관리, 결과 평가<br><br>
+                            
+                            <strong>🔍 3. 개인의 업무효율성 진단</strong><br>
+                            • <strong>자기 진단 도구:</strong> 업무 스타일 분석, 강점/약점 파악<br>
+                            • <strong>시간 활용 분석:</strong> 업무 시간 분배, 낭비 시간 식별<br>
+                            • <strong>스트레스 요인 분석:</strong> 업무 부담도, 환경 요인, 개인 요인<br>
+                            • <strong>개선 영역 설정:</strong> 우선 개선 항목, 단계별 목표 수립<br><br>
+                            
+                            <strong>👥 4. 업무효율화를 위한 역할 정립</strong><br>
+                            • <strong>개인 역할:</strong> 자기 관리, 지속적 학습, 적극적 참여<br>
+                            • <strong>팀원 역할:</strong> 협력과 소통, 지식 공유, 상호 지원<br>
+                            • <strong>리더 역할:</strong> 환경 조성, 동기 부여, 성과 관리<br>
+                            • <strong>조직 역할:</strong> 시스템 구축, 문화 조성, 인센티브 제공
+                        </div>
+
+                    <div class="certificate-card">
+                        <span class="certificate-icon">💻</span>
+                        <div class="certificate-title">C/C++ 프로그래밍 기초 과정</div>
+                        <div class="certificate-issuer">그린컴퓨터아카데미 신촌</div>
+                        <div class="certificate-date">2013.11 - 2014.01</div>
+                        <div class="certificate-description">
+                            시스템 프로그래밍의 기초가 되는 C/C++ 언어를 체계적으로 학습하여 프로그래밍의 핵심 개념과 실무 적용 능력을 습득했습니다.
+                        </div>
+                        <div class="certificate-details">
+                            <strong>교육 기간:</strong> 2013년 11월 ~ 2014년 1월 (3개월)<br>
+                            <strong>교육 분야:</strong> C 언어 기초, C++ 객체지향 프로그래밍<br>
+                            <strong>교육 방식:</strong> 이론 강의 + 실습 + 프로젝트 중심
+                        </div>
+                        <div class="certificate-details" style="margin-top: 10px; background: #f3e5f5; border-left-color: #9c27b0;">
+                            <strong>상세 학습 내용:</strong><br>
+                            <strong>🔧 C 언어 기초 (1.5개월)</strong><br>
+                            • <strong>프로그래밍 기초:</strong> 변수, 상수, 데이터 타입, 연산자<br>
+                            • <strong>제어문:</strong> 조건문(if, switch), 반복문(for, while, do-while)<br>
+                            • <strong>함수:</strong> 함수 정의, 매개변수, 반환값, 재귀함수<br>
+                            • <strong>배열과 포인터:</strong> 1차원/2차원 배열, 포인터 개념 및 활용<br>
+                            • <strong>구조체:</strong> 사용자 정의 데이터 타입, 구조체 배열<br>
+                            • <strong>파일 입출력:</strong> 파일 열기/닫기, 읽기/쓰기, 파일 포인터<br><br>
+                            
+                            <strong>⚡ C++ 객체지향 프로그래밍 (1.5개월)</strong><br>
+                            • <strong>클래스와 객체:</strong> 클래스 정의, 객체 생성, 멤버 함수<br>
+                            • <strong>캡슐화:</strong> 접근 제어자(public, private, protected)<br>
+                            • <strong>상속:</strong> 단일/다중 상속, 상속 관계와 접근 제어<br>
+                            • <strong>다형성:</strong> 함수 오버로딩, 함수 오버라이딩, 가상 함수<br>
+                            • <strong>템플릿:</strong> 함수 템플릿, 클래스 템플릿<br>
+                            • <strong>예외 처리:</strong> try-catch 블록, 예외 클래스 정의<br><br>
+                            
+                            <strong>🎯 실습 프로젝트</strong><br>
+                            • <strong>C 프로젝트:</strong> 학생 관리 시스템, 도서 관리 프로그램<br>
+                            • <strong>C++ 프로젝트:</strong> 은행 계좌 관리 시스템, 게임 개발<br>
+                            • <strong>디버깅 기법:</strong> 디버거 활용, 오류 수정 방법<br>
+                            • <strong>코드 최적화:</strong> 성능 향상 기법, 메모리 관리
+                        </div>
+
+                    <div class="certificate-card">
+                        <span class="certificate-icon">🛒</span>
+                        <div class="certificate-title">(주)엔에스쇼핑 교육이수내역</div>
+                        <div class="certificate-issuer">(주)엔에스쇼핑</div>
+                        <div class="certificate-date">2013.04 ~ 2013.04</div>
+                        <div class="certificate-description">
+                            (주)엔에스쇼핑에서 실시하는 콜센터 교육 이수 과정으로, 홈쇼핑 업계의 핵심 업무인 수주, CS, 배송, 결제 시스템을 이론부터 실전까지 종합적으로 학습했습니다.
+                        </div>
+                        <div class="certificate-details">
+                            <strong>교육 구성 (총 56시간):</strong><br>
+                            ◎ <strong>이론교육 (20시간):</strong> 카드무통장교육, CS처리기준 교육, 배송업무 기준 등<br>
+                            ◎ <strong>시스템교육 (19시간):</strong> 수주시스템 실습, 수주시스템 응대 종합 실습, 반품시스템 실습, 반품시스템 응대종합 실습 등<br>
+                            ◎ <strong>실전OJT (14시간):</strong> 수주/CS 실전 OJT<br>
+                            ◎ <strong>기타교육 (3시간):</strong> NS홈쇼핑의 이해, 정보보안교육, 테스트평가
+                        </div>
+                        <div class="certificate-details" style="margin-top: 10px; background: #e8f5e8; border-left-color: #4caf50;">
+                            <strong>상세 학습 내용:</strong><br>
+                            <strong>📚 이론교육 (20시간)</strong><br>
+                            • <strong>카드무통장교육:</strong> 결제 시스템 이해, 카드사별 특성, 무통장입금 처리<br>
+                            • <strong>CS처리기준 교육:</strong> 고객 응대 표준, 불만 처리 프로세스, 만족도 관리<br>
+                            • <strong>배송업무 기준:</strong> 물류 시스템, 배송 추적, 반품/교환 처리 기준<br><br>
+                            
+                            <strong>💻 시스템교육 (19시간)</strong><br>
+                            • <strong>수주시스템 실습:</strong> 주문 접수, 재고 확인, 결제 처리 시스템<br>
+                            • <strong>수주시스템 응대 종합 실습:</strong> 고객 문의 응대, 주문 변경/취소 처리<br>
+                            • <strong>반품시스템 실습:</strong> 반품 접수, 상품 검수, 환불 처리 시스템<br>
+                            • <strong>반품시스템 응대종합 실습:</strong> 반품 사유 분석, 고객 상담 응대<br><br>
+                            
+                            <strong>🎯 실전OJT (14시간)</strong><br>
+                            • <strong>수주 실전 OJT:</strong> 실제 주문 처리, 고객 응대, 시스템 운영<br>
+                            • <strong>CS 실전 OJT:</strong> 고객 불만 처리, 문제 해결, 만족도 향상<br><br>
+                            
+                            <strong>🔧 기타교육 (3시간)</strong><br>
+                            • <strong>NS홈쇼핑의 이해:</strong> 회사 비전, 조직 문화, 업무 환경<br>
+                            • <strong>정보보안교육:</strong> 개인정보보호, 시스템 보안, 데이터 관리<br>
+                            • <strong>테스트평가:</strong> 교육 성과 측정, 업무 적성 평가
+                        </div>
+
+                    <div class="certificate-card">
+                        <span class="certificate-icon">📺</span>
+                        <div class="certificate-title">디지털방송/인터넷 상담 전문 과정</div>
+                        <div class="certificate-issuer">(주)딜라이브 텔레웍스</div>
+                        <div class="certificate-date">2009.10</div>
+                        <div class="certificate-description">
+                            디지털방송, 인터넷, 인터넷전화 서비스의 설치, AS, 요금, 해지 등 인바운드 상담에 관한 종합적인 전문 과정을 이수했습니다.
+                        </div>
+                        <div class="certificate-details">
+                            <strong>핵심 학습 영역:</strong><br>
+                            • <strong>디지털방송 서비스:</strong> 케이블TV, IPTV, 위성방송 설치 및 AS 상담<br>
+                            • <strong>인터넷 서비스:</strong> 광랜, VDSL, 무선인터넷 설치 및 장애 대응<br>
+                            • <strong>인터넷전화 서비스:</strong> VoIP, 번호이동, 통화품질 관리<br>
+                            • <strong>상담 운영:</strong> 인바운드 상담 이론, 스크립트, 전산실습
+                        </div>
+                        <div class="certificate-details" style="margin-top: 10px; background: #fff3e0; border-left-color: #ff9800;">
+                            <strong>상세 학습 내용:</strong><br>
+                            <strong>📺 디지털방송 서비스</strong><br>
+                            • 케이블TV, IPTV, 위성방송 시스템 이해<br>
+                            • 셋톱박스 설치 및 초기 설정 방법<br>
+                            • 방송 신호 품질 진단 및 문제 해결<br>
+                            • 채널 추가/변경 및 부가서비스 상담<br><br>
+                            
+                            <strong>🌐 인터넷 서비스</strong><br>
+                            • 광랜, VDSL, 무선인터넷 기술 이해<br>
+                            • 모뎀/공유기 설치 및 네트워크 구성<br>
+                            • 인터넷 속도 측정 및 최적화 방법<br>
+                            • 네트워크 장애 진단 및 복구 절차<br><br>
+                            
+                            <strong>📞 인터넷전화 서비스</strong><br>
+                            • VoIP 기술 및 통화 원리 이해<br>
+                            • 번호이동 및 통화품질 관리<br>
+                            • 인터넷전화 단말기 설정 및 AS<br>
+                            • 통화 요금 체계 및 부가서비스 상담<br><br>
+                            
+                            <strong>💼 상담 운영 전문성</strong><br>
+                            • 인바운드 상담 이론 및 고객 심리 이해<br>
+                            • 상황별 상담 스크립트 작성 및 활용<br>
+                            • 전산 시스템 실습 및 업무 프로세스<br>
+                            • 고객 불만 처리 및 만족도 향상 기법
+                        </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🔒</span>
@@ -1169,7 +1095,6 @@
                             • 예방 시스템 구축 및 운영<br>
                             • 보안 통제 현황 점검 및 개선
                         </div>
-                    </div>
 
                     <div class="certificate-card">
                         <span class="certificate-icon">🎯</span>
@@ -1188,106 +1113,8 @@
                             • 도움주기: 불만고객응대, 고객의 욕구해결<br>
                             • 유지하기: 충성고객 확보, 서비스이미지 남기기
                         </div>
-                    </div>
 
-                    <div class="certificate-card">
-                        <span class="certificate-icon">📞</span>
-                        <div class="certificate-title">고객응대 전문 과정</div>
-                        <div class="certificate-issuer">딜라이브 텔레웍스</div>
-                        <div class="certificate-date">2005.08</div>
-                        <div class="certificate-description">
-                            콜센터 환경에서의 전문적인 고객 응대 기법과 커뮤니케이션 스킬을 습득하여 고객 만족도를 극대화하는 과정을 이수했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2005년 8월 (1개월)<br>
-                            <strong>교육 분야:</strong> 고객응대, 커뮤니케이션, 콜센터 운영<br>
-                            <strong>교육 방식:</strong> 이론 강의 + 실습 + 롤플레잉
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #f0f8ff; border-left-color: #1e90ff;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🎯 1. 고객응대 기초</strong><br>
-                            • <strong>고객응대의 중요성:</strong> 고객 만족과 기업 성과의 연관성<br>
-                            • <strong>고객심리 이해:</strong> 고객의 니즈와 감정 상태 파악<br>
-                            • <strong>전화응대 기본예절:</strong> 인사, 말투, 경청, 정중한 대화<br>
-                            • <strong>고객응대 표준화:</strong> 일관된 서비스 품질 제공<br><br>
-                            
-                            <strong>💬 2. 커뮤니케이션 스킬</strong><br>
-                            • <strong>적극적 경청:</strong> 고객의 말에 집중하고 이해하기<br>
-                            • <strong>공감적 대화:</strong> 고객의 감정에 공감하고 반영<br>
-                            • <strong>명확한 설명:</strong> 복잡한 내용을 쉽게 전달하는 기법<br>
-                            • <strong>질문 기법:</strong> 효과적인 질문으로 니즈 파악<br><br>
-                            
-                            <strong>🛠️ 3. 문제해결 능력</strong><br>
-                            • <strong>고객 불만 처리:</strong> 불만 고객 응대 및 해결 방법<br>
-                            • <strong>분쟁 해결:</strong> 갈등 상황에서의 중재 기법<br>
-                            • <strong>대안 제시:</strong> 고객 요구에 대한 다양한 해결책 제공<br>
-                            • <strong>후속 조치:</strong> 문제 해결 후 만족도 확인 및 개선<br><br>
-                            
-                            <strong>📊 4. 콜센터 운영</strong><br>
-                            • <strong>콜센터 시스템:</strong> 전화 시스템 및 CRM 도구 활용<br>
-                            • <strong>업무 효율성:</strong> 빠르고 정확한 응대를 위한 기법<br>
-                            • <strong>품질 관리:</strong> 응대 품질 평가 및 개선 방안<br>
-                            • <strong>스트레스 관리:</strong> 고객응대 업무의 스트레스 대처법
-                        </div>
-                    </div>
-
-                    <div class="certificate-card">
-                        <span class="certificate-icon">🛒</span>
-                        <div class="certificate-title">온라인 쇼핑몰 운영 과정</div>
-                        <div class="certificate-issuer">엔에스쇼핑</div>
-                        <div class="certificate-date">2004.06</div>
-                        <div class="certificate-description">
-                            온라인 쇼핑몰의 구축부터 운영, 마케팅까지 전 과정을 체계적으로 학습하여 디지털 비즈니스 역량을 습득했습니다.
-                        </div>
-                        <div class="certificate-details">
-                            <strong>교육 기간:</strong> 2004년 6월 (1개월)<br>
-                            <strong>교육 분야:</strong> 온라인 쇼핑몰, 전자상거래, 디지털 마케팅<br>
-                            <strong>교육 방식:</strong> 이론 강의 + 실습 + 프로젝트
-                        </div>
-                        <div class="certificate-details" style="margin-top: 10px; background: #fff0f5; border-left-color: #ff69b4;">
-                            <strong>상세 학습 내용:</strong><br>
-                            <strong>🛍️ 1. 온라인 쇼핑몰 기초</strong><br>
-                            • <strong>전자상거래 개요:</strong> 온라인 비즈니스의 특징과 장점<br>
-                            • <strong>쇼핑몰 유형:</strong> B2C, B2B, C2C 모델 이해<br>
-                            • <strong>시장 분석:</strong> 온라인 쇼핑 시장 동향 및 경쟁 분석<br>
-                            • <strong>사업 계획:</strong> 온라인 쇼핑몰 사업 계획 수립<br><br>
-                            
-                            <strong>💻 2. 쇼핑몰 구축</strong><br>
-                            • <strong>기술적 요구사항:</strong> 웹 서버, 데이터베이스, 보안<br>
-                            • <strong>사용자 인터페이스:</strong> 직관적이고 사용하기 쉬운 UI/UX 설계<br>
-                            • <strong>결제 시스템:</strong> 다양한 결제 방법 및 보안<br>
-                            • <strong>재고 관리:</strong> 상품 관리 및 재고 추적 시스템<br><br>
-                            
-                            <strong>📈 3. 온라인 마케팅</strong><br>
-                            • <strong>검색엔진 최적화(SEO):</strong> 검색 결과 상위 노출 기법<br>
-                            • <strong>소셜미디어 마케팅:</strong> SNS를 활용한 홍보 전략<br>
-                            • <strong>이메일 마케팅:</strong> 고객 대상 맞춤형 이메일 캠페인<br>
-                            • <strong>콘텐츠 마케팅:</strong> 블로그, 동영상 등 콘텐츠 활용<br><br>
-                            
-                            <strong>📊 4. 운영 및 관리</strong><br>
-                            • <strong>고객 서비스:</strong> 온라인 고객 응대 및 CS 관리<br>
-                            • <strong>데이터 분석:</strong> 방문자 통계, 매출 분석, 고객 행동 분석<br>
-                            • <strong>품질 관리:</strong> 상품 품질 및 서비스 품질 관리<br>
-                            • <strong>법적 준수:</strong> 전자상거래법, 개인정보보호법 준수
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-
-
-
-        <!-- 다운로드 섹션 -->
-        <div class="download-section">
-            <h3 class="download-title">📄 교육&자격 자료 다운로드</h3>
-            <div class="download-buttons">
-                <a href="#" class="download-btn">🎓 자격증 모음</a>
-                <a href="#" class="download-btn">📚 교육 수료증</a>
-                <a href="#" class="download-btn">📋 상세 이력서 PDF</a>
-                <a href="#" class="download-btn">📈 실적 보고서</a>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
@@ -1311,6 +1138,82 @@
 
             timelineItems.forEach(item => {
                 observer.observe(item);
+            });
+
+            // 네비게이션 링크를 직접 페이지 이동으로 처리
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.stopPropagation(); // 이벤트 버블링 중지
+                    e.preventDefault(); // 기본 동작 방지
+                    
+                    const href = this.getAttribute('href');
+                    
+                    // 직접 페이지 이동
+                    if (href) {
+                        window.location.href = href;
+                    }
+                }, true); // 캡처링 단계에서 실행하여 다른 이벤트보다 먼저 처리
+            });
+
+            // 탭 기능 추가
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // 모든 탭 버튼에서 active 클래스 제거
+                    tabBtns.forEach(tab => tab.classList.remove('active'));
+                    
+                    // 모든 탭 콘텐츠에서 active 클래스 제거
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // 클릭된 탭 버튼에 active 클래스 추가
+                    this.classList.add('active');
+                    
+                    // 해당 탭 콘텐츠에 active 클래스 추가
+                    const targetContent = document.getElementById(targetTab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+
+            // 교육 과정 카드 아코디언 기능 추가
+            const certificateCards = document.querySelectorAll('.certificate-card');
+            
+            certificateCards.forEach(card => {
+                const title = card.querySelector('.certificate-title');
+                const details = card.querySelectorAll('.certificate-details');
+                
+                if (title && details.length > 0) {
+                    // 초기 상태: 상세 내용 숨김
+                    details.forEach(detail => {
+                        detail.style.display = 'none';
+                    });
+                    
+                    // 제목에 클릭 이벤트 추가
+                    title.style.cursor = 'pointer';
+                    title.style.userSelect = 'none';
+                    title.addEventListener('click', function() {
+                        // 현재 카드의 상세 내용 토글
+                        const isExpanded = details[0].style.display !== 'none';
+                        
+                        details.forEach(detail => {
+                            if (isExpanded) {
+                                detail.style.display = 'none';
+                                card.classList.remove('expanded');
+                            } else {
+                                detail.style.display = 'block';
+                                card.classList.add('expanded');
+                            }
+                        });
+                    });
+                }
             });
         });
     </script>

@@ -271,16 +271,27 @@ function initializeNavigation() {
     // Smooth scrolling for nav links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
             
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            // 외부 링크 (페이지 이동)는 기본 동작 허용
+            if (targetId.startsWith('pages/') || targetId.startsWith('http') || targetId.includes('.html')) {
+                // 기본 동작 허용 (페이지 이동)
+                closeMobileMenu();
+                return true;
+            }
+            
+            // 앵커 링크만 preventDefault 적용
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
 
             // Close mobile menu if open

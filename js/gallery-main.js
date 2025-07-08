@@ -166,11 +166,11 @@ class LuxeStudio {
 
     preloadImages() {
         const imageUrls = [
-            'img_gallery/logo.png',
-            'img_gallery/luxury-bg.jpg',
-            'img_gallery/creative-bg.jpg',
-            'img_gallery/digital-bg.jpg',
-            'img_gallery/premium-bg.jpg'
+            '../assets/images/gallery/logo.png',
+            '../assets/images/gallery/luxury-bg.jpg',
+            '../assets/images/gallery/creative-bg.jpg',
+            '../assets/images/gallery/digital-bg.jpg',
+            '../assets/images/gallery/premium-bg.jpg'
         ];
 
         imageUrls.forEach(url => {
@@ -305,68 +305,68 @@ class LuxeStudio {
         // 각 취미별 사진 데이터
         const hobbyPhotos = {
             travel: [
-                { src: 'img_gallery/hobby_photos/travel/travel1.jpg', title: '부산 바다에서', description: '파도소리가 너무 좋아' },
-                { src: 'img_gallery/hobby_photos/travel/travel2.jpg', title: '비행기 타고 여행', description: '여행은 즐거워' },
-                { src: 'img_gallery/hobby_photos/travel/travel3.jpg', title: '하늘위 풍경', description: '너무 아름다워' },
-                { src: 'img_gallery/hobby_photos/travel/travel4.jpg', title: '파주 마장 호수에서', description: '출렁다리를 찾아서' },
-                { src: 'img_gallery/hobby_photos/travel/travel5.jpg', title: '하늘위에서 야경', description: '야경은 너무 아름다워' },
-                { src: 'img_gallery/hobby_photos/travel/travel6.jpg', title: '다시 생각나는 바다', description: '바다와 함께하는 시간' }
+                { src: '../assets/images/gallery/hobby_photos/travel/travel1.jpg', title: '부산 바다에서', description: '파도소리가 너무 좋아' },
+                { src: '../assets/images/gallery/hobby_photos/travel/travel2.jpg', title: '비행기 타고 여행', description: '여행은 즐거워' },
+                { src: '../assets/images/gallery/hobby_photos/travel/travel3.jpg', title: '하늘위 풍경', description: '너무 아름다워' },
+                { src: '../assets/images/gallery/hobby_photos/travel/travel4.jpg', title: '파주 마장 호수에서', description: '출렁다리를 찾아서' },
+                { src: '../assets/images/gallery/hobby_photos/travel/travel5.jpg', title: '하늘위에서 야경', description: '야경은 너무 아름다워' },
+                { src: '../assets/images/gallery/hobby_photos/travel/travel6.jpg', title: '다시 생각나는 바다', description: '바다와 함께하는 시간' }
             ],
             movie: [
-                { src: 'img_gallery/hobby_photos/movie/movie1.jpg', title: '영화관에서', description: '대형 스크린의 몰입감' },
-                { src: 'img_gallery/hobby_photos/movie/movie2.jpg', title: '인상 깊은 장면', description: '잊을 수 없는 순간들' },
-                { src: 'img_gallery/hobby_photos/movie/movie3.jpg', title: '영화 포스터', description: '수집한 영화 포스터들' },
-                { src: 'img_gallery/hobby_photos/movie/movie4.jpg', title: '영화 티켓', description: '기념으로 남긴 티켓들' },
-                { src: 'img_gallery/hobby_photos/movie/movie5.jpg', title: '영화 리뷰', description: '작성한 영화 리뷰들' },
-                { src: 'img_gallery/hobby_photos/movie/movie6.jpg', title: '영화 OST', description: '좋아하는 영화 음악' }
+                { src: '../assets/images/gallery/hobby_photos/movie/movie1.jpg', title: '영화관에서', description: '대형 스크린의 몰입감' },
+                { src: '../assets/images/gallery/hobby_photos/movie/movie2.jpg', title: '인상 깊은 장면', description: '잊을 수 없는 순간들' },
+                { src: '../assets/images/gallery/hobby_photos/movie/movie3.jpg', title: '영화 포스터', description: '수집한 영화 포스터들' },
+                { src: '../assets/images/gallery/hobby_photos/movie/movie4.jpg', title: '영화 티켓', description: '기념으로 남긴 티켓들' },
+                { src: '../assets/images/gallery/hobby_photos/movie/movie5.jpg', title: '영화 리뷰', description: '작성한 영화 리뷰들' },
+                { src: '../assets/images/gallery/hobby_photos/movie/movie6.jpg', title: '영화 OST', description: '좋아하는 영화 음악' }
             ],
             web: [
-                { src: 'img_gallery/web-bg.jpg', title: '웹 검색', description: '새로운 정보 탐색' },
-                { src: 'img_gallery/web-bg.jpg', title: '기술 블로그', description: '최신 기술 동향' },
-                { src: 'img_gallery/web-bg.jpg', title: '온라인 강의', description: '지식 습득의 시간' },
-                { src: 'img_gallery/web-bg.jpg', title: '웹 개발', description: '코딩과 디버깅' },
-                { src: 'img_gallery/web-bg.jpg', title: '디자인 참고', description: '아름다운 웹사이트들' },
-                { src: 'img_gallery/web-bg.jpg', title: '온라인 커뮤니티', description: '지식 공유의 장' }
+                { src: '../assets/images/gallery/web-bg.jpg', title: '웹 검색', description: '새로운 정보 탐색' },
+                { src: '../assets/images/gallery/web-bg.jpg', title: '기술 블로그', description: '최신 기술 동향' },
+                { src: '../assets/images/gallery/web-bg.jpg', title: '온라인 강의', description: '지식 습득의 시간' },
+                { src: '../assets/images/gallery/web-bg.jpg', title: '웹 개발', description: '코딩과 디버깅' },
+                { src: '../assets/images/gallery/web-bg.jpg', title: '디자인 참고', description: '아름다운 웹사이트들' },
+                { src: '../assets/images/gallery/web-bg.jpg', title: '온라인 커뮤니티', description: '지식 공유의 장' }
             ],
             drive: [
-                { src: 'img_gallery/drive-bg.jpg', title: '도로 위에서', description: '자유로운 드라이브' },
-                { src: 'img_gallery/drive-bg.jpg', title: '풍경 감상', description: '창 밖의 아름다운 풍경' },
-                { src: 'img_gallery/drive-bg.jpg', title: '휴게소에서', description: '잠시 쉬어가는 시간' },
-                { src: 'img_gallery/drive-bg.jpg', title: '야경 드라이브', description: '밤의 도시를 달리며' },
-                { src: 'img_gallery/drive-bg.jpg', title: '고속도로', description: '빠른 속도로 달리는 즐거움' },
-                { src: 'img_gallery/drive-bg.jpg', title: '산악 도로', description: '구불구불한 산길' }
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '도로 위에서', description: '자유로운 드라이브' },
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '풍경 감상', description: '창 밖의 아름다운 풍경' },
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '휴게소에서', description: '잠시 쉬어가는 시간' },
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '야경 드라이브', description: '밤의 도시를 달리며' },
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '고속도로', description: '빠른 속도로 달리는 즐거움' },
+                { src: '../assets/images/gallery/drive-bg.jpg', title: '산악 도로', description: '구불구불한 산길' }
             ],
             game: [
-                { src: 'img_gallery/game-bg.jpg', title: '게임 플레이', description: '가상 세계의 모험' },
-                { src: 'img_gallery/game-bg.jpg', title: '게임 스크린샷', description: '특별한 순간들을 기록' },
-                { src: 'img_gallery/game-bg.jpg', title: '게임 컬렉션', description: '수집한 게임들' },
-                { src: 'img_gallery/game-bg.jpg', title: '멀티플레이', description: '친구들과 함께하는 게임' },
-                { src: 'img_gallery/game-bg.jpg', title: '게임 리뷰', description: '플레이한 게임들의 후기' },
-                { src: 'img_gallery/game-bg.jpg', title: '게임 설정', description: '최적화된 게임 환경' }
+                { src: '../assets/images/gallery/game-bg.jpg', title: '게임 플레이', description: '가상 세계의 모험' },
+                { src: '../assets/images/gallery/game-bg.jpg', title: '게임 스크린샷', description: '특별한 순간들을 기록' },
+                { src: '../assets/images/gallery/game-bg.jpg', title: '게임 컬렉션', description: '수집한 게임들' },
+                { src: '../assets/images/gallery/game-bg.jpg', title: '멀티플레이', description: '친구들과 함께하는 게임' },
+                { src: '../assets/images/gallery/game-bg.jpg', title: '게임 리뷰', description: '플레이한 게임들의 후기' },
+                { src: '../assets/images/gallery/game-bg.jpg', title: '게임 설정', description: '최적화된 게임 환경' }
             ],
             photo: [
-                { src: 'img_gallery/photo-bg.jpg', title: '사진 촬영', description: '렌즈로 담아낸 순간들' },
-                { src: 'img_gallery/photo-bg.jpg', title: '자연 사진', description: '자연의 아름다움' },
-                { src: 'img_gallery/photo-bg.jpg', title: '도시 사진', description: '도시의 다양한 모습' },
-                { src: 'img_gallery/photo-bg.jpg', title: '인물 사진', description: '사람들의 표정과 감정' },
-                { src: 'img_gallery/photo-bg.jpg', title: '사진 편집', description: '후보정 작업' },
-                { src: 'img_gallery/photo-bg.jpg', title: '사진 전시', description: '작품 전시회' }
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '사진 촬영', description: '렌즈로 담아낸 순간들' },
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '자연 사진', description: '자연의 아름다움' },
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '도시 사진', description: '도시의 다양한 모습' },
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '인물 사진', description: '사람들의 표정과 감정' },
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '사진 편집', description: '후보정 작업' },
+                { src: '../assets/images/gallery/photo-bg.jpg', title: '사진 전시', description: '작품 전시회' }
             ],
             sns: [
-                { src: 'img_gallery/sns-bg.jpg', title: '소셜미디어', description: '일상을 공유하는 공간' },
-                { src: 'img_gallery/sns-bg.jpg', title: '인스타그램', description: '사진과 스토리 공유' },
-                { src: 'img_gallery/sns-bg.jpg', title: '페이스북', description: '친구들과 소통' },
-                { src: 'img_gallery/sns-bg.jpg', title: '트위터', description: '짧은 생각들을 나누며' },
-                { src: 'img_gallery/sns-bg.jpg', title: '유튜브', description: '영상 콘텐츠 제작' },
-                { src: 'img_gallery/sns-bg.jpg', title: '블로그', description: '긴 글과 생각 정리' }
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '소셜미디어', description: '일상을 공유하는 공간' },
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '인스타그램', description: '사진과 스토리 공유' },
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '페이스북', description: '친구들과 소통' },
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '트위터', description: '짧은 생각들을 나누며' },
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '유튜브', description: '영상 콘텐츠 제작' },
+                { src: '../assets/images/gallery/sns-bg.jpg', title: '블로그', description: '긴 글과 생각 정리' }
             ],
             book: [
-                { src: 'img_gallery/book-bg.jpg', title: '독서 시간', description: '책과 함께하는 여유' },
-                { src: 'img_gallery/book-bg.jpg', title: '책장 정리', description: '수집한 책들' },
-                { src: 'img_gallery/book-bg.jpg', title: '독서 노트', description: '읽은 내용 정리' },
-                { src: 'img_gallery/book-bg.jpg', title: '독서 모임', description: '책에 대해 이야기하는 시간' },
-                { src: 'img_gallery/book-bg.jpg', title: '도서관', description: '지식의 보고' },
-                { src: 'img_gallery/book-bg.jpg', title: '독서 리뷰', description: '읽은 책들의 후기' }
+                { src: '../assets/images/gallery/book-bg.jpg', title: '독서 시간', description: '책과 함께하는 여유' },
+                { src: '../assets/images/gallery/book-bg.jpg', title: '책장 정리', description: '수집한 책들' },
+                { src: '../assets/images/gallery/book-bg.jpg', title: '독서 노트', description: '읽은 내용 정리' },
+                { src: '../assets/images/gallery/book-bg.jpg', title: '독서 모임', description: '책에 대해 이야기하는 시간' },
+                { src: '../assets/images/gallery/book-bg.jpg', title: '도서관', description: '지식의 보고' },
+                { src: '../assets/images/gallery/book-bg.jpg', title: '독서 리뷰', description: '읽은 책들의 후기' }
             ]
         };
 
