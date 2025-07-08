@@ -571,7 +571,7 @@ function getSalesDetails(title, category) {
         '다분야 전산관리 경험': {
             title: '다분야 전산관리 경험',
             category: '전산유지보수',
-            image: 'img/core_img/computer_service.png',
+            image: 'assets/images/core/computer_service.png',
             description: '컴퓨터 조립과 수리를 취미로 시작해 자연스럽게 IT 업계에 첫발을 내디뎠습니다. 개인 컴퓨터 수리센터 근무부터 시작해 컴퓨터교육 중소기업, 부동산업계 매물관리프로그램, 공장 사무실 등 다양한 분야의 전산관리를 경험하며 폭넓은 실무 역량을 쌓았습니다.',
             achievements: [
                 '🖥️ 다양한 산업군 경험: 교육, 부동산, 제조업 등 각기 다른 산업 환경에 최적화된 IT 솔루션 제공',
@@ -586,7 +586,7 @@ function getSalesDetails(title, category) {
         '교육청 전산유지보수': {
             title: '교육청 전산유지보수',
             category: '전산유지보수',
-            image: 'img/core_img/edu.png',
+            image: 'assets/images/core/edu.png',
             description: '개인사업자에서 법인 전환 직후, 실적 제로 상황에서도 교육청 수의계약 수주에 성공한 대규모 IT 인프라 관리 프로젝트입니다. 교육청 산하 학교 및 기관의 전산장비 및 OA 사무기기 통합 관리, 하드웨어 장애 대응 및 예방 정비 서비스 제공, 네트워크 인프라 안정성 확보 및 성능 최적화, 전산소모품 공급 및 보안솔루션 도입 컨설팅을 담당했습니다.',
             achievements: [
                 '🖥️ 대규모 인프라 관리: 전산장비 및 OA 사무기기 2,000대 규모 완벽 관리, PC, 서버, 네트워크 장비 통합 운영 및 유지보수, 시스템 가동률 99.8% 달성으로 무장애 서비스 실현',
@@ -601,7 +601,7 @@ function getSalesDetails(title, category) {
         '스마트미러 OEM 개발': {
             title: '스마트미러 OEM 개발',
             category: '기술영업',
-            image: 'img/core_img/smart%20mirror.png',
+            image: 'assets/images/core/smart mirror.png',
             description: '기존 스마트미러 제품을 미용실 특화 솔루션으로 완전히 재탄생시킨 혁신적인 OEM 개발 프로젝트입니다. 기존 하드웨어 플랫폼 기반 UI/UX 완전 재설계, 미용실 특화 기능 개발 및 사용자 경험 최적화, 터치 인터페이스 기반 직관적 조작 시스템 구현, B2B 판매 채널 구축 및 전국 대리점 네트워크 확장 전략을 수립했습니다.',
             achievements: [
                 '✨ 미용실 특화 UI/UX 완전 재설계: 기존 범용 제품 대비 사용성 300% 향상',
@@ -615,7 +615,7 @@ function getSalesDetails(title, category) {
         '대학병원 정보보호팀': {
             title: '대학병원 정보보호팀 관리',
             category: '전산유지보수',
-            image: 'img/core_img/hos.png',
+            image: 'assets/images/core/hos.png',
             description: '3명 팀의 리더로서 대학병원 전체 IT 인프라를 총괄 관리했습니다. 의료진의 업무 중단 없이 안정적인 서비스를 제공하는 극도로 까다로운 환경에서 완벽한 시스템 운영을 달성했습니다.',
             achievements: [
                 '병원 전체 IT 인프라 총괄 관리',
@@ -632,7 +632,7 @@ function getSalesDetails(title, category) {
         '카드발급기 기술영업 전문가': {
             title: '카드발급기 기술영업 전문가',
             category: '기술영업',
-            image: 'img/core_img/card_print.png',
+            image: 'assets/images/core/card_print.png',
             description: '카드발급기 제조사에서 다양한 산업 분야의 고객을 대상으로 기술영업을 담당했습니다. 각 업종별 특성에 맞는 맞춤형 솔루션을 제안하고, 설치부터 유지보수까지 원스톱 서비스를 제공하여 고객 만족도를 극대화했습니다.',
             achievements: [
                 '🏥 의료기관 진료카드 시스템: 국내 상급 대학병원 환자 진료카드 발급기 영업 및 납품 성공',

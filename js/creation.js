@@ -3,7 +3,7 @@ function getCreationData() {
         '디지털 마케팅 혁신': {
             title: '디지털 마케팅 혁신',
             category: '창작활동',
-            image: 'img/creation_img/digi_mark.png',
+            image: 'assets/images/creation/digi_mark.png',
             description: '블로그 마케팅을 중심으로 한 디지털 브랜딩 전략을 통해 단기간에 1,400명 이상의 강력한 온라인 네트워크를 구축했습니다. 콘텐츠 기획, 제작, 배포 및 커뮤니티 관리를 통해 유의미한 상호작용을 이끌어냈습니다.',
             achievements: [
                 '🚀 5개월 만에 블로그 이웃 1,400명 돌파',
@@ -19,7 +19,7 @@ function getCreationData() {
         'AI 음악 창작': {
             title: 'AI 음악 창작',
             category: '창작활동',
-            image: 'img/creation_img/ai_music.png',
+            image: 'assets/images/creation/ai_music.png',
             description: '인공지능 음악 생성 도구를 활용하여 100곡 이상의 독창적인 음원을 작곡하고 편곡했습니다. 기술과 예술을 융합하여 새로운 창작의 가능성을 탐구하고, 다양한 플랫폼에 음원을 배포하여 5,000회 이상의 스트리밍을 기록했습니다.',
             achievements: [
                 '🎵 총 100곡 이상의 AI 기반 음원 작곡 및 편곡',
@@ -35,7 +35,7 @@ function getCreationData() {
         '과학 교육 콘텐츠': {
             title: '과학 교육 콘텐츠',
             category: '창작활동',
-            image: 'img/creation_img/sci_edu.png',
+            image: 'assets/images/creation/sci_edu.png',
             description: '복잡하고 어려운 과학 원리를 일반 대중과 청소년이 쉽게 이해할 수 있도록 시각 자료와 흥미로운 스토리텔링을 결합한 교육 콘텐츠를 제작했습니다. 블로그와 소셜미디어를 통해 100개 이상의 콘텐츠를 발행하여 5,000명 이상의 학습자에게 도달했습니다.',
             achievements: [
                 '📚 100개 이상의 과학 교육 콘텐츠 제작 및 발행',
@@ -51,7 +51,7 @@ function getCreationData() {
         '소셜미디어 운영': {
             title: '소셜미디어 운영',
             category: '창작활동',
-            image: 'img/creation_img/sns_mgmt.png',
+            image: 'assets/images/creation/sns_mgmt.png',
             description: '네이버 블로그, 인스타그램, 틱톡, 유튜브 등 4개의 소셜미디어 채널을 전략적으로 운영하여 총 13,000명 이상의 팔로워를 확보했습니다. 각 플랫폼의 특성에 맞는 콘텐츠를 기획하고 꾸준히 소통하며 개인 브랜딩을 성공적으로 구축했습니다.',
             achievements: [
                 '👥 4개 소셜미디어 채널 총 13,000+ 팔로워 확보',
@@ -67,7 +67,7 @@ function getCreationData() {
         '바이브 코딩': {
             title: '바이브 코딩',
             category: '창작활동',
-            image: 'img/creation_img/coding.png',
+            image: 'assets/images/creation/coding.png',
             description: '개인 홈페이지, AI 창작 자료실 등 웹사이트를 직접 기획하고 개발하며 최신 기술을 꾸준히 탐구하고 적용합니다. 기술 영업과 현장 경험을 바탕으로 사용자에게 정말 필요한 기능이 무엇인지 고민하고, 이를 직접 코드로 구현하는 과정을 즐깁니다.',
             achievements: [
                 '🖥️ 개인 포트폴리오 사이트: 직접 기획, 디자인, 개발한 반응형 웹사이트 (현재 보고 계신 사이트)',

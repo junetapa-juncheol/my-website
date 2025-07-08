@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
     
     <style>
         /* Sitemap specific styles */
@@ -165,18 +165,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html" style="text-decoration: none;">
+                <a href="../index.html" style="text-decoration: none;">
                     <span class="logo-text">Junetapa</span>
                     <span class="logo-subtitle">IT Story</span>
                 </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#home" class="nav-link">홈</a></li>
-                <li><a href="index.html#about" class="nav-link">소개</a></li>
-                <li><a href="index.html#sales" class="nav-link">핵심역량</a></li>
-                <li><a href="index.html#hobby" class="nav-link">창작활동</a></li>
-                <li><a href="jstudio.html" class="nav-link" target="_blank">취미</a></li>
-                <li><a href="index.html#contact" class="nav-link">연락처</a></li>
+                                    <li><a href="../index.html#home" class="nav-link">홈</a></li>
+                    <li><a href="../index.html#about" class="nav-link">소개</a></li>
+                    <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
+                    <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
+                    <li><a href="jstudio.html" class="nav-link" target="_blank">취미</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -206,19 +206,23 @@
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
-                            <a href="index.html" style="color: #333; text-decoration: none;">홈페이지 (메인)</a>
+                            <a href="../index.html" style="color: #333; text-decoration: none;">홈페이지 (메인)</a>
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
-                            <a href="index.html#about" style="color: #333; text-decoration: none;">소개 섹션</a>
+                            <a href="../index.html#about" style="color: #333; text-decoration: none;">소개 섹션</a>
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
-                            <a href="index.html#sales" style="color: #333; text-decoration: none;">핵심 전문역량</a>
+                            <a href="../index.html#sales" style="color: #333; text-decoration: none;">핵심 전문역량</a>
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
-                            <a href="index.html#hobby" style="color: #333; text-decoration: none;">창작 활동</a>
+                            <a href="../index.html#hobby" style="color: #333; text-decoration: none;">창작 활동</a>
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0;">🔗</span>
+                            <a href="experience-education.html" style="color: #333; text-decoration: none;">활동&교육 이력</a>
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
@@ -226,7 +230,7 @@
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
-                            <a href="index.html#contact" style="color: #333; text-decoration: none;">연락처</a>
+                            <a href="../index.html#contact" style="color: #333; text-decoration: none;">연락처</a>
                         </li>
                         <li style="margin-bottom: 12px; padding-left: 20px; position: relative;">
                             <span style="position: absolute; left: 0;">🔗</span>
@@ -260,6 +264,19 @@
                     <h3 style="color: var(--primary-color); margin-bottom: 20px; font-family: var(--font-secondary); font-size: 1.5rem;">📋 업데이트 내역</h3>
                     
                     <!-- 2025년 5~7월 개발 히스토리 (최신순) -->
+                    <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                        <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.08</div>
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">파일 구조 정리 및 링크 연결 최적화</div>
+                        <div style="color: #666; line-height: 1.6;">
+                            <ul style='margin-left: 1em; padding-left: 0; list-style: disc;'>
+                                <li>jstudio.html, sitemap.html을 pages 폴더로 이동</li>
+                                <li>모든 페이지 간 링크 연결 경로 수정 (상대 경로 최적화)</li>
+                                <li>CSS, JS, 이미지 파일 경로 수정 (../css/, ../js/, ../img/)</li>
+                                <li>네비게이션 및 푸터 링크 일관성 확보</li>
+                                <li>파일 구조 체계화로 관리 효율성 향상</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div style="border-left: 3px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
                         <div style="font-weight: 600; color: var(--primary-color); font-size: 1.1rem; margin-bottom: 8px;">2025.07.04</div>
                         <div style="font-weight: 600; margin-bottom: 8px; color: #333;">구조 간소화 및 콘텐츠/디자인 개선</div>
@@ -345,7 +362,7 @@
             
             <!-- Back to Home Button -->
             <div style="text-align: center; margin-top: 50px;">
-                <a href="index.html" class="back-home-btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; text-decoration: none; background: var(--gradient-primary); color: white; font-weight: 600; transition: var(--transition-medium);">
+                <a href="../index.html" class="back-home-btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; text-decoration: none; background: var(--gradient-primary); color: white; font-weight: 600; transition: var(--transition-medium);">
                     <span>← 홈으로 돌아가기</span>
                 </a>
             </div>
@@ -359,12 +376,13 @@
                 <div class="footer-section">
                     <h4>탐색</h4>
                     <ul>
-                        <li><a href="index.html#home">홈</a></li>
-                        <li><a href="index.html#about">소개</a></li>
-                        <li><a href="index.html#sales">핵심역량</a></li>
-                        <li><a href="index.html#hobby">창작활동</a></li>
+                        <li><a href="../index.html#home">홈</a></li>
+                        <li><a href="../index.html#about">소개</a></li>
+                        <li><a href="../index.html#sales">핵심역량</a></li>
+                        <li><a href="../index.html#hobby">창작활동</a></li>
+                        <li><a href="experience-education.html">활동&교육</a></li>
                         <li><a href="jstudio.html" target="_blank">취미</a></li>
-                        <li><a href="index.html#contact">연락처</a></li>
+                        <li><a href="../index.html#contact">연락처</a></li>
                         <li><a href="sitemap.html">사이트맵</a></li>
                     </ul>
                 </div>
@@ -415,6 +433,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html> 
