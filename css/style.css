@@ -109,9 +109,25 @@ body {
     top: 0;
     width: 100%;
     background: rgba(255,255,255,0.97);
-    transition: background 0.4s cubic-bezier(.4,0,.2,1), backdrop-filter 0.4s;
+    transition: background 0.4s cubic-bezier(.4,0,.2,1), backdrop-filter 0.4s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(0px);
     z-index: 1000;
+    transform: translateY(0);
+}
+
+/* Navigation hide/show animations */
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.nav-visible {
+    transform: translateY(0);
+}
+
+/* Ensure navbar is always visible when mobile menu is active */
+.navbar .nav-menu.active ~ .navbar,
+.navbar .hamburger.active ~ .navbar {
+    transform: translateY(0) !important;
 }
 
 .navbar.scrolled {
@@ -277,19 +293,27 @@ body {
 
 
 
-/* Mobile optimization - Hide video on small screens */
+/* Mobile optimization - Optimize video for small screens */
 @media (max-width: 768px) {
     #hero-video {
-        display: none;
+        display: block;
+        opacity: 0.5; /* Reduce opacity for better text readability */
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        /* Mobile video optimizations */
+        will-change: transform;
+        transform: translateZ(0); /* Force hardware acceleration */
     }
     
     #particles-js {
         display: block !important;
+        opacity: 0.7; /* Reduce particles opacity to balance with video */
     }
     
     .hero-content {
         padding: 20px 15px;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.3); /* Slightly darker background for better text readability with video */
     }
     
     .title-main {
@@ -302,6 +326,19 @@ body {
         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/quick-info/Quick_Info.png');
         background-size: cover;
         background-position: center;
+    }
+    
+    /* Mobile navigation adjustments */
+    .navbar {
+        transition: background 0.4s cubic-bezier(.4,0,.2,1), backdrop-filter 0.4s, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .navbar.nav-hidden {
+        transform: translateY(-100%);
+    }
+    
+    .navbar.nav-visible {
+        transform: translateY(0);
     }
     
     .info-card {
@@ -899,6 +936,54 @@ body {
     flex-direction: column;
     height: 100%;
     position: relative;
+}
+
+/* Fade-in animation for sales and hobby items */
+.sales-item.fade-in, .hobby-item.fade-in {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sales-item.fade-in.visible, .hobby-item.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Ensure hover effects work properly with fade-in */
+.sales-item.fade-in.visible:hover, .hobby-item.fade-in.visible:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Mobile optimization for fade-in animations */
+@media (max-width: 768px) {
+    .sales-item.fade-in, .hobby-item.fade-in {
+        transition-duration: 0.4s;
+    }
+    
+    .sales-item.fade-in.visible:hover, .hobby-item.fade-in.visible:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .sales-item.fade-in, .hobby-item.fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Disable navigation hide/show animations for users who prefer reduced motion */
+    .navbar {
+        transform: translateY(0) !important;
+        transition: background 0.4s cubic-bezier(.4,0,.2,1), backdrop-filter 0.4s !important;
+    }
+    
+    .navbar.nav-hidden,
+    .navbar.nav-visible {
+        transform: translateY(0) !important;
+    }
 }
 
 .sales-item:hover, .hobby-item:hover {

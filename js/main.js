@@ -19,21 +19,35 @@ function initializeHeroBackground() {
     const heroVideo = document.getElementById('hero-video');
     
     if (heroVideo) {
-        // Mobile check - use particles on mobile for better performance
+        // Check if device is mobile for performance optimization
         const isMobile = window.innerWidth <= 768;
+        
         if (isMobile) {
-            console.log('Mobile device detected, using particles');
-            heroVideo.style.display = 'none';
+            console.log('Mobile device detected, optimizing video for mobile');
+            // Keep video but optimize for mobile
+            heroVideo.style.opacity = '0.5';
+            // Also initialize particles for enhanced background
             initializeParticles();
-            return;
+            
+            // Add mobile-specific video error handling
+            heroVideo.addEventListener('error', function() {
+                console.log('Mobile video failed, using particles only');
+                heroVideo.style.display = 'none';
+                const particlesContainer = document.getElementById('particles-js');
+                if (particlesContainer) {
+                    particlesContainer.style.opacity = '1';
+                }
+            });
         }
         
         // Try to load video first
         heroVideo.addEventListener('loadeddata', function() {
             console.log('Hero video loaded successfully');
-            // Hide particles when video loads
+            // On desktop, hide particles when video loads
+            // On mobile, keep both for enhanced background
+            const isMobile = window.innerWidth <= 768;
             const particlesContainer = document.getElementById('particles-js');
-            if (particlesContainer) {
+            if (particlesContainer && !isMobile) {
                 particlesContainer.style.display = 'none';
             }
         });
@@ -87,7 +101,7 @@ function initializeParticles() {
         particlesJS('particles-js', {
             particles: {
                 number: { 
-                    value: isMobile ? 40 : 80, 
+                    value: isMobile ? 30 : 80, // Reduce particles on mobile for better performance
                     density: { enable: true, value_area: 800 } 
                 },
                 color: { value: '#ffffff' },
@@ -96,7 +110,7 @@ function initializeParticles() {
                     stroke: { width: 0, color: '#000000' }
                 },
                 opacity: { 
-                    value: 0.5, 
+                    value: isMobile ? 0.3 : 0.5, // Reduce opacity on mobile when video is present
                     random: false,
                     anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
                 },
@@ -114,7 +128,7 @@ function initializeParticles() {
                 },
                 move: { 
                     enable: true, 
-                    speed: isMobile ? 3 : 6, 
+                    speed: isMobile ? 2 : 6, // Slower speed on mobile for better performance
                     direction: 'none', 
                     random: false, 
                     straight: false, 
@@ -150,16 +164,48 @@ function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     let isMenuOpen = false;
 
-    // Navbar scroll effect
+    // Scroll direction detection variables
+    let lastScrollY = window.scrollY;
+    let isScrollingDown = false;
+    let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
     let ticking = false;
+    
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Navbar scroll effect with hide/show functionality
     function updateNavbar() {
-        if (window.scrollY > 100) {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+        
+        // Determine scroll direction
+        isScrollingDown = scrollDelta > scrollThreshold;
+        const isScrollingUp = scrollDelta < -scrollThreshold;
+        
+        // Only hide/show if we've scrolled enough and not at the very top
+        // Don't hide navbar if mobile menu is open or user prefers reduced motion
+        if (Math.abs(scrollDelta) > scrollThreshold && !isMenuOpen && !prefersReducedMotion) {
+            if (isScrollingDown && currentScrollY > 100) {
+                // Hide navbar when scrolling down
+                navbar.classList.remove('nav-visible');
+                navbar.classList.add('nav-hidden');
+            } else if (isScrollingUp || currentScrollY <= 100) {
+                // Show navbar when scrolling up or at top
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-visible');
+            }
+        }
+        
+        // Update background and shadow based on scroll position
+        if (currentScrollY > 100) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
             navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
         } else {
             navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = 'none';
         }
+        
+        lastScrollY = currentScrollY;
         ticking = false;
     }
 
@@ -200,8 +246,10 @@ function initializeNavigation() {
         // Prevent body scroll when menu is open
         document.body.style.overflow = isMenuOpen ? 'hidden' : '';
         
-        // Add animation class
+        // Ensure navbar is visible when mobile menu is open
         if (isMenuOpen) {
+            navbar.classList.remove('nav-hidden');
+            navbar.classList.add('nav-visible');
             navMenu.classList.add('nav-menu-enter');
         } else {
             navMenu.classList.add('nav-menu-exit');
@@ -214,6 +262,9 @@ function initializeNavigation() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.style.overflow = '';
+            
+            // Remove animation classes
+            navMenu.classList.remove('nav-menu-enter', 'nav-menu-exit');
         }
     }
 
@@ -300,16 +351,19 @@ function initializeScrollAnimations() {
 
     // Observe elements for animation
     const animatedElements = document.querySelectorAll(
-        '.journey-item, .info-card, .timeline-item, .skill-card, .sales-item, .stat-item'
+        '.journey-item, .info-card, .timeline-item, .skill-card, .sales-item, .hobby-item, .stat-item'
     );
     
     animatedElements.forEach(el => {
-        el.classList.add('fade-in');
+        // Only add fade-in class if it doesn't already exist
+        if (!el.classList.contains('fade-in')) {
+            el.classList.add('fade-in');
+        }
         observer.observe(el);
     });
 
     // Stagger animation for grids
-    const staggerContainers = document.querySelectorAll('.skills-grid, .sales-grid, .info-grid');
+    const staggerContainers = document.querySelectorAll('.skills-grid, .sales-grid, .hobby-grid, .info-grid');
     staggerContainers.forEach(container => {
         const items = container.children;
         Array.from(items).forEach((item, index) => {
@@ -408,7 +462,7 @@ function initializeSkillBars() {
 // Touch optimizations for mobile
 function initializeTouchOptimizations() {
     // Add touch classes for better mobile experience
-    const touchElements = document.querySelectorAll('button, .cta-primary, .cta-secondary, .filter-btn, .sales-item');
+    const touchElements = document.querySelectorAll('button, .cta-primary, .cta-secondary, .filter-btn, .sales-item, .hobby-item');
     
     touchElements.forEach(element => {
         element.addEventListener('touchstart', function() {
