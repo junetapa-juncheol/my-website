@@ -386,6 +386,7 @@ function addModalStyles() {
             font-size: clamp(0.9rem, 2.5vw, 1rem);
             line-height: 1.6;
             margin-bottom: 15px;
+            color: #333;
         }
         
         .project-info ul {
@@ -396,6 +397,7 @@ function addModalStyles() {
             margin-bottom: 5px;
             line-height: 1.6;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #333;
         }
         
         .tech-tags {
@@ -410,7 +412,7 @@ function addModalStyles() {
             padding: 5px 12px;
             border-radius: 15px;
             font-size: clamp(0.8rem, 2vw, 0.9rem);
-            color: #666;
+            color: #333;
         }
         
         .project-metrics {
@@ -437,7 +439,7 @@ function addModalStyles() {
         
         .metric-label {
             font-size: clamp(0.8rem, 2vw, 0.9rem);
-            color: #666;
+            color: #333;
         }
         
         /* Mobile specific styles */
@@ -471,6 +473,28 @@ function addModalStyles() {
                 height: 35px;
                 font-size: 1.5rem;
             }
+            
+            /* 모바일 텍스트 색상 개선 */
+            .project-info p {
+                color: rgb(104,104,104);
+                font-weight: 500;
+            }
+            
+            .project-info li {
+                color: rgb(104,104,104);
+                font-weight: 500;
+            }
+            
+            .tech-tag {
+                color: rgb(104,104,104);
+                font-weight: 500;
+                background: #f8f9fa;
+            }
+            
+            .metric-label {
+                color: rgb(104,104,104);
+                font-weight: 500;
+            }
         }
         
         @media (max-width: 480px) {
@@ -501,6 +525,25 @@ function addModalStyles() {
             .tech-tag {
                 padding: 4px 8px;
                 font-size: 0.75rem;
+                color: rgb(104,104,104);
+                font-weight: 500;
+                background: #f8f9fa;
+            }
+            
+            /* 작은 모바일 화면에서도 텍스트 색상 개선 */
+            .project-info p {
+                color: rgb(104,104,104);
+                font-weight: 500;
+            }
+            
+            .project-info li {
+                color: rgb(104,104,104);
+                font-weight: 500;
+            }
+            
+            .metric-label {
+                color: rgb(104,104,104);
+                font-weight: 500;
             }
         }
         
