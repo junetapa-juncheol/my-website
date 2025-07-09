@@ -240,32 +240,7 @@
             margin-bottom: 0;
         }
         
-        /* 빠른 액션 버튼 */
-        .quick-actions {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-        }
-        
-        .fab {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 12px;
-            display: block;
-        }
-        
-        .fab:active {
-            transform: scale(0.9);
-        }
+
         
         /* 스크롤 인디케이터 */
         .scroll-progress {
@@ -319,11 +294,6 @@
             .cards-container {
                 padding-left: max(16px, env(safe-area-inset-left));
                 padding-right: max(16px, env(safe-area-inset-right));
-            }
-            
-            .quick-actions {
-                bottom: max(20px, env(safe-area-inset-bottom));
-                right: max(20px, env(safe-area-inset-right));
             }
         }
         
@@ -603,15 +573,7 @@
         </section>
     </main>
     
-    <!-- 빠른 액션 버튼들 -->
-    <div class="quick-actions">
-        <button class="fab" onclick="shareContent()" aria-label="공유하기" title="공유하기">
-            📤
-        </button>
-        <button class="fab" onclick="printPage()" aria-label="인쇄하기" title="인쇄하기">
-            🖨️
-        </button>
-    </div>
+
     
     <script>
         // 뷰포트 높이 설정
@@ -671,30 +633,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // 공유하기
-        async function shareContent() {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: '박준철(Junetapa) - 교육&자격 이력',
-                        text: '25년간의 전문 교육과정과 자격증',
-                        url: window.location.href
-                    });
-                } catch (err) {
-                    console.log('공유 취소됨');
-                }
-            } else {
-                // 클립보드에 URL 복사
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('링크가 클립보드에 복사되었습니다!');
-                });
-            }
-        }
-        
-        // 인쇄하기
-        function printPage() {
-            window.print();
-        }
+
         
         // 스크롤 진행률 표시
         function updateScrollProgress() {
