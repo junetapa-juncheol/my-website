@@ -9,6 +9,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../assets/images/gallery/favicon.ico" type="image/x-icon">
+    <style>
+        .home-icon .home-text {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .home-icon:hover .home-text {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+        
+        .home-icon .home-text::before {
+            content: "";
+            font-size: 1.8rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -234,10 +260,9 @@
         <div class="footer-content">
             <p>&copy; 2025 J STUDIO. 나만의 취미 갤러리</p>
             <div class="footer-links">
-                <a href="../index.html" class="footer-link">홈으로</a>
-                <a href="sitemap.html" class="footer-link">사이트맵</a>
-                <a href="#" class="footer-link">E-mail</a>
-                <a href="#" class="footer-link">OpenTalk</a>
+                <a href="../index.html" class="footer-link home-icon" title="홈으로">
+                    <span class="home-text">🏠 홈으로</span>
+                </a>
             </div>
         </div>
     </footer>

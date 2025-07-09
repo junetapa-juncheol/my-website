@@ -297,6 +297,36 @@
             }
         }
         
+        /* 홈으로 버튼 */
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .home-button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .home-button:active {
+            transform: scale(0.95);
+        }
+        
         /* 다크모드 지원 */
         @media (prefers-color-scheme: dark) {
             :root {
@@ -977,6 +1007,11 @@
         </section>
     </main>
     
+    <!-- 홈으로 버튼 -->
+    <div class="home-button" onclick="goHome()">
+        🏠
+    </div>
+    
     <script>
         // 카드 토글 함수
         function toggleCard(header) {
@@ -1000,6 +1035,11 @@
             } else {
                 window.location.href = '../index.html';
             }
+        }
+        
+        // 홈으로 가기 함수
+        function goHome() {
+            window.location.href = '../index.html';
         }
         
         // 스크롤 진행률 표시
@@ -1064,308 +1104,6 @@
             // 이벤트 리스너 정리
             window.removeEventListener('scroll', updateScrollProgress);
         });
-    </script>
-</body>
-</html>
-                            • 브랜드 스토리텔링 기법<br>
-                            • 매력적인 카피 창작 기술<br>
-                            • 감정적 어필과 논리적 설득
-                        </div>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- 더 많은 교육 카드들... -->
-            <!-- 고객센터 상담원 -->
-            <article class="education-card fade-in">
-                <div class="card-header" onclick="toggleCard(this)">
-                    <span class="card-icon">📞</span>
-                    <h2 class="card-title">고객센터 상담원 양성과정</h2>
-                    <div class="card-org">한국인적자원개발직업능력개발원</div>
-                    <span class="card-date">2006.11 - 2007.01</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="card-content">
-                    <div class="card-description">
-                        <p>디지털방송, 인터넷, 인터넷전화 서비스의 전문적인 상담 능력을 체계적으로 배양하여 고객 만족도 향상과 효율적인 서비스 제공 역량을 습득했습니다.</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="detail-section">
-                            <strong>📺 디지털방송 서비스</strong><br>
-                            • 케이블TV, IPTV, 위성방송 전문 상담<br>
-                            • 셋톱박스 설치 및 문제 해결<br>
-                            • 방송 신호 품질 진단
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>🌐 인터넷 서비스</strong><br>
-                            • 광랜, VDSL, 무선인터넷 기술<br>
-                            • 네트워크 장애 진단 및 복구<br>
-                            • 속도 측정 및 최적화
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>📞 인터넷전화 서비스</strong><br>
-                            • VoIP 기술 및 통화 품질 관리<br>
-                            • 번호이동 및 부가서비스<br>
-                            • 통화 요금 체계 상담
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>💼 상담 운영 전문성</strong><br>
-                            • 고객 심리 이해 및 상담 기법<br>
-                            • 불만 처리 및 만족도 향상<br>
-                            • 전산 시스템 실습
-                        </div>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- 정보보호 전문 과정 -->
-            <article class="education-card fade-in">
-                <div class="card-header" onclick="toggleCard(this)">
-                    <span class="card-icon">🔒</span>
-                    <h2 class="card-title">정보보호 전문 과정</h2>
-                    <div class="card-org">한화생명보험(주)연수원</div>
-                    <span class="card-date">2006.10</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="card-content">
-                    <div class="card-description">
-                        <p>금융권의 핵심 가치인 정보보호의 중요성과 체계적인 보안 관리 방안을 학습하는 전문 과정을 이수했습니다.</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="detail-section">
-                            <strong>🔐 정보보호의 중요성</strong><br>
-                            • 정보자산 분류 및 가치 평가<br>
-                            • 사이버 보안 위협 대응<br>
-                            • 정보보호 관리체계(ISMS)
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>🛡️ 고객정보보호</strong><br>
-                            • 개인정보보호법 준수<br>
-                            • 데이터 암호화 및 접근 통제<br>
-                            • 유출 방지 시스템
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>🏢 기업내 정보보호</strong><br>
-                            • 내부 보안 정책 수립<br>
-                            • 직원 보안 교육<br>
-                            • 시스템 보안 강화
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>🚨 침해사고 대응</strong><br>
-                            • 보안 사고 대응 체계<br>
-                            • 사고 분석 및 예방<br>
-                            • 보안 통제 현황 점검
-                        </div>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Leading Service 과정 -->
-            <article class="education-card fade-in">
-                <div class="card-header" onclick="toggleCard(this)">
-                    <span class="card-icon">🎯</span>
-                    <h2 class="card-title">Leading Service 과정</h2>
-                    <div class="card-org">한화생명보험(주)연수원</div>
-                    <span class="card-date">2006.09</span>
-                    <span class="expand-icon">▼</span>
-                </div>
-                <div class="card-content">
-                    <div class="card-description">
-                        <p>고객만족의 이해, 고객응대 기본예절, 맞춤서비스 제공 과정을 습득하고 실무에 적용하는 Leading Service 과정을 이수했습니다.</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="detail-section">
-                            <strong>🤝 고객 응대 기본</strong><br>
-                            • Leading Service의 중요성<br>
-                            • 활기찬 방문응대<br>
-                            • 친절한 전화응대
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>👥 고객 관계 형성</strong><br>
-                            • Rapport 형성 기법<br>
-                            • Matching BMW 전략<br>
-                            • 고객의 두 가지 욕구 파악
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>💬 효과적인 소통</strong><br>
-                            • 효과적인 질문기법<br>
-                            • 불만고객 응대 방법<br>
-                            • 고객 욕구 해결 프로세스
-                        </div>
-                        
-                        <div class="detail-section">
-                            <strong>🌟 지속적 관계 유지</strong><br>
-                            • 충성고객 확보 전략<br>
-                            • 서비스 이미지 구축<br>
-                            • 장기적 고객 관리
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
-    </main>
-    
-
-    
-    <script>
-        // 뷰포트 높이 설정
-        function setVH() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        
-        window.addEventListener('load', setVH);
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', () => {
-            setTimeout(setVH, 100);
-        });
-        
-        // 카드 토글 기능
-        function toggleCard(header) {
-            const card = header.closest('.education-card');
-            const content = card.querySelector('.card-content');
-            const isExpanded = card.classList.contains('expanded');
-            
-            if (isExpanded) {
-                card.classList.remove('expanded');
-                content.classList.remove('expanded');
-            } else {
-                // 다른 카드들 닫기
-                document.querySelectorAll('.education-card.expanded').forEach(expandedCard => {
-                    expandedCard.classList.remove('expanded');
-                    expandedCard.querySelector('.card-content').classList.remove('expanded');
-                });
-                
-                card.classList.add('expanded');
-                content.classList.add('expanded');
-                
-                // 카드가 열린 후 스크롤 조정
-                setTimeout(() => {
-                    header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 300);
-            }
-            
-            // 햅틱 피드백 (지원하는 기기에서)
-            if (navigator.vibrate) {
-                navigator.vibrate(50);
-            }
-        }
-        
-        // 뒤로가기
-        function goBack() {
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.href = '../index.html';
-            }
-        }
-        
-        // 맨 위로 스크롤
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-
-        
-        // 스크롤 진행률 표시
-        function updateScrollProgress() {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
-        }
-        
-        window.addEventListener('scroll', updateScrollProgress, { passive: true });
-        
-        // 페이드인 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-        });
-        
-        // 터치 제스처 지원
-        let touchStartY = 0;
-        let touchEndY = 0;
-        
-        document.addEventListener('touchstart', e => {
-            touchStartY = e.changedTouches[0].screenY;
-        }, { passive: true });
-        
-        document.addEventListener('touchend', e => {
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartY - touchEndY;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // 위로 스와이프 - 다음 카드로
-                    console.log('위로 스와이프');
-                } else {
-                    // 아래로 스와이프 - 이전 카드로
-                    console.log('아래로 스와이프');
-                }
-            }
-        }
-        
-        // 성능 최적화
-        let ticking = false;
-        
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollProgress);
-                ticking = true;
-            }
-        }
-        
-        // 접근성 개선
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                // ESC로 열린 카드 닫기
-                document.querySelectorAll('.education-card.expanded').forEach(card => {
-                    card.classList.remove('expanded');
-                    card.querySelector('.card-content').classList.remove('expanded');
-                });
-            }
-        });
-        
-        // 오프라인 지원
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('../sw.js')
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
     </script>
 </body>
 </html> 
