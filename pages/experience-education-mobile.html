@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="박준철(Junetapa) - 활동&교육 이력 모바일">
+    <meta name="keywords" content="IT 경험, 교육 이력, 자격증, 모바일, 박준철, Junetapa">
+    <title>활동&교육 이력 | Mobile | Junetapa</title>
+    
+    <!-- 모바일 최적화 메타태그 -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Fonts - 모바일 최적화 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- PWA 지원 -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
+    
+    <style>
+        /* 모바일 전용 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 16px;
+            --vh: 1vh;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: calc(var(--vh, 1vh) * 100);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        /* 모바일 헤더 */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .back-btn:active {
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* 메인 컨텐츠 */
+        .mobile-main {
+            padding-top: 80px;
+            padding-bottom: 20px;
+            min-height: calc(var(--vh, 1vh) * 100);
+        }
+        
+        .mobile-hero {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        .mobile-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .mobile-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        /* 카드 컨테이너 */
+        .cards-container {
+            padding: 0 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .education-card {
+            background: white;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .education-card:active {
+            transform: scale(0.98);
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .card-org {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .card-date {
+            font-size: 0.8rem;
+            color: #888;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        
+        .expand-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            transition: transform 0.2s;
+        }
+        
+        .education-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .card-content.expanded {
+            max-height: 2000px;
+        }
+        
+        .card-description {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .card-description p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .card-details {
+            padding: 20px;
+            background: #f8f9fa;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        .card-details strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .detail-section {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* 빠른 액션 버튼 */
+        .quick-actions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        
+        .fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .fab:active {
+            transform: scale(0.9);
+        }
+        
+        /* 스크롤 인디케이터 */
+        .scroll-progress {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--primary-color);
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+        
+        /* 로딩 최적화 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 터치 피드백 */
+        .card-header:active {
+            background: linear-gradient(135deg, #e8f2ff 0%, #d6e9ff 100%);
+        }
+        
+        /* 접근성 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* 안전 영역 고려 */
+        @supports (padding: max(0px)) {
+            .mobile-header {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+            }
+            
+            .cards-container {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+            }
+            
+            .quick-actions {
+                bottom: max(20px, env(safe-area-inset-bottom));
+                right: max(20px, env(safe-area-inset-right));
+            }
+        }
+        
+        /* 다크모드 지원 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --white: #1a1a1a;
+                --light-gray: #2a2a2a;
+                --dark-gray: #ffffff;
+            }
+            
+            .education-card {
+                background: #2a2a2a;
+                color: #ffffff;
+            }
+            
+            .card-header {
+                background: linear-gradient(135deg, #3a3a4a 0%, #2a2a3a 100%);
+            }
+            
+            .card-details {
+                background: #3a3a3a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 모바일 헤더 -->
+    <header class="mobile-header">
+        <button class="back-btn" onclick="goBack()" aria-label="뒤로가기">
+            ←
+        </button>
+        <div class="mobile-logo">Junetapa</div>
+        <a href="experience-education.html?desktop=true" class="back-btn" aria-label="데스크톱 버전" title="데스크톱 버전">
+            💻
+        </a>
+    </header>
+    
+    <!-- 스크롤 진행률 -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- 메인 컨텐츠 -->
+    <main class="mobile-main">
+        <!-- 히어로 섹션 -->
+        <section class="mobile-hero">
+            <h1 class="mobile-title">교육&자격 이력</h1>
+            <p class="mobile-subtitle">25년간의 전문 교육과정과<br>자격증을 한눈에 확인하세요</p>
+        </section>
+        
+        <!-- 교육 카드들 -->
+        <section class="cards-container">
+            <!-- 데이터 리터러시 -->
+            <article class="education-card fade-in">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <span class="card-icon">📈</span>
+                    <h2 class="card-title">보통 직장인을 위한 데이터 리터러시</h2>
+                    <div class="card-org">(주)한국직장인교육지원센터</div>
+                    <span class="card-date">2023.06 - 2023.07</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        <p>데이터 기반 의사결정 시대에 필수적인 데이터 리터러시를 체계적으로 학습하여 실무에서 데이터를 올바르게 이해하고 활용하는 핵심 역량을 습득했습니다.</p>
+                    </div>
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <strong>🎯 데이터 시대의 생존 전략</strong><br>
+                            • 데이터로 말하는 시대의 중요성<br>
+                            • 데이터 활용 vs 분석의 차이점<br>
+                            • 올바른 데이터 활용 방법론
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>💪 데이터 기초체력 구축</strong><br>
+                            • 수집, 정리, 분석, 활용의 4단계<br>
+                            • 스토리텔링과 데이터 결합<br>
+                            • 팩트체크 및 데이터 요약 기법
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>⚠️ 분석 오류 방지</strong><br>
+                            • 데이터 분석의 함정과 편향<br>
+                            • 데이터 속성의 올바른 이해<br>
+                            • 결과와 평가의 정확한 구분
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🔍 데이터 읽기 기술</strong><br>
+                            • 원인 분석 및 인과관계 파악<br>
+                            • 숨겨진 패턴 발견 기법<br>
+                            • 효과적인 데이터 시각화
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 마케팅과 광고 -->
+            <article class="education-card fade-in">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <span class="card-icon">📊</span>
+                    <h2 class="card-title">업무의 정석 마케팅과 광고</h2>
+                    <div class="card-org">(주)한국직장인교육지원센터</div>
+                    <span class="card-date">2023.04 - 2023.05</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        <p>소비자 트렌드 분석부터 광고 제작까지 마케팅의 전 과정을 체계적으로 학습하여 시장 환경 변화에 대응하고 효과적인 마케팅 전략을 수립하는 전문 역량을 습득했습니다.</p>
+                    </div>
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <strong>📈 소비자 트렌드 분석</strong><br>
+                            • 소비자 행동 변화 패턴 분석<br>
+                            • 시장 환경 트렌드 예측<br>
+                            • 데이터 기반 소비자 분석
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🎯 마케팅 전략 수립</strong><br>
+                            • STP 전략 및 목표 설정<br>
+                            • 마케팅 4P와 IMC 통합<br>
+                            • 브랜드 포지셔닝 전략
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🔍 광고 기획 및 조사</strong><br>
+                            • 시장 조사 및 경쟁사 분석<br>
+                            • 매체 기획 및 신매체 발굴<br>
+                            • OTT, SNS, 인플루언서 마케팅
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>✍️ 카피라이팅</strong><br>
+                            • 브랜드 스토리텔링 기법<br>
+                            • 매력적인 카피 창작 기술<br>
+                            • 감정적 어필과 논리적 설득
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 더 많은 교육 카드들... -->
+            <!-- 고객센터 상담원 -->
+            <article class="education-card fade-in">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <span class="card-icon">📞</span>
+                    <h2 class="card-title">고객센터 상담원 양성과정</h2>
+                    <div class="card-org">한국인적자원개발직업능력개발원</div>
+                    <span class="card-date">2006.11 - 2007.01</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        <p>디지털방송, 인터넷, 인터넷전화 서비스의 전문적인 상담 능력을 체계적으로 배양하여 고객 만족도 향상과 효율적인 서비스 제공 역량을 습득했습니다.</p>
+                    </div>
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <strong>📺 디지털방송 서비스</strong><br>
+                            • 케이블TV, IPTV, 위성방송 전문 상담<br>
+                            • 셋톱박스 설치 및 문제 해결<br>
+                            • 방송 신호 품질 진단
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🌐 인터넷 서비스</strong><br>
+                            • 광랜, VDSL, 무선인터넷 기술<br>
+                            • 네트워크 장애 진단 및 복구<br>
+                            • 속도 측정 및 최적화
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>📞 인터넷전화 서비스</strong><br>
+                            • VoIP 기술 및 통화 품질 관리<br>
+                            • 번호이동 및 부가서비스<br>
+                            • 통화 요금 체계 상담
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>💼 상담 운영 전문성</strong><br>
+                            • 고객 심리 이해 및 상담 기법<br>
+                            • 불만 처리 및 만족도 향상<br>
+                            • 전산 시스템 실습
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 정보보호 전문 과정 -->
+            <article class="education-card fade-in">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <span class="card-icon">🔒</span>
+                    <h2 class="card-title">정보보호 전문 과정</h2>
+                    <div class="card-org">한화생명보험(주)연수원</div>
+                    <span class="card-date">2006.10</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        <p>금융권의 핵심 가치인 정보보호의 중요성과 체계적인 보안 관리 방안을 학습하는 전문 과정을 이수했습니다.</p>
+                    </div>
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <strong>🔐 정보보호의 중요성</strong><br>
+                            • 정보자산 분류 및 가치 평가<br>
+                            • 사이버 보안 위협 대응<br>
+                            • 정보보호 관리체계(ISMS)
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🛡️ 고객정보보호</strong><br>
+                            • 개인정보보호법 준수<br>
+                            • 데이터 암호화 및 접근 통제<br>
+                            • 유출 방지 시스템
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🏢 기업내 정보보호</strong><br>
+                            • 내부 보안 정책 수립<br>
+                            • 직원 보안 교육<br>
+                            • 시스템 보안 강화
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🚨 침해사고 대응</strong><br>
+                            • 보안 사고 대응 체계<br>
+                            • 사고 분석 및 예방<br>
+                            • 보안 통제 현황 점검
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Leading Service 과정 -->
+            <article class="education-card fade-in">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <span class="card-icon">🎯</span>
+                    <h2 class="card-title">Leading Service 과정</h2>
+                    <div class="card-org">한화생명보험(주)연수원</div>
+                    <span class="card-date">2006.09</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        <p>고객만족의 이해, 고객응대 기본예절, 맞춤서비스 제공 과정을 습득하고 실무에 적용하는 Leading Service 과정을 이수했습니다.</p>
+                    </div>
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <strong>🤝 고객 응대 기본</strong><br>
+                            • Leading Service의 중요성<br>
+                            • 활기찬 방문응대<br>
+                            • 친절한 전화응대
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>👥 고객 관계 형성</strong><br>
+                            • Rapport 형성 기법<br>
+                            • Matching BMW 전략<br>
+                            • 고객의 두 가지 욕구 파악
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>💬 효과적인 소통</strong><br>
+                            • 효과적인 질문기법<br>
+                            • 불만고객 응대 방법<br>
+                            • 고객 욕구 해결 프로세스
+                        </div>
+                        
+                        <div class="detail-section">
+                            <strong>🌟 지속적 관계 유지</strong><br>
+                            • 충성고객 확보 전략<br>
+                            • 서비스 이미지 구축<br>
+                            • 장기적 고객 관리
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <!-- 빠른 액션 버튼들 -->
+    <div class="quick-actions">
+        <button class="fab" onclick="shareContent()" aria-label="공유하기" title="공유하기">
+            📤
+        </button>
+        <button class="fab" onclick="printPage()" aria-label="인쇄하기" title="인쇄하기">
+            🖨️
+        </button>
+    </div>
+    
+    <script>
+        // 뷰포트 높이 설정
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        window.addEventListener('load', setVH);
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setVH, 100);
+        });
+        
+        // 카드 토글 기능
+        function toggleCard(header) {
+            const card = header.closest('.education-card');
+            const content = card.querySelector('.card-content');
+            const isExpanded = card.classList.contains('expanded');
+            
+            if (isExpanded) {
+                card.classList.remove('expanded');
+                content.classList.remove('expanded');
+            } else {
+                // 다른 카드들 닫기
+                document.querySelectorAll('.education-card.expanded').forEach(expandedCard => {
+                    expandedCard.classList.remove('expanded');
+                    expandedCard.querySelector('.card-content').classList.remove('expanded');
+                });
+                
+                card.classList.add('expanded');
+                content.classList.add('expanded');
+                
+                // 카드가 열린 후 스크롤 조정
+                setTimeout(() => {
+                    header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            }
+            
+            // 햅틱 피드백 (지원하는 기기에서)
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+        
+        // 뒤로가기
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = '../index.html';
+            }
+        }
+        
+        // 맨 위로 스크롤
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 공유하기
+        async function shareContent() {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: '박준철(Junetapa) - 교육&자격 이력',
+                        text: '25년간의 전문 교육과정과 자격증',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('공유 취소됨');
+                }
+            } else {
+                // 클립보드에 URL 복사
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('링크가 클립보드에 복사되었습니다!');
+                });
+            }
+        }
+        
+        // 인쇄하기
+        function printPage() {
+            window.print();
+        }
+        
+        // 스크롤 진행률 표시
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        
+        // 페이드인 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // 터치 제스처 지원
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        
+        document.addEventListener('touchend', e => {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // 위로 스와이프 - 다음 카드로
+                    console.log('위로 스와이프');
+                } else {
+                    // 아래로 스와이프 - 이전 카드로
+                    console.log('아래로 스와이프');
+                }
+            }
+        }
+        
+        // 성능 최적화
+        let ticking = false;
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollProgress);
+                ticking = true;
+            }
+        }
+        
+        // 접근성 개선
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // ESC로 열린 카드 닫기
+                document.querySelectorAll('.education-card.expanded').forEach(card => {
+                    card.classList.remove('expanded');
+                    card.querySelector('.card-content').classList.remove('expanded');
+                });
+            }
+        });
+        
+        // 오프라인 지원
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html> 
