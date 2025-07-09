@@ -909,44 +909,9 @@ function loadGalleryStyles() {
             transform: scale(1.1);
         }
 
-        .photo-frame {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
 
-        .photo-count {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #1e293b;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
 
-        .portfolio-item:hover .photo-count {
-            transform: scale(1.1);
-            background: rgba(59, 130, 246, 0.9);
-            color: white;
-        }
+
 
         .item-overlay {
             position: absolute;
