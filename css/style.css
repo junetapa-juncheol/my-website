@@ -1467,10 +1467,12 @@ body {
 .footer-logo .logo-text {
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     font-weight: 700;
-    background: linear-gradient(90deg, #7B68EE, #6A5ACD, #4A90E2, #5B9BD5);
+    background: linear-gradient(90deg, #7B68EE, #6A5ACD, #4A90E2, #5B9BD5, #7B68EE);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: logo-gradient-move 6s ease-in-out infinite;
 }
 
 .footer-logo p {
