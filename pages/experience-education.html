@@ -7,6 +7,12 @@
     <meta name="keywords" content="IT 경험, 교육 이력, 자격증, 프로젝트, 박준철, Junetapa">
     <title>활동&교육 이력 | 박준철 (Junetapa) - IT Story</title>
     
+    <!-- 모바일 최적화를 위한 추가 메타태그 -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#667eea">
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
@@ -330,9 +336,51 @@
         
         /* 모바일 최적화 */
         @media (max-width: 768px) {
+            .experience-education-page {
+                background-attachment: scroll; /* 모바일에서 fixed 성능 문제 해결 */
+                padding-top: 70px;
+            }
+            
+            .page-header {
+                padding: 40px 20px;
+            }
+            
+            .page-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                margin-bottom: 15px;
+            }
+            
+            .page-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                padding: 0 10px;
+            }
+            
+            .content-tabs {
+                padding: 0 20px;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                min-height: 44px; /* 터치 친화적 크기 */
+                border-radius: 22px;
+            }
+            
+            .tab-content {
+                padding: 0 15px;
+            }
+            
             .timeline-section {
-                padding: 25px;
+                padding: 20px;
                 margin-bottom: 20px;
+                border-radius: 15px;
+            }
+            
+            .section-title {
+                font-size: clamp(1.3rem, 5vw, 1.8rem);
+                margin-bottom: 25px;
             }
             
             .timeline {
@@ -345,6 +393,7 @@
             
             .timeline-item {
                 padding-left: 20px;
+                margin-bottom: 30px;
             }
             
             .timeline-item::before {
@@ -353,22 +402,360 @@
                 height: 10px;
             }
             
+            .timeline-year {
+                font-size: 1rem;
+            }
+            
+            .timeline-title {
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+            
+            .timeline-company {
+                font-size: 0.9rem;
+            }
+            
+            .timeline-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .timeline-tags {
+                gap: 6px;
+            }
+            
+            .timeline-tag {
+                padding: 3px 10px;
+                font-size: 0.75rem;
+                border-radius: 12px;
+            }
+            
             .certificate-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             
+            .certificate-card {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .certificate-icon {
+                font-size: 2rem;
+            }
+            
+            .certificate-title {
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+            
+            .certificate-issuer {
+                font-size: 0.9rem;
+            }
+            
+            .certificate-date {
+                font-size: 0.8rem;
+            }
+            
+            .certificate-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .certificate-details {
+                font-size: 0.85rem;
+                line-height: 1.4;
+                padding: 15px;
+                margin-top: 15px;
+            }
+            
             .download-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
-            .timeline-title {
-                font-size: 1.1rem;
-            }
-            
-            .timeline-description {
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 12px 20px;
                 font-size: 0.9rem;
+                min-height: 44px; /* 터치 친화적 크기 */
+            }
+        }
+        
+        /* 작은 모바일 화면 (480px 이하) */
+        @media (max-width: 480px) {
+            .experience-education-page {
+                padding-top: 60px;
+            }
+            
+            .page-header {
+                padding: 30px 15px;
+            }
+            
+            .page-title {
+                font-size: clamp(1.5rem, 10vw, 2rem);
+            }
+            
+            .page-subtitle {
+                font-size: clamp(0.8rem, 4vw, 1rem);
+            }
+            
+            .content-tabs {
+                padding: 0 15px;
+                gap: 10px;
+            }
+            
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                min-height: 40px;
+            }
+            
+            .tab-content {
+                padding: 0 10px;
+            }
+            
+            .timeline-section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .section-title {
+                font-size: clamp(1.2rem, 6vw, 1.5rem);
+                margin-bottom: 20px;
+            }
+            
+            .timeline {
+                padding-left: 15px;
+            }
+            
+            .timeline::before {
+                left: 8px;
+            }
+            
+            .timeline-item {
+                padding-left: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .timeline-item::before {
+                left: -15px;
+                width: 8px;
+                height: 8px;
+            }
+            
+            .certificate-card {
+                padding: 15px;
+            }
+            
+            .certificate-icon {
+                font-size: 1.8rem;
+            }
+            
+            .certificate-title {
+                font-size: 1rem;
+            }
+            
+            .certificate-issuer {
+                font-size: 0.8rem;
+            }
+            
+            .certificate-date {
+                font-size: 0.75rem;
+            }
+            
+            .certificate-description {
+                font-size: 0.85rem;
+            }
+            
+            .certificate-details {
+                font-size: 0.8rem;
+                padding: 12px;
+            }
+            
+            .download-btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                min-height: 40px;
+            }
+        }
+        
+        /* 모바일 터치 최적화 */
+        @media (hover: none) and (pointer: coarse) {
+            .tab-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: none;
+            }
+            
+            .download-btn:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: none;
+            }
+            
+            .tab-btn:active {
+                background: rgba(255, 255, 255, 0.2);
+                transform: scale(0.98);
+            }
+            
+            .download-btn:active {
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0.98);
+            }
+        }
+        
+        /* 모바일 스크롤 최적화 */
+        @media (max-width: 768px) {
+            html {
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            /* 모바일에서 텍스트 선택 최적화 */
+            .certificate-details {
+                -webkit-user-select: text;
+                -moz-user-select: text;
+                -ms-user-select: text;
+                user-select: text;
+            }
+            
+            /* 모바일에서 링크 터치 영역 확대 */
+            .nav-link {
+                padding: 10px 15px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* 모바일 뷰포트 높이 최적화 */
+            .experience-education-page {
+                min-height: calc(var(--vh, 1vh) * 100);
+            }
+            
+            /* 모바일에서 햄버거 메뉴 개선 */
+            .hamburger {
+                display: block;
+                z-index: 9999;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                margin: 5px;
+            }
+            
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--color-gray-800);
+                margin: 5px 0;
+                transition: all 0.3s ease;
+                border-radius: 3px;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 20px;
+                transition: left 0.3s ease;
+                z-index: 9998;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0 0 10px 0;
+                width: 90%;
+                text-align: center;
+            }
+            
+            .nav-menu .nav-link {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--color-gray-800);
+                width: 100%;
+                padding: 15px 20px;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                background: rgba(59, 130, 246, 0.05);
+                margin: 5px 0;
+            }
+            
+            .nav-menu .nav-link:hover,
+            .nav-menu .nav-link.active {
+                background: rgba(59, 130, 246, 0.1);
+                color: var(--color-primary);
+                transform: translateY(-2px);
+            }
+        }
+        
+        /* 폰트 로딩 최적화 */
+        body:not(.fonts-loaded) {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .fonts-loaded {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* 접근성 개선 */
+        .using-keyboard *:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+        
+        /* 모바일 성능 최적화 */
+        @media (max-width: 768px) {
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+            
+            .certificate-card {
+                will-change: transform;
+            }
+            
+            .certificate-card.expanded {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* 모바일 스크롤 최적화 */
+            .timeline-section {
+                contain: layout style paint;
+            }
+            
+            .certificate-details {
+                contain: layout style;
             }
         }
     </style>
@@ -1221,6 +1608,135 @@
                 }
             });
         });
+        
+        // 모바일 최적화 추가 기능
+        if (window.innerWidth <= 768) {
+            // 모바일에서 햄버거 메뉴 개선
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                
+                // 모바일에서 메뉴 외부 클릭 시 닫기
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 모바일에서 터치 성능 최적화
+            let lastTouchY = 0;
+            let touchStartY = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            document.addEventListener('touchmove', function(e) {
+                lastTouchY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            // 모바일에서 빠른 탭 지원
+            document.addEventListener('touchend', function(e) {
+                // 300ms 지연 제거를 위한 빠른 탭 처리
+                if (Math.abs(lastTouchY - touchStartY) < 10) {
+                    e.target.click();
+                }
+            }, { passive: true });
+        }
+        
+        // 모바일에서 화면 회전 시 최적화
+        window.addEventListener('orientationchange', function() {
+            // 화면 회전 시 높이 재계산
+            setTimeout(() => {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }, 100);
+        });
+        
+        // 초기 뷰포트 높이 설정
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        
+        // 모바일에서 스크롤 성능 최적화
+        let ticking = false;
+        
+        function updateScrollPosition() {
+            const scrollY = window.pageYOffset;
+            const header = document.querySelector('.navbar');
+            
+            if (header) {
+                if (scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.9)';
+                    header.style.backdropFilter = 'blur(5px)';
+                }
+            }
+            
+            ticking = false;
+        }
+        
+        function requestScrollUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollPosition);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+        
+        // 모바일에서 이미지 lazy loading
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // 모바일에서 폰트 로딩 최적화
+        if (document.fonts) {
+            document.fonts.ready.then(() => {
+                document.body.classList.add('fonts-loaded');
+            });
+        }
+        
+        // 모바일에서 접근성 개선
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('using-keyboard');
+        });
+        
+        // 모바일에서 메모리 사용량 최적화
+        window.addEventListener('beforeunload', function() {
+            // 이벤트 리스너 정리
+            observer.disconnect();
+            if (imageObserver) imageObserver.disconnect();
+        });
+        
     </script>
 </body>
 </html> 
