@@ -35,7 +35,7 @@ function getCreationData() {
         '과학 교육 콘텐츠': {
             title: '과학 교육 콘텐츠',
             category: '창작활동',
-            image: 'assets/images/creation/sci_edu.png',
+            image: 'assets/images/creation/ScienceEducation_Contents.png',
             description: '복잡하고 어려운 과학 원리를 일반 대중과 청소년이 쉽게 이해할 수 있도록 시각 자료와 흥미로운 스토리텔링을 결합한 교육 콘텐츠를 제작했습니다. 블로그와 소셜미디어를 통해 100개 이상의 콘텐츠를 발행하여 5,000명 이상의 학습자에게 도달했습니다.',
             achievements: [
                 '📚 100개 이상의 과학 교육 콘텐츠 제작 및 발행',
@@ -51,7 +51,7 @@ function getCreationData() {
         '소셜미디어 운영': {
             title: '소셜미디어 운영',
             category: '창작활동',
-            image: 'assets/images/creation/sns_mgmt.png',
+            image: 'assets/images/creation/digital_marketing.png',
             description: '네이버 블로그, 인스타그램, 틱톡, 유튜브 등 4개의 소셜미디어 채널을 전략적으로 운영하여 총 13,000명 이상의 팔로워를 확보했습니다. 각 플랫폼의 특성에 맞는 콘텐츠를 기획하고 꾸준히 소통하며 개인 브랜딩을 성공적으로 구축했습니다.',
             achievements: [
                 '👥 4개 소셜미디어 채널 총 13,000+ 팔로워 확보',
