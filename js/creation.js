@@ -51,7 +51,7 @@ function getCreationData() {
         '소셜미디어 운영': {
             title: '소셜미디어 운영',
             category: '창작활동',
-            image: 'assets/images/creation/digital_marketing.png',
+            image: 'assets/images/creation/sns_operation.png',
             description: '네이버 블로그, 인스타그램, 틱톡, 유튜브 등 4개의 소셜미디어 채널을 전략적으로 운영하여 총 13,000명 이상의 팔로워를 확보했습니다. 각 플랫폼의 특성에 맞는 콘텐츠를 기획하고 꾸준히 소통하며 개인 브랜딩을 성공적으로 구축했습니다.',
             achievements: [
                 '👥 4개 소셜미디어 채널 총 13,000+ 팔로워 확보',
