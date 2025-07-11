@@ -19,6 +19,9 @@ function initializeHeroBackground() {
     const heroVideo = document.getElementById('hero-video');
     
     if (heroVideo) {
+        // Set time-based video source
+        setTimeBasedVideo(heroVideo);
+        
         // Check if device is mobile for performance optimization
         const isMobile = window.innerWidth <= 768;
         
@@ -88,6 +91,96 @@ function initializeHeroBackground() {
         // No video element, use particles
         initializeParticles();
     }
+}
+
+// Set time-based video function
+function setTimeBasedVideo(heroVideo) {
+    const now = new Date();
+    const currentHour = now.getHours();
+    
+    // Define time periods and corresponding videos
+    const timeBasedVideos = {
+        morning: {
+            start: 6,
+            end: 11,
+            mp4: 'assets/videos/morning_video.mp4',
+            webm: 'assets/videos/morning_video.webm',
+            fallback: 'assets/videos/hero-video.mp4'
+        },
+        afternoon: {
+            start: 12,
+            end: 17,
+            mp4: 'assets/videos/afternoon_video.mp4',
+            webm: 'assets/videos/afternoon_video.webm',
+            fallback: 'assets/videos/hero-video.mp4'
+        },
+        evening: {
+            start: 18,
+            end: 22,
+            mp4: 'assets/videos/evening_video.mp4',
+            webm: 'assets/videos/evening_video.webm',
+            fallback: 'assets/videos/hero-video.mp4'
+        },
+        night: {
+            start: 23,
+            end: 5,
+            mp4: 'assets/videos/night_video.mp4',
+            webm: 'assets/videos/night_video.webm',
+            fallback: 'assets/videos/hero-video.mp4'
+        }
+    };
+    
+    // Determine current time period
+    let currentPeriod = 'morning'; // default
+    
+    if (currentHour >= timeBasedVideos.morning.start && currentHour <= timeBasedVideos.morning.end) {
+        currentPeriod = 'morning';
+    } else if (currentHour >= timeBasedVideos.afternoon.start && currentHour <= timeBasedVideos.afternoon.end) {
+        currentPeriod = 'afternoon';
+    } else if (currentHour >= timeBasedVideos.evening.start && currentHour <= timeBasedVideos.evening.end) {
+        currentPeriod = 'evening';
+    } else {
+        currentPeriod = 'night';
+    }
+    
+    console.log(`Current time: ${currentHour}:00 - Setting ${currentPeriod} video theme`);
+    
+    // Get video sources
+    const mp4Source = document.getElementById('video-source-mp4');
+    const webmSource = document.getElementById('video-source-webm');
+    
+    if (mp4Source && webmSource) {
+        const videoConfig = timeBasedVideos[currentPeriod];
+        
+        // Set video sources with fallback
+        mp4Source.src = videoConfig.mp4;
+        webmSource.src = videoConfig.webm;
+        
+        // Add error handling for time-based videos
+        mp4Source.addEventListener('error', function() {
+            console.log(`${currentPeriod} video not found, using fallback`);
+            mp4Source.src = videoConfig.fallback;
+            heroVideo.load();
+        });
+        
+        webmSource.addEventListener('error', function() {
+            console.log(`${currentPeriod} webm video not found, using fallback`);
+            webmSource.src = videoConfig.fallback;
+            heroVideo.load();
+        });
+        
+        // Reload video with new sources
+        heroVideo.load();
+    }
+    
+    // Update video every hour
+    setInterval(() => {
+        const newHour = new Date().getHours();
+        if (newHour !== currentHour) {
+            console.log('Hour changed, updating video...');
+            setTimeBasedVideo(heroVideo);
+        }
+    }, 60000); // Check every minute
 }
 
 
