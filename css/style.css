@@ -2522,3 +2522,130 @@ body {
     background: rgba(123, 104, 238, 0.2);
     border-color: var(--neon-purple);
 }
+
+/* KakaoTalk OpenTalk Button */
+.kakao-talk-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+.kakao-talk-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FEE500 0%, #FFD700 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(254, 229, 0, 0.3);
+    text-decoration: none;
+    color: #3C1E1E;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.kakao-talk-button a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.kakao-talk-button a:hover::before {
+    opacity: 1;
+}
+
+.kakao-talk-button a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(254, 229, 0, 0.5);
+}
+
+.kakao-talk-button a:active {
+    transform: scale(0.95);
+}
+
+.kakao-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #3C1E1E;
+}
+
+.kakao-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.kakao-text {
+    position: absolute;
+    right: 100%;
+    margin-right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.kakao-text::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid rgba(0, 0, 0, 0.8);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.kakao-talk-button:hover .kakao-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Pulse animation when hovering */
+.kakao-talk-button a:hover {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(254, 229, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 6px 30px rgba(254, 229, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(254, 229, 0, 0.3);
+    }
+}
