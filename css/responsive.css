@@ -1,3 +1,67 @@
+/* Hamburger Menu for Desktop */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        min-width: 200px;
+        z-index: 1000;
+    }
+
+    .hamburger-menu.active {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .hamburger-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hamburger-menu li {
+        margin: 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hamburger-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .hamburger-menu a {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+    }
+
+    .hamburger-menu a:hover {
+        background: #f8f9fa;
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 /* Large Desktop */
 @media (min-width: 1400px) {
     .container {
@@ -157,6 +221,68 @@
     
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        min-width: 200px;
+        z-index: 1000;
+    }
+
+    .hamburger-menu.active {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .hamburger-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hamburger-menu li {
+        margin: 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hamburger-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .hamburger-menu a {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+    }
+
+    .hamburger-menu a:hover {
+        background: #f8f9fa;
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     
     /* Hero Mobile */

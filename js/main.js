@@ -331,6 +331,49 @@ function initializeNavigation() {
         });
     }
 
+    // Hamburger menu toggle for additional menu items
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    let isHamburgerMenuOpen = false;
+    
+    if (hamburger && hamburgerMenu) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHamburgerMenu();
+        });
+
+        // Close hamburger menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isHamburgerMenuOpen && !hamburgerMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeHamburgerMenu();
+            }
+        });
+
+        // Close hamburger menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isHamburgerMenuOpen) {
+                closeHamburgerMenu();
+            }
+        });
+    }
+
+    function toggleHamburgerMenu() {
+        isHamburgerMenuOpen = !isHamburgerMenuOpen;
+        hamburgerMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isHamburgerMenuOpen ? 'hidden' : '';
+    }
+
+    function closeHamburgerMenu() {
+        if (isHamburgerMenuOpen) {
+            isHamburgerMenuOpen = false;
+            hamburgerMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
     function toggleMobileMenu() {
         isMenuOpen = !isMenuOpen;
         hamburger.classList.toggle('active');
