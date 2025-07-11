@@ -3,7 +3,7 @@ function getCreationData() {
         '디지털 마케팅 혁신': {
             title: '디지털 마케팅 혁신',
             category: '창작활동',
-            image: 'assets/images/creation/digi_mark.png',
+            image: 'assets/images/creation/digital_marketing.png',
             description: '블로그 마케팅을 중심으로 한 디지털 브랜딩 전략을 통해 단기간에 1,400명 이상의 강력한 온라인 네트워크를 구축했습니다. 콘텐츠 기획, 제작, 배포 및 커뮤니티 관리를 통해 유의미한 상호작용을 이끌어냈습니다.',
             achievements: [
                 '🚀 5개월 만에 블로그 이웃 1,400명 돌파',
