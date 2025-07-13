@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="박준철(Junetapa) - 25년+ IT 전문가의 자기소개서. 경북 군위 농촌에서 시작된 IT 여정과 다방면의 경험을 통해 쌓아온 전문성">
+    <meta name="keywords" content="IT 전문가, 전산유지보수, B2B 기술영업, 박준철, Junetapa, 자기소개서">
+    <title>박준철 소개 - 미래를 향한 열정과 도전 | Junetapa IT Story</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@400;700;800&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
+    
+    <style>
+        .greeting-text {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .greeting-text p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+        
+        .greeting-text p:first-child {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2em;
+        }
+        
+        .greeting-text p:last-child {
+            text-align: center;
+            font-weight: 600;
+            margin-top: 2em;
+            color: #2c3e50;
+        }
+        
+        .about-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                min-height: 50vh;
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero {
+                min-height: 40vh;
+            }
+        }
+        
+        .elegant-title {
+            font-family: 'Playfair Display', 'Nanum Myeongjo', serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        
+        .elegant-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #e74c3c;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        /* Blog Layout Styles */
+        .blog-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .story-block {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            gap: 3rem;
+            min-height: 400px;
+        }
+        
+        .story-block.left-image {
+            flex-direction: row;
+        }
+        
+        .story-block.right-image {
+            flex-direction: row-reverse;
+        }
+        
+        .story-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .story-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .story-content h3 {
+            font-family: 'Playfair Display', 'Nanum Myeongjo', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .story-content p {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 0;
+        }
+        
+        .story-closing {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .highlight-text {
+            font-weight: 700;
+            color: #2c3e50;
+            background: none;
+        }
+        
+        /* Tablet Styles */
+        @media (max-width: 968px) {
+            .story-block {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .story-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .story-image img {
+                height: 280px;
+            }
+            
+            .story-content h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+            
+            .story-content p {
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .blog-layout {
+                padding: 0 15px;
+            }
+            
+            .story-block {
+                margin-bottom: 2.5rem;
+                gap: 1.5rem;
+            }
+            
+            .story-image {
+                max-width: 100%;
+            }
+            
+            .story-image img {
+                height: 240px;
+                border-radius: 8px;
+            }
+            
+            .story-content h3 {
+                font-size: 1.4rem;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .story-content p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+            
+            .elegant-title {
+                font-size: 1.8rem;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .elegant-subtitle {
+                font-size: 1.4rem;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-layout {
+                padding: 0 10px;
+            }
+            
+            .story-block {
+                margin-bottom: 2rem;
+                gap: 1rem;
+            }
+            
+            .story-image img {
+                height: 200px;
+            }
+            
+            .story-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .story-content p {
+                font-size: 13px;
+                line-height: 1.6;
+            }
+            
+            .elegant-title {
+                font-size: 1.5rem;
+            }
+            
+            .elegant-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .name-highlight {
+                font-size: 1.0em;
+            }
+        }
+        
+        .name-highlight {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: #6c63ff;
+            font-size: 1.1em;
+            background: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Junetapa</span>
+                <span class="logo-subtitle">IT Story</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">홈</a></li>
+                <li><a href="#" class="nav-link active">소개</a></li>
+                <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
+                <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
+                <li><a href="experience-education.html" class="nav-link">활동&교육</a></li>
+                <!-- <li><a href="jstudio.html" class="jstudio.html" target="_blank">갤러리</a></li> -->
+                <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <ul>
+                    <li><a href="jstudio.html" target="_blank">갤러리</a></li>
+                    <li><a href="sitemap.html">사이트맵</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for About Page -->
+    <section class="about-hero" style="background-image: url('../assets/images/about/about-hero.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+        <div class="hero-overlay" style="background: rgba(0,0,0,0.3); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="hero-content" style="text-align: center; background: none;">
+                <h1 class="hero-title" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    <span class="title-main">미래를 향한 열정과 도전</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Introduction Section -->
+    <section class="main-introduction">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="elegant-title">기술 그리고 영업 <span class="name-highlight">Juncheol Park</span></h2>
+                <p class="elegant-subtitle">진정성 있는 나의 이야기</p>
+            </div>
+            
+            <!-- Blog Style Layout -->
+            <div class="blog-layout">
+                <!-- Story Block 1: 농촌 배경과 가족 이야기 (이미지 왼쪽, 텍스트 오른쪽) -->
+                <div class="story-block left-image">
+                    <div class="story-image">
+                        <img src="../assets/images/about/rural-background.jpg" alt="경북 군위 농촌 풍경" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <h3>농촌에서 시작된 여정</h3>
+                        <p>안녕하세요. 저는 <span class="name-highlight">Juncheol Park</span>입니다. 제 이름 속에는 25년이라는 긴 세월 동안 쌓아온 이야기가 담겨 있습니다. 경북 군위의 작은 농촌 마을에서 시작된 저의 여정을 여러분께 진솔하게 들려드리고 싶습니다. 비록 물질적으로는 넉넉하지 않았지만 인간적 정이 넘치는 환경에서 자라면서 저는 많은 것을 배웠습니다. 어머니께서는 지금도 그 고향 땅에서 <span class="highlight-text">벼와 고추를 정성스럽게 키우시며</span> 땀으로 일궈낸 성실함과 근면함을 저에게 몸소 보여주셨고, 2021년 9월 아버지를 폐암으로 떠나보내야 했던 깊은 아픔이 있었지만 저희 가족은 오히려 더욱 단단한 유대감으로 서로를 위로하며 견뎌냈습니다.</p>
+                    </div>
+                </div>
+
+                <!-- Story Block 2: 컴퓨터와의 첫 만남 (텍스트 왼쪽, 이미지 오른쪽) -->
+                <div class="story-block right-image">
+                    <div class="story-content">
+                        <h3>운명적인 컴퓨터와의 만남</h3>
+                        <p>경북 군위의 산촌 마을에서 자란 저에게 <span class="highlight-text">초등학교 5학년</span>은 인생의 결정적 분기점이었습니다. 당시 시골에서는 매우 드물었던 컴퓨터학원에서 베이직(BASIC) 프로그래밍을 처음 접하게 된 것이 모든 것의 시작이었습니다. 286, 386 컴퓨터가 막 세상에 소개되던 그 시절, 모니터 화면에 글자와 숫자가 나타나는 것만으로도 마치 마법을 보는 듯한 경이로움을 느꼈고, 플레이스테이션, 닌텐도, 게임보이 등 다양한 콘솔 게임들을 접하면서 디지털 세계에 완전히 매료되었는데, 산촌 마을의 특성상 밖에서 즐길 수 있는 놀거리가 많지 않았던 환경에서 <span class="highlight-text">컴퓨터와 게임이 저만의 특별한 우주</span>가 되어주었습니다.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="../assets/images/about/retro-computer.jpg" alt="90년대 컴퓨터와 게임" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Story Block 3: 자기주도 학습과 성장 (이미지 왼쪽, 텍스트 오른쪽) -->
+                <div class="story-block left-image">
+                    <div class="story-image">
+                        <img src="../assets/images/about/self-learning.jpg" alt="컴퓨터 학습 과정" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <h3>끈질긴 자기주도 학습</h3>
+                        <p>시골이라는 지리적, 환경적 제약은 역설적으로 저를 더욱 끈질기고 자기주도적인 사람으로 만들어 주었고, 컴퓨터를 체계적으로 배울 수 있는 기관이나 시설이 부족했던 상황에서 혼자서 컴퓨터를 분해하고 다시 조립하는 작업을 끝없이 반복했으며, 때로는 실수로 고장을 내기도 했지만 그럴 때마다 <span class="highlight-text">컴퓨터 관련 서적들을 샅샅이 뒤져가며</span> 스스로 해결책을 찾아내면서 문제해결 능력을 길렀고, 단순히 책으로만 배우는 것에 만족하지 않고 직접 손으로 만지고 체험하고자 했던 저의 실천적 성격이 지금까지도 제 가장 큰 강점이 되어주고 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- Story Block 4: IT 커리어 시작 (텍스트 왼쪽, 이미지 오른쪽) -->
+                <div class="story-block right-image">
+                    <div class="story-content">
+                        <h3>IT 세계로의 첫 걸음</h3>
+                        <p>정보처리과가 있는 고등학교에 진학하여 체계적이고 전문적인 컴퓨터 교육을 받게 되면서, 어릴 때부터 독학으로 쌓아온 실무 경험과 학교에서 배운 이론적 지식이 완벽하게 만나 <span class="highlight-text">폭발적인 시너지 효과</span>를 만들어냈고, 2001년 드디어 <span class="highlight-text">컴퓨터 수리 전문업체</span>에서 컴퓨터 조립과 수리 업무로 IT 세계에 첫 발을 내디뎠으며, 중소기업들을 직접 찾아다니며 PC 수리와 영업 업무를 담당하던 그 시절 고객과의 직접적이고 진정성 있는 소통이 얼마나 중요한지를 깊이 깨달았습니다.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="../assets/images/about/early-career.jpg" alt="초기 IT 커리어" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Story Block 5: 이즈컴 성장기 (이미지 왼쪽, 텍스트 오른쪽) -->
+                <div class="story-block left-image">
+                    <div class="story-image">
+                        <img src="../assets/images/about/ezcom-era.jpg" alt="IT 유통업체 시절 업무 모습" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <h3>다양한 업종에서의 황금기</h3>
+                        <p>2007년부터 2015년까지 무려 <span class="highlight-text">다양한 업종에서의 7년 10개월</span>은 제 인생에서 가장 중요하고 의미 있는 성장의 시간이었습니다. <span class="highlight-text">부동산협회</span>에서 부동산매물 관리 프로그램 개발과 부동산 관리 업무를 담당했고, <span class="highlight-text">온라인 인터넷 강의업체</span>에서는 PC교육 시스템 구축과 기술지원을 맡았으며, <span class="highlight-text">휴대폰 안테나 개발 및 제조회사</span>에서 전산유지보수 업무를 통해 제조업 현장의 깊이 있는 이해를 쌓았습니다. <span class="highlight-text">컴퓨터 전문 수리 고객센터</span>에서는 기술지원의 핵심을 익혔고, 기술 영업 리스 및 렌탈 분야에서는 <span class="highlight-text">PC리스 렌탈 사업</span>을 직접 기획하고 운영하여 전국의 PC방들에 <span class="highlight-text">매월 2-3곳씩, 최소 40대에서 150대</span>라는 대규모 납품 실적을 달성했습니다. 또한 <span class="highlight-text">CCTV 제조사</span>에서 PC유지보수관리, <span class="highlight-text">금융회사</span>에서 PC 유지보수 기술지원, <span class="highlight-text">대학병원</span>에서 PC유지보수 기술지원까지 정말 다양한 업종에서 기술영업 및 전산 기술지원 업무를 완벽하게 체험하면서 각 산업군의 특성과 요구사항을 깊이 있게 이해할 수 있었습니다.</p>
+                    </div>
+                </div>
+
+                <!-- Story Block 6: 다양한 경험과 성과 (텍스트 왼쪽, 이미지 오른쪽) -->
+                <div class="story-block right-image">
+                    <div class="story-content">
+                        <h3>새로운 시장 개척과 도전</h3>
+                        <p><span class="highlight-text">프린터 렌탈업체</span>에서는 잉크젯 프린터라는 완전히 새로운 분야로 과감하게 뛰어들어 패스트푸드 체인점들을 중심으로 한 외식업계에서 <span class="highlight-text">총 1,000대라는 놀라운 렌탈 성과</span>를 달성했고, <span class="highlight-text">IT 솔루션 업체</span>에서는 <span class="highlight-text">포토카드 발급기</span>라는 당시로서는 완전히 새롭고 혁신적인 시장을 직접 개척해 나갔으며, 저축은행 50여 개 지점을 비롯하여 리조트와 호텔들, 각종 공연장까지 제가 손길이 닿는 곳마다 새로운 비즈니스 기회가 생겨났습니다. 바로 이 시기에 디지털 마케팅이라는 새로운 영역의 놀라운 힘을 발견하여 직접 회사 홈페이지를 기획하고 설계하고 블로그 운영을 통해 <span class="highlight-text">단 5개월이라는 짧은 기간 동안 1,400명의 이웃</span>들을 모으면서 온라인에서의 영향력까지 키워나갔습니다.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="../assets/images/about/business-expansion.jpg" alt="사업 확장과 새로운 도전" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Story Block 7: 현재와 미래 (이미지 왼쪽, 텍스트 오른쪽) -->
+                <div class="story-block left-image">
+                    <div class="story-image">
+                        <img src="../assets/images/about/future-vision.jpg" alt="미래를 향한 비전" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <h3>현재진행형 이야기</h3>
+                        <p>2024년 6월 누구도 예상치 못했던 갑작스러운 팔 골절 사고로 인해 두 차례나 힘든 수술을 받아야 했지만, 8월에 퇴원한 후에도 결코 멈추거나 포기하지 않고 재활 기간 동안에도 고객센터에서 근무하면서 <span class="highlight-text">고객 소통의 새로운 차원</span>을 경험했으며, 2025년 4월부터는 내일배움카드를 적극 활용하여 생성형 AI 프론트엔드 교육을 수강하면서 변화하는 미래 기술에 대한 준비를 게을리하지 않고 있습니다. 이렇게 <span class="highlight-text">20년이라는 긴 시간</span> 동안 저는 기술적 전문성과 고객 중심적 사고방식, 새로운 시장 개척 경험, 그리고 디지털 마케팅에 대한 깊이 있는 이해를 차근차근 쌓아올려 왔습니다. 저의 이야기는 <span class="highlight-text">아직도 현재진행형</span>입니다.</p>
+                    </div>
+                </div>
+
+                <!-- 마무리 인사 -->
+                <div class="story-closing">
+                    <p style="text-align: center; font-style: italic; margin-top: 2em; color: #e74c3c; font-size: 1.2em;">감사합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>더 자세한 이야기가 궁금하시다면</h2>
+                <p>20년간의 경험과 노하우, 그리고 미래에 대한 비전을 직접 들어보세요</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="cta-primary">
+                        <span>연락하기</span>
+                        <i class="cta-arrow">→</i>
+                    </a>
+                    <a href="../index.html#sales" class="cta-secondary">
+                        <span>핵심 역량 보기</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>탐색</h4>
+                    <ul>
+                        <li><a href="../index.html#home">홈</a></li>
+                        <li><a href="#" class="active">소개</a></li>
+                        <li><a href="../index.html#sales">핵심역량</a></li>
+                        <li><a href="../index.html#hobby">창작활동</a></li>
+                        <li><a href="experience-education.html">활동&교육</a></li>
+                        <li><a href="jstudio.html" target="_blank">갤러리</a></li>
+                        <li><a href="../index.html#contact">연락처</a></li>
+                        <li><a href="sitemap.html">사이트맵</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>소셜미디어</h4>
+                    <div class="social-links">
+                        <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg?si=883k_gOmYFrbpRny" target="_blank" class="social-link" aria-label="유튜브">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>패밀리 사이트</h4>
+                    <ul>
+                        <li><a href="https://junetapa.com/" target="_blank" class="family-link">Junetapa 지식포털</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">Junetapa</span>
+                        <p>기술과 사람을 잇는 IT 전문가</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
+                <p>이력서 너머의 진짜 이야기를 담은 IT Story</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
