@@ -2568,7 +2568,7 @@ body {
 .kakao-talk-button {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 110px; /* Moved to the left to avoid chat launcher */
     z-index: 1000;
     animation: float 3s ease-in-out infinite;
 }
@@ -3602,10 +3602,17 @@ body {
     }
 }
 
-/* Hide widget when kakao button is nearby on mobile */
+/* Adjust visitor stats position for mobile */
+@media (max-width: 768px) {
+    .visitor-stats-widget {
+        left: 15px;
+        right: 15px;
+    }
+}
+
 @media (max-width: 480px) {
     .visitor-stats-widget {
-        bottom: 100px; /* Above kakao button */
+        bottom: 90px; /* Above kakao and chat buttons */
         left: 15px;
         right: 15px;
     }
@@ -4063,6 +4070,11 @@ body {
         height: 18px;
         font-size: 0.7rem;
     }
+    
+    /* Adjust kakao button for tablet */
+    .kakao-talk-button {
+        right: 90px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -4072,8 +4084,14 @@ body {
     }
     
     .chat-launcher {
-        bottom: 160px; /* Above visitor stats and kakao */
+        bottom: 20px; /* Same level as kakao */
         right: 15px;
+    }
+    
+    /* Adjust kakao button for mobile - place it to the left of chat */
+    .kakao-talk-button {
+        bottom: 20px;
+        right: 80px; /* Left of chat launcher */
     }
     
     .chat-header {
