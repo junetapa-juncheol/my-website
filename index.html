@@ -26,6 +26,80 @@
     <!-- ARIA Live Region for Screen Readers -->
     <div id="aria-live-region" class="aria-live" aria-live="polite" aria-atomic="true"></div>
     
+    <!-- Notice Popup -->
+    <div id="noticePopup" class="notice-popup-overlay">
+        <div class="notice-popup">
+            <div class="notice-popup-header">
+                <div class="notice-icon">📢</div>
+                <h2>홈페이지 안내</h2>
+                <button class="notice-close-btn" aria-label="팝업 닫기">×</button>
+            </div>
+            
+            <div class="notice-popup-content">
+                <div class="notice-image">
+                    <img src="assets/images/common/Profile_image.png" alt="박준철 프로필">
+                </div>
+                
+                <div class="notice-text">
+                    <div class="notice-item">
+                        <div class="notice-item-icon">🔧</div>
+                        <div class="notice-item-content">
+                            <h3>홈페이지 업데이트 중</h3>
+                            <p>현재 홈페이지는 지속적으로 개선 및 업데이트되고 있습니다. 수시로 내용이 변경될 수 있으니 양해 부탁드립니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="notice-item">
+                        <div class="notice-item-icon">📋</div>
+                        <div class="notice-item-content">
+                            <h3>일부 콘텐츠만 공개</h3>
+                            <p>현재 페이지에는 저의 경력과 역량 중 일부분만 소개되어 있습니다. 더 자세한 정보는 문의를 통해 확인하실 수 있습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="notice-item">
+                        <div class="notice-item-icon">💬</div>
+                        <div class="notice-item-content">
+                            <h3>궁금한 점이 있으시면</h3>
+                            <p>추가 정보나 궁금한 사항이 있으시면 언제든지 연락 주세요. 실시간 채팅 또는 연락처를 통해 빠르게 답변드리겠습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notice-contact-info">
+                    <div class="contact-quick">
+                        <div class="contact-method">
+                            <span class="contact-icon">📧</span>
+                            <span>jun22sky@nate.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">📱</span>
+                            <span>010-****-3888</span>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">💬</span>
+                            <span>실시간 채팅 이용 가능</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notice-actions">
+                    <button class="notice-btn primary" id="noticeChatBtn">실시간 채팅하기</button>
+                    <button class="notice-btn secondary" id="noticeContactBtn">연락처 보기</button>
+                    <button class="notice-btn tertiary" id="noticeCloseBtn">확인했습니다</button>
+                </div>
+                
+                <div class="notice-checkbox">
+                    <label>
+                        <input type="checkbox" id="dontShowAgain">
+                        <span class="checkmark"></span>
+                        오늘 하루 보지 않기
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">

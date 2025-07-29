@@ -1336,3 +1336,303 @@
         font-size: 1.1rem;
     }
 }
+
+/* ==========================================
+   TIMELINE GALLERY RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .timeline-gallery {
+        margin-top: 30px;
+        padding: 20px;
+    }
+    
+    .gallery-title {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .timeline-images {
+        height: 250px;
+        margin-bottom: 15px;
+    }
+    
+    .image-caption {
+        padding: 30px 15px 15px;
+    }
+    
+    .image-year {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+    
+    .image-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-navigation {
+        gap: 15px;
+    }
+    
+    .gallery-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+    
+    .gallery-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 480px) {
+    .timeline-gallery {
+        margin-top: 25px;
+        padding: 15px;
+    }
+    
+    .gallery-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .timeline-images {
+        height: 200px;
+        margin-bottom: 12px;
+    }
+    
+    .image-caption {
+        padding: 25px 12px 12px;
+    }
+    
+    .image-year {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        margin-bottom: 6px;
+    }
+    
+    .image-caption p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-navigation {
+        gap: 12px;
+    }
+    
+    .gallery-nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+    
+    .gallery-dots {
+        gap: 6px;
+    }
+    
+    .gallery-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* ==========================================
+   TIMELINE ITEM IMAGES RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .timeline-content-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .timeline-text {
+        flex: none;
+    }
+    
+    .timeline-image {
+        flex: none;
+        min-width: auto;
+        max-width: 100%;
+        align-self: center;
+        max-width: 300px;
+    }
+    
+    .timeline-image img {
+        height: 120px;
+    }
+    
+    .timeline-image-caption {
+        font-size: 0.75rem;
+        margin-top: 6px;
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 480px) {
+    .timeline-content-wrapper {
+        gap: 12px;
+    }
+    
+    .timeline-image {
+        max-width: 250px;
+    }
+    
+    .timeline-image img {
+        height: 100px;
+    }
+    
+    .timeline-image-caption {
+        font-size: 0.7rem;
+        margin-top: 5px;
+    }
+}
+
+/* ==========================================
+   NOTICE POPUP RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .notice-popup-overlay {
+        padding: 15px;
+    }
+    
+    .notice-popup {
+        max-width: 100%;
+        max-height: 95vh;
+    }
+    
+    .notice-popup-header {
+        padding: 20px 25px 15px;
+    }
+    
+    .notice-popup-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .notice-icon {
+        font-size: 1.5rem;
+    }
+    
+    .notice-popup-content {
+        padding: 25px;
+    }
+    
+    .notice-image img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .notice-item {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .notice-item-icon {
+        font-size: 1.3rem;
+    }
+    
+    .notice-item-content h3 {
+        font-size: 1rem;
+    }
+    
+    .notice-item-content p {
+        font-size: 0.9rem;
+    }
+    
+    .notice-contact-info {
+        padding: 15px;
+    }
+    
+    .contact-method {
+        font-size: 0.85rem;
+    }
+    
+    .notice-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .notice-btn {
+        min-width: auto;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 480px) {
+    .notice-popup-overlay {
+        padding: 10px;
+    }
+    
+    .notice-popup-header {
+        padding: 15px 20px 12px;
+    }
+    
+    .notice-popup-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .notice-popup-content {
+        padding: 20px;
+    }
+    
+    .notice-image img {
+        width: 60px;
+        height: 60px;
+        border-width: 2px;
+    }
+    
+    .notice-item {
+        padding: 10px;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .notice-item-icon {
+        font-size: 1.2rem;
+    }
+    
+    .notice-item-content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    
+    .notice-item-content p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .notice-contact-info {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-method {
+        font-size: 0.8rem;
+    }
+    
+    .contact-icon {
+        width: 22px;
+        font-size: 1rem;
+    }
+    
+    .notice-btn {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .notice-checkbox label {
+        font-size: 0.8rem;
+    }
+    
+    .checkmark {
+        width: 16px;
+        height: 16px;
+    }
+}
