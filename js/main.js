@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMagneticEffect();
     initializeParallaxEffect();
     initializeSmoothEntrances();
+    initializeInteractiveTimeline();
+    initializeTechStackAnimations();
 });
 
 // Hero Background initialization (Video + Particles fallback)
@@ -1471,5 +1473,226 @@ function initializeSmoothEntrances() {
     smoothElements.forEach(element => {
         element.classList.add('smooth-entrance');
         observer.observe(element);
+    });
+}
+
+// Interactive Timeline functionality
+function initializeInteractiveTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const progressBar = document.querySelector('.timeline-progress-bar');
+    
+    if (!timelineItems.length || !progressBar) return;
+    
+    // Initialize timeline items visibility
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add delay based on index for staggered animation
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, index * 200);
+                
+                // Update progress bar
+                updateTimelineProgress();
+                
+                // Add click handler for timeline item
+                entry.target.addEventListener('click', () => {
+                    toggleTimelineItem(entry.target);
+                });
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    // Observe timeline items
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+    
+    // Update progress bar based on scroll
+    function updateTimelineProgress() {
+        const activeItems = document.querySelectorAll('.timeline-item.active');
+        const totalItems = timelineItems.length;
+        const progress = (activeItems.length / totalItems) * 100;
+        
+        progressBar.style.height = `${progress}%`;
+    }
+    
+    // Toggle timeline item details
+    function toggleTimelineItem(item) {
+        const isExpanded = item.classList.contains('expanded');
+        
+        // Remove expanded class from all items
+        timelineItems.forEach(timelineItem => {
+            timelineItem.classList.remove('expanded');
+        });
+        
+        // Add expanded class to clicked item if it wasn't already expanded
+        if (!isExpanded) {
+            item.classList.add('expanded');
+            item.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+        }
+    }
+    
+    // Add smooth scroll progress tracking
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const timelineContainer = document.querySelector('.timeline-container');
+        
+        if (timelineContainer) {
+            const containerTop = timelineContainer.offsetTop;
+            const containerHeight = timelineContainer.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            const scrollProgress = Math.max(0, Math.min(1, 
+                (scrollTop - containerTop + windowHeight / 2) / containerHeight
+            ));
+            
+            progressBar.style.height = `${scrollProgress * 100}%`;
+        }
+    });
+}
+
+// Tech Stack Animations
+function initializeTechStackAnimations() {
+    const techCategories = document.querySelectorAll('.tech-category');
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const statCards = document.querySelectorAll('.stat-card');
+    
+    // Animate tech categories on scroll
+    const techObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Staggered animation for categories
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                    animateSkillBarsInCategory(entry.target);
+                }, index * 150);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe tech categories
+    techCategories.forEach(category => {
+        techObserver.observe(category);
+    });
+    
+    // Animate skill bars within a category
+    function animateSkillBarsInCategory(category) {
+        const categorySkillBars = category.querySelectorAll('.skill-progress');
+        
+        categorySkillBars.forEach((bar, index) => {
+            setTimeout(() => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0%';
+                
+                // Animate to target width
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 100);
+            }, index * 100);
+        });
+    }
+    
+    // Animate stat cards
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target.querySelector('.stat-number');
+                if (statNumber) {
+                    animateStatNumber(statNumber);
+                }
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    statCards.forEach(card => {
+        statsObserver.observe(card);
+    });
+    
+    // Animate stat numbers with counting effect
+    function animateStatNumber(element) {
+        const targetText = element.textContent;
+        const targetNumber = parseInt(targetText.match(/\d+/)?.[0] || '0');
+        const suffix = targetText.replace(/\d+/, '');
+        
+        let currentNumber = 0;
+        const increment = Math.ceil(targetNumber / 30);
+        const duration = 1000;
+        const stepTime = duration / (targetNumber / increment);
+        
+        const counter = setInterval(() => {
+            currentNumber += increment;
+            if (currentNumber >= targetNumber) {
+                currentNumber = targetNumber;
+                clearInterval(counter);
+            }
+            element.textContent = currentNumber + suffix;
+        }, stepTime);
+    }
+    
+    // Add hover effects for tech categories
+    techCategories.forEach(category => {
+        category.addEventListener('mouseenter', () => {
+            category.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        category.addEventListener('mouseleave', () => {
+            category.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Add click to expand functionality for mobile
+    if (window.innerWidth <= 768) {
+        techCategories.forEach(category => {
+            const header = category.querySelector('.category-header');
+            const skills = category.querySelector('.tech-skills');
+            
+            if (header && skills) {
+                header.addEventListener('click', () => {
+                    const isExpanded = category.classList.contains('expanded');
+                    
+                    // Close all other categories
+                    techCategories.forEach(cat => {
+                        if (cat !== category) {
+                            cat.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle current category
+                    category.classList.toggle('expanded');
+                    
+                    if (!isExpanded) {
+                        // Scroll category into view
+                        category.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest' 
+                        });
+                    }
+                });
+            }
+        });
+    }
+    
+    // Philosophy points hover effect
+    const philosophyPoints = document.querySelectorAll('.point-item');
+    philosophyPoints.forEach(point => {
+        point.addEventListener('mouseenter', () => {
+            point.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        
+        point.addEventListener('mouseleave', () => {
+            point.style.transform = 'translateY(0) scale(1)';
+        });
     });
 }
