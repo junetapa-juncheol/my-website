@@ -33,6 +33,15 @@
                 <span class="logo-text">Junetapa</span>
                 <span class="logo-subtitle">IT Story</span>
             </div>
+            
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle" id="themeToggle" aria-label="테마 변경">
+                <div class="toggle-icon">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </div>
+            </div>
+            
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">홈</a></li>
                 <li><a href="pages/about.html" class="nav-link">소개</a></li>
@@ -903,6 +912,117 @@
             </div>
         </div>
     </section>
+
+    <!-- Visitor Statistics Widget -->
+    <div class="visitor-stats-widget" id="visitorStatsWidget">
+        <div class="stats-header">
+            <div class="stats-icon">📊</div>
+            <span class="stats-title">방문자 통계</span>
+            <button class="stats-toggle" id="statsToggle" aria-label="통계 위젯 접기/펼치기">
+                <span class="toggle-arrow">▼</span>
+            </button>
+        </div>
+        <div class="stats-content" id="statsContent">
+            <div class="stat-item">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <span class="stat-label">현재 접속자</span>
+                    <span class="stat-value" id="currentVisitors">1</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📈</div>
+                <div class="stat-info">
+                    <span class="stat-label">오늘 방문자</span>
+                    <span class="stat-value" id="todayVisitors">0</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🔢</div>
+                <div class="stat-info">
+                    <span class="stat-label">총 방문자</span>
+                    <span class="stat-value" id="totalVisitors">0</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">👁️</div>
+                <div class="stat-info">
+                    <span class="stat-label">페이지뷰</span>
+                    <span class="stat-value" id="pageViews">0</span>
+                </div>
+            </div>
+            <div class="stats-timestamp">
+                <span id="lastUpdated">마지막 업데이트: 방금 전</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header" id="chatHeader">
+            <div class="chat-status">
+                <div class="status-indicator online"></div>
+                <div class="chat-info">
+                    <span class="chat-title">실시간 상담</span>
+                    <span class="chat-status-text">온라인</span>
+                </div>
+            </div>
+            <div class="chat-controls">
+                <button class="chat-minimize" id="chatMinimize" aria-label="채팅 최소화">
+                    <span class="minimize-icon">−</span>
+                </button>
+                <button class="chat-close" id="chatClose" aria-label="채팅 닫기">
+                    <span class="close-icon">×</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="message-text">안녕하세요! Junetapa 입니다. 무엇을 도와드릴까요?</div>
+                        <div class="message-time">방금 전</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-typing" id="chatTyping" style="display: none;">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">입력 중...</span>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" 
+                       class="chat-input" 
+                       id="chatInput" 
+                       placeholder="메시지를 입력하세요..." 
+                       maxlength="500"
+                       autocomplete="off">
+                <button class="chat-send" id="chatSend" aria-label="메시지 전송">
+                    <span class="send-icon">📤</span>
+                </button>
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                <button class="suggestion-btn" data-message="안녕하세요!">안녕하세요!</button>
+                <button class="suggestion-btn" data-message="포트폴리오에 대해 문의드립니다">포트폴리오 문의</button>
+                <button class="suggestion-btn" data-message="협업 제안이 있습니다">협업 제안</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Launcher Button -->
+    <div class="chat-launcher" id="chatLauncher">
+        <div class="launcher-icon">💬</div>
+        <div class="launcher-notification" id="launcherNotification">1</div>
+    </div>
 
     <!-- KakaoTalk OpenTalk Button -->
     <div class="kakao-talk-button">
