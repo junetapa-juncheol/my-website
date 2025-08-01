@@ -213,6 +213,18 @@ body {
     z-index: 2;
 }
 
+.logo-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: translateY(-1px);
+}
+
 .logo-text {
     background: linear-gradient(135deg, #7B68EE, #6A5ACD, #4A90E2, #5B9BD5, #FF6B6B, #7B68EE);
     background-size: 300% 300%;

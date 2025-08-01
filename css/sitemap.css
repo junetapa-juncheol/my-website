@@ -1,0 +1,217 @@
+/* Sitemap specific styles */
+.sitemap-hero {
+    min-height: 60vh;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0 50px;
+}
+
+.sitemap-content {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.sitemap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.sitemap-section, .changelog-section {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.sitemap-section h3, .changelog-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sitemap-list li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.sitemap-list li::before {
+    content: "🔗";
+    position: absolute;
+    left: 0;
+}
+
+.sitemap-list a {
+    color: #333;
+    text-decoration: none;
+    transition: var(--transition-medium);
+}
+
+.sitemap-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.changelog-item {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.changelog-date {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.changelog-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.changelog-desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+.changelog-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.changelog-tag {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .sitemap-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .sitemap-hero {
+        min-height: 50vh;
+        padding: 80px 0 40px;
+    }
+    
+    .sitemap-content {
+        padding: 60px 0;
+    }
+    
+    .sitemap-section, .changelog-section {
+        padding: 20px;
+    }
+    
+    .sitemap-section h3, .changelog-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Hover 효과 추가 */
+.sitemap-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* 홈 버튼 호버 효과 */
+.back-home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 새로운 시각화 효과 */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.structure-item {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.structure-item:nth-child(1) { animation-delay: 0.1s; }
+.structure-item:nth-child(2) { animation-delay: 0.2s; }
+.structure-item:nth-child(3) { animation-delay: 0.3s; }
+.structure-item:nth-child(4) { animation-delay: 0.4s; }
+
+.social-card {
+    animation: slideInLeft 0.8s ease-out;
+    cursor: pointer;
+}
+
+.social-card:nth-child(1) { animation-delay: 0.1s; }
+.social-card:nth-child(2) { animation-delay: 0.2s; }
+.social-card:nth-child(3) { animation-delay: 0.3s; }
+.social-card:nth-child(4) { animation-delay: 0.4s; }
+
+.social-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.main-page {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.structure-branches {
+    animation: slideInLeft 1s ease-out 0.3s both;
+}
+
+/* 연결선 애니메이션 */
+.structure-branches::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+    animation: growDown 1.5s ease-out 0.5s both;
+}
+
+@keyframes growDown {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+/* 통계 카운터 애니메이션 */
+.stat-number {
+    animation: countUp 2s ease-out 1s both;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
