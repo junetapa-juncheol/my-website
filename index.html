@@ -112,12 +112,9 @@
             
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">홈</a></li>
-                <li><a href="pages/about.html" class="nav-link">소개</a></li>
                 <li><a href="#tech-stack" class="nav-link">기술스택</a></li>
                 <li><a href="#sales" class="nav-link">핵심역량</a></li>
                 <li><a href="#hobby" class="nav-link">창작활동</a></li>
-                <li><a href="pages/experience-education.html" class="nav-link">활동&교육</a></li>
-                <!-- <li><a href="jstudio.html" class="jstudio.html" target="_blank">갤러리</a></li> -->
                 <li><a href="#contact" class="nav-link">연락처</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -127,6 +124,8 @@
             </div>
             <div class="hamburger-menu" id="hamburger-menu">
                 <ul>
+                    <li><a href="pages/about.html">소개</a></li>
+                    <li><a href="pages/experience-education.html">활동&교육</a></li>
                     <li><a href="pages/jstudio.html" target="_blank">갤러리</a></li>
                     <li><a href="pages/sitemap.html">사이트맵</a></li>
                 </ul>
@@ -983,12 +982,17 @@
 
     <!-- Visitor Statistics Widget -->
     <div class="visitor-stats-widget" id="visitorStatsWidget">
-        <div class="stats-header">
+        <div class="stats-header" id="statsHeader">
             <div class="stats-icon">📊</div>
             <span class="stats-title">방문자 통계</span>
-            <button class="stats-toggle" id="statsToggle" aria-label="통계 위젯 접기/펼치기">
-                <span class="toggle-arrow">▼</span>
-            </button>
+            <div class="header-controls">
+                <button class="stats-toggle" id="statsToggle" aria-label="통계 위젯 접기/펼치기">
+                    <span class="toggle-arrow">▼</span>
+                </button>
+                <button class="stats-close" id="statsClose" aria-label="통계 위젯 닫기">
+                    <span class="close-icon">×</span>
+                </button>
+            </div>
         </div>
         <div class="stats-content" id="statsContent">
             <div class="stat-item">
@@ -1111,22 +1115,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>탐색</h4>
-                    <ul>
-                        <li><a href="#home">홈</a></li>
-                        <li><a href="pages/about.html">소개</a></li>
-                        <li><a href="#tech-stack">기술스택</a></li>
-                        <li><a href="#sales">핵심역량</a></li>
-                        <li><a href="#hobby">창작활동</a></li>
-                        <li><a href="pages/experience-education.html">활동&교육</a></li>
-                        <li><a href="pages/jstudio.html" target="_blank">갤러리</a></li>
-                        <li><a href="#contact">연락처</a></li>
-                        <li><a href="pages/sitemap.html">사이트맵</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>소셜미디어</h4>
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">Junetapa</span>
+                        <p>기술과 사람을 잇는 IT 전문가</p>
+                    </div>
                     <div class="social-links">
                         <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
                             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1150,29 +1143,33 @@
                         </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>패밀리 사이트</h4>
-                    <ul>
-                        <li><a href="https://junetapa.com/" target="_blank" class="family-link">Junetapa 지식포털</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>다운로드</h4>
-                    <ul>
-                        <li><a href="#" class="download-link">기술영업 자료 PDF</a></li>
-                        <li><a href="#" class="download-link">이력서 PDF</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <span class="logo-text">Junetapa</span>
-                        <p>기술과 사람을 잇는 IT 전문가</p>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>탐색</h4>
+                        <a href="#home">홈</a>
+                        <a href="pages/about.html">소개</a>
+                        <a href="#sales">핵심역량</a>
+                        <a href="#hobby">창작활동</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>리소스</h4>
+                        <a href="pages/experience-education.html">활동&교육</a>
+                        <a href="pages/jstudio.html" target="_blank">갤러리</a>
+                        <a href="pages/sitemap.html">사이트맵</a>
+                        <a href="https://junetapa.com/" target="_blank" class="family-link">지식포털</a>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
-                <p>기술과 창작이 만나는 특별한 여정, IT Story</p>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
+                    <p>기술과 창작이 만나는 특별한 여정</p>
+                </div>
+                <div class="footer-contact">
+                    <a href="#contact" class="contact-link">연락하기</a>
+                </div>
             </div>
         </div>
     </footer>

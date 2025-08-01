@@ -29,16 +29,16 @@
     <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">Junetapa</span>
-                <span class="logo-subtitle">IT Story</span>
+                <a href="../index.html#home" class="logo-link">
+                    <span class="logo-text">Junetapa</span>
+                    <span class="logo-subtitle">IT Story</span>
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html#home" class="nav-link">홈</a></li>
-                <li><a href="#" class="nav-link active">소개</a></li>
+                <li><a href="../index.html#tech-stack" class="nav-link">기술스택</a></li>
                 <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
                 <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
-                <li><a href="experience-education.html" class="nav-link">활동&교육</a></li>
-                <!-- <li><a href="jstudio.html" class="jstudio.html" target="_blank">갤러리</a></li> -->
                 <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -48,6 +48,8 @@
             </div>
             <div class="hamburger-menu" id="hamburger-menu">
                 <ul>
+                    <li><a href="about.html" class="active">소개</a></li>
+                    <li><a href="experience-education.html">활동&교육</a></li>
                     <li><a href="jstudio.html" target="_blank">갤러리</a></li>
                     <li><a href="sitemap.html">사이트맵</a></li>
                 </ul>
@@ -185,21 +187,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>탐색</h4>
-                    <ul>
-                        <li><a href="../index.html#home">홈</a></li>
-                        <li><a href="#" class="active">소개</a></li>
-                        <li><a href="../index.html#sales">핵심역량</a></li>
-                        <li><a href="../index.html#hobby">창작활동</a></li>
-                        <li><a href="experience-education.html">활동&교육</a></li>
-                        <li><a href="jstudio.html" target="_blank">갤러리</a></li>
-                        <li><a href="../index.html#contact">연락처</a></li>
-                        <li><a href="sitemap.html">사이트맵</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>소셜미디어</h4>
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">Junetapa</span>
+                        <p>기술과 사람을 잇는 IT 전문가</p>
+                    </div>
                     <div class="social-links">
                         <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
                             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -223,22 +215,33 @@
                         </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>패밀리 사이트</h4>
-                    <ul>
-                        <li><a href="https://junetapa.com/" target="_blank" class="family-link">Junetapa 지식포털</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <span class="logo-text">Junetapa</span>
-                        <p>기술과 사람을 잇는 IT 전문가</p>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>탐색</h4>
+                        <a href="../index.html#home">홈</a>
+                        <a href="about.html">소개</a>
+                        <a href="../index.html#sales">핵심역량</a>
+                        <a href="../index.html#hobby">창작활동</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>리소스</h4>
+                        <a href="experience-education.html">활동&교육</a>
+                        <a href="jstudio.html" target="_blank">갤러리</a>
+                        <a href="sitemap.html">사이트맵</a>
+                        <a href="https://junetapa.com/" target="_blank" class="family-link">지식포털</a>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
-                <p>이력서 너머의 진짜 이야기를 담은 IT Story</p>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
+                    <p>기술과 창작이 만나는 특별한 여정</p>
+                </div>
+                <div class="footer-contact">
+                    <a href="../index.html#contact" class="contact-link">연락하기</a>
+                </div>
             </div>
         </div>
     </footer>

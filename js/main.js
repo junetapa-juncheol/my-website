@@ -1707,8 +1707,10 @@ function initializeVisitorStats() {
     const widget = document.getElementById('visitorStatsWidget');
     const toggle = document.getElementById('statsToggle');
     const content = document.getElementById('statsContent');
+    const closeBtn = document.getElementById('statsClose');
+    const header = document.getElementById('statsHeader');
     
-    if (!widget || !toggle || !content) return;
+    if (!widget || !toggle || !content || !closeBtn || !header) return;
     
     // Initialize stats object
     const stats = {
@@ -1726,6 +1728,12 @@ function initializeVisitorStats() {
     // Initialize widget toggle functionality
     initializeStatsToggle();
     
+    // Initialize close functionality
+    initializeStatsClose();
+    
+    // Initialize drag functionality
+    initializeStatsDrag();
+    
     // Start tracking
     startVisitorTracking();
     
@@ -1740,6 +1748,12 @@ function initializeVisitorStats() {
     
     // Track page unload
     setupPageUnloadTracking();
+    
+    // Make show function globally available
+    window.showVisitorStats = function() {
+        widget.classList.remove('hidden');
+        localStorage.setItem('statsWidgetHidden', 'false');
+    };
     
     function loadStats() {
         try {
@@ -1814,6 +1828,143 @@ function initializeVisitorStats() {
                 toggle.click();
             }
         });
+    }
+    
+    function initializeStatsClose() {
+        // Close button functionality
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent header click event
+            widget.classList.add('hidden');
+            
+            // Save hidden state
+            localStorage.setItem('statsWidgetHidden', 'true');
+        });
+        
+        // Load hidden state
+        const isHidden = localStorage.getItem('statsWidgetHidden') === 'true';
+        if (isHidden) {
+            widget.classList.add('hidden');
+        }
+        
+        // Add keyboard support for close button
+        closeBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closeBtn.click();
+            }
+        });
+    }
+    
+    function initializeStatsDrag() {
+        let isDragging = false;
+        let dragOffset = { x: 0, y: 0 };
+        let startPos = { x: 0, y: 0 };
+        
+        // Load saved position
+        const savedPosition = localStorage.getItem('statsWidgetPosition');
+        if (savedPosition) {
+            const position = JSON.parse(savedPosition);
+            widget.style.left = position.left + 'px';
+            widget.style.bottom = position.bottom + 'px';
+        }
+        
+        header.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
+        
+        // Touch events for mobile
+        header.addEventListener('touchstart', startDragTouch, { passive: false });
+        document.addEventListener('touchmove', dragTouch, { passive: false });
+        document.addEventListener('touchend', stopDrag);
+        
+        function startDrag(e) {
+            // Don't start drag if clicking on toggle or close buttons
+            if (e.target.closest('.stats-toggle') || e.target.closest('.stats-close')) {
+                return;
+            }
+            
+            isDragging = true;
+            widget.classList.add('dragging');
+            startPos.x = e.clientX;
+            startPos.y = e.clientY;
+            
+            const rect = widget.getBoundingClientRect();
+            dragOffset.x = e.clientX - rect.left;
+            dragOffset.y = e.clientY - rect.top;
+            
+            e.preventDefault();
+        }
+        
+        function startDragTouch(e) {
+            if (e.target.closest('.stats-toggle') || e.target.closest('.stats-close')) {
+                return;
+            }
+            
+            const touch = e.touches[0];
+            isDragging = true;
+            widget.classList.add('dragging');
+            startPos.x = touch.clientX;
+            startPos.y = touch.clientY;
+            
+            const rect = widget.getBoundingClientRect();
+            dragOffset.x = touch.clientX - rect.left;
+            dragOffset.y = touch.clientY - rect.top;
+            
+            e.preventDefault();
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            
+            const x = e.clientX - dragOffset.x;
+            const y = e.clientY - dragOffset.y;
+            
+            updatePosition(x, y);
+            e.preventDefault();
+        }
+        
+        function dragTouch(e) {
+            if (!isDragging) return;
+            
+            const touch = e.touches[0];
+            const x = touch.clientX - dragOffset.x;
+            const y = touch.clientY - dragOffset.y;
+            
+            updatePosition(x, y);
+            e.preventDefault();
+        }
+        
+        function updatePosition(x, y) {
+            // Keep widget within viewport bounds
+            const maxX = window.innerWidth - widget.offsetWidth;
+            const maxY = window.innerHeight - widget.offsetHeight;
+            
+            const clampedX = Math.max(0, Math.min(x, maxX));
+            const clampedY = Math.max(0, Math.min(y, maxY));
+            
+            // Convert to bottom/left positioning
+            const left = clampedX;
+            const bottom = window.innerHeight - clampedY - widget.offsetHeight;
+            
+            widget.style.left = left + 'px';
+            widget.style.bottom = bottom + 'px';
+        }
+        
+        function stopDrag() {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            widget.classList.remove('dragging');
+            
+            // Save position
+            const left = parseInt(widget.style.left) || 30;
+            const bottom = parseInt(widget.style.bottom) || 30;
+            
+            localStorage.setItem('statsWidgetPosition', JSON.stringify({
+                left: left,
+                bottom: bottom
+            }));
+        }
     }
     
     function startVisitorTracking() {
