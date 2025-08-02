@@ -2,7 +2,6 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeVisitorStats();
-    initializeLiveChat();
     initializeHeroBackground();
     initializeNavigation();
     initializeScrollAnimations();
@@ -261,8 +260,15 @@ function initializeNavigation() {
     const navbar = document.querySelector('.navbar');
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelectorAll('.nav-link');
     let isMenuOpen = false;
+    
+    // 초기 상태 설정 - 모든 메뉴 닫기
+    if (hamburger) hamburger.classList.remove('active');
+    if (navMenu) navMenu.classList.remove('active');
+    if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+    document.body.style.overflow = '';
 
     // Scroll direction detection variables
     let lastScrollY = window.scrollY;
@@ -317,7 +323,7 @@ function initializeNavigation() {
     });
 
     // Mobile menu toggle
-    if (hamburger && navMenu) {
+    if (hamburger && (navMenu || hamburgerMenu)) {
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleMobileMenu();
@@ -325,7 +331,10 @@ function initializeNavigation() {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (isMenuOpen && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            if (isMenuOpen && 
+                !navMenu?.contains(e.target) && 
+                !hamburgerMenu?.contains(e.target) && 
+                !hamburger.contains(e.target)) {
                 closeMobileMenu();
             }
         });
@@ -338,53 +347,14 @@ function initializeNavigation() {
         });
     }
 
-    // Hamburger menu toggle for additional menu items
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    let isHamburgerMenuOpen = false;
-    
-    if (hamburger && hamburgerMenu) {
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleHamburgerMenu();
-        });
-
-        // Close hamburger menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (isHamburgerMenuOpen && !hamburgerMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                closeHamburgerMenu();
-            }
-        });
-
-        // Close hamburger menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isHamburgerMenuOpen) {
-                closeHamburgerMenu();
-            }
-        });
-    }
-
-    function toggleHamburgerMenu() {
-        isHamburgerMenuOpen = !isHamburgerMenuOpen;
-        hamburgerMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = isHamburgerMenuOpen ? 'hidden' : '';
-    }
-
-    function closeHamburgerMenu() {
-        if (isHamburgerMenuOpen) {
-            isHamburgerMenuOpen = false;
-            hamburgerMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
 
     function toggleMobileMenu() {
         isMenuOpen = !isMenuOpen;
         hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        
+        // Toggle both menus
+        if (navMenu) navMenu.classList.toggle('active');
+        if (hamburgerMenu) hamburgerMenu.classList.toggle('active');
         
         // Prevent body scroll when menu is open
         document.body.style.overflow = isMenuOpen ? 'hidden' : '';
@@ -393,9 +363,9 @@ function initializeNavigation() {
         if (isMenuOpen) {
             navbar.classList.remove('nav-hidden');
             navbar.classList.add('nav-visible');
-            navMenu.classList.add('nav-menu-enter');
+            if (navMenu) navMenu.classList.add('nav-menu-enter');
         } else {
-            navMenu.classList.add('nav-menu-exit');
+            if (navMenu) navMenu.classList.add('nav-menu-exit');
         }
     }
 
@@ -403,12 +373,26 @@ function initializeNavigation() {
         if (isMenuOpen) {
             isMenuOpen = false;
             hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            
+            // Close both menus
+            if (navMenu) navMenu.classList.remove('active');
+            if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+            
             document.body.style.overflow = '';
             
             // Remove animation classes
-            navMenu.classList.remove('nav-menu-enter', 'nav-menu-exit');
+            if (navMenu) navMenu.classList.remove('nav-menu-enter', 'nav-menu-exit');
         }
+    }
+
+    // Close hamburger menu when clicking links
+    if (hamburgerMenu) {
+        const hamburgerLinks = hamburgerMenu.querySelectorAll('a');
+        hamburgerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
     }
 
     // Smooth scrolling for nav links
@@ -537,6 +521,7 @@ function animateJourneyItem(item) {
 
 // Counter animation
 function animateCounter(statItem) {
+    if (!statItem) return;
     const numberElement = statItem.querySelector('.stat-number');
     if (!numberElement || numberElement.dataset.animated) return;
 
@@ -2108,408 +2093,6 @@ function initializeVisitorStats() {
             if (confirm('정말로 통계를 초기화하시겠습니까?')) {
                 localStorage.removeItem('visitorStats');
                 location.reload();
-            }
-        }
-    };
-}
-
-// Live Chat functionality
-function initializeLiveChat() {
-    const chatWidget = document.getElementById('chatWidget');
-    const chatLauncher = document.getElementById('chatLauncher');
-    const chatInput = document.getElementById('chatInput');
-    const chatSend = document.getElementById('chatSend');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatMinimize = document.getElementById('chatMinimize');
-    const chatClose = document.getElementById('chatClose');
-    const chatTyping = document.getElementById('chatTyping');
-    const chatSuggestions = document.getElementById('chatSuggestions');
-    const launcherNotification = document.getElementById('launcherNotification');
-    
-    if (!chatWidget || !chatLauncher) return;
-    
-    // Chat state
-    let isOpen = false;
-    let isMinimized = false;
-    let isTyping = false;
-    let messageId = 0;
-    
-    // Auto-responses database
-    const autoResponses = {
-        greeting: [
-            "안녕하세요! 방문해주셔서 감사합니다. 무엇을 도와드릴까요?",
-            "반갑습니다! 궁금한 점이 있으시면 언제든 말씀해주세요.",
-            "안녕하세요! Junetapa입니다. 어떤 도움이 필요하신가요?"
-        ],
-        portfolio: [
-            "포트폴리오에 관심을 가져주셔서 감사합니다! 25년+ IT 경험을 바탕으로 한 다양한 프로젝트를 진행했습니다.",
-            "제 포트폴리오는 B2B 기술영업, IT 인프라 관리, 그리고 창작 활동으로 구성되어 있습니다. 어떤 부분이 궁금하신가요?",
-            "포트폴리오 상세 내용은 '소개' 페이지와 '핵심역량' 섹션에서 확인하실 수 있습니다!"
-        ],
-        collaboration: [
-            "협업 제안에 감사드립니다! 현재 프리랜서로 활동하며 새로운 프로젝트를 찾고 있습니다.",
-            "협업은 언제나 환영입니다! jun22sky@nate.com으로 상세한 제안서를 보내주시면 검토 후 답변드리겠습니다.",
-            "어떤 종류의 협업을 생각하고 계신가요? IT 컨설팅, 기술영업, 또는 프로젝트 관리 등 다양한 분야에서 도움을 드릴 수 있습니다."
-        ],
-        contact: [
-            "연락처 정보는 페이지 하단의 '연락하기' 섹션에서 확인하실 수 있습니다.",
-            "이메일: jun22sky@nate.com | 전화: 010-****-3888 | 카카오톡 오픈채팅도 이용 가능합니다!",
-            "24시간 내 답변 보장해드리니 편하신 방법으로 연락주세요!"
-        ],
-        experience: [
-            "25년+ IT 업계 경험을 가지고 있습니다. 전산유지보수부터 B2B 기술영업까지 다양한 분야를 담당했습니다.",
-            "주요 경력: 교육청 전산유지보수, 대학병원 IT 관리, 카드발급기 기술영업, 1000+ 렌탈 실적 등이 있습니다.",
-            "경력 상세 내용은 '활동&교육' 페이지에서 더 자세히 보실 수 있습니다!"
-        ],
-        default: [
-            "죄송합니다. 구체적으로 어떤 도움이 필요하신지 말씀해주시면 더 정확한 답변을 드릴 수 있습니다.",
-            "더 자세한 정보가 필요하시면 jun22sky@nate.com으로 연락주시거나 카카오톡 오픈채팅을 이용해주세요!",
-            "홈페이지의 각 섹션을 살펴보시면 더 많은 정보를 얻으실 수 있습니다. 특별히 궁금한 점이 있으시면 알려주세요!"
-        ]
-    };
-    
-    // Initialize chat
-    initializeChat();
-    
-    function initializeChat() {
-        // Load chat state
-        loadChatState();
-        
-        // Set up event listeners
-        setupEventListeners();
-        
-        // Show initial notification
-        showNotification();
-        
-        // Set up auto-status updates
-        updateOnlineStatus();
-        setInterval(updateOnlineStatus, 300000); // Update every 5 minutes
-    }
-    
-    function setupEventListeners() {
-        // Chat launcher
-        chatLauncher.addEventListener('click', openChat);
-        
-        // Chat controls
-        chatMinimize.addEventListener('click', minimizeChat);
-        chatClose.addEventListener('click', closeChat);
-        
-        // Message input
-        chatInput.addEventListener('keypress', handleKeyPress);
-        chatInput.addEventListener('input', handleInputChange);
-        chatSend.addEventListener('click', sendMessage);
-        
-        // Suggestion buttons
-        chatSuggestions.addEventListener('click', handleSuggestionClick);
-        
-        // Outside click to close
-        document.addEventListener('click', handleOutsideClick);
-        
-        // Keyboard shortcuts
-        document.addEventListener('keydown', handleKeyboardShortcuts);
-    }
-    
-    function openChat() {
-        isOpen = true;
-        isMinimized = false;
-        chatWidget.classList.add('active');
-        chatWidget.classList.remove('minimized');
-        chatLauncher.classList.add('hidden');
-        
-        // Focus input
-        setTimeout(() => {
-            chatInput.focus();
-        }, 300);
-        
-        // Hide notification
-        hideNotification();
-        
-        // Save state
-        saveChatState();
-        
-        // Track opening
-        if (window.visitorStats) {
-            // You could track chat opens here
-        }
-    }
-    
-    function closeChat() {
-        isOpen = false;
-        isMinimized = false;
-        chatWidget.classList.remove('active', 'minimized');
-        chatLauncher.classList.remove('hidden');
-        
-        // Save state
-        saveChatState();
-    }
-    
-    function minimizeChat() {
-        isMinimized = !isMinimized;
-        
-        if (isMinimized) {
-            chatWidget.classList.add('minimized');
-            chatMinimize.querySelector('.minimize-icon').textContent = '□';
-            chatMinimize.setAttribute('aria-label', '채팅 복원');
-        } else {
-            chatWidget.classList.remove('minimized');
-            chatMinimize.querySelector('.minimize-icon').textContent = '−';
-            chatMinimize.setAttribute('aria-label', '채팅 최소화');
-            chatInput.focus();
-        }
-        
-        // Save state
-        saveChatState();
-    }
-    
-    function handleKeyPress(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
-    }
-    
-    function handleInputChange() {
-        const message = chatInput.value.trim();
-        chatSend.disabled = !message;
-        
-        // Auto-resize input (optional)
-        chatInput.style.height = 'auto';
-        chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
-    }
-    
-    function handleSuggestionClick(e) {
-        if (e.target.classList.contains('suggestion-btn')) {
-            const message = e.target.dataset.message;
-            chatInput.value = message;
-            sendMessage();
-        }
-    }
-    
-    function handleOutsideClick(e) {
-        if (isOpen && !chatWidget.contains(e.target) && !chatLauncher.contains(e.target)) {
-            // Don't close on outside click, just minimize
-            if (!isMinimized) {
-                minimizeChat();
-            }
-        }
-    }
-    
-    function handleKeyboardShortcuts(e) {
-        // Ctrl/Cmd + K to open chat
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k' && !isOpen) {
-            e.preventDefault();
-            openChat();
-        }
-        
-        // Escape to close chat
-        if (e.key === 'Escape' && isOpen) {
-            closeChat();
-        }
-    }
-    
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (!message) return;
-        
-        // Add user message
-        addMessage(message, 'user');
-        
-        // Clear input
-        chatInput.value = '';
-        chatSend.disabled = true;
-        
-        // Show typing indicator
-        showTypingIndicator();
-        
-        // Generate bot response
-        setTimeout(() => {
-            const response = generateResponse(message);
-            hideTypingIndicator();
-            addMessage(response, 'bot');
-        }, 1000 + Math.random() * 2000); // 1-3 seconds delay
-        
-        // Hide suggestions after first message
-        if (chatMessages.children.length > 2) {
-            chatSuggestions.style.display = 'none';
-        }
-    }
-    
-    function addMessage(text, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.className = `message ${sender}-message`;
-        messageElement.innerHTML = `
-            <div class="message-avatar">${sender === 'user' ? '👤' : '🤖'}</div>
-            <div class="message-content">
-                <div class="message-text">${escapeHtml(text)}</div>
-                <div class="message-time">${getCurrentTime()}</div>
-            </div>
-        `;
-        
-        chatMessages.appendChild(messageElement);
-        
-        // Scroll to bottom
-        setTimeout(() => {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 100);
-        
-        // Save message history
-        saveMessage(text, sender);
-    }
-    
-    function generateResponse(userMessage) {
-        const message = userMessage.toLowerCase();
-        
-        // Keyword matching
-        if (message.includes('안녕') || message.includes('hello') || message.includes('hi')) {
-            return getRandomResponse('greeting');
-        } else if (message.includes('포트폴리오') || message.includes('portfolio') || message.includes('작업')) {
-            return getRandomResponse('portfolio');
-        } else if (message.includes('협업') || message.includes('제안') || message.includes('프로젝트') || message.includes('일') || message.includes('collaboration')) {
-            return getRandomResponse('collaboration');
-        } else if (message.includes('연락') || message.includes('contact') || message.includes('이메일') || message.includes('전화')) {
-            return getRandomResponse('contact');
-        } else if (message.includes('경력') || message.includes('경험') || message.includes('experience') || message.includes('이력')) {
-            return getRandomResponse('experience');
-        } else {
-            return getRandomResponse('default');
-        }
-    }
-    
-    function getRandomResponse(category) {
-        const responses = autoResponses[category] || autoResponses.default;
-        return responses[Math.floor(Math.random() * responses.length)];
-    }
-    
-    function showTypingIndicator() {
-        isTyping = true;
-        chatTyping.style.display = 'flex';
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    
-    function hideTypingIndicator() {
-        isTyping = false;
-        chatTyping.style.display = 'none';
-    }
-    
-    function showNotification() {
-        launcherNotification.classList.remove('hidden');
-    }
-    
-    function hideNotification() {
-        launcherNotification.classList.add('hidden');
-    }
-    
-    function updateOnlineStatus() {
-        const hour = new Date().getHours();
-        const isOnline = (hour >= 9 && hour <= 22); // 9 AM - 10 PM
-        
-        const statusIndicator = chatWidget.querySelector('.status-indicator');
-        const statusText = chatWidget.querySelector('.chat-status-text');
-        
-        if (isOnline) {
-            statusIndicator.classList.add('online');
-            statusIndicator.classList.remove('offline');
-            statusText.textContent = '온라인';
-        } else {
-            statusIndicator.classList.add('offline');
-            statusIndicator.classList.remove('online');
-            statusText.textContent = '오프라인';
-        }
-    }
-    
-    function getCurrentTime() {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        return `${hours}:${minutes}`;
-    }
-    
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-    
-    function saveChatState() {
-        try {
-            const state = {
-                isOpen,
-                isMinimized,
-                lastActive: Date.now()
-            };
-            localStorage.setItem('chatState', JSON.stringify(state));
-        } catch (error) {
-            console.warn('Error saving chat state:', error);
-        }
-    }
-    
-    function loadChatState() {
-        try {
-            const saved = localStorage.getItem('chatState');
-            if (saved) {
-                const state = JSON.parse(saved);
-                
-                // Don't auto-open if it's been more than 1 hour
-                const oneHour = 60 * 60 * 1000;
-                if (Date.now() - state.lastActive < oneHour) {
-                    if (state.isOpen) {
-                        // Don't auto-open, just show notification
-                        showNotification();
-                    }
-                }
-            }
-        } catch (error) {
-            console.warn('Error loading chat state:', error);
-        }
-    }
-    
-    function saveMessage(text, sender) {
-        try {
-            const messages = JSON.parse(localStorage.getItem('chatHistory') || '[]');
-            messages.push({
-                id: ++messageId,
-                text,
-                sender,
-                timestamp: Date.now()
-            });
-            
-            // Keep only last 50 messages
-            if (messages.length > 50) {
-                messages.splice(0, messages.length - 50);
-            }
-            
-            localStorage.setItem('chatHistory', JSON.stringify(messages));
-        } catch (error) {
-            console.warn('Error saving message:', error);
-        }
-    }
-    
-    // Public API
-    window.liveChat = {
-        open: openChat,
-        close: closeChat,
-        sendMessage: (text) => {
-            if (text) {
-                chatInput.value = text;
-                sendMessage();
-            }
-        },
-        
-        isOpen: () => isOpen,
-        
-        clearHistory: () => {
-            if (confirm('채팅 기록을 모두 삭제하시겠습니까?')) {
-                localStorage.removeItem('chatHistory');
-                chatMessages.innerHTML = `
-                    <div class="message bot-message">
-                        <div class="message-avatar">🤖</div>
-                        <div class="message-content">
-                            <div class="message-text">안녕하세요! Junetapa 입니다. 무엇을 도와드릴까요?</div>
-                            <div class="message-time">${getCurrentTime()}</div>
-                        </div>
-                    </div>
-                `;
-                chatSuggestions.style.display = 'flex';
             }
         }
     };

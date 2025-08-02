@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" type="image/png" href="assets/images/common/favicon.png">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <!-- ARIA Live Region for Screen Readers -->
@@ -1040,6 +1039,24 @@
                 </div>
             </div>
             <div class="chat-controls">
+                <button class="chat-theme" id="chatTheme" aria-label="테마 설정" title="Theme Settings">
+                    <span class="theme-icon">🎨</span>
+                </button>
+                <button class="chat-search" id="chatSearch" aria-label="대화 검색" title="Search Conversations">
+                    <span class="search-icon">🔍</span>
+                </button>
+                <button class="chat-faq" id="chatFAQ" aria-label="자주 묻는 질문" title="FAQ">
+                    <span class="faq-icon">❓</span>
+                </button>
+                <button class="chat-export" id="chatExport" aria-label="채팅 내보내기" title="Export Chat">
+                    <span class="export-icon">💾</span>
+                </button>
+                <button class="chat-email" id="chatEmail" aria-label="이메일 전송" title="Send Email">
+                    <span class="email-icon">📧</span>
+                </button>
+                <button class="chat-language" id="chatLanguage" aria-label="언어 변경" title="Change Language">
+                    <span class="language-icon">🌐</span>
+                </button>
                 <button class="chat-minimize" id="chatMinimize" aria-label="채팅 최소화">
                     <span class="minimize-icon">−</span>
                 </button>
@@ -1072,6 +1089,13 @@
         
         <div class="chat-input-container">
             <div class="chat-input-wrapper">
+                <button class="emoji-picker-btn" id="emojiPickerBtn" aria-label="이모지 선택" title="Add Emoji">
+                    <span class="emoji-icon">😊</span>
+                </button>
+                <button class="voice-btn" id="voiceBtn" aria-label="음성 인식" title="Voice Recognition">
+                    <span class="voice-icon">🎤</span>
+                    <div class="voice-recognition-indicator"></div>
+                </button>
                 <input type="text" 
                        class="chat-input" 
                        id="chatInput" 
@@ -1081,6 +1105,69 @@
                 <button class="chat-send" id="chatSend" aria-label="메시지 전송">
                     <span class="send-icon">📤</span>
                 </button>
+                
+                <!-- Voice Feedback Elements -->
+                <div class="voice-transcript" id="voiceTranscript"></div>
+                <div class="voice-error-message" id="voiceError"></div>
+                <div class="voice-commands-help" id="voiceHelp">
+                    <h4>음성 명령어</h4>
+                    <ul id="voiceCommandsList">
+                        <!-- 명령어들이 동적으로 로드됩니다 -->
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Emoji Picker Panel -->
+            <div class="emoji-picker" id="emojiPicker" style="display: none;">
+                <div class="emoji-picker-header">
+                    <div class="emoji-tabs" id="emojiTabs">
+                        <button class="emoji-tab active" data-category="quick">빠른</button>
+                        <button class="emoji-tab" data-category="recent">최근</button>
+                        <button class="emoji-tab" data-category="faces">표정</button>
+                        <button class="emoji-tab" data-category="gestures">제스처</button>
+                        <button class="emoji-tab" data-category="hearts">하트</button>
+                        <button class="emoji-tab" data-category="objects">오브젝트</button>
+                    </div>
+                    <div class="emoji-search-wrapper">
+                        <input type="text" class="emoji-search" id="emojiSearch" placeholder="이모지 검색...">
+                    </div>
+                </div>
+                <div class="emoji-picker-content" id="emojiPickerContent">
+                    <!-- 이모지들이 여기에 동적으로 로드됩니다 -->
+                </div>
+            </div>
+            
+            <!-- Theme Customizer Panel -->
+            <div class="theme-customizer" id="themeCustomizer" style="display: none;">
+                <div class="theme-customizer-header">
+                    <h3>🎨 테마 설정</h3>
+                    <button class="theme-close" id="themeClose">×</button>
+                </div>
+                <div class="theme-customizer-content" id="themeCustomizerContent">
+                    <!-- 테마 설정들이 여기에 동적으로 로드됩니다 -->
+                </div>
+            </div>
+            
+            <!-- Export Panel -->
+            <div class="export-panel" id="exportPanel" style="display: none;">
+                <div class="export-panel-header">
+                    <h3>💾 채팅 내보내기</h3>
+                    <button class="export-close" id="exportClose">×</button>
+                </div>
+                <div class="export-panel-content" id="exportPanelContent">
+                    <!-- 내보내기 설정들이 여기에 동적으로 로드됩니다 -->
+                </div>
+            </div>
+            
+            <!-- Email Panel -->
+            <div class="email-panel" id="emailPanel" style="display: none;">
+                <div class="email-panel-header">
+                    <h3>📧 이메일 전송</h3>
+                    <button class="email-close" id="emailClose">×</button>
+                </div>
+                <div class="email-panel-content" id="emailPanelContent">
+                    <!-- 이메일 폼이 여기에 동적으로 로드됩니다 -->
+                </div>
             </div>
             <div class="chat-suggestions" id="chatSuggestions">
                 <button class="suggestion-btn" data-message="안녕하세요!">안녕하세요!</button>
@@ -1178,6 +1265,159 @@
     <script src="js/main.js"></script>
     <script src="js/creation.js"></script>
     <script src="js/sales.js"></script>
+    <script>
+        // 페이지 로드 완료 후 챗봇 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing chatbot...');
+            
+            // 챗봇 런처 클릭 이벤트 직접 추가
+            const chatLauncher = document.getElementById('chatLauncher');
+            const chatWidget = document.getElementById('chatWidget');
+            
+            if (chatLauncher && chatWidget) {
+                console.log('Chat elements found');
+                chatLauncher.addEventListener('click', function() {
+                    console.log('Chat launcher clicked');
+                    chatWidget.classList.toggle('active');
+                });
+                
+                // 닫기 버튼 이벤트
+                const closeBtn = document.getElementById('chatClose');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        chatWidget.classList.remove('active');
+                    });
+                }
+            } else {
+                console.error('Chat elements not found:', { chatLauncher, chatWidget });
+            }
+        });
+        
+        // 기본 챗봇 기능 구현 - DOM이 완전히 로드된 후 실행
+        setTimeout(() => {
+            const chatInput = document.getElementById('chatInput');
+            const chatSend = document.getElementById('chatSend');
+            const chatMessages = document.querySelector('.chat-messages');
+            
+            console.log('Chat elements found:', {
+                chatInput: chatInput,
+                chatSend: chatSend,
+                chatMessages: chatMessages
+            });
+            
+            if (!chatInput || !chatSend || !chatMessages) {
+                console.error('Required chat elements not found');
+                return;
+            }
+            
+            initializeChatbot(chatInput, chatSend, chatMessages);
+        }, 1000);
+        
+        function initializeChatbot(chatInput, chatSend, chatMessages) {
+        
+        // 기본 응답 데이터
+        const responses = {
+            greeting: ['안녕하세요! Junetapa입니다. 무엇을 도와드릴까요?', '반갑습니다! 어떤 것이 궁금하신가요?'],
+            portfolio: ['25년 이상의 IT 경력을 바탕으로 다양한 프로젝트를 수행했습니다.', '포트폴리오 페이지에서 자세한 정보를 확인하실 수 있습니다.'],
+            contact: ['연락처: jun22sky@nate.com | 전화: 010-****-3888', '언제든 연락 주세요!'],
+            default: ['흥미로운 질문이네요! 더 자세히 말씀해 주시겠어요?', '포트폴리오, 경력, 협업 등에 대해 자유롭게 질문해 주세요!']
+        };
+        
+        // 키워드 매핑
+        const keywords = {
+            greeting: ['안녕', 'hello', 'hi', '반가', '처음'],
+            portfolio: ['포트폴리오', '작업', '프로젝트', '경력', '이력'],
+            contact: ['연락', '이메일', '전화', '문의']
+        };
+        
+        // 메시지 추가 함수
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = isUser ? '👤' : '🤖';
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = content;
+            
+            const timestamp = document.createElement('div');
+            timestamp.className = 'message-timestamp';
+            timestamp.textContent = new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'});
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+            messageDiv.appendChild(timestamp);
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // 응답 생성 함수
+        function generateResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            for (const [category, wordList] of Object.entries(keywords)) {
+                if (wordList.some(keyword => lowerMessage.includes(keyword))) {
+                    const responseList = responses[category];
+                    return responseList[Math.floor(Math.random() * responseList.length)];
+                }
+            }
+            
+            const defaultResponses = responses.default;
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+        
+        // 메시지 전송 함수
+        function sendMessage() {
+            console.log('sendMessage called');
+            const message = chatInput.value.trim();
+            console.log('Message:', message);
+            if (!message) {
+                console.log('Empty message, returning');
+                return;
+            }
+            
+            // 사용자 메시지 추가
+            addMessage(message, true);
+            chatInput.value = '';
+            
+            // 타이핑 표시
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, false);
+            }, 1000);
+        }
+        
+        // 이벤트 리스너
+        if (chatSend) {
+            console.log('Adding click listener to send button');
+            chatSend.addEventListener('click', sendMessage);
+        } else {
+            console.log('Send button not found');
+        }
+        
+        if (chatInput) {
+            console.log('Adding keypress listener to input');
+            chatInput.addEventListener('keypress', function(e) {
+                console.log('Key pressed:', e.key);
+                if (e.key === 'Enter') {
+                    console.log('Enter key pressed, calling sendMessage');
+                    sendMessage();
+                }
+            });
+        } else {
+            console.log('Chat input not found');
+        }
+        
+            // 웰컴 메시지
+            setTimeout(() => {
+                addMessage('안녕하세요! Junetapa의 AI 어시스턴트입니다. 무엇을 도와드릴까요?', false);
+            }, 500);
+        } // initializeChatbot 함수 종료
+    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </body>
 </html>
