@@ -1831,6 +1831,9 @@ function initializeVisitorStats() {
     }
     
     function initializeStatsClose() {
+        // localStorage에서 이전 hidden 상태 제거
+        localStorage.removeItem('statsWidgetHidden');
+        
         // Close button functionality
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent header click event
@@ -1840,11 +1843,11 @@ function initializeVisitorStats() {
             localStorage.setItem('statsWidgetHidden', 'true');
         });
         
-        // Load hidden state
-        const isHidden = localStorage.getItem('statsWidgetHidden') === 'true';
-        if (isHidden) {
-            widget.classList.add('hidden');
-        }
+        // Load hidden state - 제거하여 항상 표시되도록 함
+        // const isHidden = localStorage.getItem('statsWidgetHidden') === 'true';
+        // if (isHidden) {
+        //     widget.classList.add('hidden');
+        // }
         
         // Add keyboard support for close button
         closeBtn.addEventListener('keydown', (e) => {
