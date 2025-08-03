@@ -389,8 +389,29 @@ function initializeNavigation() {
     if (hamburgerMenu) {
         const hamburgerLinks = hamburgerMenu.querySelectorAll('a');
         hamburgerLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                
+                // 항상 메뉴를 닫기 - 모든 링크 유형에 대해
                 closeMobileMenu();
+                
+                // 앵커 링크의 경우 부드러운 스크롤 적용
+                if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // 메뉴가 닫힌 후 스크롤하도록 약간의 지연
+                        setTimeout(() => {
+                            const offsetTop = targetElement.offsetTop - 70;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    }
+                }
+                // 외부 링크나 페이지 링크는 기본 동작 허용
             });
         });
     }
