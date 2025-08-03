@@ -119,6 +119,23 @@ body {
     font-weight: 600;
 }
 
+/* About 섹션의 화이트 텍스트를 위한 특별 스타일 */
+#about .section-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+#about .highlight {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -577,10 +594,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-primary);
+    background: #000; /* Dark background for video */
     color: white;
     overflow: hidden;
-    padding: 100px 0 50px;
+    padding: 0; /* Remove padding to ensure full coverage */
+    margin: 0; /* Ensure no margin */
 }
 
 /* Hero Background - Video and Particles */
@@ -592,20 +610,20 @@ body {
     height: 100%;
     z-index: 1;
     overflow: hidden;
+    transform: none !important; /* Prevent any transform interference */
 }
 
 #hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.6; /* Increase opacity for better visibility */
     object-fit: cover;
+    filter: brightness(1.0) contrast(1.0); /* Natural brightness */
+    transform: none; /* Remove transform to prevent positioning issues */
 }
 
 #particles-js {
@@ -625,11 +643,13 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        135deg,
-        rgba(102, 126, 234, 0.1) 0%,
-        rgba(118, 75, 162, 0.1) 100%
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,  /* Light overlay at top */
+        rgba(0, 0, 0, 0.1) 50%, /* Very light middle */
+        rgba(0, 0, 0, 0.05) 100% /* Almost transparent at bottom */
     );
-    z-index: 3;
+    z-index: 2;
+    pointer-events: none; /* Ensure overlay doesn't block interactions */
 }
 
 /* Desktop Hamburger Menu Styles */
@@ -688,10 +708,11 @@ body {
 @media (max-width: 768px) {
     #hero-video {
         display: block;
-        opacity: 0.2; /* 더 투명하게 */
+        opacity: 0.6; /* Brighter for mobile */
         object-fit: cover;
         width: 100%;
         height: 100%;
+        filter: brightness(1.1); /* Bright on mobile */
         /* Mobile video optimizations */
         will-change: transform;
         transform: translateZ(0); /* Force hardware acceleration */
@@ -704,8 +725,10 @@ body {
     
     .hero-content {
         padding: 20px 15px;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(255, 255, 255, 0.15); /* Light background on mobile */
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Light border on mobile */
     }
     
     .title-main {
@@ -883,16 +906,21 @@ body {
 
 .hero-content {
     text-align: center;
-    z-index: 4;
+    z-index: 100; /* Very high z-index to ensure it's on top */
     max-width: 900px;
     width: 100%;
     position: relative;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4); /* Slightly darker for better contrast */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* White border */
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    padding: 40px 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px); /* More blur for better effect */
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    padding: 60px 40px; /* Increase padding for better spacing */
+    margin: 0 20px; /* Add horizontal margin for mobile */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), /* Stronger shadow */
+                0 0 40px rgba(0, 0, 0, 0.15) inset; /* Stronger inner shadow */
+    isolation: isolate; /* Create new stacking context */
+    will-change: transform; /* Optimize for animations */
 }
 
 .hero-badge {
@@ -908,25 +936,25 @@ body {
 .hero-title {
     margin-bottom: 30px;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), /* Stronger shadow */
+                 0 0 20px rgba(0, 0, 0, 0.5), /* Added glow shadow */
+                 0 0 40px rgba(0, 0, 0, 0.3); /* Extended shadow */
 }
 
 .title-main {
     position: relative;
     display: inline-block;
-    background: linear-gradient(90deg, #4a5fff, #d84c9c, #f7c423, #4a5fff);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-move 3s linear infinite, pop-zoom 2.5s cubic-bezier(.68,-0.55,.27,1.55) infinite;
-    text-shadow: 0 0 30px #d84c9c, 0 0 60px #4a5fff, 0 0 90px rgba(255, 255, 255, 0.3);
+    color: #ffffff; /* Set solid white color for better visibility */
     font-family: var(--font-secondary);
-    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-size: clamp(2rem, 7vw, 4rem); /* Increased font size */
     font-weight: 900;
     margin-bottom: 10px;
     line-height: 1.1;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8),
+                 0 4px 8px rgba(0, 0, 0, 0.6),
+                 0 8px 16px rgba(0, 0, 0, 0.4),
+                 0 0 30px rgba(123, 104, 238, 0.5); /* Strong text shadow for visibility */
+    letter-spacing: -0.02em;
 }
 
 @keyframes gradient-move {
@@ -948,19 +976,26 @@ body {
 
 .title-sub {
     display: block;
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    font-weight: 300;
-    opacity: 0.9;
+    font-size: clamp(1.2rem, 4vw, 1.8rem); /* Increased font size */
+    font-weight: 400; /* Increased font weight */
+    color: #ffffff;
+    opacity: 1; /* Full opacity */
     line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8),
+                 0 4px 8px rgba(0, 0, 0, 0.6); /* Added text shadow */
+    margin-top: 10px;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem); /* Increased font size */
     margin-bottom: 40px;
     color: #ffffff;
-    opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1.4;
+    opacity: 1; /* Full opacity for better visibility */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), /* Enhanced text shadow */
+                 0 4px 8px rgba(0, 0, 0, 0.7),
+                 0 0 20px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    font-weight: 500; /* Bolder for better readability */
 }
 
 .hero-journey {
@@ -3535,16 +3570,17 @@ body {
     position: fixed;
     bottom: 30px;
     left: 30px;
+    min-width: 250px;
+    max-width: 300px;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-backdrop);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-glass);
-    z-index: 999;
-    min-width: 200px;
-    max-width: 250px;
+    z-index: 1000;
     transition: all var(--transition-medium);
-    opacity: 0.9;
+    opacity: 0.95;
+    transform: translateY(0);
 }
 
 .visitor-stats-widget:hover {
@@ -3582,7 +3618,7 @@ body {
     gap: 4px;
 }
 
-.stats-toggle, .stats-close {
+.stats-toggle, .stats-close, .minimize-btn {
     background: none;
     border: none;
     color: white;
@@ -3595,15 +3631,20 @@ body {
     justify-content: center;
     width: 24px;
     height: 24px;
+    font-size: 14px;
 }
 
 .stats-close {
     opacity: 0.8;
 }
 
-.stats-toggle:hover, .stats-close:hover {
+.stats-toggle:hover, .stats-close:hover, .minimize-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
+}
+
+.minimize-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .stats-close:hover {
@@ -3619,18 +3660,42 @@ body {
 
 /* Dragging state */
 .visitor-stats-widget.dragging {
-    transform: rotate(2deg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 15px 40px rgba(123, 104, 238, 0.3),
+                0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 9999;
+    opacity: 0.9;
+    transition: none; /* Disable transitions during drag */
 }
 
 .visitor-stats-widget.dragging .stats-header {
     cursor: grabbing;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* Hidden state */
 .visitor-stats-widget.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 축소된 상태 */
+.visitor-stats-widget.minimized {
+    transform: translateY(calc(100% - 60px));
+}
+
+.visitor-stats-widget.minimized .stats-content {
     display: none;
+}
+
+.minimize-icon {
+    transition: transform var(--transition-medium);
+    font-size: 12px;
+}
+
+.visitor-stats-widget.minimized .minimize-btn .minimize-icon {
+    transform: rotate(180deg);
 }
 
 .toggle-arrow {
@@ -3818,6 +3883,10 @@ body {
     .visitor-stats-widget {
         left: 15px;
         right: 15px;
+    }
+    
+    .visitor-stats-widget.minimized {
+        transform: translateY(calc(100% - 50px));
     }
 }
 
@@ -5714,14 +5783,13 @@ body {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(3px);
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
     z-index: 10000;
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-medium);
-    padding: 20px;
-    padding-left: 50px;
+    padding: 60px 20px 20px 20px;
 }
 
 .notice-popup-overlay.show {
@@ -5737,13 +5805,13 @@ body {
     width: 100%;
     max-height: 80vh;
     overflow-y: auto;
-    transform: scale(0.8) translateX(-50px);
+    transform: scale(0.8) translateY(-30px);
     transition: all var(--transition-medium);
     border: 1px solid var(--border-primary);
 }
 
 .notice-popup-overlay.show .notice-popup {
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateY(0);
 }
 
 .notice-popup-header {
@@ -5818,11 +5886,31 @@ body {
     margin-bottom: 20px;
 }
 
+/* Notice Categories */
+.notice-category {
+    margin-bottom: 20px;
+}
+
+.notice-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    padding-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 2px solid var(--accent-primary);
+}
+
 .notice-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     padding: 12px;
     background: var(--glass-bg);
     border-radius: var(--border-radius);

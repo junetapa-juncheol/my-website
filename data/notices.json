@@ -1,0 +1,41 @@
+{
+  "notices": [
+    {
+      "id": "update_status",
+      "icon": "🔧",
+      "title": "업데이트 중",
+      "description": "홈페이지가 지속적으로 개선되고 있습니다.",
+      "category": "system",
+      "priority": "high",
+      "active": true
+    },
+    {
+      "id": "detailed_info",
+      "icon": "📋",
+      "title": "상세정보",
+      "description": "자세한 정보는 문의 바랍니다.",
+      "category": "info",
+      "priority": "medium",
+      "active": true
+    },
+    {
+      "id": "contact_chat",
+      "icon": "💬",
+      "title": "문의하기",
+      "description": "실시간 채팅으로 빠른 답변 가능합니다.",
+      "category": "contact",
+      "priority": "high",
+      "active": true
+    }
+  ],
+  "contact": {
+    "email": "jun22sky@nate.com",
+    "phone": "010-****-3888",
+    "chat": "실시간 채팅 이용 가능"
+  },
+  "settings": {
+    "showPopup": true,
+    "autoShowDelay": 1500,
+    "position": "top"
+  }
+}

@@ -96,6 +96,24 @@
     padding: 40px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* 시각적 Timeline 연결선 (선택사항) */
+.timeline-section.with-timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    bottom: 40px;
+    width: 2px;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        #e0e0e0 10%,
+        #e0e0e0 90%,
+        transparent 100%
+    );
+    z-index: 0;
 }
 
 .section-title {
@@ -205,8 +223,10 @@
 .certificate-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: clamp(20px, 3vw, 40px); /* 동적 간격 */
     margin-top: 30px;
+    grid-auto-rows: minmax(200px, auto); /* 최소 높이 보장 */
+    align-items: start; /* 상단 정렬 */
 }
 
 .certificate-card {
@@ -216,6 +236,32 @@
     border: 1px solid #e9ecef;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 시간순 번호 표시 */
+.certificate-card::after {
+    content: attr(data-timeline-order);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-card:hover::after {
+    opacity: 0.8;
 }
 
 .certificate-card:hover {

@@ -1,0 +1,216 @@
+/* 개선된 Timeline 스타일 */
+
+/* Timeline 컨테이너 */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        var(--primary-color) 10%, 
+        var(--primary-color) 90%, 
+        transparent 100%
+    );
+}
+
+/* Timeline 아이템 - 동적 간격 */
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0;
+    padding-bottom: clamp(30px, 5vh, 60px); /* 동적 간격 */
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* 컨텐츠 양에 따른 자동 간격 조정 */
+.timeline-item-content {
+    min-height: 120px;
+    margin-bottom: 20px;
+}
+
+/* Timeline 도트 개선 */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.2);
+}
+
+/* 연도별 그룹핑 */
+.timeline-year-group {
+    margin-bottom: 40px;
+}
+
+.timeline-year-header {
+    position: sticky;
+    top: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.timeline-year-header h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* 간격 자동 조정을 위한 Grid 시스템 */
+.timeline-grid {
+    display: grid;
+    gap: clamp(20px, 3vh, 40px);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline::before {
+        left: 10px;
+    }
+    
+    .timeline-item {
+        padding-left: 20px;
+        padding-bottom: clamp(20px, 4vh, 40px);
+    }
+    
+    .timeline-item::before {
+        left: -17px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .timeline-year-header {
+        top: 70px;
+        padding: 10px 15px;
+    }
+    
+    .timeline-year-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 시각적 연결선 개선 */
+.timeline-connector {
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    height: calc(100% - 30px);
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        var(--primary-color) 0%, 
+        transparent 100%
+    );
+    opacity: 0.3;
+}
+
+/* 호버 효과 */
+.timeline-item:hover .timeline-content {
+    transform: translateX(5px);
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 스크롤 애니메이션 */
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 컨텐츠 카드 스타일 */
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 3px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* 대안: Masonry 레이아웃 */
+.timeline-masonry {
+    column-count: 1;
+    column-gap: 0;
+}
+
+.timeline-masonry .timeline-item {
+    break-inside: avoid;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+/* 동적 간격 클래스 */
+.timeline-item--small {
+    padding-bottom: 20px;
+}
+
+.timeline-item--medium {
+    padding-bottom: 40px;
+}
+
+.timeline-item--large {
+    padding-bottom: 60px;
+}
+
+/* 시각적 구분선 */
+.timeline-divider {
+    position: relative;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.timeline-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        #e0e0e0 20%, 
+        #e0e0e0 80%, 
+        transparent 100%
+    );
+}
+
+.timeline-divider span {
+    position: relative;
+    background: white;
+    padding: 0 20px;
+    color: #999;
+    font-size: 0.9rem;
+}

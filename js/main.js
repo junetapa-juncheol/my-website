@@ -1693,9 +1693,10 @@ function initializeVisitorStats() {
     const toggle = document.getElementById('statsToggle');
     const content = document.getElementById('statsContent');
     const closeBtn = document.getElementById('statsClose');
+    const minimizeBtn = document.getElementById('minimizeBtn');
     const header = document.getElementById('statsHeader');
     
-    if (!widget || !toggle || !content || !closeBtn || !header) return;
+    if (!widget || !toggle || !content || !closeBtn || !minimizeBtn || !header) return;
     
     // Initialize stats object
     const stats = {
@@ -1715,6 +1716,9 @@ function initializeVisitorStats() {
     
     // Initialize close functionality
     initializeStatsClose();
+    
+    // Initialize minimize functionality
+    initializeStatsMinimize();
     
     // Initialize drag functionality
     initializeStatsDrag();
@@ -1816,8 +1820,10 @@ function initializeVisitorStats() {
     }
     
     function initializeStatsClose() {
-        // localStorage에서 이전 hidden 상태 제거
+        // localStorage에서 특정 상태들만 초기화 (위치 정보는 유지)
         localStorage.removeItem('statsWidgetHidden');
+        localStorage.removeItem('statsWidgetCollapsed');
+        localStorage.removeItem('statsWidgetMinimized');
         
         // Close button functionality
         closeBtn.addEventListener('click', (e) => {
@@ -1843,6 +1849,49 @@ function initializeVisitorStats() {
         });
     }
     
+    function initializeStatsMinimize() {
+        // Minimize button functionality
+        minimizeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent header click event
+            widget.classList.toggle('minimized');
+            
+            const isMinimized = widget.classList.contains('minimized');
+            
+            // Save minimized state
+            localStorage.setItem('statsWidgetMinimized', isMinimized.toString());
+            
+            // Update aria-label
+            minimizeBtn.setAttribute('aria-label', 
+                isMinimized ? '통계 위젯 복원' : '통계 위젯 축소'
+            );
+            
+            // Update minimize icon
+            const minimizeIcon = minimizeBtn.querySelector('.minimize-icon');
+            if (minimizeIcon) {
+                minimizeIcon.textContent = isMinimized ? '▲' : '−';
+            }
+        });
+        
+        // Load minimized state
+        const isMinimized = localStorage.getItem('statsWidgetMinimized') === 'true';
+        if (isMinimized) {
+            widget.classList.add('minimized');
+            const minimizeIcon = minimizeBtn.querySelector('.minimize-icon');
+            if (minimizeIcon) {
+                minimizeIcon.textContent = '▲';
+            }
+            minimizeBtn.setAttribute('aria-label', '통계 위젯 복원');
+        }
+        
+        // Add keyboard support
+        minimizeBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                minimizeBtn.click();
+            }
+        });
+    }
+    
     function initializeStatsDrag() {
         let isDragging = false;
         let dragOffset = { x: 0, y: 0 };
@@ -1851,9 +1900,15 @@ function initializeVisitorStats() {
         // Load saved position
         const savedPosition = localStorage.getItem('statsWidgetPosition');
         if (savedPosition) {
-            const position = JSON.parse(savedPosition);
-            widget.style.left = position.left + 'px';
-            widget.style.bottom = position.bottom + 'px';
+            try {
+                const position = JSON.parse(savedPosition);
+                widget.style.left = position.left + 'px';
+                widget.style.bottom = position.bottom + 'px';
+                // Remove right positioning when using saved position
+                widget.style.right = 'auto';
+            } catch (error) {
+                console.warn('Failed to load saved widget position:', error);
+            }
         }
         
         header.addEventListener('mousedown', startDrag);
@@ -1866,8 +1921,10 @@ function initializeVisitorStats() {
         document.addEventListener('touchend', stopDrag);
         
         function startDrag(e) {
-            // Don't start drag if clicking on toggle or close buttons
-            if (e.target.closest('.stats-toggle') || e.target.closest('.stats-close')) {
+            // Don't start drag if clicking on toggle, close, or minimize buttons
+            if (e.target.closest('.stats-toggle') || 
+                e.target.closest('.stats-close') || 
+                e.target.closest('.minimize-btn')) {
                 return;
             }
             
@@ -1884,7 +1941,9 @@ function initializeVisitorStats() {
         }
         
         function startDragTouch(e) {
-            if (e.target.closest('.stats-toggle') || e.target.closest('.stats-close')) {
+            if (e.target.closest('.stats-toggle') || 
+                e.target.closest('.stats-close') || 
+                e.target.closest('.minimize-btn')) {
                 return;
             }
             
@@ -1944,15 +2003,98 @@ function initializeVisitorStats() {
             isDragging = false;
             widget.classList.remove('dragging');
             
-            // Save position
-            const left = parseInt(widget.style.left) || 30;
-            const bottom = parseInt(widget.style.bottom) || 30;
+            // Get current position
+            let left = parseInt(widget.style.left) || 30;
+            let bottom = parseInt(widget.style.bottom) || 30;
             
+            // Snap to edges if close (within 50px)
+            const snapDistance = 50;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const widgetWidth = widget.offsetWidth;
+            const widgetHeight = widget.offsetHeight;
+            
+            // Snap to left edge
+            if (left < snapDistance) {
+                left = 20;
+            }
+            
+            // Snap to right edge
+            if (left + widgetWidth > windowWidth - snapDistance) {
+                left = windowWidth - widgetWidth - 20;
+            }
+            
+            // Snap to bottom
+            if (bottom < snapDistance) {
+                bottom = 20;
+            }
+            
+            // Snap to top (calculated from bottom)
+            const topPosition = windowHeight - bottom - widgetHeight;
+            if (topPosition < snapDistance) {
+                bottom = windowHeight - widgetHeight - 20;
+            }
+            
+            // Apply snapped position with smooth transition
+            widget.style.transition = 'all 0.3s ease';
+            widget.style.left = left + 'px';
+            widget.style.bottom = bottom + 'px';
+            
+            // Remove transition after animation
+            setTimeout(() => {
+                widget.style.transition = 'all var(--transition-medium)';
+            }, 300);
+            
+            // Save position
             localStorage.setItem('statsWidgetPosition', JSON.stringify({
                 left: left,
                 bottom: bottom
             }));
         }
+        
+        // Handle window resize to keep widget in bounds
+        window.addEventListener('resize', debounce(() => {
+            const currentLeft = parseInt(widget.style.left) || 30;
+            const currentBottom = parseInt(widget.style.bottom) || 30;
+            
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const widgetWidth = widget.offsetWidth;
+            const widgetHeight = widget.offsetHeight;
+            
+            let newLeft = currentLeft;
+            let newBottom = currentBottom;
+            
+            // Keep widget within window bounds
+            if (currentLeft + widgetWidth > windowWidth) {
+                newLeft = windowWidth - widgetWidth - 20;
+            }
+            
+            if (currentLeft < 0) {
+                newLeft = 20;
+            }
+            
+            const topPosition = windowHeight - currentBottom - widgetHeight;
+            if (topPosition < 0) {
+                newBottom = windowHeight - widgetHeight - 20;
+            }
+            
+            if (currentBottom < 0) {
+                newBottom = 20;
+            }
+            
+            // Update position if changed
+            if (newLeft !== currentLeft || newBottom !== currentBottom) {
+                widget.style.left = newLeft + 'px';
+                widget.style.bottom = newBottom + 'px';
+                
+                // Save new position
+                localStorage.setItem('statsWidgetPosition', JSON.stringify({
+                    left: newLeft,
+                    bottom: newBottom
+                }));
+            }
+        }, 250));
     }
     
     function startVisitorTracking() {
@@ -2315,6 +2457,9 @@ function initializeNoticePopup() {
     
     if (!popup) return;
     
+    // Load notice data from JSON
+    loadNoticeData();
+    
     // Check if user doesn't want to see popup today
     const dontShowToday = localStorage.getItem('dontShowNoticeToday');
     const today = new Date().toDateString();
@@ -2442,4 +2587,149 @@ function initializeNoticePopup() {
         hide: hideNoticePopup,
         isVisible: () => popup.classList.contains('show')
     };
+}
+
+// Load Notice Data from JSON
+async function loadNoticeData() {
+    try {
+        const response = await fetch('data/notices.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        
+        // Render notice content
+        renderNoticeContent(data);
+        
+        console.log('✅ 공지사항 데이터 로드 완료');
+    } catch (error) {
+        console.warn('⚠️ 공지사항 데이터 로드 실패, 기본 콘텐츠 사용:', error);
+        
+        // Fallback to default content
+        renderDefaultNoticeContent();
+    }
+}
+
+// Render notice content from data
+function renderNoticeContent(data) {
+    const noticeContent = document.getElementById('noticeContent');
+    const noticeContactInfo = document.getElementById('noticeContactInfo');
+    
+    if (!noticeContent || !noticeContactInfo) return;
+    
+    // Clear existing content
+    noticeContent.innerHTML = '';
+    noticeContactInfo.innerHTML = '';
+    
+    // Render notice items by category
+    const categories = {
+        system: { title: '시스템', items: [] },
+        info: { title: '정보', items: [] },
+        contact: { title: '연락', items: [] }
+    };
+    
+    // Group notices by category
+    data.notices.filter(notice => notice.active).forEach(notice => {
+        if (categories[notice.category]) {
+            categories[notice.category].items.push(notice);
+        }
+    });
+    
+    // Render each category
+    Object.keys(categories).forEach(categoryKey => {
+        const category = categories[categoryKey];
+        if (category.items.length > 0) {
+            const categorySection = document.createElement('div');
+            categorySection.className = 'notice-category';
+            categorySection.innerHTML = `<h4 class="category-title">${category.title}</h4>`;
+            
+            category.items.forEach(notice => {
+                const noticeItem = document.createElement('div');
+                noticeItem.className = 'notice-item';
+                noticeItem.innerHTML = `
+                    <div class="notice-item-icon">${notice.icon}</div>
+                    <div class="notice-item-content">
+                        <h3>${notice.title}</h3>
+                        <p>${notice.description}</p>
+                    </div>
+                `;
+                categorySection.appendChild(noticeItem);
+            });
+            
+            noticeContent.appendChild(categorySection);
+        }
+    });
+    
+    // Render contact info
+    if (data.contact) {
+        noticeContactInfo.innerHTML = `
+            <div class="contact-quick">
+                <div class="contact-method">
+                    <span class="contact-icon">📧</span>
+                    <span>${data.contact.email}</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">📱</span>
+                    <span>${data.contact.phone}</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">💬</span>
+                    <span>${data.contact.chat}</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Fallback content when JSON loading fails
+function renderDefaultNoticeContent() {
+    const noticeContent = document.getElementById('noticeContent');
+    const noticeContactInfo = document.getElementById('noticeContactInfo');
+    
+    if (noticeContent) {
+        noticeContent.innerHTML = `
+            <div class="notice-item">
+                <div class="notice-item-icon">🔧</div>
+                <div class="notice-item-content">
+                    <h3>업데이트 중</h3>
+                    <p>홈페이지가 지속적으로 개선되고 있습니다.</p>
+                </div>
+            </div>
+            
+            <div class="notice-item">
+                <div class="notice-item-icon">📋</div>
+                <div class="notice-item-content">
+                    <h3>상세정보</h3>
+                    <p>자세한 정보는 문의 바랍니다.</p>
+                </div>
+            </div>
+            
+            <div class="notice-item">
+                <div class="notice-item-icon">💬</div>
+                <div class="notice-item-content">
+                    <h3>문의하기</h3>
+                    <p>실시간 채팅으로 빠른 답변 가능합니다.</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    if (noticeContactInfo) {
+        noticeContactInfo.innerHTML = `
+            <div class="contact-quick">
+                <div class="contact-method">
+                    <span class="contact-icon">📧</span>
+                    <span>jun22sky@nate.com</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">📱</span>
+                    <span>010-****-3888</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">💬</span>
+                    <span>실시간 채팅 이용 가능</span>
+                </div>
+            </div>
+        `;
+    }
 }

@@ -229,6 +229,21 @@
     
     .hamburger {
         display: flex;
+        min-height: 48px;
+        min-width: 48px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger:hover,
+    .hamburger:active {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(123, 104, 238, 0.3);
     }
     
     .hamburger.active span:nth-child(1) {
@@ -248,18 +263,23 @@
         display: none;
         position: absolute;
         top: 100%;
-        right: 0;
+        right: 10px;
         background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        padding: 15px;
-        min-width: 200px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        min-width: 220px;
+        max-width: calc(100vw - 40px);
         z-index: 1000;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .hamburger-menu.active {
         display: block;
-        animation: slideDown 0.3s ease-out;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .hamburger-menu ul {
