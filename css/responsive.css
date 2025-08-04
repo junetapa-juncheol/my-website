@@ -868,7 +868,7 @@
     
     /* KakaoTalk Button Mobile */
     .kakao-talk-button {
-        bottom: 20px;
+        bottom: 80px; /* 챗봇 런처 위로 배치 */
         right: 20px;
     }
     
@@ -1078,8 +1078,8 @@
     }
     
     .kakao-talk-button {
-        bottom: 25px;
-        right: 75px; /* chat launcher 옆에 배치 */
+        bottom: 80px; /* 챗봇 런처 위로 배치 */
+        right: 15px;
     }
     
     .kakao-talk-button a {
@@ -1097,9 +1097,12 @@
         padding-top: env(safe-area-inset-top, 0);
     }
     
-    .chat-launcher,
-    .kakao-talk-button {
+    .chat-launcher {
         bottom: calc(env(safe-area-inset-bottom, 20px) + 5px);
+    }
+    
+    .kakao-talk-button {
+        bottom: calc(env(safe-area-inset-bottom, 20px) + 60px);
     }
     
     .visitor-stats-widget {
@@ -1183,7 +1186,7 @@
     
     /* KakaoTalk Button Extra Small Mobile */
     .kakao-talk-button {
-        bottom: 15px;
+        bottom: 70px; /* 챗봇 런처 위로 배치 */
         right: 15px;
     }
     
