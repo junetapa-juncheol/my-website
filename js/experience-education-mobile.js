@@ -1,5 +1,19 @@
 // Experience Education Mobile Page JavaScript
 
+// 햄버거 메뉴 토글 함수
+function toggleHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    
+    hamburger.classList.toggle('active');
+    hamburgerMenu.classList.toggle('active');
+    
+    // 햅틱 피드백
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+}
+
 // 카드 토글 함수
 function toggleCard(header) {
     const card = header.closest('.education-card');
@@ -54,6 +68,24 @@ function observeElements() {
 
 // 이벤트 리스너
 document.addEventListener('DOMContentLoaded', function() {
+    // 햄버거 메뉴 이벤트 리스너
+    const hamburger = document.getElementById('hamburger');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleHamburgerMenu);
+    }
+    
+    // 햄버거 메뉴 외부 클릭시 닫기
+    document.addEventListener('click', function(event) {
+        if (hamburger && hamburgerMenu && 
+            !hamburger.contains(event.target) && 
+            !hamburgerMenu.contains(event.target)) {
+            hamburger.classList.remove('active');
+            hamburgerMenu.classList.remove('active');
+        }
+    });
+    
     observeElements();
     
     // 스크롤 이벤트

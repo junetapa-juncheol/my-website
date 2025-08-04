@@ -22,20 +22,48 @@
     <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
     
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/experience-education-mobile.css">
     
 </head>
 <body>
-    <!-- 모바일 헤더 -->
-    <header class="mobile-header">
-        <button class="back-btn" onclick="goBack()" aria-label="뒤로가기">
-            ←
-        </button>
-        <div class="mobile-logo">Junetapa</div>
-        <a href="experience-education.html?desktop=true" class="back-btn" aria-label="데스크톱 버전" title="데스크톱 버전">
-            💻
-        </a>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html#home" class="logo-link">
+                    <span class="logo-text">Junetapa</span>
+                    <span class="logo-subtitle">IT Story</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">홈</a></li>
+                <li><a href="../index.html#tech-stack" class="nav-link">기술스택</a></li>
+                <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
+                <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
+                <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <ul>
+                    <li><a href="../index.html#home" class="nav-link">홈</a></li>
+                    <li><a href="../index.html#tech-stack" class="nav-link">기술스택</a></li>
+                    <li><a href="../index.html#sales" class="nav-link">핵심역량</a></li>
+                    <li><a href="../index.html#hobby" class="nav-link">창작활동</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">연락처</a></li>
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="experience-education-mobile.html" class="active">활동&교육</a></li>
+                    <li><a href="jstudio.html" target="_blank">갤러리</a></li>
+                    <li><a href="sitemap.html">사이트맵</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <!-- 스크롤 진행률 -->
     <div class="scroll-progress" id="scrollProgress"></div>
