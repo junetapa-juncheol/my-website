@@ -452,45 +452,6 @@ body {
     opacity: 1;
 }
 
-/* Floating particles effect for navigation */
-.nav-container::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(123, 104, 238, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 60% 30%, rgba(255, 107, 107, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 40% 70%, rgba(106, 90, 205, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 70% 50%, rgba(91, 155, 213, 0.15) 0%, transparent 40%);
-    background-size: 80px 80px, 120px 120px, 60px 60px, 100px 100px, 90px 90px;
-    animation: floating-particles 30s linear infinite;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-    filter: blur(40px);
-}
-
-@keyframes floating-particles {
-    0% {
-        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-        transform: rotate(0deg) scale(1);
-    }
-    50% {
-        transform: rotate(180deg) scale(1.1);
-    }
-    100% {
-        background-position: 100% 100%, -100% 100%, 50% -50%, -50% 50%, 150% -50%;
-        transform: rotate(360deg) scale(1);
-    }
-}
-
-.navbar:hover .nav-container::after {
-    opacity: 0.7;
-}
 
 .hamburger {
     display: flex; /* 데스크톱에서도 기본 표시 */
@@ -1005,13 +966,21 @@ body {
     margin-bottom: 40px;
     color: #ffffff !important;
     opacity: 1;
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(255, 255, 255, 0.6), /* 흰색 글로우 */
         0 0 20px rgba(255, 255, 255, 0.4), /* 확장 글로우 */
         2px 2px 6px rgba(0, 0, 0, 0.9), /* 강한 그림자 */
         0 4px 10px rgba(0, 0, 0, 0.8); /* 깊은 그림자 */
     line-height: 1.6;
     font-weight: 600 !important; /* 더 굵게 */
+}
+
+.hero-subtitle .highlight {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
 }
 
 .hero-journey {
@@ -1504,13 +1473,132 @@ body {
 /* Sales Section */
 .sales {
     padding: clamp(60px, 10vw, 80px) 0;
-    background: #f8f9fa;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../assets/images/backgrounds/sales-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Sales section text colors for dark background */
+.sales .section-title,
+.sales .section-subtitle {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+.sales .section-title .highlight {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+/* Sales item text colors */
+.sales .sales-info h3 {
+    color: #ffffff !important;
+}
+
+.sales .sales-info p {
+    color: #f0f0f0 !important;
 }
 
 /* Mobile sales section improvements */
 @media (max-width: 768px) {
     .sales {
         background: #ffffff; /* Pure white background for mobile */
+    }
+
+    /* Reset text colors for mobile white background */
+    .sales .section-title,
+    .sales .section-subtitle {
+        color: #333333 !important;
+    }
+
+    .sales .section-title .highlight {
+        background: linear-gradient(135deg, #7B68EE 0%, #4A90E2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .sales .sales-info h3 {
+        color: #333 !important;
+    }
+
+    .sales .sales-info p {
+        color: #555 !important;
+    }
+}
+
+/* Hobby/Creation Section */
+.hobby {
+    padding: clamp(60px, 10vw, 80px) 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../assets/images/backgrounds/creation-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Hobby section text colors for dark background */
+.hobby .section-title,
+.hobby .section-subtitle {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+.hobby .section-title .highlight {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+/* Hobby item text colors */
+.hobby .hobby-info h3 {
+    color: #ffffff !important;
+}
+
+.hobby .hobby-info p {
+    color: #f0f0f0 !important;
+}
+
+/* Mobile hobby section improvements */
+@media (max-width: 768px) {
+    .hobby {
+        background: #ffffff; /* Pure white background for mobile */
+    }
+
+    /* Reset text colors for mobile white background */
+    .hobby .section-title,
+    .hobby .section-subtitle {
+        color: #333333 !important;
+    }
+
+    .hobby .section-title .highlight {
+        background: linear-gradient(135deg, #7B68EE 0%, #4A90E2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hobby .hobby-info h3 {
+        color: #333 !important;
+    }
+
+    .hobby .hobby-info p {
+        color: #555 !important;
     }
 }
 
