@@ -1401,10 +1401,13 @@
     }
     
     /* Mobile timeline layout - single column */
+    /* 임시 주석 처리 - 타임라인 세로 막대바 숨김 */
+    /*
     .timeline-progress {
         left: 30px;
         transform: none;
     }
+    */
     
     .timeline-marker {
         left: 30px;
@@ -1468,10 +1471,13 @@
     .timeline-marker {
         left: 20px;
     }
-    
+
+    /* 임시 주석 처리 - 타임라인 세로 막대바 숨김 */
+    /*
     .timeline-progress {
         left: 20px;
     }
+    */
     
     .timeline-year {
         padding: 6px 12px;

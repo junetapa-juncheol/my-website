@@ -834,11 +834,14 @@ body {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow for better contrast */
     }
     
+    /* 임시 주석 처리 - 모바일 타임라인 점 숨김 */
+    /*
     .timeline-item::before {
         left: -30px; /* Adjust position for mobile */
         width: 16px; /* Slightly smaller dot */
         height: 16px;
     }
+    */
     
     .timeline-year {
         font-size: 1rem; /* Fixed size for mobile */
@@ -879,11 +882,14 @@ body {
             background: rgba(255, 255, 255, 0.98); /* Almost opaque background */
         }
         
+        /* 임시 주석 처리 - 작은 모바일 타임라인 점 숨김 */
+        /*
         .timeline-item::before {
             left: -25px;
             width: 14px;
             height: 14px;
         }
+        */
         
         .timeline-year {
             font-size: 0.95rem;
@@ -1257,10 +1263,20 @@ body {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
-    align-items: start;
+    width: 100%;
+}
+
+.about-text {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .story-timeline {
@@ -1292,6 +1308,8 @@ body {
     overflow: visible;
 }
 
+/* 임시 주석 처리 - 타임라인 네비게이션 점 숨김 */
+/*
 .timeline-item::before {
     content: "";
     position: absolute;
@@ -1306,6 +1324,7 @@ body {
     z-index: 2;
     transition: box-shadow 0.3s, transform 0.3s;
 }
+*/
 
 .timeline-year {
     font-family: var(--font-secondary);
@@ -3097,7 +3116,8 @@ body {
 
 .interactive-timeline {
     position: relative;
-    margin: 60px 0;
+    margin: 60px auto;
+    max-width: 900px;
 }
 
 .timeline-container {
@@ -3106,6 +3126,8 @@ body {
     margin: 0 auto;
 }
 
+/* 임시 주석 처리 - 타임라인 세로 막대바 숨김 */
+/*
 .timeline-progress {
     position: absolute;
     left: 50%;
@@ -3128,6 +3150,7 @@ body {
     border-radius: 2px;
     transition: height 0.8s ease;
 }
+*/
 
 .timeline-item {
     position: relative;
@@ -3331,12 +3354,15 @@ body {
    ========================================== */
 
 .tech-stack {
+    display: none; /* 임시로 숨김 처리 - 추후 수정 예정 */
     padding: var(--section-padding);
     background: linear-gradient(135deg, rgba(123, 104, 238, 0.05) 0%, rgba(74, 144, 226, 0.05) 100%);
     position: relative;
     overflow: hidden;
 }
 
+/* 임시 주석 처리 - 디자인 확인용 */
+/*
 .tech-stack::before {
     content: '';
     position: absolute;
@@ -3348,6 +3374,7 @@ body {
     opacity: 0.3;
     z-index: 0;
 }
+*/
 
 .tech-categories {
     display: grid;
@@ -3627,6 +3654,7 @@ body {
    ========================================== */
 
 .visitor-stats-widget {
+    display: none; /* 임시로 숨김 처리 - 추후 수정 예정 */
     position: fixed;
     bottom: 30px;
     left: 30px;
@@ -5567,6 +5595,7 @@ body {
 
 /* Chat Launcher Button */
 .chat-launcher {
+    display: none; /* 임시로 숨김 처리 - 추후 수정 예정 */
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -5576,7 +5605,6 @@ body {
     border-radius: 50%;
     box-shadow: var(--shadow-medium);
     cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;

@@ -2531,18 +2531,8 @@ function initializeNoticePopup() {
     if (chatBtn) {
         chatBtn.addEventListener('click', () => {
             hideNoticePopup();
-            // Open live chat if available
-            setTimeout(() => {
-                if (window.liveChat && typeof window.liveChat.open === 'function') {
-                    window.liveChat.open();
-                } else {
-                    // Fallback: scroll to contact section
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            }, 300);
+            // Open KakaoTalk chat
+            window.open('https://open.kakao.com/me/junetapa', '_blank');
         });
     }
     
@@ -2713,23 +2703,15 @@ function renderDefaultNoticeContent() {
                 <div class="notice-item-icon">🔧</div>
                 <div class="notice-item-content">
                     <h3>업데이트 중</h3>
-                    <p>홈페이지가 지속적으로 개선되고 있습니다.</p>
+                    <p>최종 업데이트: 2025년 12월 23일</p>
                 </div>
             </div>
-            
-            <div class="notice-item">
-                <div class="notice-item-icon">📋</div>
-                <div class="notice-item-content">
-                    <h3>상세정보</h3>
-                    <p>자세한 정보는 문의 바랍니다.</p>
-                </div>
-            </div>
-            
+
             <div class="notice-item">
                 <div class="notice-item-icon">💬</div>
                 <div class="notice-item-content">
                     <h3>문의하기</h3>
-                    <p>실시간 채팅으로 빠른 답변 가능합니다.</p>
+                    <p>카카오톡 & 문자 또는 전화요청 가능</p>
                 </div>
             </div>
         `;

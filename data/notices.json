@@ -4,25 +4,16 @@
       "id": "update_status",
       "icon": "🔧",
       "title": "업데이트 중",
-      "description": "홈페이지가 지속적으로 개선되고 있습니다.",
+      "description": "최종 업데이트: 2025년 12월 23일",
       "category": "system",
       "priority": "high",
-      "active": true
-    },
-    {
-      "id": "detailed_info",
-      "icon": "📋",
-      "title": "상세정보",
-      "description": "자세한 정보는 문의 바랍니다.",
-      "category": "info",
-      "priority": "medium",
       "active": true
     },
     {
       "id": "contact_chat",
       "icon": "💬",
       "title": "문의하기",
-      "description": "실시간 채팅으로 빠른 답변 가능합니다.",
+      "description": "연락 또는 문자 가능",
       "category": "contact",
       "priority": "high",
       "active": true
