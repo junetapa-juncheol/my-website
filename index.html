@@ -6,15 +6,10 @@
     <meta name="description" content="박준철(Junetapa) - 25년+ IT 전문가의 업적과 창작 활동. 전산유지보수, B2B 기술영업, 디지털 창작을 아우르는 IT 전문가의 세계">
     <meta name="keywords" content="IT 전문가, 전산유지보수, B2B 기술영업, 박준철, Junetapa, IT 업적, 창작활동, 디지털마케팅">
     <title>박준철 (Junetapa) - IT Story | 기술과 창작이 만나는 특별한 여정</title>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- External Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -24,99 +19,7 @@
 <body>
     <!-- ARIA Live Region for Screen Readers -->
     <div id="aria-live-region" class="aria-live" aria-live="polite" aria-atomic="true"></div>
-    
-    <!-- Notice Popup -->
-    <div id="noticePopup" class="notice-popup-overlay">
-        <div class="notice-popup">
-            <div class="notice-popup-header">
-                <div class="notice-icon">📢</div>
-                <h2>공지사항</h2>
-                <button class="notice-close-btn" aria-label="팝업 닫기">×</button>
-            </div>
-            
-            <div class="notice-popup-content">
-                <div class="notice-image">
-                    <img src="assets/images/common/Profile_image.png" alt="박준철 프로필">
-                </div>
-                
-                <!-- 공지사항 내용이 동적으로 로드됩니다 -->
-                <div class="notice-text" id="noticeContent">
-                    <!-- notices.json에서 로드됨 -->
-                </div>
-                
-                <div class="notice-contact-info" id="noticeContactInfo">
-                    <!-- notices.json에서 로드됨 -->
-                </div>
-                
-                <div class="notice-actions">
-                    <button class="notice-btn primary" id="noticeChatBtn">실시간 채팅하기</button>
-                    <button class="notice-btn secondary" id="noticeContactBtn">연락처 보기</button>
-                    <button class="notice-btn tertiary" id="noticeCloseBtn">확인했습니다</button>
-                </div>
-                
-                <div class="notice-checkbox">
-                    <label>
-                        <input type="checkbox" id="dontShowAgain">
-                        <span class="checkmark"></span>
-                        오늘 하루 보지 않기
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Visitor Statistics Widget -->
-    <div class="visitor-stats-widget" id="visitorStatsWidget">
-        <div class="stats-header" id="statsHeader">
-            <div class="stats-icon">📊</div>
-            <span class="stats-title">방문자 통계</span>
-            <div class="header-controls">
-                <button class="stats-toggle" id="statsToggle" aria-label="통계 위젯 접기/펼치기">
-                    <span class="toggle-arrow">▼</span>
-                </button>
-                <button class="minimize-btn" id="minimizeBtn" aria-label="통계 위젯 축소/복원">
-                    <span class="minimize-icon">−</span>
-                </button>
-                <button class="stats-close" id="statsClose" aria-label="통계 위젯 닫기">
-                    <span class="close-icon">×</span>
-                </button>
-            </div>
-        </div>
-        <div class="stats-content" id="statsContent">
-            <div class="stat-item">
-                <div class="stat-icon">👥</div>
-                <div class="stat-info">
-                    <span class="stat-label">현재 접속자</span>
-                    <span class="stat-value" id="currentVisitors">1</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">📈</div>
-                <div class="stat-info">
-                    <span class="stat-label">오늘 방문자</span>
-                    <span class="stat-value" id="todayVisitors">0</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">🔢</div>
-                <div class="stat-info">
-                    <span class="stat-label">총 방문자</span>
-                    <span class="stat-value" id="totalVisitors">0</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon">👁️</div>
-                <div class="stat-info">
-                    <span class="stat-label">페이지뷰</span>
-                    <span class="stat-value" id="pageViews">0</span>
-                </div>
-            </div>
-            <div class="stats-timestamp">
-                <span id="lastUpdated">마지막 업데이트: 방금 전</span>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">
@@ -126,10 +29,10 @@
                     <span class="logo-subtitle">IT Story</span>
                 </a>
             </div>
-            
+
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">홈</a></li>
-                <li><a href="#tech-stack" class="nav-link">기술스택</a></li>
+                <li><a href="#about" class="nav-link">소개</a></li>
                 <li><a href="#sales" class="nav-link">핵심역량</a></li>
                 <li><a href="#hobby" class="nav-link">창작활동</a></li>
                 <li><a href="#contact" class="nav-link">연락처</a></li>
@@ -142,12 +45,12 @@
             <div class="hamburger-menu" id="hamburger-menu">
                 <ul>
                     <li><a href="#home" class="nav-link">홈</a></li>
-                    <li><a href="#tech-stack" class="nav-link">기술스택</a></li>
+                    <li><a href="#about" class="nav-link">소개</a></li>
                     <li><a href="#sales" class="nav-link">핵심역량</a></li>
                     <li><a href="#hobby" class="nav-link">창작활동</a></li>
                     <li><a href="#contact" class="nav-link">연락처</a></li>
-                    <li><a href="pages/about.html">소개</a></li>
-                    <li><a href="pages/experience-education.html">활동&교육</a></li>
+                    <li><a href="pages/about.html">나의 이야기</a></li>
+                    <li><a href="pages/experience-education.html">활동&교육 이력</a></li>
                     <li><a href="pages/jstudio.html" target="_blank">갤러리</a></li>
                     <li><a href="pages/sitemap.html">사이트맵</a></li>
                 </ul>
@@ -158,37 +61,29 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <main id="main-content">
-        <div class="hero-background">
-            <video id="hero-video" autoplay muted loop playsinline>
-                <source id="video-source-mp4" src="assets/videos/hero-video.mp4" type="video/mp4">
-                <source id="video-source-webm" src="assets/videos/hero-video.webm" type="video/webm">
-                <!-- Fallback to particles if video fails -->
-                <div id="particles-js"></div>
-            </video>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="title-main">🚀 25년 IT 전문가</span>
-                <span class="title-sub">불가능을 현실로 만드는 혁신가</span>
-            </h1>
-            <p class="hero-subtitle">
-                <strong>💡 창의적 문제해결</strong> × <strong>🎯 검증된 실력</strong> × <strong>⚡ 혁신적 기술</strong><br>
-                당신의 비즈니스를 <span class="highlight">다음 단계로</span>
-            </p>
-            <div class="hero-cta">
-                <a href="pages/about.html" class="cta-primary">
-                    <span>나의 이야기</span>
-                    <i class="cta-arrow">→</i>
-                </a>
-                <a href="#contact" class="cta-secondary">
-                    <span>연락하기</span>
-                </a>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-main">25년 IT 전문가</span>
+                    <span class="title-sub">불가능을 현실로 만드는 혁신가</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <strong>창의적 문제해결</strong> · <strong>검증된 실력</strong> · <strong>혁신적 기술</strong><br>
+                    당신의 비즈니스를 <span class="highlight">다음 단계로</span>
+                </p>
+                <div class="hero-cta">
+                    <a href="pages/about.html" class="cta-primary">
+                        <span>나의 이야기</span>
+                        <i class="cta-arrow">→</i>
+                    </a>
+                    <a href="#contact" class="cta-secondary">
+                        <span>연락하기</span>
+                    </a>
+                </div>
             </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-            <span>Scroll Down</span>
+            <div class="hero-image">
+                <img src="assets/images/common/profile-hero.webp" alt="박준철 프로필">
+            </div>
         </div>
         </main>
     </section>
@@ -197,26 +92,32 @@
     <section class="quick-info">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">The Core<span class="highlight">Of Me</span></h2>
+                <h2 class="section-title">The Core <span class="highlight">Of Me</span></h2>
                 <p class="section-subtitle">Junetapa의 핵심 정보를 한눈에 확인하세요</p>
             </div>
-            
+
             <div class="info-grid">
-                <div class="info-card" data-icon="🎯">
-                    <div class="info-icon">🎯</div>
+                <div class="info-card fade-in">
+                    <div class="info-card-img">
+                        <img src="assets/images/common/profile-hero.webp" alt="현재 상태">
+                    </div>
                     <h3>현재 상태</h3>
-                    <p><strong>프리랜서 활동 중</strong></p>
-                    <span class="info-detail">좋은 기회가 있다면 제안 환영</span>
+                    <p><strong>직장인</strong></p>
+                    <span class="info-detail">IT 업계 현직 근무 중</span>
                 </div>
-                <div class="info-card" data-icon="💼">
-                    <div class="info-icon">💼</div>
+                <div class="info-card fade-in">
+                    <div class="info-card-img">
+                        <img src="assets/images/core/computer_service.png" alt="전문 분야">
+                    </div>
                     <h3>전문 분야</h3>
                     <p><strong>B2B 기술영업</strong></p>
                     <p><strong>IT 인프라 관리</strong></p>
                     <span class="info-detail">25년+ 전문 경력</span>
                 </div>
-                <div class="info-card" data-icon="⚡">
-                    <div class="info-icon">⚡</div>
+                <div class="info-card fade-in">
+                    <div class="info-card-img">
+                        <img src="assets/images/creation/digital_marketing.png" alt="핵심 키워드">
+                    </div>
                     <h3>핵심 키워드</h3>
                     <div class="keyword-tags">
                         <span class="keyword-tag">IT 인프라</span>
@@ -225,8 +126,10 @@
                         <span class="keyword-tag">기획</span>
                     </div>
                 </div>
-                <div class="info-card" data-icon="📍">
-                    <div class="info-icon">📍</div>
+                <div class="info-card fade-in">
+                    <div class="info-card-img">
+                        <img src="assets/images/core/Education_Sales.png" alt="근무 지역">
+                    </div>
                     <h3>근무 지역</h3>
                     <p><strong>수도권 전체</strong></p>
                     <span class="info-detail">현재: 인천광역시 부평구</span>
@@ -236,14 +139,13 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about" style="background-image: url('assets/images/about/backgrounds/about-main-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
-        <div class="about-overlay" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
-        <div class="container" style="position: relative; z-index: 2;">
+    <section id="about" class="about">
+        <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <!-- Profile Card - Moved to top -->
-                    <div class="profile-card-centered" style="display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
-                        <div class="profile-card" style="text-align: center;">
+                    <!-- Profile Card -->
+                    <div class="profile-card-centered">
+                        <div class="profile-card">
                             <div class="profile-image">
                                 <img src="assets/images/common/Profile_image.png" alt="박준철 프로필">
                             </div>
@@ -265,42 +167,38 @@
                     </div>
 
                     <div class="section-header">
-                        <h2 class="section-title" style="font-weight: bold; font-size: 2.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">기술을 닮은 <span class="highlight" style="font-weight: 700;">나의 이야기</span></h2>
-                        <p class="section-subtitle" style="color: #f8f9fa; font-size: 1.3rem; font-weight: 500; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-top: 10px;">12살 호기심에서 시작된 25년의 놀라운 여정</p>
+                        <h2 class="section-title">기술을 닮은 <span class="highlight">나의 이야기</span></h2>
+                        <p class="section-subtitle">12살 호기심에서 시작된 25년의 놀라운 여정</p>
                     </div>
-                    
+
                     <div class="interactive-timeline">
                         <div class="timeline-container">
                             <div class="timeline-progress">
                                 <div class="timeline-progress-bar"></div>
                             </div>
-                            
-                            <div class="timeline-item active" data-year="1993-2001" style="background-image: url('assets/images/about/timeline/1993-2001-bg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 300px; padding: 20px; position: relative;">
-                                <div class="timeline-overlay" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.5) 50%, rgba(26, 26, 46, 0.7) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; z-index: 1;"></div>
-                                <div class="timeline-marker" style="position: relative; z-index: 2;">
+
+                            <div class="timeline-item active" data-year="1993-2001">
+                                <div class="timeline-marker">
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-year">1993-2001</div>
                                 </div>
-                                <div class="timeline-content" style="position: relative; z-index: 2; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                <div class="timeline-content">
                                     <div class="timeline-header">
-                                        <div class="timeline-icon">🔧</div>
-                                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; color: #ffffff; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">호기심의 시작</h3>
-                                        <span class="timeline-duration" style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 700; color: #f093fb; background: rgba(240, 147, 251, 0.2); padding: 4px 12px; border-radius: 15px; border: 1px solid #f093fb;">8년</span>
+                                        <h3>호기심의 시작</h3>
+                                        <span class="timeline-duration">8년</span>
                                     </div>
                                     <div class="timeline-details">
-                                        <p style="font-family: 'Noto Sans KR', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 400; color: #ffffff; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);"><strong style="font-weight: 600; color: #00d4ff;">12살</strong>, 게임을 좋아했던 나는 우연히 친구가 다니는 <strong style="font-weight: 600; color: #b847ff;">컴퓨터학원</strong>을 가면서 컴퓨터와 운명적 만남. 전자기기를 좋아했던 나에감 컴퓨터에 완전히 매료되었습니다.</p>
+                                        <p><strong>12살</strong>, 게임을 좋아했던 나는 우연히 친구가 다니는 <strong>컴퓨터학원</strong>을 가면서 컴퓨터와 운명적 만남. 전자기기를 좋아했던 나에감 컴퓨터에 완전히 매료되었습니다.</p>
                                         <div class="timeline-achievements">
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">⚡</span>
-                                                <span style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">컴퓨터 분해/조립 마스터</span>
+                                                <span>컴퓨터 분해/조립 마스터</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🛠️</span>
                                                 <span>16살 컴퓨터 수리 전문가</span>
                                             </div>
                                         </div>
                                         <div class="timeline-skills">
-                                            <span class="skill-tag" style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.8rem, 2vw, 0.9rem); font-weight: 500; background: rgba(123,104,238,0.8); color: white; border: 1px solid #7B68EE; border-radius: 15px; padding: 4px 12px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); box-shadow: 0 2px 8px rgba(123,104,238,0.3);">하드웨어</span>
+                                            <span class="skill-tag">하드웨어</span>
                                             <span class="skill-tag">문제해결</span>
                                             <span class="skill-tag">호기심</span>
                                         </div>
@@ -308,31 +206,26 @@
                                 </div>
                             </div>
 
-                            <div class="timeline-item" data-year="2001-2007" style="background-image: url('assets/images/about/timeline/2001-2007-bg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 300px; padding: 20px; position: relative;">
-                                <div class="timeline-overlay" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.5) 50%, rgba(26, 26, 46, 0.7) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; z-index: 1;"></div>
-                                <div class="timeline-marker" style="position: relative; z-index: 2;">
+                            <div class="timeline-item" data-year="2001-2007">
+                                <div class="timeline-marker">
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-year">2001-2007</div>
                                 </div>
-                                <div class="timeline-content" style="position: relative; z-index: 2; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                <div class="timeline-content">
                                     <div class="timeline-header">
-                                        <div class="timeline-icon">⚙️</div>
-                                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; color: #ffffff; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">전문가의 첫걸음</h3>
+                                        <h3>전문가의 첫걸음</h3>
                                         <span class="timeline-duration">6년</span>
                                     </div>
                                     <div class="timeline-details">
-                                        <p style="font-family: 'Noto Sans KR', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 400; color: #ffffff; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">컴퓨터 조립과 수리를 취미로 시작하면서 자연스럽게 <strong style="font-weight: 600; color: #b847ff;">IT 업계에 첫발</strong>을 내딟었습니다. 다양한 분야의 <strong style="font-weight: 600; color: #00d4ff;">전산관리</strong>를 경험하며 실무 역량을 쌓아갔습니다.</p>
+                                        <p>컴퓨터 조립과 수리를 취미로 시작하면서 자연스럽게 <strong>IT 업계에 첫발</strong>을 내딟었습니다. 다양한 분야의 <strong>전산관리</strong>를 경험하며 실무 역량을 쌓아갔습니다.</p>
                                         <div class="timeline-achievements">
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🏪</span>
                                                 <span>개인 컴퓨터 수리센터 운영</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🏢</span>
                                                 <span>부동산협회 전산관리</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🏭</span>
                                                 <span>공장 사무실 전산관리</span>
                                             </div>
                                         </div>
@@ -345,31 +238,26 @@
                                 </div>
                             </div>
 
-                            <div class="timeline-item" data-year="2007-2015" style="background-image: url('assets/images/about/timeline/2007-2015-bg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 300px; padding: 20px; position: relative;">
-                                <div class="timeline-overlay" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.5) 50%, rgba(26, 26, 46, 0.7) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; z-index: 1;"></div>
-                                <div class="timeline-marker" style="position: relative; z-index: 2;">
+                            <div class="timeline-item" data-year="2007-2015">
+                                <div class="timeline-marker">
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-year">2007-2015</div>
                                 </div>
-                                <div class="timeline-content" style="position: relative; z-index: 2; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                <div class="timeline-content">
                                     <div class="timeline-header">
-                                        <div class="timeline-icon">🚀</div>
-                                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; color: #ffffff; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">기술영업 전문가로 성장</h3>
-                                        <span class="timeline-duration" style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 700; color: #f093fb; background: rgba(240, 147, 251, 0.2); padding: 4px 12px; border-radius: 15px; border: 1px solid #f093fb;">8년</span>
+                                        <h3>기술영업 전문가로 성장</h3>
+                                        <span class="timeline-duration">8년</span>
                                     </div>
                                     <div class="timeline-details">
-                                        <p style="font-family: 'Noto Sans KR', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 400; color: #ffffff; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);"><strong style="font-weight: 600; color: #b847ff;">IT 업계 A/S 고객센터</strong>에서 시작해 대리점 영업 현장을 체계적으로 학습했습니다. <strong style="font-weight: 600; color: #00d4ff;">PC방 리스사업부 신설</strong>과 함께 <strong style="font-weight: 600; color: #f093fb;">팀장으로 승진</strong>하며 전국 리스 영업을 총괄했습니다.</p>
+                                        <p><strong>IT 업계 A/S 고객센터</strong>에서 시작해 대리점 영업 현장을 체계적으로 학습했습니다. <strong>PC방 리스사업부 신설</strong>과 함께 <strong>팀장으로 승진</strong>하며 전국 리스 영업을 총괄했습니다.</p>
                                         <div class="timeline-achievements">
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">👑</span>
                                                 <span>팀장 승진</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">📊</span>
                                                 <span>압도적 실적 달성</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🎯</span>
                                                 <span>업종별 특화 솔루션</span>
                                             </div>
                                         </div>
@@ -382,31 +270,26 @@
                                 </div>
                             </div>
 
-                            <div class="timeline-item" data-year="2016-2024" style="background-image: url('assets/images/about/timeline/2016-2024-bg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 300px; padding: 20px; position: relative;">
-                                <div class="timeline-overlay" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.5) 50%, rgba(26, 26, 46, 0.7) 100%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; z-index: 1;"></div>
-                                <div class="timeline-marker" style="position: relative; z-index: 2;">
+                            <div class="timeline-item" data-year="2016-2024">
+                                <div class="timeline-marker">
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-year">2016-2024</div>
                                 </div>
-                                <div class="timeline-content" style="position: relative; z-index: 2; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                <div class="timeline-content">
                                     <div class="timeline-header">
-                                        <div class="timeline-icon">🌟</div>
-                                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 600; color: #ffffff; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">B2B 기술영업으로 영역 확장</h3>
-                                        <span class="timeline-duration" style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 700; color: #f093fb; background: rgba(240, 147, 251, 0.2); padding: 4px 12px; border-radius: 15px; border: 1px solid #f093fb;">8년</span>
+                                        <h3>B2B 기술영업으로 영역 확장</h3>
+                                        <span class="timeline-duration">8년</span>
                                     </div>
                                     <div class="timeline-details">
-                                        <p style="font-family: 'Noto Sans KR', sans-serif; font-size: clamp(0.9rem, 2.5vw, 1rem); font-weight: 400; color: #ffffff; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">PC, 프린터 등 사무OA기기 렌탈 영업에서 <strong style="font-weight: 600; color: #f093fb;">총 1,000여대 이상의 압도적인 렌탈 실적</strong>을 달성했습니다. 다양한 고객층에 성공적으로 납품하며 <strong style="font-weight: 600; color: #b847ff;">B2B 기술영업 전문가</strong>로서의 입지를 확고히 했습니다.</p>
+                                        <p>PC, 프린터 등 사무OA기기 렌탈 영업에서 <strong>총 1,000여대 이상의 압도적인 렌탈 실적</strong>을 달성했습니다. 다양한 고객층에 성공적으로 납품하며 <strong>B2B 기술영업 전문가</strong>로서의 입지를 확고히 했습니다.</p>
                                         <div class="timeline-achievements">
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">💼</span>
                                                 <span>1,000+ 렌탈 실적</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🏫</span>
                                                 <span>교육청 상주계약 수주</span>
                                             </div>
                                             <div class="achievement-item">
-                                                <span class="achievement-icon">🏥</span>
                                                 <span>대학병원 납품</span>
                                             </div>
                                         </div>
@@ -425,255 +308,6 @@
         </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section id="tech-stack" class="tech-stack">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">기술 <span class="highlight">스택</span></h2>
-                <p class="section-subtitle">25년간 축적한 기술 역량과 전문성</p>
-            </div>
-            
-            <div class="tech-categories">
-                <div class="tech-category" data-category="infrastructure">
-                    <div class="category-header">
-                        <div class="category-icon">🏗️</div>
-                        <h3>IT 인프라 & 시스템</h3>
-                        <span class="category-experience">20+ 년</span>
-                    </div>
-                    <div class="tech-skills">
-                        <div class="skill-item" data-level="95">
-                            <div class="skill-info">
-                                <span class="skill-name">Windows Server</span>
-                                <span class="skill-percentage">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="90">
-                            <div class="skill-info">
-                                <span class="skill-name">네트워크 관리</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="93">
-                            <div class="skill-info">
-                                <span class="skill-name">PC 유지보수</span>
-                                <span class="skill-percentage">93%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 93%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">보안 시스템</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-category" data-category="business">
-                    <div class="category-header">
-                        <div class="category-icon">💼</div>
-                        <h3>비즈니스 & 영업</h3>
-                        <span class="category-experience">15+ 년</span>
-                    </div>
-                    <div class="tech-skills">
-                        <div class="skill-item" data-level="98">
-                            <div class="skill-info">
-                                <span class="skill-name">B2B 기술영업</span>
-                                <span class="skill-percentage">98%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 98%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="90">
-                            <div class="skill-info">
-                                <span class="skill-name">프로젝트 관리</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">고객 관계 관리</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="92">
-                            <div class="skill-info">
-                                <span class="skill-name">솔루션 제안</span>
-                                <span class="skill-percentage">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-category" data-category="development">
-                    <div class="category-header">
-                        <div class="category-icon">💻</div>
-                        <h3>개발 & 웹기술</h3>
-                        <span class="category-experience">5+ 년</span>
-                    </div>
-                    <div class="tech-skills">
-                        <div class="skill-item" data-level="75">
-                            <div class="skill-info">
-                                <span class="skill-name">HTML/CSS</span>
-                                <span class="skill-percentage">75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="70">
-                            <div class="skill-info">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-percentage">70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="65">
-                            <div class="skill-info">
-                                <span class="skill-name">웹 기획/설계</span>
-                                <span class="skill-percentage">65%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="80">
-                            <div class="skill-info">
-                                <span class="skill-name">AI 도구 활용</span>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-category" data-category="creative">
-                    <div class="category-header">
-                        <div class="category-icon">🎨</div>
-                        <h3>창작 & 마케팅</h3>
-                        <span class="category-experience">4+ 년</span>
-                    </div>
-                    <div class="tech-skills">
-                        <div class="skill-item" data-level="88">
-                            <div class="skill-info">
-                                <span class="skill-name">디지털 마케팅</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">콘텐츠 제작</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="78">
-                            <div class="skill-info">
-                                <span class="skill-name">AI 음악 창작</span>
-                                <span class="skill-percentage">78%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 78%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-level="82">
-                            <div class="skill-info">
-                                <span class="skill-name">소셜미디어 운영</span>
-                                <span class="skill-percentage">82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 82%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tech Stack Summary -->
-            <div class="tech-summary">
-                <div class="summary-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">🔧</div>
-                        <div class="stat-info">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">핵심 기술</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">📈</div>
-                        <div class="stat-info">
-                            <span class="stat-number">4</span>
-                            <span class="stat-label">전문 분야</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🎯</div>
-                        <div class="stat-info">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label">경력 년수</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🚀</div>
-                        <div class="stat-info">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">학습 의지</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-philosophy">
-                    <h3>기술 철학</h3>
-                    <p>"기술은 사람을 위해 존재한다. 최신 기술을 빠르게 습득하되, 실무에 적용할 수 있는 실용적 접근을 중시합니다."</p>
-                    <div class="philosophy-points">
-                        <div class="point-item">
-                            <span class="point-icon">💡</span>
-                            <span>지속적 학습과 기술 탐구</span>
-                        </div>
-                        <div class="point-item">
-                            <span class="point-icon">🔧</span>
-                            <span>실무 중심의 문제 해결</span>
-                        </div>
-                        <div class="point-item">
-                            <span class="point-icon">🤝</span>
-                            <span>기술과 비즈니스의 균형</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Sales Section -->
     <section id="sales" class="sales">
         <div class="container">
@@ -681,15 +315,15 @@
                 <h2 class="section-title">핵심 <span class="highlight">전문역량</span></h2>
                 <p class="section-subtitle">25년간 축적된 검증된 실력과 성과</p>
             </div>
-            
+
             <div class="sales-filters">
                 <button class="filter-btn active" data-filter="all">전체 보기</button>
                 <button class="filter-btn" data-filter="maintenance">전산유지보수</button>
                 <button class="filter-btn" data-filter="sales">기술영업</button>
             </div>
-            
+
             <div class="sales-grid">
-                <div class="sales-item fade-in" data-category="maintenance" style="transition-delay: 0s;">
+                <div class="sales-item fade-in" data-category="maintenance">
                     <div class="sales-image">
                         <img src="assets/images/core/computer_service.png" alt="다분야 전산관리 경험">
                         <div class="sales-overlay">
@@ -707,7 +341,7 @@
                     </div>
                 </div>
 
-                <div class="sales-item fade-in" data-category="maintenance" style="transition-delay: 0.1s;">
+                <div class="sales-item fade-in" data-category="maintenance">
                     <div class="sales-image">
                         <img src="assets/images/core/Education_Sales.png" alt="교육청 전산유지보수">
                         <div class="sales-overlay">
@@ -724,8 +358,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="sales-item fade-in" data-category="sales" style="transition-delay: 0.2s;">
+
+                <div class="sales-item fade-in" data-category="sales">
                     <div class="sales-image">
                         <img src="assets/images/core/Smart_Mirror.png" alt="스마트미러 OEM 개발">
                         <div class="sales-overlay">
@@ -742,8 +376,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="sales-item fade-in" data-category="maintenance" style="transition-delay: 0.3s;">
+
+                <div class="sales-item fade-in" data-category="maintenance">
                     <div class="sales-image">
                         <img src="assets/images/core/Hospital_Computer.png" alt="대학병원 IT 관리">
                         <div class="sales-overlay">
@@ -761,7 +395,7 @@
                     </div>
                 </div>
 
-                <div class="sales-item fade-in" data-category="sales" style="transition-delay: 0.4s;">
+                <div class="sales-item fade-in" data-category="sales">
                     <div class="sales-image">
                         <img src="assets/images/core/card_print.png" alt="카드발급기 기술영업">
                         <div class="sales-overlay">
@@ -792,9 +426,9 @@
                 <h2 class="section-title">창작 <span class="highlight">활동</span></h2>
                 <p class="section-subtitle">기술과 예술이 만나는 창의적 여정</p>
             </div>
-            
+
             <div class="hobby-grid">
-                <div class="hobby-item fade-in" data-title="디지털 마케팅 혁신" data-category="창작활동" style="transition-delay: 0s;">
+                <div class="hobby-item fade-in" data-title="디지털 마케팅 혁신" data-category="창작활동">
                     <div class="hobby-image">
                         <img src="assets/images/creation/digital_marketing.png" alt="디지털 마케팅">
                         <div class="hobby-overlay">
@@ -811,8 +445,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="hobby-item fade-in" data-title="AI 음악 창작" data-category="창작활동" style="transition-delay: 0.1s;">
+
+                <div class="hobby-item fade-in" data-title="AI 음악 창작" data-category="창작활동">
                     <div class="hobby-image">
                         <img src="assets/images/creation/ai_music.png" alt="AI 음악 창작">
                         <div class="hobby-overlay">
@@ -828,8 +462,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="hobby-item fade-in" data-title="과학 교육 콘텐츠" data-category="창작활동" style="transition-delay: 0.2s;">
+
+                <div class="hobby-item fade-in" data-title="과학 교육 콘텐츠" data-category="창작활동">
                     <div class="hobby-image">
                         <img src="assets/images/creation/ScienceEducation_Contents.png" alt="과학 교육 콘텐츠">
                         <div class="hobby-overlay">
@@ -845,8 +479,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="hobby-item fade-in" data-title="소셜미디어 운영" data-category="창작활동" style="transition-delay: 0.3s;">
+
+                <div class="hobby-item fade-in" data-title="소셜미디어 운영" data-category="창작활동">
                     <div class="hobby-image">
                         <img src="assets/images/creation/sns_operation.png" alt="소셜미디어 운영">
                         <div class="hobby-overlay">
@@ -863,7 +497,7 @@
                     </div>
                 </div>
 
-                <div class="hobby-item fade-in" data-title="바이브 코딩" data-category="창작활동" style="transition-delay: 0.4s;">
+                <div class="hobby-item fade-in" data-title="바이브 코딩" data-category="창작활동">
                     <div class="hobby-image">
                         <img src="assets/images/creation/coding.png" alt="바이브 코딩">
                         <div class="hobby-overlay">
@@ -894,10 +528,12 @@
                         <h2 class="section-title">연락<span class="highlight">하기</span></h2>
                         <p class="section-subtitle">협업, 프로젝트, 또는 궁금한 것이 있으시다면 언제든 연락주세요!</p>
                     </div>
-                    
+
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
                             <div class="contact-text">
                                 <h4>이메일</h4>
                                 <p>jun22sky@nate.com</p>
@@ -905,7 +541,9 @@
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📱</div>
+                            <div class="contact-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            </div>
                             <div class="contact-text">
                                 <h4>전화</h4>
                                 <p>010-****-3888</p>
@@ -913,7 +551,9 @@
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
                             <div class="contact-text">
                                 <h4>위치</h4>
                                 <p>인천광역시 부평구</p>
@@ -921,29 +561,20 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="collaboration-info">
-                        <h3>협업 & 소통 스타일</h3>
-                        <ul>
-                            <li>✅ 소통 방식: 적극적이고 투명한 커뮤니케이션 선호</li>
-                            <li>✅ 업무 접근: 문제 해결 중심의 실용적 사고</li>
-                            <li>✅ 학습 자세: 새로운 기술과 트렌드에 대한 지속적 탐구</li>
-                            <li>✅ 프로젝트: 품질과 효율성을 동시에 추구하는 전문적 접근</li>
-                        </ul>
-                    </div>
+
                 </div>
-                
+
                 <div class="contact-form-wrapper">
                     <form class="contact-form" id="contactForm" aria-label="연락처 문의 폼" novalidate>
                         <div class="form-group">
                             <label for="name" class="sr-only">이름 (필수)</label>
-                            <input type="text" id="name" name="name" placeholder="이름" required 
+                            <input type="text" id="name" name="name" placeholder="이름" required
                                    aria-describedby="name-help" autocomplete="name">
                             <div id="name-help" class="sr-only">성명을 입력해주세요.</div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="sr-only">이메일 (필수)</label>
-                            <input type="email" id="email" name="email" placeholder="이메일" required 
+                            <input type="email" id="email" name="email" placeholder="이메일" required
                                    aria-describedby="email-help" autocomplete="email">
                             <div id="email-help" class="sr-only">연락받을 이메일 주소를 입력해주세요.</div>
                         </div>
@@ -981,24 +612,6 @@
                 </div>
             </div>
             <div class="chat-controls">
-                <button class="chat-theme" id="chatTheme" aria-label="테마 설정" title="Theme Settings">
-                    <span class="theme-icon">🎨</span>
-                </button>
-                <button class="chat-search" id="chatSearch" aria-label="대화 검색" title="Search Conversations">
-                    <span class="search-icon">🔍</span>
-                </button>
-                <button class="chat-faq" id="chatFAQ" aria-label="자주 묻는 질문" title="FAQ">
-                    <span class="faq-icon">❓</span>
-                </button>
-                <button class="chat-export" id="chatExport" aria-label="채팅 내보내기" title="Export Chat">
-                    <span class="export-icon">💾</span>
-                </button>
-                <button class="chat-email" id="chatEmail" aria-label="이메일 전송" title="Send Email">
-                    <span class="email-icon">📧</span>
-                </button>
-                <button class="chat-language" id="chatLanguage" aria-label="언어 변경" title="Change Language">
-                    <span class="language-icon">🌐</span>
-                </button>
                 <button class="chat-minimize" id="chatMinimize" aria-label="채팅 최소화">
                     <span class="minimize-icon">−</span>
                 </button>
@@ -1007,18 +620,18 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="chat-body" id="chatBody">
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot-message">
-                    <div class="message-avatar">🤖</div>
+                    <div class="message-avatar">J</div>
                     <div class="message-content">
                         <div class="message-text">안녕하세요! Junetapa 입니다. 무엇을 도와드릴까요?</div>
                         <div class="message-time">방금 전</div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="chat-typing" id="chatTyping" style="display: none;">
                 <div class="typing-indicator">
                     <span></span>
@@ -1028,88 +641,18 @@
                 <span class="typing-text">입력 중...</span>
             </div>
         </div>
-        
+
         <div class="chat-input-container">
             <div class="chat-input-wrapper">
-                <button class="emoji-picker-btn" id="emojiPickerBtn" aria-label="이모지 선택" title="Add Emoji">
-                    <span class="emoji-icon">😊</span>
-                </button>
-                <button class="voice-btn" id="voiceBtn" aria-label="음성 인식" title="Voice Recognition">
-                    <span class="voice-icon">🎤</span>
-                    <div class="voice-recognition-indicator"></div>
-                </button>
-                <input type="text" 
-                       class="chat-input" 
-                       id="chatInput" 
-                       placeholder="메시지를 입력하세요..." 
+                <input type="text"
+                       class="chat-input"
+                       id="chatInput"
+                       placeholder="메시지를 입력하세요..."
                        maxlength="500"
                        autocomplete="off">
                 <button class="chat-send" id="chatSend" aria-label="메시지 전송">
-                    <span class="send-icon">📤</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 </button>
-                
-                <!-- Voice Feedback Elements -->
-                <div class="voice-transcript" id="voiceTranscript"></div>
-                <div class="voice-error-message" id="voiceError"></div>
-                <div class="voice-commands-help" id="voiceHelp">
-                    <h4>음성 명령어</h4>
-                    <ul id="voiceCommandsList">
-                        <!-- 명령어들이 동적으로 로드됩니다 -->
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Emoji Picker Panel -->
-            <div class="emoji-picker" id="emojiPicker" style="display: none;">
-                <div class="emoji-picker-header">
-                    <div class="emoji-tabs" id="emojiTabs">
-                        <button class="emoji-tab active" data-category="quick">빠른</button>
-                        <button class="emoji-tab" data-category="recent">최근</button>
-                        <button class="emoji-tab" data-category="faces">표정</button>
-                        <button class="emoji-tab" data-category="gestures">제스처</button>
-                        <button class="emoji-tab" data-category="hearts">하트</button>
-                        <button class="emoji-tab" data-category="objects">오브젝트</button>
-                    </div>
-                    <div class="emoji-search-wrapper">
-                        <input type="text" class="emoji-search" id="emojiSearch" placeholder="이모지 검색...">
-                    </div>
-                </div>
-                <div class="emoji-picker-content" id="emojiPickerContent">
-                    <!-- 이모지들이 여기에 동적으로 로드됩니다 -->
-                </div>
-            </div>
-            
-            <!-- Theme Customizer Panel -->
-            <div class="theme-customizer" id="themeCustomizer" style="display: none;">
-                <div class="theme-customizer-header">
-                    <h3>🎨 테마 설정</h3>
-                    <button class="theme-close" id="themeClose">×</button>
-                </div>
-                <div class="theme-customizer-content" id="themeCustomizerContent">
-                    <!-- 테마 설정들이 여기에 동적으로 로드됩니다 -->
-                </div>
-            </div>
-            
-            <!-- Export Panel -->
-            <div class="export-panel" id="exportPanel" style="display: none;">
-                <div class="export-panel-header">
-                    <h3>💾 채팅 내보내기</h3>
-                    <button class="export-close" id="exportClose">×</button>
-                </div>
-                <div class="export-panel-content" id="exportPanelContent">
-                    <!-- 내보내기 설정들이 여기에 동적으로 로드됩니다 -->
-                </div>
-            </div>
-            
-            <!-- Email Panel -->
-            <div class="email-panel" id="emailPanel" style="display: none;">
-                <div class="email-panel-header">
-                    <h3>📧 이메일 전송</h3>
-                    <button class="email-close" id="emailClose">×</button>
-                </div>
-                <div class="email-panel-content" id="emailPanelContent">
-                    <!-- 이메일 폼이 여기에 동적으로 로드됩니다 -->
-                </div>
             </div>
             <div class="chat-suggestions" id="chatSuggestions">
                 <button class="suggestion-btn" data-message="안녕하세요!">안녕하세요!</button>
@@ -1121,7 +664,7 @@
 
     <!-- Chat Launcher Button -->
     <div class="chat-launcher" id="chatLauncher">
-        <div class="launcher-icon">💬</div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
         <div class="launcher-notification" id="launcherNotification">1</div>
     </div>
 
@@ -1148,30 +691,8 @@
                         <span class="logo-text">Junetapa</span>
                         <p>기술과 사람을 잇는 IT 전문가</p>
                     </div>
-                    <div class="social-links">
-                        <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                            </svg>
-                        </a>
-                        <a href="https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg?si=883k_gOmYFrbpRny" target="_blank" class="social-link" aria-label="유튜브">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="link-group">
                         <h4>탐색</h4>
@@ -1189,14 +710,26 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div class="social-links">
+                <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+                <a href="https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg?si=883k_gOmYFrbpRny" target="_blank" class="social-link" aria-label="유튜브">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+
             <div class="footer-bottom">
                 <div class="footer-copyright">
                     <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
                     <p>기술과 창작이 만나는 특별한 여정</p>
-                </div>
-                <div class="footer-contact">
-                    <a href="#contact" class="contact-link">연락하기</a>
                 </div>
             </div>
         </div>
@@ -1207,157 +740,104 @@
     <script src="js/creation.js"></script>
     <script src="js/sales.js"></script>
     <script>
-        // 페이지 로드 완료 후 챗봇 초기화
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing chatbot...');
-            
-            // 챗봇 런처 클릭 이벤트 직접 추가
             const chatLauncher = document.getElementById('chatLauncher');
             const chatWidget = document.getElementById('chatWidget');
-            
+
             if (chatLauncher && chatWidget) {
-                console.log('Chat elements found');
                 chatLauncher.addEventListener('click', function() {
-                    console.log('Chat launcher clicked');
                     chatWidget.classList.toggle('active');
                 });
-                
-                // 닫기 버튼 이벤트
+
                 const closeBtn = document.getElementById('chatClose');
                 if (closeBtn) {
                     closeBtn.addEventListener('click', function() {
                         chatWidget.classList.remove('active');
                     });
                 }
-            } else {
-                console.error('Chat elements not found:', { chatLauncher, chatWidget });
             }
         });
-        
-        // 기본 챗봇 기능 구현 - DOM이 완전히 로드된 후 실행
+
         setTimeout(() => {
             const chatInput = document.getElementById('chatInput');
             const chatSend = document.getElementById('chatSend');
             const chatMessages = document.querySelector('.chat-messages');
-            
-            console.log('Chat elements found:', {
-                chatInput: chatInput,
-                chatSend: chatSend,
-                chatMessages: chatMessages
-            });
-            
-            if (!chatInput || !chatSend || !chatMessages) {
-                console.error('Required chat elements not found');
-                return;
-            }
-            
+
+            if (!chatInput || !chatSend || !chatMessages) return;
+
             initializeChatbot(chatInput, chatSend, chatMessages);
         }, 1000);
-        
+
         function initializeChatbot(chatInput, chatSend, chatMessages) {
-        
-        // 기본 응답 데이터
-        const responses = {
-            greeting: ['안녕하세요! Junetapa입니다. 무엇을 도와드릴까요?', '반갑습니다! 어떤 것이 궁금하신가요?'],
-            portfolio: ['25년 이상의 IT 경력을 바탕으로 다양한 프로젝트를 수행했습니다.', '포트폴리오 페이지에서 자세한 정보를 확인하실 수 있습니다.'],
-            contact: ['연락처: jun22sky@nate.com | 전화: 010-****-3888', '언제든 연락 주세요!'],
-            default: ['흥미로운 질문이네요! 더 자세히 말씀해 주시겠어요?', '포트폴리오, 경력, 협업 등에 대해 자유롭게 질문해 주세요!']
-        };
-        
-        // 키워드 매핑
-        const keywords = {
-            greeting: ['안녕', 'hello', 'hi', '반가', '처음'],
-            portfolio: ['포트폴리오', '작업', '프로젝트', '경력', '이력'],
-            contact: ['연락', '이메일', '전화', '문의']
-        };
-        
-        // 메시지 추가 함수
-        function addMessage(content, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
-            
-            const avatar = document.createElement('div');
-            avatar.className = 'message-avatar';
-            avatar.textContent = isUser ? '👤' : '🤖';
-            
-            const messageContent = document.createElement('div');
-            messageContent.className = 'message-content';
-            messageContent.textContent = content;
-            
-            const timestamp = document.createElement('div');
-            timestamp.className = 'message-timestamp';
-            timestamp.textContent = new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'});
-            
-            messageDiv.appendChild(avatar);
-            messageDiv.appendChild(messageContent);
-            messageDiv.appendChild(timestamp);
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        // 응답 생성 함수
-        function generateResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            for (const [category, wordList] of Object.entries(keywords)) {
-                if (wordList.some(keyword => lowerMessage.includes(keyword))) {
-                    const responseList = responses[category];
-                    return responseList[Math.floor(Math.random() * responseList.length)];
+            const responses = {
+                greeting: ['안녕하세요! Junetapa입니다. 무엇을 도와드릴까요?', '반갑습니다! 어떤 것이 궁금하신가요?'],
+                portfolio: ['25년 이상의 IT 경력을 바탕으로 다양한 프로젝트를 수행했습니다.', '포트폴리오 페이지에서 자세한 정보를 확인하실 수 있습니다.'],
+                contact: ['연락처: jun22sky@nate.com | 전화: 010-****-3888', '언제든 연락 주세요!'],
+                default: ['흥미로운 질문이네요! 더 자세히 말씀해 주시겠어요?', '포트폴리오, 경력, 협업 등에 대해 자유롭게 질문해 주세요!']
+            };
+
+            const keywords = {
+                greeting: ['안녕', 'hello', 'hi', '반가', '처음'],
+                portfolio: ['포트폴리오', '작업', '프로젝트', '경력', '이력'],
+                contact: ['연락', '이메일', '전화', '문의']
+            };
+
+            function addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.textContent = isUser ? 'U' : 'J';
+
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                messageContent.textContent = content;
+
+                const timestamp = document.createElement('div');
+                timestamp.className = 'message-timestamp';
+                timestamp.textContent = new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'});
+
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(messageContent);
+                messageDiv.appendChild(timestamp);
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function generateResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                for (const [category, wordList] of Object.entries(keywords)) {
+                    if (wordList.some(keyword => lowerMessage.includes(keyword))) {
+                        const responseList = responses[category];
+                        return responseList[Math.floor(Math.random() * responseList.length)];
+                    }
                 }
+                const defaultResponses = responses.default;
+                return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
             }
-            
-            const defaultResponses = responses.default;
-            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-        }
-        
-        // 메시지 전송 함수
-        function sendMessage() {
-            console.log('sendMessage called');
-            const message = chatInput.value.trim();
-            console.log('Message:', message);
-            if (!message) {
-                console.log('Empty message, returning');
-                return;
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                addMessage(message, true);
+                chatInput.value = '';
+                setTimeout(() => {
+                    const response = generateResponse(message);
+                    addMessage(response, false);
+                }, 1000);
             }
-            
-            // 사용자 메시지 추가
-            addMessage(message, true);
-            chatInput.value = '';
-            
-            // 타이핑 표시
-            setTimeout(() => {
-                const response = generateResponse(message);
-                addMessage(response, false);
-            }, 1000);
-        }
-        
-        // 이벤트 리스너
-        if (chatSend) {
-            console.log('Adding click listener to send button');
+
             chatSend.addEventListener('click', sendMessage);
-        } else {
-            console.log('Send button not found');
-        }
-        
-        if (chatInput) {
-            console.log('Adding keypress listener to input');
             chatInput.addEventListener('keypress', function(e) {
-                console.log('Key pressed:', e.key);
-                if (e.key === 'Enter') {
-                    console.log('Enter key pressed, calling sendMessage');
-                    sendMessage();
-                }
+                if (e.key === 'Enter') sendMessage();
             });
-        } else {
-            console.log('Chat input not found');
-        }
-        
-            // 웰컴 메시지
+
             setTimeout(() => {
                 addMessage('안녕하세요! Junetapa의 AI 어시스턴트입니다. 무엇을 도와드릴까요?', false);
             }, 500);
-        } // initializeChatbot 함수 종료
+        }
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </body>
