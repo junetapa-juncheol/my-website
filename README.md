@@ -12,26 +12,8 @@
 - **접근성 준수**: WCAG 2.1 AA 등급 준수
 - **성능 최적화**: 경량화된 CSS/JS로 빠른 로딩
 
-## 빠른 시작
-
-### 로컬 실행
-```bash
-# 저장소 클론
-git clone https://github.com/junetapa-juncheol/my-website.git
-cd my-website
-
-# 로컬 서버 실행 (Python 3)
-python -m http.server 8000
-
-# 또는 Node.js
-npx http-server
-
-# 브라우저에서 접속
-http://localhost:8000
-```
-
-### 배포
-GitHub Pages를 통해 https://junetapa.info 에서 서비스 중
+## 웹사이트
+https://junetapa.info (GitHub Pages)
 
 ## 프로젝트 구조
 
