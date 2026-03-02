@@ -22,6 +22,9 @@ nul
 # Claude
 .claude/
 
+# Internal docs
+docs/
+
 # Node (if used)
 node_modules/
 package-lock.json
