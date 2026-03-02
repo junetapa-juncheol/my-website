@@ -17,9 +17,9 @@ export class FAQManager {
                     {
                         id: 'about_age',
                         question: ['나이가 어떻게 되세요', '몇 살이세요', '연세가 어떻게', '태어난 년도'],
-                        answer: '1981년생으로 현재 43세입니다. 12살부터 컴퓨터를 시작해서 25년 넘게 IT 분야에 종사하고 있습니다.',
+                        answer: '1982년생으로 현재 44세입니다. 13살부터 컴퓨터를 시작해서 25년 넘게 IT 분야에 종사하고 있습니다.',
                         category: 'general',
-                        keywords: ['나이', '몇살', '연세', '태어난', '1981']
+                        keywords: ['나이', '몇살', '연세', '태어난', '1982']
                     },
                     {
                         id: 'location',
@@ -124,7 +124,7 @@ export class FAQManager {
                     {
                         id: 'education',
                         question: ['학력', '학교', '전공', '공부'],
-                        answer: '실무 중심의 경력을 쌓아왔습니다. 12살부터 컴퓨터를 독학으로 시작해서 현장에서 25년간 실무 경험을 축적했습니다. 지속적인 자기계발과 최신 기술 학습을 중시합니다.',
+                        answer: '실무 중심의 경력을 쌓아왔습니다. 13살부터 컴퓨터를 독학으로 시작해서 현장에서 25년간 실무 경험을 축적했습니다. 지속적인 자기계발과 최신 기술 학습을 중시합니다.',
                         category: 'experience',
                         keywords: ['학력', '학교', '전공', '공부', '교육']
                     }
@@ -155,9 +155,9 @@ export class FAQManager {
                     {
                         id: 'about_age',
                         question: ['how old', 'age', 'born', 'year'],
-                        answer: 'I was born in 1981, so I\'m currently 43 years old. I\'ve been working in IT for over 25 years since I started with computers at age 12.',
+                        answer: 'I was born in 1982, so I\'m currently 44 years old. I\'ve been working in IT for over 25 years since I started with computers at age 13.',
                         category: 'general',
-                        keywords: ['age', 'old', 'born', '1981', '43']
+                        keywords: ['age', 'old', 'born', '1982', '44']
                     },
                     {
                         id: 'location',
