@@ -4,7 +4,6 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/pages/experience-education.html',
-  '/pages/experience-education-mobile.html',
   '/pages/jstudio.html',
   '/css/style.css',
   '/css/animations.css',
@@ -144,7 +143,7 @@ self.addEventListener('notificationclick', event => {
   if (event.action === 'explore') {
     // 특정 페이지로 이동
     event.waitUntil(
-      clients.openWindow('/pages/experience-education-mobile.html')
+      clients.openWindow('/pages/experience-education.html')
     );
   } else if (event.action === 'close') {
     // 알림만 닫기

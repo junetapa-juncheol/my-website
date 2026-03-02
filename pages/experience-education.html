@@ -842,28 +842,6 @@
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
-    <script>
-        // 모바일 감지 및 리다이렉션
-        function detectMobile() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            const mobileKeywords = ['mobile', 'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
-            return mobileKeywords.some(keyword => userAgent.includes(keyword)) || window.innerWidth <= 768;
-        }
-        
-        // URL 파라미터로 리다이렉션 방지
-        const urlParams = new URLSearchParams(window.location.search);
-        const forceDesktop = urlParams.get('desktop') === 'true';
-        
-        // 모바일이고 강제 데스크톱 모드가 아닐 때 리다이렉션
-        if (detectMobile() && !forceDesktop) {
-            // 세션 스토리지에 리다이렉션 정보 저장 (무한 루프 방지)
-            const redirectKey = 'mobile_redirect_' + Date.now();
-            if (!sessionStorage.getItem(redirectKey)) {
-                sessionStorage.setItem(redirectKey, 'true');
-                window.location.href = 'experience-education-mobile.html';
-            }
-        }
-    </script>
     <script src="../js/experience-education.js"></script>
 </body>
 </html> 
