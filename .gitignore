@@ -24,6 +24,12 @@ nul
 
 # Internal docs
 docs/
+assets/documents/development/
+assets/documents/education/README.md
+assets/documents/experience/README.md
+assets/documents/portfolio/README.md
+assets/images/about/README.md
+data/README.md
 
 # Node (if used)
 node_modules/
