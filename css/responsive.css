@@ -350,6 +350,13 @@
     .footer-links {
         flex-direction: column;
         gap: 24px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .link-group {
+        align-items: center;
+        text-align: center;
     }
 
     .social-links {

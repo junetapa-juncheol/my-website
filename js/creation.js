@@ -1,67 +1,83 @@
 function getCreationData() {
     return {
-        '디지털 마케팅 혁신': {
-            title: '디지털 마케팅 혁신',
+        '블로그 마케팅': {
+            title: '블로그 마케팅',
             category: '창작활동',
             image: 'assets/images/creation/digital_marketing.png',
-            description: '블로그 마케팅을 중심으로 한 디지털 브랜딩 전략을 통해 단기간에 1,400명 이상의 강력한 온라인 네트워크를 구축했습니다. 콘텐츠 기획, 제작, 배포 및 커뮤니티 관리를 통해 유의미한 상호작용을 이끌어냈습니다.',
+            description: 'IT, 보안장비, 여행, 교육 등 다양한 업종에서 블로그를 활용한 마케팅을 경험했습니다. 업종별 특성에 맞는 콘텐츠를 기획·제작하고, 블로그를 통해 고객과 소통하며 온라인 네트워크를 확장해왔습니다.',
             achievements: [
-                '5개월 만에 블로그 이웃 1,400명 돌파',
-                '콘텐츠 확산을 통한 월 평균 1,000+ 방문자 수 달성',
-                '온라인 커뮤니티 기반 B2B 협력점 확보',
-                'AI 음악 등 창의적 콘텐츠를 결합한 차별화된 브랜딩 성공'
+                '다양한 업종의 블로그 콘텐츠 기획 및 제작 경험',
+                '업종별 특성에 맞는 맞춤형 블로그 마케팅 전략 수립',
+                '블로그를 통한 온라인 네트워크 구축 및 고객 소통',
+                '콘텐츠 제작과 커뮤니티 관리를 통한 브랜드 인지도 확대'
             ],
-            technologies: ['블로그 마케팅', '콘텐츠 제작', 'SEO', '커뮤니티 관리', 'AI 활용'],
+            technologies: ['블로그 운영', '콘텐츠 제작', 'SEO', '커뮤니티 관리'],
             duration: '지속적인 활동',
-            scale: '1,400+ 네트워크',
+            scale: '다양한 업종',
             role: '개인 프로젝트'
         },
         'AI 음악 창작': {
             title: 'AI 음악 창작',
             category: '창작활동',
             image: 'assets/images/creation/ai_music.png',
-            description: '인공지능 음악 생성 도구를 활용하여 100곡 이상의 독창적인 음원을 작곡하고 편곡했습니다. 기술과 예술을 융합하여 새로운 창작의 가능성을 탐구하고, 다양한 플랫폼에 음원을 배포하여 5,000회 이상의 스트리밍을 기록했습니다.',
+            description: 'SUNO AI를 활용하여 다양한 장르의 음악을 기획하고 제작하고 있습니다. 직접 작사·작곡 방향을 설정하고, AI를 도구로 활용하여 완성도 높은 음원을 만들어 유튜브, 인스타그램, 틱톡 등 다양한 SNS 채널을 통해 공유하고 있습니다.',
             achievements: [
-                '총 100곡 이상의 AI 기반 음원 작곡 및 편곡',
-                '글로벌 음원 플랫폼에서 5,000회 이상 재생 기록',
-                '다양한 장르(Lo-fi, Ambient, Electronic)의 음악 제작',
-                'AI 음악 제작 기술 업그레이드중'
+                'SUNO AI를 활용한 다양한 장르의 음악 기획 및 제작',
+                '유튜브, 인스타그램, 틱톡 등 다양한 SNS 채널에 음원 배포',
+                'Lo-fi, Ambient, Electronic 등 폭넓은 장르 도전',
+                'AI 음악 제작 기술 지속 학습 및 활용'
             ],
-            technologies: ['AI 음악 생성툴 (Suno, AIVA)', '디지털 오디오 워크스테이션(DAW)', '음원 유통', '콘텐츠 저작권 관리'],
+            technologies: ['SUNO AI', '음악 기획/제작', '유튜브', '인스타그램', '틱톡'],
             duration: '지속적인 활동',
-            scale: '100+ 곡',
-            role: '개인 프로젝트'
-        },
-        '과학 교육 콘텐츠': {
-            title: '과학 교육 콘텐츠',
-            category: '창작활동',
-            image: 'assets/images/creation/ScienceEducation_Contents.png',
-            description: '복잡하고 어려운 과학 원리를 일반 대중과 청소년이 쉽게 이해할 수 있도록 시각 자료와 흥미로운 스토리텔링을 결합한 교육 콘텐츠를 제작했습니다. 블로그와 소셜미디어를 통해 100개 이상의 콘텐츠를 발행하여 5,000명 이상의 학습자에게 도달했습니다.',
-            achievements: [
-                '100개 이상의 과학 교육 콘텐츠 제작 및 발행',
-                '5,000명 이상의 누적 학습자 달성',
-                '카드뉴스, 인포그래픽 등 시각적 콘텐츠를 통한 이해도 200% 향상',
-                '독자 질문 기반의 Q&A 시리즈로 높은 참여율 기록'
-            ],
-            technologies: ['콘텐츠 기획', '스토리텔링', '디자인 툴 (Canva, Figma)', '정보 시각화', '소셜미디어'],
-            duration: '지속적인 활동',
-            scale: '100+ 콘텐츠',
+            scale: '다양한 장르',
             role: '개인 프로젝트'
         },
         '소셜미디어 운영': {
             title: '소셜미디어 운영',
             category: '창작활동',
             image: 'assets/images/creation/sns_operation.png',
-            description: '네이버 블로그, 인스타그램, 틱톡, 유튜브 등 4개의 소셜미디어 채널을 전략적으로 운영하여 총 13,000명 이상의 팔로워를 확보했습니다. 각 플랫폼의 특성에 맞는 콘텐츠를 기획하고 꾸준히 소통하며 개인 브랜딩을 성공적으로 구축했습니다.',
+            description: '인스타그램, 틱톡, 유튜브, 쓰레드, 페이스북 등 다양한 소셜미디어 채널을 운영하고 있습니다. 각 플랫폼의 특성에 맞는 콘텐츠를 기획하고 꾸준히 소통하며 개인 브랜딩을 구축해 나가고 있습니다.',
             achievements: [
-                '4개 소셜미디어 채널 총 13,000+ 팔로워 확보',
-                '다채널 전략으로 도달 범위 대폭 확장',
-                '플랫폼별 맞춤 전략으로 인게이지먼트 극대화',
-                '숏폼 비디오, 라이브 스트리밍 등 다양한 콘텐츠 형식 시도'
+                '인스타그램: 사진·릴스 콘텐츠 제작 및 소통',
+                '틱톡: 숏폼 영상 기획 및 제작',
+                '유튜브: 영상 콘텐츠 기획 및 업로드',
+                '쓰레드·페이스북: 텍스트 기반 소통 및 네트워킹'
             ],
-            technologies: ['채널 관리', '콘텐츠 전략', '데이터 분석', '퍼스널 브랜딩', '영상 편집'],
+            technologies: ['인스타그램', '틱톡', '유튜브', '쓰레드', '페이스북'],
             duration: '지속적인 활동',
-            scale: '13,000+ 팔로워',
+            scale: '다양한 SNS 채널',
+            role: '개인 프로젝트'
+        },
+        'AI 도구 활용 리뷰': {
+            title: 'AI 도구 활용 리뷰',
+            category: '창작활동',
+            image: 'assets/images/creation/ai_tools_review.png',
+            description: 'ChatGPT, Claude, Cursor AI, Midjourney, Suno 등 다양한 AI 도구를 직접 사용해보고 각 도구의 특징과 활용법을 정리하여 공유하고 있습니다. 실제 업무와 창작 활동에서 AI를 어떻게 활용할 수 있는지 경험을 바탕으로 리뷰합니다.',
+            achievements: [
+                '다양한 AI 도구 실사용 경험 및 비교 리뷰',
+                '텍스트 AI: ChatGPT, Claude 등 대화형 AI 활용 경험',
+                '이미지 AI: Midjourney, DALL-E, Stable Diffusion 활용 경험',
+                '음악/코딩 AI: Suno, Cursor AI 등 창작·개발 도구 활용 경험'
+            ],
+            technologies: ['ChatGPT', 'Claude', 'Cursor AI', 'Midjourney', 'Suno'],
+            duration: '지속적인 활동',
+            scale: '다양한 AI 도구',
+            role: '개인 프로젝트'
+        },
+        'AI 이미지 창작': {
+            title: 'AI 이미지 창작',
+            category: '창작활동',
+            image: 'assets/images/creation/ai_image_creation.png',
+            description: 'Midjourney, DALL-E, Stable Diffusion 등 AI 이미지 생성 도구를 활용하여 다양한 스타일의 디지털 아트를 제작하고 있습니다. 프롬프트 작성부터 이미지 보정까지 직접 진행하며, AI와 창의력을 결합한 새로운 시각 콘텐츠를 만들어가고 있습니다.',
+            achievements: [
+                'Midjourney를 활용한 다양한 스타일의 이미지 생성',
+                'DALL-E를 통한 콘셉트 아트 및 일러스트 제작',
+                'Stable Diffusion을 활용한 이미지 생성 및 커스터마이징',
+                '프롬프트 엔지니어링을 통한 원하는 결과물 도출 경험'
+            ],
+            technologies: ['Midjourney', 'DALL-E', 'Stable Diffusion', '프롬프트 엔지니어링', '이미지 편집'],
+            duration: '지속적인 활동',
+            scale: '다양한 스타일',
             role: '개인 프로젝트'
         },
         '바이브 코딩': {
