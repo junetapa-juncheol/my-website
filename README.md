@@ -81,9 +81,6 @@ my-website/
 ## 연락처
 
 - **이메일**: jun22sky@nate.com
-- **블로그**: [네이버 블로그](https://blog.naver.com/jun22sky)
-- **인스타그램**: [@junetapa](https://www.instagram.com/junetapa/)
-- **유튜브**: [Junetapa Channel](https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg)
 
 ## 라이선스
 
