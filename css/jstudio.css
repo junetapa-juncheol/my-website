@@ -1,147 +1,226 @@
-/* Navigation Override for Gallery Page */
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
-    z-index: 10000 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
+/* ================================
+   J STUDIO PAGE - Gold/Navy Theme
+   ================================ */
 
-.nav-container {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-    min-height: 70px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-}
-
-/* Adjust body top spacing for fixed navbar */
-body {
-    padding-top: 70px !important;
-    overflow-x: hidden !important;
-}
-
-/* Override dynamic body styles */
-body[style*="overflow"] {
-    padding-top: 70px !important;
-}
-
-/* Adjust header position */
-#header {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Loading screen adjustments */
-.loading-screen {
-    z-index: 9999 !important;
-}
-
-/* Ensure navbar stays on top during and after loading */
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
-    z-index: 10000 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Force body styling after JS modifications */
-body.loaded {
-    padding-top: 70px !important;
-    overflow-x: hidden !important;
-}
-
-.home-icon .home-text {
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    display: inline-flex;
+/* Hero */
+.jstudio-hero {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 72px;
+}
+.jstudio-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #09102A 0%, #111B3D 50%, #0c2340 100%);
+    z-index: 0;
+}
+.jstudio-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,224,140,.06) 0%, transparent 70%);
+    z-index: 1;
+}
+.jstudio-hero .container {
+    position: relative;
+    z-index: 2;
+}
+.jstudio-hero__content {
+    text-align: center;
+    padding: 60px 0;
+}
+.jstudio-hero__content .hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    color: #FFE08C;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.jstudio-hero__content h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+.jstudio-hero__content .gold-text {
+    color: #FFE08C;
+}
+.jstudio-hero__desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,.55);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-.home-icon:hover .home-text {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(45deg, #764ba2, #667eea);
+/* Content Section */
+.jstudio-content {
+    padding: 80px 0;
+    background: #f8f9fc;
 }
 
-.home-icon .home-text::before {
-    content: "";
-    font-size: 1.8rem;
+/* Hobby Grid */
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Modal Styles */
+/* Hobby Card */
+.hobby-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 320px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(9,16,42,.08);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+.hobby-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(9,16,42,.15);
+}
+
+.hobby-card__img {
+    position: absolute;
+    inset: 0;
+}
+.hobby-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+.hobby-card:hover .hobby-card__img img {
+    transform: scale(1.08);
+}
+
+.hobby-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(9,16,42,.85) 0%, rgba(9,16,42,.2) 50%, transparent 100%);
+    transition: background .3s ease;
+}
+.hobby-card:hover .hobby-card__overlay {
+    background: linear-gradient(to top, rgba(9,16,42,.9) 0%, rgba(9,16,42,.4) 60%, rgba(9,16,42,.2) 100%);
+}
+
+.hobby-card__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px;
+    z-index: 2;
+    color: #fff;
+}
+
+.hobby-card__num {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(255,224,140,.12);
+    line-height: 1;
+    z-index: 2;
+    transition: color .3s ease;
+}
+.hobby-card:hover .hobby-card__num {
+    color: rgba(255,224,140,.25);
+}
+
+.hobby-card__tag {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    color: #FFE08C;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.hobby-card__body h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.hobby-card__body p {
+    font-size: .85rem;
+    color: rgba(255,255,255,.6);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .3s ease, transform .3s ease;
+}
+.hobby-card:hover .hobby-card__body p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   HOBBY MODAL
+   ================================ */
 .hobby-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     z-index: 10001;
     align-items: center;
     justify-content: center;
 }
 
-.modal-overlay {
+.hobby-modal__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    inset: 0;
+    background: rgba(9,16,42,.85);
+    backdrop-filter: blur(8px);
 }
 
-.modal-content {
+.hobby-modal__content {
     position: relative;
-    background: white;
-    border-radius: 20px;
+    background: #fff;
+    border-radius: 16px;
     max-width: 90vw;
     max-height: 90vh;
     width: 800px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(9,16,42,.3);
     overflow: hidden;
-    animation: modalSlideIn 0.3s ease-out;
+    animation: modalIn .3s ease-out;
 }
 
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(.95) translateY(16px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.modal-close {
+.hobby-modal__close {
     position: absolute;
-    top: 20px;
-    right: 25px;
+    top: 16px;
+    right: 20px;
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 28px;
     cursor: pointer;
-    color: #666;
+    color: rgba(255,255,255,.7);
     z-index: 10;
     width: 40px;
     height: 40px;
@@ -149,94 +228,95 @@ body.loaded {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: .3s ease;
+}
+.hobby-modal__close:hover {
+    background: rgba(255,255,255,.1);
+    color: #fff;
 }
 
-.modal-close:hover {
-    background: rgba(0, 0, 0, 0.1);
-    color: #333;
-    transform: rotate(90deg);
-}
-
-.modal-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
+.hobby-modal__header {
+    background: linear-gradient(135deg, #09102A 0%, #111B3D 100%);
+    color: #fff;
+    padding: 28px 32px;
     text-align: center;
 }
-
-.modal-header h2 {
+.hobby-modal__header h2 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
 }
-
-.modal-subtitle {
+.hobby-modal__subtitle {
     display: block;
-    margin-top: 8px;
-    font-size: 1rem;
-    opacity: 0.9;
-    font-weight: 300;
+    margin-top: 6px;
+    font-size: .9rem;
+    color: rgba(255,255,255,.6);
 }
 
-.modal-body {
-    padding: 30px;
-    max-height: calc(90vh - 200px);
+.hobby-modal__body {
+    padding: 28px;
+    max-height: calc(90vh - 160px);
     overflow-y: auto;
 }
 
-.photo-gallery {
+.hobby-modal__gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.photo-item {
+.hobby-modal__photo {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(9,16,42,.08);
+    transition: .3s ease;
     cursor: pointer;
 }
-
-.photo-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.hobby-modal__photo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(9,16,42,.12);
 }
-
-.gallery-photo {
+.hobby-modal__photo img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform .3s ease;
 }
-
-.photo-item:hover .gallery-photo {
+.hobby-modal__photo:hover img {
     transform: scale(1.05);
 }
 
-/* Lightbox Styles */
+.hobby-modal__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(9,16,42,.08);
+    font-size: .85rem;
+    color: #64748b;
+}
+.hobby-modal__count {
+    font-weight: 600;
+    color: #09102A;
+}
+
+/* Lightbox */
 .lightbox-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    inset: 0;
+    background: rgba(0,0,0,.92);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10002;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn .2s ease;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 .lightbox-content {
     position: relative;
     max-width: 90vw;
@@ -245,438 +325,114 @@ body.loaded {
     flex-direction: column;
     align-items: center;
 }
-
 .lightbox-close {
     position: absolute;
-    top: -50px;
+    top: -48px;
     right: 0;
     background: none;
     border: none;
-    color: white;
-    font-size: 40px;
+    color: #fff;
+    font-size: 36px;
     cursor: pointer;
-    z-index: 10;
-    padding: 10px;
-    transition: all 0.3s ease;
+    padding: 8px;
+    transition: .3s ease;
 }
-
 .lightbox-close:hover {
-    color: #ccc;
-    transform: rotate(90deg);
+    color: #FFE08C;
 }
-
 .lightbox-image {
     max-width: 100%;
-    max-height: calc(90vh - 80px);
+    max-height: calc(90vh - 60px);
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
 .lightbox-caption {
-    color: white;
+    color: rgba(255,255,255,.7);
     text-align: center;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-weight: 300;
+    margin-top: 16px;
+    font-size: .95rem;
 }
 
-.gallery-info {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.gallery-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.photo-count-display {
-    font-weight: 600;
-    color: #333;
-}
-
-.gallery-date {
-    font-style: italic;
-}
-
-/* Portfolio Grid Styles */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 50px 0;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.portfolio-item {
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    height: 350px;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-.item-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.portfolio-item:hover .bg-image {
-    transform: scale(1.1);
-}
-
-.item-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.portfolio-item:hover .item-overlay {
-    opacity: 1;
-}
-
-.item-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.portfolio-item:hover .item-glow {
-    opacity: 1;
-}
-
-.item-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    z-index: 2;
-}
-
-.item-icon {
-    margin-bottom: 20px;
-}
-
-.item-icon img {
-    width: 60px;
-    height: 60px;
-    filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255,255,255,0.8));
-    opacity: 0.9;
-    display: block;
-}
-
-.portfolio-item:hover .item-icon img {
-    opacity: 1;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,1));
-}
-
-.item-content {
-    text-align: center;
-}
-
-.desc {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    opacity: 0.9;
-}
-
-.title {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.item-details {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.portfolio-item:hover .item-details {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.item-details p {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.4;
-}
-
-.item-number {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.1);
-    z-index: 1;
-    transition: all 0.3s ease;
-}
-
-.portfolio-item:hover .item-number {
-    color: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 20px;
-}
-
-.section-title p {
-    font-size: 1.2rem;
-    color: #666;
-    font-weight: 300;
-}
-
-/* Header Logo Styling */
-#header .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin: 0;
-    padding: 40px 0;
-}
-
-.logo-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-
-.logo-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.logo-text {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.logo-subtitle {
-    font-size: 1rem;
-    font-weight: 300;
-    color: #666;
-    letter-spacing: 2px;
-}
-
-/* Footer Styling */
-#footer .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
-    padding: 40px 20px;
-}
-
-#footer .footer-content p {
-    margin: 0;
-    color: #666;
-    font-size: 1rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #header .logo {
-        flex-direction: column;
-        gap: 15px;
-        padding: 30px 0;
-    }
-    
-    .logo-img {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .logo-text {
-        font-size: 2rem;
-    }
-    
-    .logo-subtitle {
-        font-size: 0.9rem;
-    }
-    
-    .portfolio-grid {
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 968px) {
+    .hobby-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        margin: 30px 0;
-        padding: 0 15px;
     }
-    
-    .portfolio-item {
+}
+
+@media (max-width: 768px) {
+    .jstudio-hero {
+        min-height: 35vh;
+    }
+    .jstudio-hero__content {
+        padding: 40px 0;
+    }
+    .jstudio-hero__content h1 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+    .jstudio-content {
+        padding: 60px 0;
+    }
+    .hobby-grid {
+        gap: 16px;
+    }
+    .hobby-card {
         height: 280px;
     }
-    
-    .section-title h2 {
+    .hobby-card__body {
+        padding: 20px;
+    }
+    .hobby-card__body h3 {
+        font-size: 1.15rem;
+    }
+    .hobby-card__num {
         font-size: 2rem;
+        top: 14px;
+        right: 16px;
     }
-    
-    .section-title p {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-    
-    .title {
-        font-size: 1.5rem;
-    }
-    
-    .item-icon img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .item-number {
-        font-size: 2rem;
-        top: 15px;
-        right: 15px;
-    }
-    
-    /* Modal responsive */
-    .modal-content {
+
+    .hobby-modal__content {
         max-width: 95vw;
         max-height: 95vh;
-        margin: 10px;
     }
-    
-    .modal-header {
-        padding: 20px 15px;
+    .hobby-modal__header {
+        padding: 20px;
     }
-    
-    .modal-header h2 {
-        font-size: 1.5rem;
+    .hobby-modal__header h2 {
+        font-size: 1.3rem;
     }
-    
-    .modal-body {
-        padding: 20px 15px;
+    .hobby-modal__body {
+        padding: 20px;
     }
-    
-    .photo-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+    .hobby-modal__gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
     }
-    
-    .gallery-stats {
+    .hobby-modal__info {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         text-align: center;
     }
 }
 
-@media (max-width: 1024px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        padding: 0 20px;
-    }
-}
-
 @media (max-width: 480px) {
-    .portfolio-grid {
+    .hobby-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 14px;
     }
-    
-    .portfolio-item {
-        height: 250px;
+    .hobby-card {
+        height: 240px;
     }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
+    .jstudio-content {
+        padding: 48px 0;
     }
-    
-    .title {
-        font-size: 1.3rem;
+    .hobby-card__body h3 {
+        font-size: 1.1rem;
     }
-    
-    .desc {
-        font-size: 0.8rem;
-    }
-    
-    .item-details p {
-        font-size: 0.9rem;
-    }
-    
-    .modal-header h2 {
-        font-size: 1.3rem;
-    }
-    
-    .modal-subtitle {
-        font-size: 0.9rem;
+    .hobby-card__body p {
+        font-size: .8rem;
     }
 }

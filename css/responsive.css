@@ -18,11 +18,11 @@
     /* Navigation */
     .nav-menu {
         position: fixed;
-        top: 64px;
+        top: 72px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 64px);
-        background: var(--bg-white, #FFFFFF);
+        height: calc(100vh - 72px);
+        background: var(--navy, #09102A);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -58,98 +58,182 @@
     }
 
     /* Hero */
-    .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 32px;
-        padding: 40px 24px;
+    .hero-swiper {
+        height: 100vh;
     }
 
-    .hero-text {
+    .hero-slide__content {
+        padding: 0 24px;
         max-width: 100%;
-        order: 1;
-    }
-
-    .hero-image {
-        order: 0;
-    }
-
-    .hero-image img {
-        max-width: 280px;
+        text-align: center;
     }
 
     .hero-cta {
         justify-content: center;
     }
 
-    .title-main {
+    .hero-slide__image {
+        display: none;
+    }
+
+    .hero-label {
+        font-size: 0.75rem;
+    }
+
+    .hero-title {
         font-size: clamp(1.8rem, 7vw, 2.5rem);
     }
 
-    .title-sub {
-        font-size: clamp(1rem, 4vw, 1.3rem);
+    .hero-pagination {
+        bottom: 80px !important;
     }
 
-    /* Info Grid */
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    /* Quick Links */
+    .quick-links {
+        margin-top: -40px;
     }
 
-    /* About */
-    .about {
-        padding: 80px 0;
+    .quick-links__grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .timeline-container {
-        padding-left: 24px;
-    }
-
-    .timeline-item {
+    .quick-card {
         padding: 20px;
     }
 
-    .timeline-dot {
-        left: -21px;
-        width: 10px;
-        height: 10px;
-    }
-
-    .timeline-progress {
-        left: 5px;
-    }
-
-    /* Tech Categories */
-    .tech-categories {
-        grid-template-columns: 1fr;
-    }
-
-    /* Summary Stats */
-    .summary-stats {
+    /* Stats */
+    .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
 
-    /* Sales / Hobby Grid */
-    .sales-grid,
-    .hobby-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .stats-bar {
+        padding: 36px 0;
     }
 
-    /* Contact */
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    /* Profile Banner */
+    .profile-banner {
+        padding: 60px 0;
     }
 
-    .contact-info .section-header {
+    .profile-banner__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .profile-banner__image img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-banner__info {
         text-align: center;
     }
 
-    /* Footer */
-    .footer-content {
-        flex-direction: column;
+    .profile-tags {
+        justify-content: center;
+    }
+
+    /* Timeline */
+    .timeline-wrap {
+        padding: 60px 0;
+    }
+
+    .timeline__line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline__item {
+        width: 100%;
+        left: 0 !important;
+        padding: 0 0 32px 52px !important;
+        text-align: left !important;
+    }
+
+    .timeline__dot {
+        left: 12px !important;
+        right: auto !important;
+    }
+
+    .timeline__card {
+        padding: 20px;
+    }
+
+    /* Expertise */
+    .section-expertise {
+        padding: 80px 0;
+    }
+
+    .expertise-carousel {
+        padding: 0 16px;
+    }
+
+    .expertise-tabs {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Creative */
+    .section-creative {
+        padding: 80px 0;
+    }
+
+    .creative-carousel {
+        padding: 0 16px;
+    }
+
+    /* Contact */
+    .section-contact {
+        padding: 80px 0;
+    }
+
+    .contact-bg-split {
+        width: 100%;
+        height: 50%;
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .contact-left {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .contact-left .section-label {
+        text-align: center;
+    }
+
+    .contact-title {
+        text-align: center !important;
+    }
+
+    .contact-desc {
+        text-align: center;
+    }
+
+    .contact-details {
+        align-items: center;
+    }
+
+    .contact-right {
+        padding: 32px 24px;
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
     }
 
     .footer-links {
@@ -157,8 +241,6 @@
     }
 
     .footer-bottom {
-        flex-direction: column;
-        gap: 12px;
         text-align: center;
     }
 
@@ -187,23 +269,8 @@
         height: 44px;
     }
 
-    /* Section padding */
-    .quick-info,
-    .tech-stack,
-    .sales,
-    .hobby,
-    .contact {
-        padding: 80px 0;
-    }
-
     .section-header {
         margin-bottom: 40px;
-    }
-
-    /* Philosophy points */
-    .philosophy-points {
-        flex-direction: column;
-        gap: 12px;
     }
 }
 
@@ -216,12 +283,12 @@
     }
 
     /* Hero */
-    .hero-inner {
-        padding: 32px 16px;
+    .hero-slide__content {
+        padding: 0 16px;
     }
 
-    .hero-image img {
-        max-width: 220px;
+    .hero-title {
+        font-size: clamp(1.6rem, 7vw, 2rem);
     }
 
     .hero-cta {
@@ -229,117 +296,107 @@
         align-items: center;
     }
 
-    .cta-primary,
-    .cta-secondary {
+    .btn {
         width: 100%;
         justify-content: center;
     }
 
-    /* Info Grid */
-    .info-grid {
-        grid-template-columns: 1fr;
+    /* Quick Links */
+    .quick-card__icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
     }
 
-    .info-card {
-        padding: 24px 20px;
-    }
-
-    /* Sales / Hobby */
-    .sales-grid,
-    .hobby-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Summary Stats */
-    .summary-stats {
-        grid-template-columns: repeat(2, 1fr);
+    .quick-card {
+        padding: 16px;
         gap: 12px;
     }
 
-    .stat-card {
-        padding: 16px;
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
-    .stat-number, .stat-card .stat-number {
-        font-size: 1.6rem;
+    .stat-number {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
     }
 
-    /* Tech category */
-    .tech-category {
-        padding: 24px;
+    /* Profile Banner */
+    .profile-banner {
+        padding: 48px 0;
     }
 
-    /* Timeline */
-    .timeline-container {
-        padding-left: 20px;
-    }
-
-    .timeline-item {
-        padding: 16px;
-        margin-bottom: 24px;
-    }
-
-    .timeline-dot {
-        left: -17px;
-        width: 8px;
-        height: 8px;
-    }
-
-    .timeline-progress {
-        left: 3px;
-    }
-
-    .timeline-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    .timeline-achievements {
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    /* Profile */
-    .profile-stats {
-        gap: 24px;
-    }
-
-    .profile-image {
+    .profile-banner__image img {
         width: 100px;
         height: 100px;
     }
 
-    /* Section padding */
-    .quick-info,
-    .tech-stack,
-    .sales,
-    .hobby,
-    .contact {
+    /* Timeline */
+    .timeline__item {
+        padding: 0 0 24px 44px !important;
+    }
+
+    .timeline__line {
+        left: 16px;
+    }
+
+    .timeline__dot {
+        left: 8px !important;
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline__card {
+        padding: 16px;
+    }
+
+    .timeline__card h3 {
+        font-size: 1rem;
+    }
+
+    .timeline__tags {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    /* Expertise / Creative */
+    .section-expertise,
+    .section-creative {
         padding: 60px 0;
     }
 
+    .expertise-carousel,
+    .creative-carousel {
+        padding: 0 12px;
+    }
+
+    .expertise-tabs {
+        gap: 4px;
+    }
+
+    .tab-btn {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+    }
+
+    /* Contact */
+    .section-contact {
+        padding: 60px 0;
+    }
+
+    .contact-right {
+        padding: 24px 16px;
+    }
+
+    /* Section */
     .section-header {
         margin-bottom: 32px;
     }
 
     .section-title {
-        font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-
-    /* Sales filters */
-    .sales-filters {
-        gap: 6px;
-    }
-
-    .filter-btn {
-        padding: 6px 14px;
-        font-size: 0.85rem;
-    }
-
-    /* Contact */
-    .contact-form-wrapper {
-        padding: 0;
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
     }
 
     /* Footer */

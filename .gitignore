@@ -42,3 +42,6 @@ package-lock.json
 *.bak
 *.backup
 *.tmp
+
+# Trash
+_trash/

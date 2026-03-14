@@ -3,52 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="박준철(Junetapa) - 25년+ IT 전문가의 업적과 창작 활동. 전산유지보수, B2B 기술영업, 디지털 창작을 아우르는 IT 전문가의 세계">
-    <meta name="keywords" content="IT 전문가, 전산유지보수, B2B 기술영업, 박준철, Junetapa, IT 업적, 창작활동, 디지털마케팅">
-    <title>박준철 (Junetapa) - IT Story | 기술과 창작이 만나는 특별한 여정</title>
+    <meta name="description" content="박준철(Junetapa) - 25년+ IT 전문가. 기술과 비즈니스를 연결하는 IT 브릿지 전문가.">
+    <meta name="keywords" content="IT 전문가, 전산유지보수, B2B 기술영업, 박준철, Junetapa, IT 인프라">
+    <title>박준철 (Junetapa) - IT 브릿지 전문가 | 기술과 비즈니스를 연결하는 25년</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" type="image/png" href="assets/images/common/favicon.png">
 </head>
 <body>
-    <!-- ARIA Live Region for Screen Readers -->
     <div id="aria-live-region" class="aria-live" aria-live="polite" aria-atomic="true"></div>
 
-    <!-- Navigation -->
+    <!-- ========== NAVIGATION ========== -->
     <nav class="navbar" role="navigation" aria-label="메인 네비게이션">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home" class="logo-link">
                     <span class="logo-text">Junetapa</span>
-                    <span class="logo-subtitle">IT Story</span>
+                    <span class="logo-subtitle">IT Bridge Expert</span>
                 </a>
             </div>
-
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">홈</a></li>
                 <li><a href="#about" class="nav-link">소개</a></li>
-                <li><a href="#sales" class="nav-link">핵심역량</a></li>
-                <li><a href="#hobby" class="nav-link">창작활동</a></li>
+                <li><a href="#expertise" class="nav-link">핵심역량</a></li>
+                <li><a href="#creative" class="nav-link">창작활동</a></li>
                 <li><a href="#contact" class="nav-link">연락처</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             <div class="hamburger-menu" id="hamburger-menu">
                 <ul>
                     <li><a href="#home" class="nav-link">홈</a></li>
                     <li><a href="#about" class="nav-link">소개</a></li>
-                    <li><a href="#sales" class="nav-link">핵심역량</a></li>
-                    <li><a href="#hobby" class="nav-link">창작활동</a></li>
+                    <li><a href="#expertise" class="nav-link">핵심역량</a></li>
+                    <li><a href="#creative" class="nav-link">창작활동</a></li>
                     <li><a href="#contact" class="nav-link">연락처</a></li>
+                    <li class="menu-divider"></li>
                     <li><a href="pages/about.html">나의 이야기</a></li>
                     <li><a href="pages/experience-education.html">활동&교육 이력</a></li>
                     <li><a href="pages/jstudio.html" target="_blank">갤러리</a></li>
@@ -58,238 +59,189 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <main id="main-content">
-        <div class="hero-inner">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-main">25년 IT 전문가</span>
-                    <span class="title-sub">불가능을 현실로 만드는 혁신가</span>
-                </h1>
-                <p class="hero-subtitle">
-                    <strong>창의적 문제해결</strong> · <strong>검증된 실력</strong> · <strong>혁신적 기술</strong><br>
-                    당신의 비즈니스를 <span class="highlight">다음 단계로</span>
-                </p>
-                <div class="hero-cta">
-                    <a href="pages/about.html" class="cta-primary">
-                        <span>나의 이야기</span>
-                        <i class="cta-arrow">→</i>
-                    </a>
-                    <a href="#contact" class="cta-secondary">
-                        <span>연락하기</span>
-                    </a>
+    <main id="main-content">
+    <!-- ========== HERO - Full Screen Swiper Carousel ========== -->
+    <section id="home" class="hero-section">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1: Main -->
+                <div class="swiper-slide hero-slide hero-slide--main">
+                    <div class="hero-slide__bg"></div>
+                    <div class="hero-slide__content">
+                        <p class="hero-label">IT Bridge Expert</p>
+                        <h1 class="hero-title">기술과 비즈니스를<br>연결하는 <span class="gold-text">25년</span></h1>
+                        <p class="hero-desc">IT 기술을 이해하는 영업, 영업을 이해하는 기술자<br>6개 산업군에서 기술 도입부터 운영까지 전 과정을 경험한 전문가</p>
+                        <div class="hero-cta">
+                            <a href="pages/about.html" class="btn btn--gold">나의 이야기 →</a>
+                            <a href="#contact" class="btn btn--outline">연락하기</a>
+                        </div>
+                    </div>
+                    <div class="hero-slide__image">
+                        <img src="assets/images/common/profile-hero.webp" alt="박준철 프로필">
+                    </div>
+                </div>
+                <!-- Slide 2: Career -->
+                <div class="swiper-slide hero-slide hero-slide--career">
+                    <div class="hero-slide__bg hero-slide__bg--dark"></div>
+                    <div class="hero-slide__content">
+                        <p class="hero-label">25+ Years Career</p>
+                        <h2 class="hero-title">13살 컴퓨터 소년에서<br><span class="gold-text">B2B 기술영업 전문가</span>로</h2>
+                        <p class="hero-desc">컴퓨터 수리센터 → 기업 전산관리 → 기술영업 팀장 → B2B 렌탈 1,000대+<br>끊임없이 성장해온 IT 현장 전문가의 여정</p>
+                        <div class="hero-cta">
+                            <a href="#about" class="btn btn--gold">경력 보기 →</a>
+                        </div>
+                    </div>
+                    <div class="hero-slide__image hero-slide__image--career">
+                        <img src="assets/images/common/profile-hero.webp" alt="박준철 프로필">
+                    </div>
+                </div>
+                <!-- Slide 3: Creative -->
+                <div class="swiper-slide hero-slide hero-slide--creative">
+                    <div class="hero-slide__bg hero-slide__bg--gradient"></div>
+                    <div class="hero-slide__content">
+                        <p class="hero-label">Digital Creator</p>
+                        <h2 class="hero-title">AI와 함께하는<br><span class="gold-text">디지털 창작</span>의 세계</h2>
+                        <p class="hero-desc">블로그 마케팅 · AI 음악 · AI 이미지 · SNS 운영 · 웹 개발<br>기술과 예술이 만나는 창의적 여정</p>
+                        <div class="hero-cta">
+                            <a href="#creative" class="btn btn--gold">창작 활동 보기 →</a>
+                        </div>
+                    </div>
+                    <div class="hero-slide__image hero-slide__image--creative">
+                        <img src="assets/images/common/profile-hero.webp" alt="박준철 프로필">
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/images/common/profile-hero.webp" alt="박준철 프로필">
+            <div class="hero-pagination"></div>
+            <div class="hero-progress"><div class="hero-progress__bar"></div></div>
+        </div>
+
+        <!-- Quick Link Cards (Overlapping Hero) -->
+        <div class="quick-links">
+            <div class="container">
+                <div class="quick-links__grid">
+                    <a href="pages/about.html" class="quick-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="quick-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="quick-card__text">
+                            <h3>나의 이야기</h3>
+                            <p>13살부터 시작된 IT 여정</p>
+                        </div>
+                        <span class="quick-card__arrow">→</span>
+                    </a>
+                    <a href="#expertise" class="quick-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="quick-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <div class="quick-card__text">
+                            <h3>핵심 역량</h3>
+                            <p>25년 현장 전문 경험</p>
+                        </div>
+                        <span class="quick-card__arrow">→</span>
+                    </a>
+                    <a href="https://junetapa.com/" target="_blank" class="quick-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="quick-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div class="quick-card__text">
+                            <h3>지식 포털</h3>
+                            <p>기술 블로그 70+ 포스트</p>
+                        </div>
+                        <span class="quick-card__arrow">→</span>
+                    </a>
+                </div>
             </div>
         </div>
-        </main>
     </section>
 
-    <!-- Quick Info Section -->
-    <section class="quick-info">
+    <!-- ========== STATS COUNTER BAR ========== -->
+    <section class="stats-bar">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">The Core <span class="highlight">Of Me</span></h2>
-                <p class="section-subtitle">Junetapa의 핵심 정보를 한눈에 확인하세요</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card fade-in">
-                    <div class="info-card-img">
-                        <img src="assets/images/common/profile-hero.webp" alt="현재 상태">
-                    </div>
-                    <h3>현재 상태</h3>
-                    <p><strong>직장인</strong></p>
-                    <span class="info-detail">IT 업계 현직 근무 중</span>
-                </div>
-                <div class="info-card fade-in">
-                    <div class="info-card-img">
-                        <img src="assets/images/core/computer_service.png" alt="전문 분야">
-                    </div>
-                    <h3>전문 분야</h3>
-                    <p><strong>B2B 기술영업</strong></p>
-                    <p><strong>IT 인프라 관리</strong></p>
-                    <span class="info-detail">25년+ 전문 경력</span>
-                </div>
-                <div class="info-card fade-in">
-                    <div class="info-card-img">
-                        <img src="assets/images/creation/digital_marketing.png" alt="핵심 키워드">
-                    </div>
-                    <h3>핵심 키워드</h3>
-                    <div class="keyword-tags">
-                        <span class="keyword-tag">IT 인프라</span>
-                        <span class="keyword-tag">기술영업</span>
-                        <span class="keyword-tag">디지털 마케팅</span>
-                        <span class="keyword-tag">기획</span>
-                    </div>
-                </div>
-                <div class="info-card fade-in">
-                    <div class="info-card-img">
-                        <img src="assets/images/core/Education_Sales.png" alt="근무 지역">
-                    </div>
-                    <h3>근무 지역</h3>
-                    <p><strong>수도권 전체</strong></p>
-                    <span class="info-detail">현재: 인천광역시 부평구</span>
-                </div>
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-num-wrap"><span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span></div><span class="stat-label">년 경력</span></div>
+                <div class="stat-item"><div class="stat-num-wrap"><span class="stat-number" data-target="6">0</span><span class="stat-suffix">개</span></div><span class="stat-label">산업군 경험</span></div>
+                <div class="stat-item"><div class="stat-num-wrap"><span class="stat-number" data-target="70">0</span><span class="stat-suffix">+</span></div><span class="stat-label">블로그 포스트</span></div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <!-- Profile Card -->
-                    <div class="profile-card-centered">
-                        <div class="profile-card">
-                            <div class="profile-image">
-                                <img src="assets/images/common/Profile_image.png" alt="박준철 프로필">
-                            </div>
-                            <div class="profile-info">
-                                <h3>박준철 (Junetapa)</h3>
-                                <p class="profile-role">Senior IT Professional</p>
+    <!-- ========== ABOUT: Profile Banner + Timeline ========== -->
+    <section id="about" class="section-about">
+        <!-- Profile Banner -->
+        <div class="profile-banner">
+            <div class="profile-banner__bg"></div>
+            <div class="container">
+                <div class="profile-banner__inner">
+                    <div class="profile-banner__image" data-aos="zoom-in">
+                        <img src="assets/images/common/Profile_image.png" alt="박준철 프로필">
+                    </div>
+                    <div class="profile-banner__info" data-aos="fade-left" data-aos-delay="200">
+                        <span class="label-tag">IT Bridge Expert</span>
+                        <h2>박준철 <span class="gold-text">(Junetapa)</span></h2>
+                        <p class="role">Senior IT Professional · B2B 기술영업 전문가</p>
+                        <p class="desc">13살 호기심에서 시작된 25년의 놀라운 여정.<br>기술과 비즈니스 사이를 연결하는 사람.</p>
+                        <div class="profile-tags">
+                            <span>IT 인프라</span><span>기술영업</span><span>디지털 마케팅</span><span>기획</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-wrap">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <p class="section-label">My Journey</p>
+                    <h2 class="section-title">기술과 함께한 <span class="gold-text">나의 이야기</span></h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline__line"><div class="timeline__line-fill"></div></div>
+
+                    <div class="timeline__item timeline__item--left" data-aos="fade-right">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <span class="timeline__year">1993 - 2001</span>
+                            <h3>호기심의 시작 <span class="timeline__dur">8년</span></h3>
+                            <p><strong>13살</strong>, 게임을 좋아했던 나는 친구를 따라 <strong>컴퓨터학원</strong>에 다니며 컴퓨터와 운명적으로 만남. 전자기기를 좋아했던 나는 컴퓨터에 완전히 매료됨.</p>
+                            <div class="timeline__tags">
+                                <span>컴퓨터 분해/조립</span><span>16살 수리 전문가</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="section-header">
-                        <h2 class="section-title">기술을 닮은 <span class="highlight">나의 이야기</span></h2>
-                        <p class="section-subtitle">13살 호기심에서 시작된 25년의 놀라운 여정</p>
+                    <div class="timeline__item timeline__item--right" data-aos="fade-left">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <span class="timeline__year">2001 - 2007</span>
+                            <h3>전문가의 첫걸음 <span class="timeline__dur">6년</span></h3>
+                            <p>컴퓨터 조립과 수리를 취미로 시작하면서 자연스럽게 <strong>IT 업계에 첫발</strong>을 내디딤. 다양한 분야의 <strong>전산관리</strong>를 경험하며 실무 역량을 쌓아감.</p>
+                            <div class="timeline__tags">
+                                <span>수리센터 운영</span><span>부동산협회</span><span>공장 전산관리</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="interactive-timeline">
-                        <div class="timeline-container">
-                            <div class="timeline-progress">
-                                <div class="timeline-progress-bar"></div>
+                    <div class="timeline__item timeline__item--left" data-aos="fade-right">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <span class="timeline__year">2007 - 2015</span>
+                            <h3>기술영업 전문가로 성장 <span class="timeline__dur">8년</span></h3>
+                            <p><strong>IT 업계 컴퓨터 A/S 고객센터</strong>에서 시작해 <strong>전국 컴퓨터 수리가맹점</strong> PC 수리 업무를 거쳐, <strong>PC 리스사업부 영업 담당</strong>으로 성장하며 기술과 영업을 아우르는 역량을 키움.</p>
+                            <div class="timeline__tags">
+                                <span>팀장 승진</span><span>압도적 실적</span><span>업종별 솔루션</span>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="timeline-item active" data-year="1993-2001">
-                                <div class="timeline-marker">
-                                    <div class="timeline-dot"></div>
-                                    <div class="timeline-year">1993-2001</div>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="timeline-header">
-                                        <h3>호기심의 시작</h3>
-                                        <span class="timeline-duration">8년</span>
-                                    </div>
-                                    <div class="timeline-details">
-                                        <p><strong>13살</strong>, 게임을 좋아했던 나는 우연히 친구가 다니는 <strong>컴퓨터학원</strong>을 가면서 컴퓨터와 운명적 만남. 전자기기를 좋아했던 나에감 컴퓨터에 완전히 매료되었습니다.</p>
-                                        <div class="timeline-achievements">
-                                            <div class="achievement-item">
-                                                <span>컴퓨터 분해/조립 마스터</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>16살 컴퓨터 수리 전문가</span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-skills">
-                                            <span class="skill-tag">하드웨어</span>
-                                            <span class="skill-tag">문제해결</span>
-                                            <span class="skill-tag">호기심</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item" data-year="2001-2007">
-                                <div class="timeline-marker">
-                                    <div class="timeline-dot"></div>
-                                    <div class="timeline-year">2001-2007</div>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="timeline-header">
-                                        <h3>전문가의 첫걸음</h3>
-                                        <span class="timeline-duration">6년</span>
-                                    </div>
-                                    <div class="timeline-details">
-                                        <p>컴퓨터 조립과 수리를 취미로 시작하면서 자연스럽게 <strong>IT 업계에 첫발</strong>을 내딟었습니다. 다양한 분야의 <strong>전산관리</strong>를 경험하며 실무 역량을 쌓아갔습니다.</p>
-                                        <div class="timeline-achievements">
-                                            <div class="achievement-item">
-                                                <span>개인 컴퓨터 수리센터 운영</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>부동산협회 전산관리</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>공장 사무실 전산관리</span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-skills">
-                                            <span class="skill-tag">전산관리</span>
-                                            <span class="skill-tag">기술영업</span>
-                                            <span class="skill-tag">실무경험</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item" data-year="2007-2015">
-                                <div class="timeline-marker">
-                                    <div class="timeline-dot"></div>
-                                    <div class="timeline-year">2007-2015</div>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="timeline-header">
-                                        <h3>기술영업 전문가로 성장</h3>
-                                        <span class="timeline-duration">8년</span>
-                                    </div>
-                                    <div class="timeline-details">
-                                        <p><strong>IT 업계 A/S 고객센터</strong>에서 시작해 대리점 영업 현장을 체계적으로 학습했습니다. <strong>PC방 리스사업부 신설</strong>과 함께 <strong>팀장으로 승진</strong>하며 전국 리스 영업을 총괄했습니다.</p>
-                                        <div class="timeline-achievements">
-                                            <div class="achievement-item">
-                                                <span>팀장 승진</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>압도적 실적 달성</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>업종별 특화 솔루션</span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-skills">
-                                            <span class="skill-tag">리더십</span>
-                                            <span class="skill-tag">영업관리</span>
-                                            <span class="skill-tag">솔루션</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item" data-year="2016-2024">
-                                <div class="timeline-marker">
-                                    <div class="timeline-dot"></div>
-                                    <div class="timeline-year">2016-2024</div>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="timeline-header">
-                                        <h3>B2B 기술영업으로 영역 확장</h3>
-                                        <span class="timeline-duration">8년</span>
-                                    </div>
-                                    <div class="timeline-details">
-                                        <p>PC, 프린터 등 사무OA기기 렌탈 영업에서 <strong>총 1,000여대 이상의 압도적인 렌탈 실적</strong>을 달성했습니다. 다양한 고객층에 성공적으로 납품하며 <strong>B2B 기술영업 전문가</strong>로서의 입지를 확고히 했습니다.</p>
-                                        <div class="timeline-achievements">
-                                            <div class="achievement-item">
-                                                <span>1,000+ 렌탈 실적</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>교육청 상주계약 수주</span>
-                                            </div>
-                                            <div class="achievement-item">
-                                                <span>대학병원 납품</span>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-skills">
-                                            <span class="skill-tag">B2B영업</span>
-                                            <span class="skill-tag">렌탈사업</span>
-                                            <span class="skill-tag">대형계약</span>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="timeline__item timeline__item--right" data-aos="fade-left">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <span class="timeline__year">2016 - 현재</span>
+                            <h3>B2B 기술영업으로 영역 확장 <span class="timeline__dur">8년+</span></h3>
+                            <p>PC, 프린터 등 사무용 OA기기 렌탈 영업에서 <strong>총 1,000대 이상의 압도적인 렌탈 실적</strong>을 달성. 다양한 고객층에 성공적으로 납품하며 <strong>B2B 기술영업 전문가</strong>로서의 입지를 확고히 함.</p>
+                            <div class="timeline__tags">
+                                <span>1,000+ 렌탈</span><span>교육청 수주</span><span>대학병원 납품</span>
                             </div>
                         </div>
                     </div>
@@ -298,576 +250,227 @@
         </div>
     </section>
 
-    <!-- Sales Section -->
-    <section id="sales" class="sales">
+    <!-- ========== EXPERTISE: Dark BG + Swiper Carousel ========== -->
+    <section id="expertise" class="section-expertise">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">25년 <span class="highlight">현장경험</span></h2>
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Expertise</p>
+                <h2 class="section-title">25년 <span class="gold-text">현장경험</span></h2>
                 <p class="section-subtitle">다양한 산업 현장에서 쌓아온 IT 실무 경험</p>
             </div>
 
-            <div class="sales-filters">
-                <button class="filter-btn active" data-filter="all">전체 보기</button>
-                <button class="filter-btn" data-filter="maintenance">전산유지보수</button>
-                <button class="filter-btn" data-filter="sales">기술영업</button>
+            <div class="expertise-tabs" data-aos="fade-up">
+                <button class="tab-btn active" data-filter="all">ALL</button>
+                <button class="tab-btn" data-filter="maintenance">전산유지보수</button>
+                <button class="tab-btn" data-filter="sales">기술영업</button>
             </div>
+        </div>
 
-            <div class="sales-grid">
-                <div class="sales-item fade-in" data-category="maintenance">
-                    <div class="sales-image">
-                        <img src="assets/images/core/computer_service.png" alt="다분야 전산관리 경험">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
+        <div class="expertise-carousel" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper expertise-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-category="maintenance">
+                        <div class="exp-card" data-title="다분야 전산관리 경험" data-category="전산유지보수">
+                            <div class="exp-card__img"><img src="assets/images/core/computer_service.png" alt="다분야 전산관리 경험"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge">전산유지보수</span>
+                                <h3>다분야 전산관리 경험</h3>
+                                <p>소기업부터 중견기업까지, 교육·부동산·여행·보안장비 제조 등 다양한 산업 현장에서 전산 시스템을 관리</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="sales-info">
-                        <h3>다분야 전산관리 경험</h3>
-                        <p>소기업부터 중견기업까지, 교육·부동산·여행·보안장비 제조 등 다양한 산업 현장에서 전산 시스템을 관리하며 폭넓은 실무 역량을 쌓았습니다.</p>
-                        <div class="sales-tags">
-                            <span class="tag">전산유지보수</span>
-                            <span class="tag">OA관리</span>
-                            <span class="tag">다양한 산업군</span>
+                    <div class="swiper-slide" data-category="maintenance">
+                        <div class="exp-card" data-title="교육청 전산유지보수" data-category="전산유지보수">
+                            <div class="exp-card__img"><img src="assets/images/core/Education_Sales.png" alt="교육청 전산유지보수"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge">전산유지보수</span>
+                                <h3>교육청 전산유지보수</h3>
+                                <p>교육지원청 수의계약 수주 및 전산·OA 통합 관리</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="maintenance">
+                        <div class="exp-card" data-title="금융(보험업) 전산관리" data-category="전산유지보수">
+                            <div class="exp-card__img"><img src="assets/images/core/finance_it.png" alt="금융(보험업) 전산관리"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge">전산유지보수</span>
+                                <h3>금융(보험업) 전산관리</h3>
+                                <p>대기업 보험사의 대규모 IT 인프라 운영 및 서버 모니터링</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="maintenance">
+                        <div class="exp-card" data-title="대학병원 전산유지보수" data-category="전산유지보수">
+                            <div class="exp-card__img"><img src="assets/images/core/Hospital_Computer.png" alt="대학병원 전산유지보수"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge">전산유지보수</span>
+                                <h3>대학병원 전산유지보수</h3>
+                                <p>대학병원 전체 IT 인프라 유지보수 및 장애 대응</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="sales">
+                        <div class="exp-card" data-title="스마트미러 OEM 개발" data-category="기술영업">
+                            <div class="exp-card__img"><img src="assets/images/core/Smart_Mirror.png" alt="스마트미러 OEM 개발"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge badge--sales">기술영업</span>
+                                <h3>스마트미러 OEM 개발</h3>
+                                <p>미용실 특화 스마트미러 UI/UX 재설계 및 B2B 판매 채널 구축</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="sales">
+                        <div class="exp-card" data-title="카드발급기 기술영업" data-category="기술영업">
+                            <div class="exp-card__img"><img src="assets/images/core/card_print.png" alt="카드발급기 기술영업"><div class="exp-card__overlay"><span>자세히 보기 →</span></div></div>
+                            <div class="exp-card__body">
+                                <span class="exp-card__badge badge--sales">기술영업</span>
+                                <h3>카드발급기 기술영업</h3>
+                                <p>1금융권, 의료기관, 교육기관, 리조트/호텔 등 다양한 분야 납품</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="sales-item fade-in" data-category="maintenance">
-                    <div class="sales-image">
-                        <img src="assets/images/core/Education_Sales.png" alt="교육청 전산유지보수">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="sales-info">
-                        <h3>교육청 전산유지보수</h3>
-                        <p>교육지원청 수의계약 수주 및 전산·OA 통합 관리</p>
-                        <div class="sales-tags">
-                            <span class="tag">수의계약</span>
-                            <span class="tag">전산·OA 통합</span>
-                            <span class="tag">유지보수 2년</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sales-item fade-in" data-category="maintenance">
-                    <div class="sales-image">
-                        <img src="assets/images/core/finance_it.png" alt="금융(보험업) 전산관리">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="sales-info">
-                        <h3>금융(보험업) 전산관리</h3>
-                        <p>대기업 보험사의 대규모 IT 인프라 운영 및 서버 모니터링 경험</p>
-                        <div class="sales-tags">
-                            <span class="tag">서버 모니터링</span>
-                            <span class="tag">보안 관리</span>
-                            <span class="tag">대기업</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sales-item fade-in" data-category="maintenance">
-                    <div class="sales-image">
-                        <img src="assets/images/core/Hospital_Computer.png" alt="대학병원 IT 관리">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="sales-info">
-                        <h3>대학병원 전산유지보수</h3>
-                        <p>대학병원 전체 IT 인프라 유지보수 및 장애 대응</p>
-                        <div class="sales-tags">
-                            <span class="tag">전산유지보수</span>
-                            <span class="tag">의료 IT</span>
-                            <span class="tag">유지보수 1년</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sales-item fade-in" data-category="sales">
-                    <div class="sales-image">
-                        <img src="assets/images/core/Smart_Mirror.png" alt="스마트미러 OEM 개발">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="sales-info">
-                        <h3>스마트미러 OEM 개발</h3>
-                        <p>혁신적 솔루션 개발</p>
-                        <div class="sales-tags">
-                            <span class="tag">OEM 개발</span>
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">2015-2016</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sales-item fade-in" data-category="sales">
-                    <div class="sales-image">
-                        <img src="assets/images/core/card_print.png" alt="카드발급기 기술영업">
-                        <div class="sales-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="sales-info">
-                        <h3>카드발급기 기술영업</h3>
-                        <p>다양한 산업 분야의 카드발급기 영업 및 납품 경험</p>
-                        <div class="sales-tags">
-                            <span class="tag">1금융권</span>
-                            <span class="tag">2금융권</span>
-                            <span class="tag">의료기관</span>
-                            <span class="tag">교육기관</span>
-                            <span class="tag">리조트/호텔</span>
-                            <span class="tag">이벤트/행사</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="swiper-nav">
+                <button class="swiper-nav__btn expertise-prev" aria-label="이전"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="swiper-nav__btn expertise-next" aria-label="다음"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
             </div>
         </div>
     </section>
 
-    <!-- Hobby Section -->
-    <section id="hobby" class="hobby">
+    <!-- ========== CREATIVE: Cream BG + Swiper ========== -->
+    <section id="creative" class="section-creative">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">창작 <span class="highlight">활동</span></h2>
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Creative Works</p>
+                <h2 class="section-title">창작 <span class="gold-text">활동</span></h2>
                 <p class="section-subtitle">기술과 예술이 만나는 창의적 여정</p>
             </div>
+        </div>
 
-            <div class="hobby-grid">
-                <div class="hobby-item fade-in" data-title="블로그 마케팅" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/digital_marketing.png" alt="블로그 마케팅">
-                        <div class="hobby-overlay">
-                            <span>자세히 보기 &rarr;</span>
+        <div class="creative-carousel" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper creative-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="블로그 마케팅" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/digital_marketing.png" alt="블로그 마케팅"></div>
+                            <div class="cr-card__body"><h3>블로그 마케팅</h3><p>다양한 업종의 블로그 마케팅 경험</p><div class="cr-card__tags"><span>블로그 운영</span><span>콘텐츠 제작</span></div></div>
                         </div>
                     </div>
-                    <div class="hobby-info">
-                        <h3>블로그 마케팅</h3>
-                        <p>다양한 업종의 블로그 마케팅 경험</p>
-                        <div class="hobby-tags">
-                            <span class="tag">블로그 운영</span>
-                            <span class="tag">콘텐츠 제작</span>
-                            <span class="tag">업종별 마케팅</span>
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="AI 음악 창작" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/ai_music.png" alt="AI 음악 창작"></div>
+                            <div class="cr-card__body"><h3>AI 음악 창작</h3><p>SUNO AI를 활용한 다양한 장르의 음악 기획 및 제작</p><div class="cr-card__tags"><span>SUNO AI</span><span>음악 제작</span></div></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="hobby-item fade-in" data-title="AI 음악 창작" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/ai_music.png" alt="AI 음악 창작">
-                        <div class="hobby-overlay">
-                            <span>자세히 보기 &rarr;</span>
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="소셜미디어 운영" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/sns_operation.png" alt="소셜미디어 운영"></div>
+                            <div class="cr-card__body"><h3>소셜미디어 운영</h3><p>인스타그램, 틱톡, 유튜브 등 다양한 SNS 운영</p><div class="cr-card__tags"><span>인스타그램</span><span>틱톡</span><span>유튜브</span></div></div>
                         </div>
                     </div>
-                    <div class="hobby-info">
-                        <h3>AI 음악 창작</h3>
-                        <p>SUNO AI를 활용한 다양한 장르의 음악 기획 및 제작</p>
-                        <div class="hobby-tags">
-                            <span class="tag">SUNO AI</span>
-                            <span class="tag">음악 제작</span>
-                            <span class="tag">SNS 배포</span>
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="AI 도구 활용 리뷰" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/ai_tools_review.png" alt="AI 도구 활용 리뷰"></div>
+                            <div class="cr-card__body"><h3>AI 도구 활용 리뷰</h3><p>ChatGPT, Claude, Midjourney 등 AI 도구 실사용 리뷰</p><div class="cr-card__tags"><span>ChatGPT</span><span>Claude</span><span>Midjourney</span></div></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="hobby-item fade-in" data-title="소셜미디어 운영" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/sns_operation.png" alt="소셜미디어 운영">
-                        <div class="hobby-overlay">
-                           <span>자세히 보기 &rarr;</span>
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="AI 이미지 창작" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/ai_image_creation.png" alt="AI 이미지 창작"></div>
+                            <div class="cr-card__body"><h3>AI 이미지 창작</h3><p>Midjourney, DALL-E, Stable Diffusion 디지털 아트</p><div class="cr-card__tags"><span>Midjourney</span><span>DALL-E</span></div></div>
                         </div>
                     </div>
-                    <div class="hobby-info">
-                        <h3>소셜미디어 운영</h3>
-                        <p>인스타그램, 틱톡, 유튜브, 쓰레드, 페이스북 등 다양한 SNS 운영 경험</p>
-                        <div class="hobby-tags">
-                            <span class="tag">인스타그램</span>
-                            <span class="tag">틱톡</span>
-                            <span class="tag">유튜브</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hobby-item fade-in" data-title="AI 도구 활용 리뷰" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/ai_tools_review.png" alt="AI 도구 활용 리뷰">
-                        <div class="hobby-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="hobby-info">
-                        <h3>AI 도구 활용 리뷰</h3>
-                        <p>ChatGPT, Claude, Midjourney 등 다양한 AI 도구를 직접 사용하고 경험을 공유</p>
-                        <div class="hobby-tags">
-                            <span class="tag">ChatGPT</span>
-                            <span class="tag">Claude</span>
-                            <span class="tag">Midjourney</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hobby-item fade-in" data-title="AI 이미지 창작" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/ai_image_creation.png" alt="AI 이미지 창작">
-                        <div class="hobby-overlay">
-                            <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="hobby-info">
-                        <h3>AI 이미지 창작</h3>
-                        <p>Midjourney, DALL-E, Stable Diffusion 등을 활용한 디지털 아트 제작</p>
-                        <div class="hobby-tags">
-                            <span class="tag">Midjourney</span>
-                            <span class="tag">DALL-E</span>
-                            <span class="tag">Stable Diffusion</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hobby-item fade-in" data-title="바이브 코딩" data-category="창작활동">
-                    <div class="hobby-image">
-                        <img src="assets/images/creation/coding.png" alt="바이브 코딩">
-                        <div class="hobby-overlay">
-                           <span>자세히 보기 &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="hobby-info">
-                        <h3>바이브 코딩</h3>
-                        <p>개인 홈페이지, AI 창작 자료실 등 웹사이트를 직접 기획하고 개발하며 최신 기술을 꾸준히 탐구하고 적용합니다.</p>
-                        <div class="hobby-tags">
-                            <span class="tag">웹 기획</span>
-                            <span class="tag">웹 개발</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">자기계발</span>
+                    <div class="swiper-slide">
+                        <div class="cr-card" data-title="바이브 코딩" data-category="창작활동">
+                            <div class="cr-card__img"><img src="assets/images/creation/coding.png" alt="바이브 코딩"></div>
+                            <div class="cr-card__body"><h3>바이브 코딩</h3><p>웹사이트 기획·개발, 최신 기술 탐구 및 적용</p><div class="cr-card__tags"><span>웹 기획</span><span>웹 개발</span><span>AI</span></div></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-nav swiper-nav--light">
+                <button class="swiper-nav__btn creative-prev" aria-label="이전"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="swiper-nav__btn creative-next" aria-label="다음"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- ========== CONTACT: Premium Layout ========== -->
+    <section id="contact" class="section-contact">
+        <div class="contact-bg-split"></div>
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="section-header">
-                        <h2 class="section-title">연락<span class="highlight">하기</span></h2>
-                        <p class="section-subtitle">협업, 프로젝트, 또는 궁금한 것이 있으시다면 언제든 연락주세요!</p>
-                    </div>
-
+            <div class="contact-inner">
+                <div class="contact-left" data-aos="fade-right">
+                    <p class="section-label">Contact</p>
+                    <h2 class="section-title contact-title">함께 <span class="gold-text">이야기</span>를<br>나눠보세요</h2>
+                    <p class="contact-desc">협업, 프로젝트, 또는 궁금한 것이 있으시다면 언제든 연락주세요.</p>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon-box">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <h4>이메일</h4>
-                                <p>jun22sky@nate.com</p>
-                                <span>24시간 내 답변 보장</span>
-                            </div>
+                            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                            <div><h4>이메일</h4><p>jun22sky@nate.com</p><span>24시간 내 답변</span></div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon-box">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <h4>전화</h4>
-                                <p>010-****-3888</p>
-                                <span>평일 09:00-18:00</span>
-                            </div>
+                            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+                            <div><h4>전화</h4><p>010-****-3888</p><span>평일 09:00-18:00</span></div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon-box">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            </div>
-                            <div class="contact-text">
-                                <h4>위치</h4>
-                                <p>인천광역시 부평구</p>
-                                <span>서울 / 수도권</span>
-                            </div>
+                            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <div><h4>위치</h4><p>인천광역시 부평구</p><span>서울 / 수도권</span></div>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="contact-form-wrapper">
+                <div class="contact-right" data-aos="fade-left">
                     <form class="contact-form" id="contactForm" aria-label="연락처 문의 폼" novalidate>
-                        <div class="form-group">
-                            <label for="name" class="sr-only">이름 (필수)</label>
-                            <input type="text" id="name" name="name" placeholder="이름" required
-                                   aria-describedby="name-help" autocomplete="name">
-                            <div id="name-help" class="sr-only">성명을 입력해주세요.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">이메일 (필수)</label>
-                            <input type="email" id="email" name="email" placeholder="이메일" required
-                                   aria-describedby="email-help" autocomplete="email">
-                            <div id="email-help" class="sr-only">연락받을 이메일 주소를 입력해주세요.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="company" class="sr-only">회사명 (선택사항)</label>
-                            <input type="text" id="company" name="company" placeholder="회사명 (선택사항)"
-                                   aria-describedby="company-help" autocomplete="organization">
-                            <div id="company-help" class="sr-only">소속 회사명을 입력해주세요. 선택사항입니다.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">메시지 (필수)</label>
-                            <textarea id="message" name="message" placeholder="협업 제안, 프로젝트 문의, 또는 궁금한 점을 자유롭게 적어주세요" rows="5" required
-                                      aria-describedby="message-help" maxlength="1000"></textarea>
-                            <div id="message-help" class="sr-only">문의하실 내용을 상세히 입력해주세요. 최대 1000자까지 입력 가능합니다.</div>
-                        </div>
-                        <button type="submit" class="submit-btn" aria-describedby="submit-help">
-                            <span>메시지 보내기</span>
-                            <i class="btn-arrow" aria-hidden="true">→</i>
-                        </button>
-                        <div id="submit-help" class="sr-only">폼을 검토한 후 메시지를 전송합니다.</div>
+                        <div class="form-group"><label for="name" class="sr-only">이름</label><input type="text" id="name" name="name" placeholder="이름" required autocomplete="name"></div>
+                        <div class="form-group"><label for="email" class="sr-only">이메일</label><input type="email" id="email" name="email" placeholder="이메일" required autocomplete="email"></div>
+                        <div class="form-group"><label for="company" class="sr-only">회사명</label><input type="text" id="company" name="company" placeholder="회사명 (선택사항)" autocomplete="organization"></div>
+                        <div class="form-group"><label for="message" class="sr-only">메시지</label><textarea id="message" name="message" placeholder="협업 제안, 프로젝트 문의 등을 자유롭게 적어주세요" rows="5" required maxlength="1000"></textarea></div>
+                        <button type="submit" class="submit-btn"><span>메시지 보내기</span><i class="btn-arrow">→</i></button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
-    <!-- Live Chat Widget -->
+    <!-- ========== CHAT WIDGET ========== -->
     <div class="chat-widget" id="chatWidget">
-        <div class="chat-header" id="chatHeader">
-            <div class="chat-status">
-                <div class="status-indicator online"></div>
-                <div class="chat-info">
-                    <span class="chat-title">실시간 상담</span>
-                    <span class="chat-status-text">온라인</span>
-                </div>
-            </div>
-            <div class="chat-controls">
-                <button class="chat-minimize" id="chatMinimize" aria-label="채팅 최소화">
-                    <span class="minimize-icon">−</span>
-                </button>
-                <button class="chat-close" id="chatClose" aria-label="채팅 닫기">
-                    <span class="close-icon">×</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot-message">
-                    <div class="message-avatar">J</div>
-                    <div class="message-content">
-                        <div class="message-text">안녕하세요! Junetapa 입니다. 무엇을 도와드릴까요?</div>
-                        <div class="message-time">방금 전</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="chat-typing" id="chatTyping" style="display: none;">
-                <div class="typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <span class="typing-text">입력 중...</span>
-            </div>
-        </div>
-
-        <div class="chat-input-container">
-            <div class="chat-input-wrapper">
-                <input type="text"
-                       class="chat-input"
-                       id="chatInput"
-                       placeholder="메시지를 입력하세요..."
-                       maxlength="500"
-                       autocomplete="off">
-                <button class="chat-send" id="chatSend" aria-label="메시지 전송">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </button>
-            </div>
-            <div class="chat-suggestions" id="chatSuggestions">
-                <button class="suggestion-btn" data-message="안녕하세요!">안녕하세요!</button>
-                <button class="suggestion-btn" data-message="포트폴리오에 대해 문의드립니다">포트폴리오 문의</button>
-                <button class="suggestion-btn" data-message="협업 제안이 있습니다">협업 제안</button>
-            </div>
-        </div>
+        <div class="chat-header" id="chatHeader"><div class="chat-status"><div class="status-indicator online"></div><div class="chat-info"><span class="chat-title">실시간 상담</span><span class="chat-status-text">온라인</span></div></div><div class="chat-controls"><button class="chat-minimize" id="chatMinimize" aria-label="최소화"><span>−</span></button><button class="chat-close" id="chatClose" aria-label="닫기"><span>×</span></button></div></div>
+        <div class="chat-body" id="chatBody"><div class="chat-messages" id="chatMessages"><div class="message bot-message"><div class="message-avatar">J</div><div class="message-content"><div class="message-text">안녕하세요! Junetapa 입니다. 무엇을 도와드릴까요?</div><div class="message-time">방금 전</div></div></div></div><div class="chat-typing" id="chatTyping" style="display:none;"><div class="typing-indicator"><span></span><span></span><span></span></div><span>입력 중...</span></div></div>
+        <div class="chat-input-container"><div class="chat-input-wrapper"><input type="text" class="chat-input" id="chatInput" placeholder="메시지를 입력하세요..." maxlength="500" autocomplete="off"><button class="chat-send" id="chatSend" aria-label="전송"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div><div class="chat-suggestions" id="chatSuggestions"><button class="suggestion-btn" data-message="안녕하세요!">안녕하세요!</button><button class="suggestion-btn" data-message="포트폴리오에 대해 문의드립니다">포트폴리오 문의</button><button class="suggestion-btn" data-message="협업 제안이 있습니다">협업 제안</button></div></div>
     </div>
+    <div class="chat-launcher" id="chatLauncher"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg><div class="launcher-notification" id="launcherNotification">1</div></div>
+    <div class="kakao-talk-button"><a href="https://open.kakao.com/me/junetapa" target="_blank" rel="noopener" aria-label="카카오톡"><div class="kakao-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 3C7.03 3 3 6.58 3 11c0 2.84 1.84 5.36 4.64 6.75L7 21l3.14-2.07C10.68 18.98 11.33 19 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8z"/><ellipse cx="8.5" cy="10.5" rx="1" ry="1.5"/><ellipse cx="12" cy="10.5" rx="1" ry="1.5"/><ellipse cx="15.5" cy="10.5" rx="1" ry="1.5"/></svg></div></a></div>
 
-    <!-- Chat Launcher Button -->
-    <div class="chat-launcher" id="chatLauncher">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-        <div class="launcher-notification" id="launcherNotification">1</div>
-    </div>
-
-    <!-- KakaoTalk OpenTalk Button -->
-    <div class="kakao-talk-button">
-        <a href="https://open.kakao.com/me/junetapa" target="_blank" rel="noopener" aria-label="카카오톡 오픈톡 문의하기">
-            <div class="kakao-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                    <path d="M12 3C7.03 3 3 6.58 3 11c0 2.84 1.84 5.36 4.64 6.75L7 21l3.14-2.07C10.68 18.98 11.33 19 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8z"/>
-                    <ellipse cx="8.5" cy="10.5" rx="1" ry="1.5"/>
-                    <ellipse cx="12" cy="10.5" rx="1" ry="1.5"/>
-                    <ellipse cx="15.5" cy="10.5" rx="1" ry="1.5"/>
-                </svg>
-            </div>
-        </a>
-    </div>
-
-    <!-- Footer -->
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="logo-text">Junetapa</span>
-                        <p>기술과 사람을 잇는 IT 전문가</p>
-                    </div>
-                </div>
-
+            <div class="footer-top">
+                <div class="footer-brand"><span class="logo-text">Junetapa</span><p>기술과 비즈니스를 연결하는 IT 브릿지 전문가</p></div>
                 <div class="footer-links">
-                    <div class="link-group">
-                        <h4>탐색</h4>
-                        <a href="#home">홈</a>
-                        <a href="pages/about.html">소개</a>
-                        <a href="#sales">핵심역량</a>
-                        <a href="#hobby">창작활동</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>리소스</h4>
-                        <a href="pages/experience-education.html">활동&교육</a>
-                        <a href="pages/jstudio.html" target="_blank">갤러리</a>
-                        <a href="pages/sitemap.html">사이트맵</a>
-                        <a href="https://junetapa.com/" target="_blank" class="family-link">지식포털</a>
-                    </div>
+                    <div class="link-group"><h4>탐색</h4><a href="#home">홈</a><a href="pages/about.html">소개</a><a href="#expertise">핵심역량</a><a href="#creative">창작활동</a></div>
+                    <div class="link-group"><h4>리소스</h4><a href="pages/experience-education.html">활동&교육</a><a href="pages/jstudio.html" target="_blank">갤러리</a><a href="pages/sitemap.html">사이트맵</a><a href="https://junetapa.com/" target="_blank">지식포털</a></div>
                 </div>
             </div>
-
             <div class="social-links">
-                <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                </a>
-                <a href="https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg?si=883k_gOmYFrbpRny" target="_blank" class="social-link" aria-label="유튜브">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
+                <a href="https://blog.naver.com/jun22sky" target="_blank" class="social-link" aria-label="네이버 블로그"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/></svg></a>
+                <a href="https://www.instagram.com/junetapa/" target="_blank" class="social-link" aria-label="인스타그램"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://www.tiktok.com/@junetapa0" target="_blank" class="social-link" aria-label="틱톡"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                <a href="https://youtube.com/channel/UCKHGfXZJ2Ix-qlfvHNqFGdg?si=883k_gOmYFrbpRny" target="_blank" class="social-link" aria-label="유튜브"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
             </div>
-
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2025 박준철 (Junetapa). All rights reserved.</p>
-                    <p>기술과 창작이 만나는 특별한 여정</p>
-                </div>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 박준철 (Junetapa). All rights reserved.</p></div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/creation.js"></script>
     <script src="js/sales.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatLauncher = document.getElementById('chatLauncher');
-            const chatWidget = document.getElementById('chatWidget');
-
-            if (chatLauncher && chatWidget) {
-                chatLauncher.addEventListener('click', function() {
-                    chatWidget.classList.toggle('active');
-                });
-
-                const closeBtn = document.getElementById('chatClose');
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', function() {
-                        chatWidget.classList.remove('active');
-                    });
-                }
-            }
-        });
-
-        setTimeout(() => {
-            const chatInput = document.getElementById('chatInput');
-            const chatSend = document.getElementById('chatSend');
-            const chatMessages = document.querySelector('.chat-messages');
-
-            if (!chatInput || !chatSend || !chatMessages) return;
-
-            initializeChatbot(chatInput, chatSend, chatMessages);
-        }, 1000);
-
-        function initializeChatbot(chatInput, chatSend, chatMessages) {
-            const responses = {
-                greeting: ['안녕하세요! Junetapa입니다. 무엇을 도와드릴까요?', '반갑습니다! 어떤 것이 궁금하신가요?'],
-                portfolio: ['25년 이상의 IT 경력을 바탕으로 다양한 프로젝트를 수행했습니다.', '포트폴리오 페이지에서 자세한 정보를 확인하실 수 있습니다.'],
-                contact: ['연락처: jun22sky@nate.com | 전화: 010-****-3888', '언제든 연락 주세요!'],
-                default: ['흥미로운 질문이네요! 더 자세히 말씀해 주시겠어요?', '포트폴리오, 경력, 협업 등에 대해 자유롭게 질문해 주세요!']
-            };
-
-            const keywords = {
-                greeting: ['안녕', 'hello', 'hi', '반가', '처음'],
-                portfolio: ['포트폴리오', '작업', '프로젝트', '경력', '이력'],
-                contact: ['연락', '이메일', '전화', '문의']
-            };
-
-            function addMessage(content, isUser = false) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
-
-                const avatar = document.createElement('div');
-                avatar.className = 'message-avatar';
-                avatar.textContent = isUser ? 'U' : 'J';
-
-                const messageContent = document.createElement('div');
-                messageContent.className = 'message-content';
-                messageContent.textContent = content;
-
-                const timestamp = document.createElement('div');
-                timestamp.className = 'message-timestamp';
-                timestamp.textContent = new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'});
-
-                messageDiv.appendChild(avatar);
-                messageDiv.appendChild(messageContent);
-                messageDiv.appendChild(timestamp);
-
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-
-            function generateResponse(message) {
-                const lowerMessage = message.toLowerCase();
-                for (const [category, wordList] of Object.entries(keywords)) {
-                    if (wordList.some(keyword => lowerMessage.includes(keyword))) {
-                        const responseList = responses[category];
-                        return responseList[Math.floor(Math.random() * responseList.length)];
-                    }
-                }
-                const defaultResponses = responses.default;
-                return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-            }
-
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                addMessage(message, true);
-                chatInput.value = '';
-                setTimeout(() => {
-                    const response = generateResponse(message);
-                    addMessage(response, false);
-                }, 1000);
-            }
-
-            chatSend.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') sendMessage();
-            });
-
-            setTimeout(() => {
-                addMessage('안녕하세요! Junetapa의 AI 어시스턴트입니다. 무엇을 도와드릴까요?', false);
-            }, 500);
-        }
-    </script>
+    <script src="js/chatbot-lite.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </body>
 </html>
