@@ -295,6 +295,102 @@
     .section-header {
         margin-bottom: 40px;
     }
+
+    /* Hero Philosophy */
+    .hero-philosophy__content {
+        padding: 0 24px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-cta {
+        justify-content: center;
+    }
+    .hero-philosophy__image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+        opacity: 0;
+        animation: philosophyImageRevealMobile 3s ease-out 0.5s forwards;
+        pointer-events: none;
+    }
+    .hero-philosophy__image img {
+        max-height: 55vh;
+    }
+    @keyframes philosophyImageRevealMobile {
+        0%   { opacity: 0; filter: blur(12px) brightness(0.3); transform: translateX(50%) scale(1.05); }
+        50%  { opacity: .1; filter: blur(4px) brightness(0.6); }
+        100% { opacity: .15; filter: blur(0px) brightness(0.8); transform: translateX(50%) scale(1); }
+    }
+    .hero-philosophy__scroll {
+        bottom: 24px;
+    }
+
+    /* Quote Bar */
+    .quote-bar {
+        padding: 36px 0;
+    }
+    .mobile-br { display: inline; }
+
+    /* Philosophy Section */
+    .section-philosophy {
+        padding: 80px 0;
+    }
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .philosophy-card {
+        padding: 28px;
+    }
+    .philosophy-intro {
+        margin-bottom: 48px;
+    }
+
+    /* Journey Section */
+    .section-journey {
+        padding: 80px 0;
+    }
+    .journey-timeline__line {
+        left: 20px;
+        transform: none;
+    }
+    .journey-item {
+        width: 100%;
+        padding: 0 0 32px 52px !important;
+    }
+    .journey-item--right {
+        margin-left: 0;
+        padding: 0 0 32px 52px !important;
+    }
+    .journey-item .journey-item__dot {
+        left: 12px !important;
+        right: auto !important;
+    }
+    .journey-item--right .journey-item__dot {
+        left: 12px !important;
+    }
+    .journey-item__card {
+        padding: 20px;
+    }
+
+    /* Now Section */
+    .section-now {
+        padding: 80px 0;
+    }
+    .now-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .section-now .section-label,
+    .now-title {
+        text-align: center !important;
+    }
+    .now-desc {
+        text-align: center;
+    }
+    .now-cta {
+        justify-content: center;
+    }
 }
 
 /* ================================
@@ -424,6 +520,65 @@
 
     .section-title {
         font-size: clamp(1.4rem, 6vw, 1.8rem);
+    }
+
+    /* Hero Philosophy */
+    .hero-philosophy__title {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+    }
+    .hero-philosophy__desc {
+        font-size: .9rem;
+    }
+    .hero-philosophy__image img {
+        max-height: 45vh;
+    }
+
+    /* Philosophy */
+    .philosophy-card {
+        padding: 24px;
+    }
+    .philosophy-card__icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Journey */
+    .journey-item {
+        padding: 0 0 24px 44px !important;
+    }
+    .journey-item--right {
+        padding: 0 0 24px 44px !important;
+    }
+    .journey-timeline__line {
+        left: 16px;
+    }
+    .journey-item .journey-item__dot,
+    .journey-item--right .journey-item__dot {
+        left: 8px !important;
+        width: 14px;
+        height: 14px;
+    }
+    .journey-item__card {
+        padding: 16px;
+    }
+    .journey-item__card h3 {
+        font-size: 1rem;
+    }
+    .journey-item__tags {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    /* Now Section */
+    .now-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .now-stat {
+        padding: 16px 8px;
+    }
+    .now-card {
+        padding: 24px;
     }
 
     /* Footer */

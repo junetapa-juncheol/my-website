@@ -197,6 +197,7 @@ function initializeNavigation() {
 // Hero Swiper
 function initializeHeroSwiper() {
     if (typeof Swiper === 'undefined') return;
+    if (!document.querySelector('.hero-swiper')) return;
 
     const progressBar = document.querySelector('.hero-progress__bar');
     const autoplayDuration = 5000;
@@ -234,6 +235,7 @@ function initializeHeroSwiper() {
 var expertiseSwiper = null;
 function initializeExpertiseSwiper() {
     if (typeof Swiper === 'undefined') return;
+    if (!document.querySelector('.expertise-swiper')) return;
 
     expertiseSwiper = new Swiper('.expertise-swiper', {
         slidesPerView: 1,
@@ -260,6 +262,7 @@ function initializeExpertiseSwiper() {
 // Creative Swiper
 function initializeCreativeSwiper() {
     if (typeof Swiper === 'undefined') return;
+    if (!document.querySelector('.creative-swiper')) return;
 
     new Swiper('.creative-swiper', {
         slidesPerView: 1,
